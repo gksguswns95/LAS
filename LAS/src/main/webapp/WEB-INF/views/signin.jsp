@@ -58,9 +58,7 @@
 				<c:if test="${user_name != null}">
 					<a href="./signout">로그아웃</a>
 					<a href="/withdrawal">회원탈퇴</a>
-					<!-- 3차 테스트 진행 한현준  -->
-					<!-- 4차 테스트 진행 최재완  -->
-					<!-- 5차 테스트 진행 김찬호  -->
+					<!-- why? -->
 				</c:if>
 				</div>
 			</div>
