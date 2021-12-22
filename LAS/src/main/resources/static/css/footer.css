@@ -1,0 +1,11 @@
+.footer {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  font-size: 27px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+}
+/*# sourceMappingURL=footer.css.map */

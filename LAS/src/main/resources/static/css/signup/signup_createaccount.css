@@ -1,0 +1,56 @@
+@charset "EUC-KR";
+
+/* create_account */
+
+.content-form input {
+	width: 100%;
+	border: none;
+	font-size: 22px;
+	color: #909090;
+	border-bottom: 1px solid #8c8c8c;
+}
+
+.main div {
+	margin: 1.215em 0 1.75em;
+}
+
+#year {
+	width: 28%;
+	text-align: center;
+}
+
+#month {
+	width: 27%;
+	text-align: center;
+}
+
+#day {
+	width: 28%;
+	text-align: center;
+}
+
+.under-content-button {
+    text-align: center;
+}
+
+#btn_next {
+	border: none;
+	border-radius: 50px;
+	width: 150px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: 1000;
+	text-align: center;
+	background-color: #d80546;
+}
+
+#btn_back {
+	border: none;
+	border-radius: 50px;
+	width: 150px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: 1000;
+	text-align: center;
+	background-color: #d80546;
+}

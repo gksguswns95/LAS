@@ -1,0 +1,105 @@
+@charset "EUC-KR";
+
+/*  */
+/*  */
+/*  */
+/*  */
+/* identity_verification */
+
+fieldset div {
+	margin: 1.215em 0 1.75em;
+}
+
+fieldset label {
+	font-size: 22px;
+}
+
+.content-form {
+	position: relative;
+}
+
+#year {
+	width: 28%;
+	text-align: center;
+}
+
+#month {
+	width: 27%;
+	text-align: center;
+}
+
+#day {
+	width: 28%;
+	text-align: center;
+}
+
+.radiobox-gender {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.radiobox-gender .gender{
+	width: 50px;
+}
+
+.radiobox-gender .gender input[type=checkbox]{
+	width: 30px;
+	height: 30px;
+}
+
+.radiobox-mobile-carrier {
+	display: flex;
+	flex-wrap: wrap;
+	
+}
+
+.radiobox-mobile-carrier .mobile_carrier {
+	width: 40px;
+}
+
+.radiobox-mobile .mobile-hello {
+	width: 50px;
+}
+
+.empty {
+	display:inline-block;
+	width: 100%;
+	vertical-align: left;
+	width: 0.90em;
+	height: 0.90em;
+}
+
+
+.content-form input {
+	width: 100%;
+	border: none;
+	font-size: 22px;
+	color: #909090;
+	border-bottom: 1px solid #8c8c8c;
+}
+
+.under-content-button {
+    text-align: center;
+}
+
+#btn_request {
+	border: none;
+	border-radius: 50px;
+	width: 250px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: 1000;
+	text-align: center;
+	background-color: #d80546;
+}
+
+#btn_back {
+	border: none;
+	border-radius: 50px;
+	width: 150px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: 1000;
+	text-align: center;
+	background-color: #d80546;
+}

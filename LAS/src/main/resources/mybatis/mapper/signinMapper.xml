@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.evolve.signin.mapper.SigninMapper"> 
+	<select id="signinId" parameterType="com.evolve.signin.vo.SigninVo" resultType="com.evolve.signin.vo.SigninVo">
+	 	SELECT *
+	 	FROM member 
+	 	WHERE id = #{id} AND pw = sha2(#{pw},256)
+	 </select>
+	 
+	 <insert id="loginLogInsert">
+	 	INSERT INTO login_log(member_seq,login_ip) VALUES (#{seq},#{ip})
+	 </insert>
+</mapper>
