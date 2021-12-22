@@ -2,8 +2,8 @@ package com.evolve.signin.vo;
 
 public class SigninVo {
 	
-	private String id,phone,pw,first_name,last_name,birth,gender,signin_date,signin_type,update_date,email;
-	private int del_yn,seq;
+	private String id,phone,pw,first_name,last_name,birth,signin_date,signin_type,update_date,email;
+	private int del_yn,seq,gender;
 
 	public String getId() {
 		return id;
@@ -29,11 +29,11 @@ public class SigninVo {
 		this.last_name = last_name;
 	}
 
-	public String getGender() {
+	public int getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
 

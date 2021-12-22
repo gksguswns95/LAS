@@ -3,11 +3,11 @@
 <mapper namespace="com.evolve.signin.mapper.SigninMapper"> 
 	<select id="signinId" parameterType="com.evolve.signin.vo.SigninVo" resultType="com.evolve.signin.vo.SigninVo">
 	 	SELECT *
-	 	FROM member 
-	 	WHERE id = #{id} AND pw = sha2(#{pw},256)
+	 	FROM las_member 
+	 	WHERE id = #{id} AND pw = sha2(#{pw},256) AND del_yn = 0
 	 </select>
 	 
 	 <insert id="loginLogInsert">
-	 	INSERT INTO login_log(member_seq,login_ip) VALUES (#{seq},#{ip})
+	 	INSERT INTO las_login_log(member_seq,login_ip) VALUES (#{seq},#{ip})
 	 </insert>
 </mapper>

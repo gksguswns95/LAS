@@ -40,6 +40,10 @@ $(document).ready(function() {
 		}
 	});
 	
+	if('#{user_id}' != null) {
+		$('#section').css('border','none');
+	}
+	
 	$('#submit').submit(function() {
 	var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 	var reg_phone = /^[0-9]*$/g;

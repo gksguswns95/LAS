@@ -52,10 +52,14 @@ public class SigninController {
 		
 		if(signinProcess != null) {
 			ModelAndView mv= new ModelAndView("signin");
-			if(signinProcess.getDel_yn() == 0) {
+			if(signinProcess.getId() != null) {
 				session.setAttribute("user_id", signinProcess.getId());
 				session.setAttribute("user_phone", signinProcess.getPhone());
 				session.setAttribute("user_name", signinProcess.getLast_name()+signinProcess.getFirst_name());
+				session.setAttribute("user_birth", signinProcess.getBirth());
+				session.setAttribute("user_gender", signinProcess.getGender());
+				session.setAttribute("user_phone", signinProcess.getPhone());
+				session.setAttribute("user_email", signinProcess.getEmail());
 				 
 				// ipCheck
 				String ip = request.getHeader("X-Forwarded-For");
@@ -74,7 +78,10 @@ public class SigninController {
 		        if (ip == null) {
 		            ip = request.getRemoteAddr();
 		        }
-				signService.loginLogInsert(signinProcess.getSeq(),ip);
+		        if (ip.equals("0:0:0:0:0:0:0:1")) {
+		        	ip = "127.0.0.1";
+		        }
+		        signService.loginLogInsert(signinProcess.getSeq(),ip);
 				System.out.println("접속 IP : "+ip);
 				System.out.println("로그인 성공");		
 			} else {

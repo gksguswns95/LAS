@@ -2,7 +2,8 @@ package com.evolve.delete.vo;
 
 public class DeleteAccountVo {
 	
-	private String id,pw,phone,email,first_name,last_name,birth,gender,signin_date,signin_type,quit_date,disposal_date,quit_reason;
+	private String id,pw,phone,email,first_name,last_name,birth,signin_date,signin_type,quit_date,disposal_date,quit_reason;
+	private int gender;
 
 	public String getQuit_date() {
 		return quit_date;
@@ -45,11 +46,11 @@ public class DeleteAccountVo {
 	}
 
 
-	public String getGender() {
+	public int getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
 

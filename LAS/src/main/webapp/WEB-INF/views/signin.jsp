@@ -19,6 +19,10 @@
     <div class="container">
     <div class="header">
     	Header
+    	<c:if test="${user_name != null}">
+			<a href="./signout">로그아웃</a>
+			<a href="/withdrawal">회원탈퇴</a>
+		</c:if>
     	<img alt="btn" src="./img/gnb_btn.png">
     </div>
     <div class="nav">Nav</div>
@@ -26,7 +30,7 @@
 			<div id="loginBox">
 				<div id="login_header">
 					<c:if test="${user_name != null}">
-						<h3>${user_name }님 로그인 성공</h3>
+						<h2>${user_name }님 로그인 성공</h2>
 					</c:if>
 					<c:if test="${user_name == null}">
 						<h3>로그인</h3>
@@ -46,8 +50,8 @@
 						<i class="fa fa-eye fa-lg"></i>
 						<input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required />
 					</div>
-					<button type="submit" class="btn_submit">로그인</button>
-					<button type="button" class="btn_join">회원가입</button>
+					<input type="submit" class="btn_submit" value="로그인">
+					<input type="button" class="btn_join" value="회원가입">
 					
 					<div id="find">
 						<a href="#" id="findId">아이디 찾기</a>
@@ -55,11 +59,7 @@
 					</div>
 				</form>
 				</c:if>
-				<c:if test="${user_name != null}">
-					<a href="./signout">로그아웃</a>
-					<a href="/withdrawal">회원탈퇴</a>
-					<!-- why? -->
-				</c:if>
+				
 				</div>
 			</div>
 	</div>
