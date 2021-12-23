@@ -100,12 +100,8 @@ public class SigninController {
 			}
 			return mv;
 		} else {
-			ModelAndView mv= new ModelAndView("/signin");
-			out.println("<script>");
-			out.println("alert('아이디 및 비밀번호가 다릅니다.');");
-			out.println("</script>");
-			out.flush();
-			 
+			ModelAndView mv= new ModelAndView("redirect:/signin?error=login");
+			//request.setAttribute("error", "login");
 			System.out.println("로그인 실패(아이디 및 비밀번호 틀림)");
 			return mv;
 		}

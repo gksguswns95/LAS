@@ -39,7 +39,7 @@
 							<input type="text" name="id" id="id" disabled="disabled" value="${user_id }" required>
 							<p>비밀번호</p>
 							<input type="password" name="pw" id="pw" required placeholder="비밀번호를 입력해주세요.">
-							<p>비밀번확인</p>
+							<p>비밀번호확인</p>
 							<input type="password" name="pwCheck" id="pwCheck" required placeholder="비밀번호를 다시한번 입력해주세요.">
 							<p>성</p>
 							<input type="text" name="last_name" id="last_name" value="${user_lastName }" disabled="disabled" required>
