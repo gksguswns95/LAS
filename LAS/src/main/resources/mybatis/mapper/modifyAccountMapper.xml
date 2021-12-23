@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.evolve.modify.mapper.ModifyMapper"> 
+	<update id="accountModify" parameterType="hashmap">
+		UPDATE las_member SET update_date = now()
+		<if test="phone != null">,phone = #{phone}</if> 
+		<if test="email != null">,email = #{email}</if> 
+		WHERE id = #{id} and pw = sha2(#{pw},256)
+	</update>
+</mapper>

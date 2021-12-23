@@ -28,16 +28,18 @@
 				<div id="delete_section">
 					<h2>회원탈퇴</h2>
 					<p>회원 탈퇴 전 아래 사항을 확인해주시기 바랍니다.<br><br>
-					- 한 번 탈퇴한 아이디는 다시 사용이 불가합니다.<br><br>
+					<span id="red">- 한 번 탈퇴한 아이디는 다시 사용이 불가합니다.</span><br><br>
 					- 탈퇴 시 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당정보를 지체없이 파기 합니다. 단, 일부 정보에 대해서는 부정이용 방지 및 관계법령의 규정에 의하여 일정 기간 보관합니다.<br><br><br>
 					회원님의 계정을 다시 한번 확인합니다.</p>
 					<form action="/withdrawal" method="post">
 						<div id="inputArea">
 							<p>탈퇴 사유</p>
-							<input type="radio" value="1" name="reason" class="reason" required><span>사용하지 않는 계정 정리</span>
-							<input type="radio" value="2" name="reason" class="reason" required><span>재가입을 위한 탈퇴</span>
-							<input type="radio" value="3" name="reason" class="reason" required><span>서비스 및 고객지원 불만족</span>
-							<input type="radio" value="4" name="reason" class="reason" required><span>기타</span>
+							<input type="radio" value="1" name="reason" class="reason" required><span>중복된 다른 계정이 있어요</span>
+							<input type="radio" value="2" name="reason" class="reason" required><span>원하는 서비스가 없어요</span>
+							<input type="radio" value="3" name="reason" class="reason" required><span>서비스 이용이 불편해요</span>
+							<input type="radio" value="4" name="reason" class="reason" required><span>사용빈도가 낮아요</span>
+							<input type="radio" value="5" name="reason" class="reason" required><span>개인정보가 걱정되어요</span>
+							<input type="radio" value="6" name="reason" class="reason" required><span>기타</span>
 							<div class="reasonOther"><input type='text' name='reasonOther' id="other"></div>
 							ID : <input type="text" id="id" disabled="disabled" value="${user_id }">	
 							<i class="fa fa-eye fa-lg"></i>

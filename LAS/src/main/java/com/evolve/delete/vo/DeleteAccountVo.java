@@ -2,7 +2,7 @@ package com.evolve.delete.vo;
 
 public class DeleteAccountVo {
 	
-	private String id,pw,phone,email,first_name,last_name,birth,signin_date,signin_type,quit_date,disposal_date,quit_reason;
+	private String id,pw,phone,email,first_name,last_name,birth,signup_date,signup_type,quit_date,disposal_date,quit_reason;
 	private int gender;
 
 	public String getQuit_date() {
@@ -54,12 +54,12 @@ public class DeleteAccountVo {
 		this.gender = gender;
 	}
 
-	public String getSignin_date() {
-		return signin_date;
+	public String getSignup_date() {
+		return signup_date;
 	}
 
-	public void setSignin_date(String signin_date) {
-		this.signin_date = signin_date;
+	public void setSignup_date(String signup_date) {
+		this.signup_date = signup_date;
 	}
 
 
@@ -95,12 +95,12 @@ public class DeleteAccountVo {
 		this.birth = birth;
 	}
 
-	public String getSignin_type() {
-		return signin_type;
+	public String getSignup_type() {
+		return signup_type;
 	}
 
-	public void setSignin_type(String signin_type) {
-		this.signin_type = signin_type;
+	public void setSignup_type(String signup_type) {
+		this.signup_type = signup_type;
 	}
 
 	public String getQuit_reason() {

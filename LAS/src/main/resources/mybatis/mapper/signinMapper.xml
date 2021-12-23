@@ -4,7 +4,7 @@
 	<select id="signinId" parameterType="com.evolve.signin.vo.SigninVo" resultType="com.evolve.signin.vo.SigninVo">
 	 	SELECT *
 	 	FROM las_member 
-	 	WHERE id = #{id} AND pw = sha2(#{pw},256) AND del_yn = 0
+	 	WHERE id = #{id} AND pw = sha2(#{pw},256)
 	 </select>
 	 
 	 <insert id="loginLogInsert">

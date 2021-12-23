@@ -1,0 +1,31 @@
+@import url(../header.css);
+@import url(../footer.css);
+@import url(./withdrawal.css);
+#delete_section {
+  text-align: center;
+}
+
+h2 {
+  text-align: left;
+}
+
+button {
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+  cursor: pointer;
+}
+
+span {
+  display: block;
+  width: 600px;
+  font-size: 50px;
+  margin: 50px auto;
+  text-align: center;
+}
+/*# sourceMappingURL=withdrawalSuccess.css.map */

@@ -1,0 +1,77 @@
+@charset "UTF-8";
+@import url(../header.css);
+@import url(../footer.css);
+
+.container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+h2 {
+  border-bottom: 4px solid #ddd;
+  margin-bottom: 15px;
+}
+
+#section {
+  width: 1024px;
+  height: auto;
+  margin: 0 auto;
+}
+
+#section #DeleteBox #delete_section {
+  position: relative;
+  width: 1024px;
+}
+
+#section #DeleteBox #delete_section #inputArea > p {
+	font-size: 25px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
+#section #DeleteBox #delete_section #inputArea > p:first-of-type {
+	margin-top: 30px;
+}
+
+#section #DeleteBox #delete_section #inputArea > input {
+	width: 100%;
+	height: 45px;
+	border: 1px solid #ddd;
+	background: #fff;
+	font-size: 20px;
+}
+
+#section #DeleteBox #delete_section #inputArea > input:nth-of-type(1) {
+	border:none;
+}
+#section #DeleteBox #delete_section #inputArea > input:nth-of-type(4) {
+	border:none;
+}
+#section #DeleteBox #delete_section #inputArea > input:nth-of-type(5) {
+	border:none;
+}
+
+#section #DeleteBox #delete_section #inputArea > input:last-of-type {
+	margin-bottom: 20px;
+}
+
+#section #DeleteBox #delete_section #submit_btn {
+	display: flex;
+	justify-content: space-around;
+}
+
+#section #DeleteBox #delete_section #submit_btn button {
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #343a40;
+  border-color: #343a40;
+  cursor: pointer;
+}
