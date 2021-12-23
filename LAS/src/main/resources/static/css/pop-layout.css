@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.layer {
+	display: none;
+}
+
+.layer .layerBg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .5;
+	z-index: 5;
+}
+
+.pop-layer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: auto;
+	background: #fff;
+	border: 3px solid #ddd;
+	transform: translate(-50%,-50%);
+	z-index: 10;
+}
+
+.pop-layer .pop-container {
+	padding: 45px 10px 20px 10px;
+}
+
+.pop-container .pop-conts {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.btn_popCancle a {
+	display: block;
+	float: right;
+	color: #fff;
+	text-decoration: none;
+	background: #6c6c6c;
+	text-align: center;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 7px;
+	margin-bottom: 30px;
+	margin-right: 15px;
+}
