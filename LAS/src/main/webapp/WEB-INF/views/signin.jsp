@@ -18,7 +18,7 @@
 <body>
     <div class="container">
     <div class="header">
-    	Header
+    	Evolve
     	<div class="signinMenu">
 	    	<c:if test="${user_name != null}">
 				<a href="./signout">로그아웃</a>
@@ -27,7 +27,6 @@
 		</div>
     	<img alt="btn" src="./img/gnb_btn.png">
     </div>
-    <div class="nav">Nav</div>
 	<div id="section">
 			<div id="loginBox">
 				<div id="login_header">

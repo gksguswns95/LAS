@@ -19,10 +19,15 @@
 <body>
     <div class="container">
 	    <div class="header">
-	    	<a href="/">Header</a>
-	    	<img alt="btn" src="./img/gnb_btn.png">
-	    </div>
-	    <div class="nav">Nav</div>
+    	Evolve
+    	<div class="signinMenu">
+	    	<c:if test="${user_name != null}">
+				<a href="./signout">로그아웃</a>
+				<a href="./myAccountInformation">마이페이지</a>
+			</c:if>
+		</div>
+    	<img alt="btn" src="./img/gnb_btn.png">
+    </div>
 		<div id="section">
 			<div id="DeleteBox">
 				<div id="delete_section">

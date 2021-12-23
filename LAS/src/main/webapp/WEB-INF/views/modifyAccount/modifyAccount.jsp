@@ -29,7 +29,6 @@
 			</div>
 	    	<img alt="btn" src="./img/gnb_btn.png">
 	    </div>
-	    <div class="nav">Nav</div>
 		<div id="section">
 			<div id="DeleteBox">
 				<div id="delete_section">
