@@ -40,11 +40,17 @@ $(document).ready(function() {
 		}
 	});
 	
+	if($('#hiddenUserId').val() != null) {
+		$('#section').css('border','none');
+	}
+	
 	$('#submit').submit(function() {
 	var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 	var reg_phone = /^[0-9]*$/g;
-		if (!reg_email.test($('#id').val())) {
-			if (!reg_phone.test($('#id').val()) || ($("#id").val().length > 11 || $("#id").val().length < 11)) {		
+	var phoneNumerreset = $('#id').val().replaceAll('-','');
+	console.log(phoneNumerreset)
+		if (!reg_email.test(phoneNumerreset)) {
+			if (!reg_phone.test(phoneNumerreset) || (phoneNumerreset.length > 11 || phoneNumerreset.length < 11)) {		
 				alert("핸드폰 번호 또는 이메일을 입력해주세요.");
 				return false;
 			}
@@ -56,7 +62,7 @@ $(document).ready(function() {
 		} else {
 			deleteCookie("userID");
 		}
-		
+		$('#id').val(phoneNumerreset);
 	});
 	$('.btn_join').on('click', function(){location.href="/terms_agreement"});
 });

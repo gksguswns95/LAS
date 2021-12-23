@@ -40,7 +40,11 @@ public class SigninController {
 		System.out.println(signvo.getId());
 		System.out.println(signvo.getPw());
 		
-//		boolean isNumberic = signvo.getId().matches("^[0-9]*$");
+		boolean isNumberic = signvo.getId().matches("^[0-9]*$");
+		if(isNumberic) {
+			signvo.setId(signvo.getId().replaceAll("-", ""));
+			System.out.println("바뀐 ID 값: "+signvo.getId());
+		}
 //		System.out.println("isNumberic : "+isNumberic);
 		SigninVo signinProcess = signService.signinId(signvo);
 		System.out.println("로그인 컨트롤러 로그인 진행");
@@ -55,6 +59,14 @@ public class SigninController {
 				session.setAttribute("user_id", signinProcess.getId());
 				session.setAttribute("user_phone", signinProcess.getPhone());
 				session.setAttribute("user_name", signinProcess.getLast_name()+signinProcess.getFirst_name());
+				session.setAttribute("user_firstName", signinProcess.getFirst_name());
+				session.setAttribute("user_lastName", signinProcess.getLast_name());
+				session.setAttribute("user_birth", signinProcess.getBirth());
+				session.setAttribute("user_gender", signinProcess.getGender());
+				session.setAttribute("user_phone", signinProcess.getPhone());
+				session.setAttribute("user_email", signinProcess.getEmail());
+				session.setAttribute("user_signuptype", signinProcess.getSignup_type());
+				session.setAttribute("user_signupdate", signinProcess.getSignup_date());
 				 
 				// ipCheck
 				String ip = request.getHeader("X-Forwarded-For");
@@ -73,7 +85,10 @@ public class SigninController {
 		        if (ip == null) {
 		            ip = request.getRemoteAddr();
 		        }
-				signService.loginLogInsert(signinProcess.getSeq(),ip);
+		        if (ip.equals("0:0:0:0:0:0:0:1")) {
+		        	ip = "127.0.0.1";
+		        }
+		        signService.loginLogInsert(signinProcess.getSeq(),ip);
 				System.out.println("접속 IP : "+ip);
 				System.out.println("로그인 성공");		
 			} else {

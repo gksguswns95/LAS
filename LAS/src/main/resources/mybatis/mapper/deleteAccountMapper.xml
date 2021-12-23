@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.evolve.delete.mapper.DeleteAccountMapper"> 
 	 <insert id="deleteAccountMemberInsert" parameterType="com.evolve.delete.vo.DeleteAccountVo">
-	 	INSERT INTO quitmember(id,pw,last_name,first_name,birth,gender,phone,signin_date,signin_type,disposal_date,quit_reason) 
-	 	VALUES(#{id},#{pw},#{last_name},#{first_name},#{birth},#{gender},#{phone},#{signin_date},#{signin_type},DATE_ADD(NOW() ,INTERVAL 3 YEAR),#{quit_reason})
+	 	INSERT INTO las_quitmember(id,pw,last_name,first_name,birth,gender,phone,signup_date,signup_type,disposal_date,quit_reason) 
+	 	VALUES(#{id},#{pw},#{last_name},#{first_name},#{birth},#{gender},#{phone},#{signup_date},#{signup_type},DATE_ADD(NOW() ,INTERVAL 3 YEAR),#{quit_reason})
 	 </insert>
 	 
 	 <update id="deleteAccountMemberUpdate" parameterType="String">
-	 	UPDATE member SET update_date = now(), del_yn = 1 WHERE id = #{id}
+	 	UPDATE las_member SET update_date = now(), del_yn = 1 WHERE id = #{id}
 	 </update>
 </mapper>

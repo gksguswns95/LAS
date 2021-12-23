@@ -31,8 +31,8 @@
 	<div id="section">
 			<div id="DeleteBox">
 				<div id="delete_section">
-					<h2>회원탈퇴</h2>
-					<span>회원 가입 탈퇴가 성공적으로 완료되었습니다.</span>
+					<h2>회원정보수정</h2>
+					<span>회원 정보 수정이 성공적으로 완료되었습니다.</span>
 					<button type="button" class="cancle_btn">메인으로</button>
 				</div>
 			</div>

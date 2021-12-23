@@ -47,6 +47,10 @@ h2 {
   z-index: 1;
 }
 
+#red {
+	color: red;
+}
+
 #section #DeleteBox #delete_section #submit_btn {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -33,21 +33,29 @@ $(document).ready(function() {
 	});
 	
 	$('.reason').click(function(){
-		if ($('.reason:checked').val() == 4) {
+		if ($('.reason:checked').val() == 6) {
 			$('.reasonOther').css('display','block');
 		} else {
 			$('.reasonOther').css('display','none');
 		}
 		if ($('.reason:checked').val() == 1){
-			$('#other').val("사용하지 않는 계정 정리");
+			$('#other').val("중복된 다른 계정이 있어요");
 		}
 		
 		if ($('.reason:checked').val() == 2){
-			$('#other').val("재가입을 위한 탈퇴");
+			$('#other').val("원하는 서비스가 없어요");
 		}
 		
 		if ($('.reason:checked').val() == 3){
-			$('#other').val("서비스 및 고개지원 불만족");
+			$('#other').val("서비스 이용이 불편해요");
+		}
+		
+		if ($('.reason:checked').val() == 4){
+			$('#other').val("사용빈도가 낮아요");
+		}
+		
+		if ($('.reason:checked').val() == 5){
+			$('#other').val("개인정보가 걱정되어요");
 		}
 	});
 

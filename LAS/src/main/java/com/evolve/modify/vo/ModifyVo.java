@@ -1,6 +1,6 @@
-package com.evolve.signin.vo;
+package com.evolve.modify.vo;
 
-public class SigninVo {
+public class ModifyVo {
 	
 	private String id,phone,pw,first_name,last_name,birth,signup_date,signup_type,update_date,email;
 	private int del_yn,seq,gender;

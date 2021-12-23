@@ -46,14 +46,22 @@
   font-weight: 600;
 }
 
-.container #section #loginBox #login_section .login {
+.container #section #loginBox #login_section #id {
+  width: 100%;
+  height: 30px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #ddd;
+  overflow-x: hidden;
+}
+
+.container #section #loginBox #login_section #pw {
   width: 90%;
   height: 30px;
   border: 1px solid transparent;
   overflow-x: hidden;
 }
 
-.container #section #loginBox #login_section #pw:focus {
+.container #section #loginBox #login_section input:focus{
 	outline: none;
 }
 
@@ -62,8 +70,15 @@
 	margin-bottom: 20px;
 }
 
-.container #section #loginBox #login_section .pwArea:focus {
-  outline: 1px solid #ddd;
+.pwArea #pw {
+  width: 90%;
+  height: 30px;
+  border: 1px solid transparent;
+  overflow-x: hidden;
+}
+
+.pw:focus-visible {
+	-webkit-focus-ring-color: auto 1px;
 }
 
 .container #section #loginBox #login_section #id {

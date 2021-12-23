@@ -80,8 +80,8 @@ public class DeleteAccountController {
 				deleteAccountvo.setGender(signinProcess.getGender());
 				deleteAccountvo.setPhone(signinProcess.getPhone());
 				deleteAccountvo.setEmail(signinProcess.getEmail());
-				deleteAccountvo.setSignin_date(signinProcess.getSignin_date());
-				deleteAccountvo.setSignin_type(signinProcess.getSignin_type());
+				deleteAccountvo.setSignup_date(signinProcess.getSignup_date());
+				deleteAccountvo.setSignup_type(signinProcess.getSignup_type());
 				System.out.println("회원정보 이동 중...");
 				deleteAccountService.deleteAccountMemberInsert(deleteAccountvo);
 				System.out.println("회원정보 이동 완료!");
