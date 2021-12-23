@@ -43,8 +43,8 @@
 											<input type="text" id="lastname" name="lastname" autocomplete="off">
 										</div>
 										<div class="input-container-firstname">
-											<label for="firstname">이름</label> <input type="text"
-												id="firstname" name="firstname" autocomplete="off">
+											<label for="firstname">이름</label> 
+											<input type="text" id="firstname" name="firstname" autocomplete="off">
 										</div>
 										<div class="input-container-birth">
 											<div class="label-checkbox">
@@ -55,18 +55,18 @@
 													<label>년</label> 
 												<select class="month" id="month" name="month">
 													<option value="월">월</option>
-													<option value="1월">1월</option>
-													<option value="2월">2월</option>
-													<option value="3월">3월</option>
-													<option value="4월">4월</option>
-													<option value="5월">5월</option>
-													<option value="6월">6월</option>
-													<option value="7월">7월</option>
-													<option value="8월">8월</option>
-													<option value="9월">9월</option>
-													<option value="10월">10월</option>
-													<option value="11월">11월</option>
-													<option value="12월">12월</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
 												</select> 
 												<label>월</label> 
 													<input type="tel" class="day" id="day" name="day" autocomplete="off"> 
@@ -154,38 +154,41 @@
 										<div class="input-container-mobilenum">
 											<label for="phoneNumber">휴대폰 번호 (-없이 숫자만 입력)</label> <input
 												type="tel" id="mobile_number" name="mobile_number" maxlength="11"
-												autocomplete="off" placeholder="예) 01011110000">
+												autocomplete="off" placeholder="예) 01045671234">
 										</div>
 
 										<div class="input-container-terms">
 											<div class="checkbox-all">
-												<label for="checkbox" id="terms-all">
 												<input type="checkbox" class="empty" id="checkbox-all" autocomplete="off">
-												모두선택
+												<label for="checkbox-all" id="terms-all">모두선택
 												</label>
 											</div>
 											<div class="checkbox">
-												<label for="checkbox1">
+												<p>
 												<input type="checkbox" name="checkbox" class="empty" id="checkbox1">
-												개인정보 수집 및 이용에 동의합니다.
+												<label for="checkbox1">개인정보 수집 및 이용에 동의합니다.
 												</label>
-												
+												</p>
+												<p>
 												<input type="checkbox" name="checkbox" class="empty" id="checkbox2"> 
 												<label for="checkbox2">고유식별 정보 처리에 동의합니다.
 												</label>
-												
+												</p>
+												<p>
 												<input type="checkbox" name="checkbox" class="empty" id="checkbox3"> 
 												<label for="checkbox3">통신사 이용약관에 동의합니다.
 												</label>
-												
+												</p>
+												<p>
 												<input type="checkbox" name="checkbox" class="empty" id="checkbox4">
 												<label for="checkbox4">이용약관에 동의합니다.
 												</label>
+												</p>
 											</div>
 										</div>
 										<div class="under-content-button">
-										<button id="btn_back">뒤로</button>
-										<button type="submit" id="btn_request">인증요청</button>
+										<button id="btn_back" href="#">뒤로</button>
+										<button type="submit" id="btn_next">다음</button>
 										</div>
 									</fieldset>
 								</form>
@@ -251,6 +254,7 @@
 	})
 </script>
 
+
 <script language='javascript'>
 	$(document).ready(function() {
 		$('#btn_back').click(function() {
@@ -261,13 +265,13 @@
 
 <script language='javascript'>
 	$(document).ready(function() {
-		$('#btn_request').click(function() {
+		$('#btn_next').click(function() {
 		/*날짜 1900년도 이하 입력시 다음페이지 이동 불가*/
 		var yearmin = $('#year').val();
 		
-		if(yearmin < 1900){
+		if(yearmin < 1920){
 			$('#year').val($(this).val().substring(0,0));
-			alert("1900년도 이하는 입력하실 수 없습니다");
+			alert("1920년도 이하는 입력하실 수 없습니다");
 			$('#year').focus();
 			return false;
 			
@@ -310,28 +314,29 @@
 </script>
 
 <script language='javascript'>
-$(function() {
+$(document).ready(function() {
 	$('#mobile-hello').click(function() {
 		$('.input-container-mobile-hello').css('display',"");
 		
-		var hello_skt = $('#mobile-skt-hello').val
-		console.log(hello_skt);
-		var hello_kt = $('#mobile-kt-hello').val
-		console.log(hello_kt);
-		var hello_lg = $("input[name=mobile-hello]").val
-		console.log(hello_lg);
+		var hello_skt = $('input:radio[id="mobile-skt-hello"]').is(":checked") == true;
+		var hello_kt = $('input:radio[id="mobile-kt-hello"]').is(":checked") == true;
+		var hello_lg = $('input:radio[id="mobile-lg-hello"]').is(":checked") == true;
+		
 		
 		if(hello_skt){
 			$('#mobile-hello-provider').text("SKT 알뜰폰 사업자");
-			$('#mobile-hello-provider-detail').text("KCT(티플러스),아이즈비전(아이즈모바일),유니컴즈(모빙),스마텔(스마텔),SK텔링크(SK세븐모바일),이마트(이마트알뜰폰),조이텔(조이텔),큰사람(이야기모바일),에스원(안심모바일),LG헬로비전(헬로모바일),머천드코리아(마이월드),프리텔레콤(프리티)");	
+			$('#mobile-hello-provider-detail').text("KCT(티플러스),아이즈비전(아이즈모바일),유니컴즈(모빙),스마텔(스마텔),SK텔링크(SK세븐모바일),이마트(이마트알뜰폰),조이텔(조이텔),큰사람(이야기모바일),에스원(안심모바일),LG헬로비전(헬로모바일),머천드코리아(마이월드),프리텔레콤(프리티)");
+			console.log("1");
 		}
-		else if(hello_test){
+		else if(hello_kt){
 			$('#mobile-hello-provider').text("KT 알뜰폰 사업자");
 			$('#mobile-hello-provider-detail').text("이지모바일,아이즈비전,머천드코리아,장성모바일,아이원,한국피엠오㈜(밸류컴),LG헬로비전,KT파워텔,홈플러스,씨엔커뮤니케이션,에넥스텔레콤,에스원,위너스텔,에이씨앤코리아,세종텔레콤,KT텔레캅,프리텔레콤(freeT),kt M모바일,앤텔레콤,제이씨티,유니컴즈,(주)파인디지털,(주)미니게이트,(주)핀플레이,드림라인(주),KCT(Tplus),와이엘랜드(여유텔레콤),큰사람(이야기알뜰폰),(주)니즈텔레콤,(주)에이프러스(아시아모바일),(주)케이티스카이라이프");
+			console.log("2");
 		}
 		else if(hello_lg){
 			$('#mobile-hello-provider').text("LGT 알뜰폰 사업자");
 			$('#mobile-hello-provider-detail').text("드림에이치앤비(셀모바일),조이텔(조이텔),에스원(안심모바일),원텔레콤,LG헬로비전(헬로모바일),인스코비(freeT),머천드코리아(마이월드),(주)엠티티텔레콤(메리큐),(주)미디어로그,남인천방송,금강방송,에넥스텔레콤(A모바일),엔티온텔레콤,아시아모바일,슈가모바일,인스모바일,이마트,서경방송,울산방송,푸른방송,제주방송,(주)와이엘랜드(여유텔레콤),ACN코리아(플래시모바일),이지모바일,유니컴즈(모빙),큰사람(이야기),스마텔,레그원(온국민폰),(주)국민은행(Liiv M),코나아이");
+			console.log("3");
 		}
 	});
 	$('#mobile-skt').click(function() {

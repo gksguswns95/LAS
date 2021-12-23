@@ -20,7 +20,7 @@
 		<div class="header">
 			<div class="header-inner">
 				<div class="logo">
-					<h1>Account</h1>
+					<h1><a href="/">Account</a></h1>
 				</div>
 			</div>
 		</div>
@@ -103,7 +103,7 @@
 							<form method="post">
 								<fieldset>
 									<div>
-										<label><input type="checkbox" id="terms-agreement-sns" name="checkbox" value="광고성 정보 수신"> 광고성 정보 수신 동의(선택)</label>
+										<label><input type="checkbox" id="terms-agreement-sns" name="checkbox" value="광고성 정보 수신 ${terms }"> 광고성 정보 수신 동의(선택)</label>
 										<label id="terms-agreement-sns-lb">
 										</label>
 									</div>
@@ -147,6 +147,7 @@
 						<button id="btn_agree">동의</button>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 
@@ -181,6 +182,7 @@ $(document).ready(function() {
 			alert("필수 항목에 동의 해주세요.");
 			$('#terms-agreement-personalinfo').focus();
 		}else{
+			
 			/*
 			alert("terms_agreement_service =" + terms_agreement_service +
 					"\nterms_agreement_personalinfo=" + terms_agreement_personalinfo +
@@ -190,8 +192,13 @@ $(document).ready(function() {
 		}
 		
 	});
+	
 });
+
 </script>
+
+
+
 
 <script>
 $(document).ready(function() {
@@ -213,5 +220,4 @@ $(document).ready(function() {
 });
 
 </script>
-
 

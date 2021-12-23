@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <%
 	String lastname = request.getParameter("lastname");
 	String firstname = request.getParameter("firstname");
@@ -7,6 +8,7 @@
 	String month = request.getParameter("month");
 	String day = request.getParameter("day");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,14 +41,18 @@
 				<div class="title">
 					<h1>계정 만들기</h1>
 				</div>
-				<div class="signup-id-email">계정으로 사용할 이메일 주소를 입력하세요. <a href="create_account" id="signup-id-phonenum">전화번호를 사용하려면 여기를 누르세요</a>.</div>
-				<div class="signup-id-phonenum" style="display:none">계정으로 사용할 전화번호를 입력하세요. <a href="create_account" id="signup-id-email">이메일을 사용하려면 여기를 누르세요</a>.</div>
+				<div class="signup-id-mail">계정으로 사용할 이메일 주소를 입력하세요. 
+					<a href="create_account" id="signup-id-mail-to-phone">전화번호를 사용하려면 여기를 누르세요</a>.
+				</div>
+				<div class="signup-id-phonenum" style="display: none;">계정으로 사용할 전화번호를 입력하세요. 
+					<a href="create_account" id="signup-id-phone-to-mail">이메일을 사용하려면 여기를 누르세요</a>.
+				</div>
 				
 				<div class="content">
 					<div class="content-form">
 							<form name="signup-form" autocomplete="off" class="signup-form">
 								<fieldset>
-									<div id="signup-form-id" class="signup-form-id">
+									<div id="signup-form-id" class="signup-form-id">									
 										<label id="lb-id" for="signup-id">이메일</label>
 										<input id="signup-id" name="signup-id" type="email">
 									</div>
@@ -119,25 +125,28 @@ $(document).ready(function() {
 				"\nsignup_pw =" + signup_pw +
 				"\nsignup_pwcfm =" + signup_pwcfm);
 		*/
-		$(location).attr('href','/create_account');
+		$(location).attr('href','/welcome');
 	});
 });
 </script>
 
 <script language='javascript'>
-$(function() {
-	$('#signup-id-phonenum').click(function() {
-		$('.signup-id-phonenum').css('display',"");
-		$('.signup-id-email').css('display',"none");
-		$('#lb-id').text("전화번호");
-		alert("아이디 사용을 전화번호로 변경하였습니다.");
+	$(document).ready(function() {
+		$('#signup-id-mail-to-phone').click(function() {
+			$('.signup-id-phonenum').css('display',"");
+			$('.signup-id-mail').css('display',"none");
+			$('#lb-id').text("전화번호");
+			alert("아이디 사용을 전화번호로 변경하였습니다.");
+		});
+		$('#signup-id-phone-to-mail').click(function() {
+			$('.signup-id-phonenum').css('display',"none");
+			$('.signup-id-mail').css('display',"");
+			$('#lb-id').text("이메일");
+			alert("아이디 사용을 이메일로 변경하였습니다.");
+		});
 	});
-	$('#signup-id-email').click(function() {
-		$('.signup-id-phonenum').css('display',"none");
-		$('.signup-id-email').css('display',"");
-		$('#lb-id').text("이메일");
-		alert("아이디 사용을 이메일로 변경하였습니다.");
-	});
-});
 </script>
+				
+				
+
 

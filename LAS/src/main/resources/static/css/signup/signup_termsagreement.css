@@ -15,6 +15,7 @@
 	text-align: center;
 }
 
+
 #btn_agree {
 	border: none;
 	border-radius: 50px;
@@ -22,8 +23,9 @@
 	height: 40px;
 	font-size: 18px;
 	font-weight: 1000;
+	color:#fff;
 	text-align: center;
-	background-color: #d80546;
+	background-color: #343a40;
 }
 
 .main div {
