@@ -1,1 +1,23 @@
-@charset "EUC-KR";
+.container #section {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 15px 0 15px;
+    margin-top: 100px;
+    width: 480px;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ddd;
+}
+
+#btn_main {
+	border: none;
+	border-radius: 50px;
+	width: 150px;
+	height: 40px;
+	font-size: 18px;
+	font-weight: 1000;
+	color:#fff;
+	text-align: center;
+	background-color: #343a40;
+}

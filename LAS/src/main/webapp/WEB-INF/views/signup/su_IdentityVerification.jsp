@@ -5,7 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/signup/signup_common.css">
-<link rel="stylesheet" href="./css/signup/signup_identityverification.css">
+<link rel="stylesheet"
+	href="./css/signup/signup_identityverification.css">
+
+<link rel="stylesheet" href="./css/signin/signin.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 <title>본인인증</title>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -15,245 +23,106 @@
 
 </head>
 <body>
-	<header>
-		<div class="header">
-			<div class="header-inner">
-				<div class="logo">
-					<h1>Account</h1>
-				</div>
-			</div>
-		</div>
-	</header>
-
-	<main class="ma">
-		<div class="main">
+	<div class="container">
+		<div class="header"><a href="/">L.A.S</a></div>
+		<main class="main">
 			<div class="main-inner">
-				<div class="container">
-					<div class="title">
-						<h1>본인 인증</h1>
-					</div>
-					<div class="content">
-						<p>서비스를 이용하시려면 본인 인증이 필요합니다.</p>
-						<div class="content-form">
-							<div>
-								<form action="create_account" method="get" name="inputform" autocomplete="off" class="input-form">
-									<fieldset>
-										<div class="input-container-lastname">
-											<label for="lastname">성</label>
-											<input type="text" id="lastname" name="lastname" autocomplete="off">
-										</div>
-										<div class="input-container-firstname">
-											<label for="firstname">이름</label> 
-											<input type="text" id="firstname" name="firstname" autocomplete="off">
-										</div>
-										<div class="input-container-birth">
-											<div class="label-checkbox">
-												<label>생년월일</label>
-											</div>
-											<div>
-												<input type="tel" class="date" id="year" name="year" autocomplete="off"> 
-													<label>년</label> 
-												<select class="month" id="month" name="month">
-													<option value="월">월</option>
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-													<option value="11">11</option>
-													<option value="12">12</option>
-												</select> 
-												<label>월</label> 
-													<input type="tel" class="day" id="day" name="day" autocomplete="off"> 
-												<label>일</label>
-											</div>
-										</div>
+				<div class="title">
+					<h1>계정 생성</h1>
+				</div>
+				<div class="content">
+					<p>서비스를 이용하시려면 본인 인증이 필요합니다.</p>
+					<div class="content-form">
+						<div>
+							<!--
+							<form action="welcome" method="get" name="inputform" autocomplete="off" class="input-form">
+							 -->
+								<fieldset>
+									<div class="input-container-name">
+										<label for="name">이름</label> <input type="text" id="name"
+											name="name" autocomplete="off">
+									</div>
 
-
-										<div class="input-container-gender">
-											<div class="label-checkbox">
-												<label for="gender">성별</label>
-											</div>
-											<div class="radiobox-gender">
-												<div class="checkbox">
-													<input type="radio" class="gender" name="gender"
-														id="gender-male" value="M" autocomplete="off"> <label
-														for="gender-male">남자</label>
-												</div>
-												<div class="checkbox">
-													<input type="radio" class="gender" name="gender"
-														id="gender-female" value="F" autocomplete="off"> <label
-														for="gender-female">여자</label>
-												</div>
-											</div>
+									<div class="input-container-birth">
+										<div class="label-checkbox">
+											<label>생년월일</label>
 										</div>
+									<input type="text" class="date" id="year" name="year" autocomplete="off" placeholder="예) 19990113">
+									</div>
 
+									<!-- 업데이트 내용 -->
+									<div class="content">
+										<div class="content-form">
+											<fieldset>
+												<div id="signup-form-id" class="signup-form-id">
+													<label id="lb-id" for="signup-id">이메일</label> <input
+														id="signup-id" name="signup-id" type="email">
+												</div>
+												<div id="signup-form-pw" class="signup-form-pw">
+													<label id="lb-pw" for="signup-pw">비밀번호</label> <input
+														id="signup-pw" name="signup-pw" type="password">
+												</div>
+												<div id="signup-form-pwcfm" class="signup-form-pwcfm">
+													<label id="lb-pwcfm" for="signup-pwcfm">비밀번호 확인</label> <input
+														id="signup-pwcfm" name="signup-cfm" type="password">
+												</div>
 
-										<div class="input-container-mobile">
-											<div class="label-checbox">
-												<label for="mobile">통신사</label>
-											</div>
-											<div class="radiobox-mobile-carrier">
-												<div class="checkbox">
-													<input type="radio" class="mobile_carrier" name="mobile_carrier"
-														id="mobile-skt" value="SKT" autocomplete="off"> <label
-														for="mobile-skt">SKT</label>
+												<div class="input-container-mobilenum">
+													<label for="phoneNumber">휴대폰 번호 (-없이 숫자만 입력)</label> <input
+														type="tel" id="mobile_number" name="mobile_number"
+														maxlength="11" autocomplete="off"
+														placeholder="예) 01045671234">
 												</div>
-												<div class="checkbox">
-													<input type="radio" class="mobile_carrier" name="mobile_carrier"
-														id="mobile-kt" value="KT" autocomplete="off"> <label
-														for="mobile-kt">KT</label>
-												</div>
-												<div class="checkbox">
-													<input type="radio" class="mobile_carrier" name="mobile_carrier"
-														id="mobile-lg" value="LGU+" autocomplete="off"> <label
-														for="mobile-lg">LGU+</label>
-												</div>
-												<div class="checkbox">
-													<input type="radio" class="mobile_carrier" name="mobile_carrier"
-														id="mobile-hello" value="hello" autocomplete="off">
-													<label for="mobile-hello">알뜰폰</label>
-												</div>
-											</div>
+											</fieldset>
 										</div>
+									</div>
 
-										<div class="input-container-mobile-hello" style="display:none">
-											<div class="label-checbox">
-												<label for="mobile-hello">알뜰폰 사업자</label>
-											</div>
-											<div class="radiobox-mobile">
+									<div class="input-container-terms">
+										<div class="checkbox-all">
+											<input type="checkbox" class="empty" id="checkbox-all"
+												autocomplete="off"> <label for="checkbox-all"
+												id="terms-all">모두선택 </label>
+										</div>
 										<div class="checkbox">
-													<input type="radio" class="mobile-hello" name="mobile-hello"
-														id="mobile-skt-hello" value="SKT"> <label
-														for="mobile-skt-hello">SKT 알뜰폰</label>
-												</div>
-												<div class="checkbox">
-													<input type="radio" class="mobile-hello" name="mobile-hello"
-														id="mobile-kt-hello" value="KT"> <label
-														for="mobile-kt-hello">KT 알뜰폰</label>
-														</div>
-												<div class="checkbox">
-													<input type="radio" class="mobile-hello" name="mobile-hello"
-														id="mobile-lg-hello" value="LGU+"> <label
-														for="mobile-lg-hello">LGU+ 알뜰폰</label>
-												</div>
-											</div>
+											<p>
+												<input type="checkbox" name="checkbox" class="empty"
+													id="checkbox1"> <label for="checkbox1">개인정보
+													수집 및 이용에 동의합니다. </label>
+											</p>
+											<p>
+												<input type="checkbox" name="checkbox" class="empty"
+													id="checkbox2"> <label for="checkbox2">고유식별
+													정보 처리에 동의합니다. </label>
+											</p>
+											<p>
+												<input type="checkbox" name="checkbox" class="empty"
+													id="checkbox3"> <label for="checkbox3">통신사
+													이용약관에 동의합니다. </label>
+											</p>
+											<p>
+												<input type="checkbox" name="checkbox" class="empty"
+													id="checkbox4"> <label for="checkbox4">이용약관에
+													동의합니다. </label>
+											</p>
 										</div>
-										<div class="input-container-mobile-hello" style="display:none">
-											<dl>
-												<dt id="mobile-hello-provider"><strong>1</strong></dt>
-												<dd id="mobile-hello-provider-detail">2</dd>
-											</dl>
-										</div>
-
-										<div class="input-container-mobilenum">
-											<label for="phoneNumber">휴대폰 번호 (-없이 숫자만 입력)</label> <input
-												type="tel" id="mobile_number" name="mobile_number" maxlength="11"
-												autocomplete="off" placeholder="예) 01045671234">
-										</div>
-
-										<div class="input-container-terms">
-											<div class="checkbox-all">
-												<input type="checkbox" class="empty" id="checkbox-all" autocomplete="off">
-												<label for="checkbox-all" id="terms-all">모두선택
-												</label>
-											</div>
-											<div class="checkbox">
-												<p>
-												<input type="checkbox" name="checkbox" class="empty" id="checkbox1">
-												<label for="checkbox1">개인정보 수집 및 이용에 동의합니다.
-												</label>
-												</p>
-												<p>
-												<input type="checkbox" name="checkbox" class="empty" id="checkbox2"> 
-												<label for="checkbox2">고유식별 정보 처리에 동의합니다.
-												</label>
-												</p>
-												<p>
-												<input type="checkbox" name="checkbox" class="empty" id="checkbox3"> 
-												<label for="checkbox3">통신사 이용약관에 동의합니다.
-												</label>
-												</p>
-												<p>
-												<input type="checkbox" name="checkbox" class="empty" id="checkbox4">
-												<label for="checkbox4">이용약관에 동의합니다.
-												</label>
-												</p>
-											</div>
-										</div>
-										<div class="under-content-button">
-										<button id="btn_back" href="#">뒤로</button>
+									</div>
+									<div class="under-content-button">
+										<button id="btn_back">뒤로</button>
 										<button type="submit" id="btn_next">다음</button>
-										</div>
-									</fieldset>
-								</form>
-							</div>
+									</div>
+								</fieldset>
+							<!-- 
+							</form>
+							 -->
 						</div>
-						<!-- 
-						<div class="under-contents">
-							<div class="under-content-button">
-								<button id="btn_back">뒤로</button>
-								<button type="submit" id="btn_request">인증요청</button>
-							</div>
-						</div>
-						 -->
 					</div>
 				</div>
 			</div>
-		</div>
-	</main>
-
-	<footer> </footer>
+		</main>
+		<div class="footer">Footer</div>
+	</div>
 </body>
 </html>
-
-<script language='javascript'>
-	$(document).ready(function(){
-		$('#lastname').keyup(function(){
-			var lastname = $('#lastname').val().length;
-			
-			if(lastname > 2){
-				$('#lastname').val($(this).val().substring(0,2));
-				alert("이름을 제외한 성을 입력해주세요");
-				$('#lastname').focus();
-			}
-		})
-	})
-</script>
-
-<script language='javascript'>
-	$(document).ready(function(){
-		$('#year').keyup(function(){
-			var year = $('#year').val().length;
-			
-			if(year > 4){
-				$('#year').val($(this).val().substring(0,0));
-				alert("년 형식으로 입력해주세요. \n예)2021 2020 1999");
-				$('#year').focus();
-			}
-		})
-	})
-</script>
-
-<script language='javascript'>
-	$(document).ready(function(){
-		$('#day').keyup(function(){
-			var day = $('#day').val();
-			
-			if(day > 31 ){
-				$('#day').val($(this).val().substring(0,0));
-				alert("31일을 넘게 입력하실 수 없습니다.");
-				$('#day').focus();
-			}
-		})
-	})
-</script>
-
 
 <script language='javascript'>
 	$(document).ready(function() {
@@ -264,34 +133,91 @@
 </script>
 
 <script language='javascript'>
+$(document).ready(function() {
+	$('#btn_next').click(function() {
+		
+		var signup_id = $('#signup-id').val();
+		var signup_pw = $('#signup-pw').val();
+		var signup_pwcfm = $('#signup-pwcfm').val();
+		
+		/*
+		alert("signup_id =" + signup_id + 
+				"\nsignup_pw =" + signup_pw +
+				"\nsignup_pwcfm =" + signup_pwcfm);
+		*/
+		$(location).attr('href','/welcome');
+	});
+});
+</script>
+
+<script language='javascript'>
+	$(document).ready(function() {
+		$('#name').keyup(function() {
+			var name = $('#name').val().length;
+
+			if (name > 20) {
+				$('#name').val($(this).val().substring(0, 0));
+				alert("이름은 최대 20글자까지만 가능합니다.");
+				$('#name').focus();
+			}
+		})
+	})
+</script>
+
+<script language='javascript'>
+	$(document).ready(function() {
+		$('#year').keyup(function() {
+			var year = $('#year').val().length;
+
+			if (year > 4) {
+				$('#year').val($(this).val().substring(0, 0));
+				alert("년 형식으로 입력해주세요. \n예)2021 2020 1999");
+				$('#year').focus();
+			}
+		})
+	})
+</script>
+
+<script language='javascript'>
+	$(document).ready(function() {
+		$('#day').keyup(function() {
+			var day = $('#day').val();
+
+			if (day > 31) {
+				$('#day').val($(this).val().substring(0, 0));
+				alert("31일을 넘게 입력하실 수 없습니다.");
+				$('#day').focus();
+			}
+		})
+	})
+</script>
+
+<script language='javascript'>
 	$(document).ready(function() {
 		$('#btn_next').click(function() {
-		/*날짜 1900년도 이하 입력시 다음페이지 이동 불가*/
-		var yearmin = $('#year').val();
-		
-		if(yearmin < 1920){
-			$('#year').val($(this).val().substring(0,0));
-			alert("1920년도 이하는 입력하실 수 없습니다");
-			$('#year').focus();
-			return false;
-			
-		}else{
-			var lastname = $('#lastname').val();
-			var firstname = $('#firstname').val();
-			var year = $('#year').val();
-			var month = $('#month').val();
-			var day = $('#day').val();
-			var gender = $('input:radio[name="gender"]:checked').val();
-			var mobile_carrier = $('input:radio[name="mobile_carrier"]:checked').val();
-			var mobilenum = $('#mobile_number').val();
-			
-			var personalinfoTA = $('input:checkbox[name="checkbox1"]:checked').val();
-			var uniqueinfoTA = $('input:checkbox[name="checkbox2"]:checked').val();
-			var mobileTA = $('input:checkbox[name="checkbox3"]:checked').val();
-			var useTA = $('input:checkbox[name="checkbox4"]:checked').val();
-			
+			/*날짜 1900년도 이하 입력시 다음페이지 이동 불가*/
+			var yearmin = $('#year').val();
+			if (yearmin < 1920) {
+				$('#year').val($(this).val().substring(0,0));
+				alert("1920년도 이하는 입력하실 수 없습니다");
+				$('#year').focus();
+				return false;
+			}else{
+				var name = $('#name').val();
+				var firstname = $('#firstname').val();
+				var year = $('#year').val();
+				var month = $('#month').val();
+				var day = $('#day').val();
+				var gender = $('input:radio[name="gender"]:checked').val();
+				var mobile_carrier = $('input:radio[name="mobile_carrier"]:checked').val();
+				var mobilenum = $('#mobile_number').val();
+				var personalinfoTA = $('input:checkbox[name="checkbox1"]:checked').val();
+				var uniqueinfoTA = $('input:checkbox[name="checkbox2"]:checked').val();
+				var mobileTA = $('input:checkbox[name="checkbox3"]:checked').val();
+				var useTA = $('input:checkbox[name="checkbox4"]:checked').val();
+
 			/*
-			alert("lastname =" + lastname + 
+			alert("name =" + name + 
 				"\nfirstname =" + firstname +
 				"\nyear =" + year + 
 				"\nmonth =" + month +
@@ -304,51 +230,9 @@
 				"\nmobileTA =" + mobileTA +
 				"\nuseTA =" + useTA
 				);
-			*/
-			}
-		});
-	});
-	
-	
-	
-</script>
-
-<script language='javascript'>
-$(document).ready(function() {
-	$('#mobile-hello').click(function() {
-		$('.input-container-mobile-hello').css('display',"");
-		
-		var hello_skt = $('input:radio[id="mobile-skt-hello"]').is(":checked") == true;
-		var hello_kt = $('input:radio[id="mobile-kt-hello"]').is(":checked") == true;
-		var hello_lg = $('input:radio[id="mobile-lg-hello"]').is(":checked") == true;
-		
-		
-		if(hello_skt){
-			$('#mobile-hello-provider').text("SKT 알뜰폰 사업자");
-			$('#mobile-hello-provider-detail').text("KCT(티플러스),아이즈비전(아이즈모바일),유니컴즈(모빙),스마텔(스마텔),SK텔링크(SK세븐모바일),이마트(이마트알뜰폰),조이텔(조이텔),큰사람(이야기모바일),에스원(안심모바일),LG헬로비전(헬로모바일),머천드코리아(마이월드),프리텔레콤(프리티)");
-			console.log("1");
-		}
-		else if(hello_kt){
-			$('#mobile-hello-provider').text("KT 알뜰폰 사업자");
-			$('#mobile-hello-provider-detail').text("이지모바일,아이즈비전,머천드코리아,장성모바일,아이원,한국피엠오㈜(밸류컴),LG헬로비전,KT파워텔,홈플러스,씨엔커뮤니케이션,에넥스텔레콤,에스원,위너스텔,에이씨앤코리아,세종텔레콤,KT텔레캅,프리텔레콤(freeT),kt M모바일,앤텔레콤,제이씨티,유니컴즈,(주)파인디지털,(주)미니게이트,(주)핀플레이,드림라인(주),KCT(Tplus),와이엘랜드(여유텔레콤),큰사람(이야기알뜰폰),(주)니즈텔레콤,(주)에이프러스(아시아모바일),(주)케이티스카이라이프");
-			console.log("2");
-		}
-		else if(hello_lg){
-			$('#mobile-hello-provider').text("LGT 알뜰폰 사업자");
-			$('#mobile-hello-provider-detail').text("드림에이치앤비(셀모바일),조이텔(조이텔),에스원(안심모바일),원텔레콤,LG헬로비전(헬로모바일),인스코비(freeT),머천드코리아(마이월드),(주)엠티티텔레콤(메리큐),(주)미디어로그,남인천방송,금강방송,에넥스텔레콤(A모바일),엔티온텔레콤,아시아모바일,슈가모바일,인스모바일,이마트,서경방송,울산방송,푸른방송,제주방송,(주)와이엘랜드(여유텔레콤),ACN코리아(플래시모바일),이지모바일,유니컴즈(모빙),큰사람(이야기),스마텔,레그원(온국민폰),(주)국민은행(Liiv M),코나아이");
-			console.log("3");
+			 */
 		}
 	});
-	$('#mobile-skt').click(function() {
-		$('.input-container-mobile-hello').css('display',"none");
-	});
-	$('#mobile-kt').click(function() {
-		$('.input-container-mobile-hello').css('display',"none");
-	});
-	$('#mobile-lg').click(function() {
-		$('.input-container-mobile-hello').css('display',"none");
-	});
-	
 });
 </script>
 

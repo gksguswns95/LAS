@@ -26,7 +26,7 @@ fieldset label {
 
 body {
 	min-height: 100vh;
-	background: #f2f2f3;
+	background: #fff
 }
 
 .header {
@@ -48,14 +48,15 @@ select {
 	border-bottom: 1px solid #8c8c8c;
 }
 
-.ma {
+.main {
     flex-grow: 0;
     margin-bottom: -1px;
     padding-top: 48px;
+    padding-bottom: 48px;
 }
 
 .main .main-inner {
-    max-width: 640px;
+	max-width: 800px;
     margin: 0 auto;
 	padding: 32px;
 	background-color: #fff;

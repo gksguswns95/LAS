@@ -19,18 +19,7 @@ fieldset label {
 }
 
 #year {
-	width: 28%;
-	text-align: center;
-}
-
-#month {
-	width: 27%;
-	text-align: center;
-}
-
-#day {
-	width: 28%;
-	text-align: center;
+	width: 100%;
 }
 
 .radiobox-gender {
