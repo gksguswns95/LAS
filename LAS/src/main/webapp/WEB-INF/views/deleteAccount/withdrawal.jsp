@@ -19,7 +19,7 @@
 <body>
     <div class="container">
 	    <div class="header">
-    	Evolve
+    	<a href="/">Evolve</a>
     	<div class="signinMenu">
 	    	<c:if test="${user_name != null}">
 				<a href="./signout">로그아웃</a>
