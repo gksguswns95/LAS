@@ -47,9 +47,10 @@
 							<input type="radio" value="5" name="reason" class="reason" required><span>개인정보가 걱정되어요</span>
 							<input type="radio" value="6" name="reason" class="reason" required><span>기타</span>
 							<div class="reasonOther"><input type='text' name='reasonOther' id="other"></div>
-							ID : <input type="text" id="id" disabled="disabled" value="${user_id }">	
-							<i class="fa fa-eye fa-lg"></i>
-							PW : <input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required />
+							<p>ID : <input type="text" id="id" disabled="disabled" value="${user_id }"></p>	
+							
+							<p><i class="fa fa-eye fa-lg"></i>
+							PW : <input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required /></p>
 							<input type="hidden" value="${error }" id='error'>
 							<div id="fail"></div>
 							<div id="submit_btn">

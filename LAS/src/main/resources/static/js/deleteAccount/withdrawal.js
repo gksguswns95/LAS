@@ -26,11 +26,11 @@ $(document).ready(function() {
 		location.href='/';
 	});
 	
-	$('#withdrawalAccount').submit(function() {
+	/*$('#withdrawalAccount').submit(function() {
 		if (!confirm("정말로 회원 탈퇴를 하시겠습니까?")) {
 			return false;
 		}
-	});
+	});*/
 	
 	$('.reason').click(function(){
 		if ($('.reason:checked').val() == 6) {

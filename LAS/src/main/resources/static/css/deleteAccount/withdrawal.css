@@ -119,11 +119,26 @@ h2 {
 }
 
 @media only screen and (max-width: 850px) {
-  
+  #section #DeleteBox #delete_section #submit_btn {
+  	max-width: 512px;
+  	width: 100%;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-  
+  .container {
+    min-width: 280px;
+  }
+  #section #DeleteBox #delete_section i {
+  	font-size: 22px;
+  	left: 89%;
+  }
+  #section #DeleteBox #delete_section #id{
+  	width : calc(100% - 60px);  	
+  }
+  #section #DeleteBox #delete_section #pw {
+  	width : calc(100% - 60px);
+  }
 }
 
 @media only screen and (max-width: 320px) {
