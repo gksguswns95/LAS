@@ -33,96 +33,82 @@
 				<div class="content">
 					<p>서비스를 이용하시려면 본인 인증이 필요합니다.</p>
 					<div class="content-form">
-						<div>
 							<!--
 							<form action="welcome" method="get" name="inputform" autocomplete="off" class="input-form">
 							 -->
 								<fieldset>
-									<div class="input-container-name">
-										<label for="name">이름</label> <input type="text" id="name"
-											name="name" autocomplete="off">
+									<div id="fieldset-id" class="fieldset-id">
+										<label for="id">아이디</label>
+										<input type="text" id="id" name="id" autocomplete="off" required="required">
+										<label id="fieldset-id-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 
-									<div class="input-container-birth">
-										<div class="label-checkbox">
-											<label>생년월일</label>
-										</div>
-									<input type="text" class="date" id="year" name="year" autocomplete="off" placeholder="예) 19990113">
+									<div id="fieldset-pw" class="fieldset-pw">
+										<label for="pw">비밀번호</label>
+										<input type="password" id="pw" name="pw" autocomplete="off" required="required">
+										<label id="fieldset-pw-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
+									</div>
+									
+									<div id="fieldset-pwcfm" class="fieldset-pwcfm">
+										<label for="pwcfm">비밀번호 확인</label> 
+										<input type="password" id="pwcfm" name="pwcfm" autocomplete="off" required="required">
+										<label id="fieldset-pwcfm-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 
-									<!-- 업데이트 내용 -->
-									<div class="content">
-										<div class="content-form">
-											<fieldset>
-												<div id="signup-form-id" class="signup-form-id">
-													<label id="lb-id" for="signup-id">이메일</label> <input
-														id="signup-id" name="signup-id" type="email">
-												</div>
-												<div id="signup-form-pw" class="signup-form-pw">
-													<label id="lb-pw" for="signup-pw">비밀번호</label> <input
-														id="signup-pw" name="signup-pw" type="password">
-												</div>
-												<div id="signup-form-pwcfm" class="signup-form-pwcfm">
-													<label id="lb-pwcfm" for="signup-pwcfm">비밀번호 확인</label> <input
-														id="signup-pwcfm" name="signup-cfm" type="password">
-												</div>
-
-												<div class="input-container-mobilenum">
-													<label for="phoneNumber">휴대폰 번호 (-없이 숫자만 입력)</label> <input
-														type="tel" id="mobile_number" name="mobile_number"
-														maxlength="11" autocomplete="off"
-														placeholder="예) 01045671234">
-												</div>
-											</fieldset>
-										</div>
+									<div id="fieldset-email" class="fieldset-email" >
+										<label for="email">이메일</label>
+										<input type="email" id="email" name="email" autocomplete="off" required="required">
+										<label id="fieldset-email-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
+									</div>
+									<div id="fieldset-mobile" class="fieldset-mobile">
+										<label for="mobile">휴대폰 번호 (-없이 11자리 입력)</label>
+										<input type="tel" id="mobile" name="mobile" maxlength="11" autocomplete="off" placeholder="예) 01045671234" required="required">
+										<label id="fieldset-mobile-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 
-									<div class="input-container-terms">
-										<div class="checkbox-all">
-											<input type="checkbox" class="empty" id="checkbox-all"
-												autocomplete="off"> <label for="checkbox-all"
-												id="terms-all">모두선택 </label>
-										</div>
-										<div class="checkbox">
-											<p>
-												<input type="checkbox" name="checkbox" class="empty"
-													id="checkbox1"> <label for="checkbox1">개인정보
-													수집 및 이용에 동의합니다. </label>
-											</p>
-											<p>
-												<input type="checkbox" name="checkbox" class="empty"
-													id="checkbox2"> <label for="checkbox2">고유식별
-													정보 처리에 동의합니다. </label>
-											</p>
-											<p>
-												<input type="checkbox" name="checkbox" class="empty"
-													id="checkbox3"> <label for="checkbox3">통신사
-													이용약관에 동의합니다. </label>
-											</p>
-											<p>
-												<input type="checkbox" name="checkbox" class="empty"
-													id="checkbox4"> <label for="checkbox4">이용약관에
-													동의합니다. </label>
-											</p>
-										</div>
+									<div id="fieldset-name" class="fieldset-name">
+										<label for="name">이름</label>
+										<input type="text" id="name" name="name" autocomplete="off" required="required">
+										<label id="fieldset-name-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
+
+									<div id="fieldset-birth" class="fieldset-birth">
+										<label for="birth">생년월일</label>
+										<input type="text" class="birth" id="birth" name="birth" maxlength="8" autocomplete="off" placeholder="예) 19990113" required="required">
+										<label id="fieldset-birth-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
+									</div>
+									
+									
+								</fieldset>
 									<div class="under-content-button">
 										<button id="btn_back">뒤로</button>
 										<button type="submit" id="btn_next">다음</button>
 									</div>
-								</fieldset>
 							<!-- 
 							</form>
 							 -->
-						</div>
 					</div>
 				</div>
 			</div>
 		</main>
-		<div class="footer">Footer</div>
+		<div class="footer">
+			<a href="#">공지사항</a>
+			<a href="#">문의하기</a>
+			<a href="#">이용약관</a>
+			<a href="#">개인정보</a>
+			<a href="#">처리방침</a>
+			<p>Copyright ⓒ 2022 LG Electronics. All Rights Reserved</p>
+		</div>
 	</div>
 </body>
 </html>
+
+<script>
+function checkID(){
+	var id = $('#id').length;
+	console.log(id);
+}
+</script>
 
 <script language='javascript'>
 	$(document).ready(function() {
@@ -140,6 +126,7 @@ $(document).ready(function() {
 		var signup_pw = $('#signup-pw').val();
 		var signup_pwcfm = $('#signup-pwcfm').val();
 		
+		
 		/*
 		alert("signup_id =" + signup_id + 
 				"\nsignup_pw =" + signup_pw +
@@ -147,8 +134,84 @@ $(document).ready(function() {
 		*/
 		$(location).attr('href','/welcome');
 	});
+	
+	
+	//유효성 검사 script
+	
+	$('#id').on('focusout', function(){
+		var id = $('#id').val().length;
+		if(id < 5  || id > 30){
+			$('#fieldset-id-error').text('5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.');
+		}
+		if(id == 0){
+			$('#fieldset-id-error').text('필수 입력 사항입니다.');
+		}
+	});
+	
+	$('#pw').on('focusout', function(){
+		var pw = $('#pw').val().length;
+		if(pw < 8  || pw > 17){
+			$('#fieldset-pw-error').text('8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.');
+		}
+	});
+	
+	$('#pwcfm').on('focusout', function(){
+		var pw = $('#pw').val();
+		var pwcfm = $('#pwcfm').val();
+		
+		console.log(pw);
+		console.log(pwcfm);
+		
+		if(pw != pwcfm){
+			$('#fieldset-pwcfm-error').text('입력하신 비밀번호와 다릅니다. 비밀번호를 다시 확인해주세요.');
+			$('#fieldset-pwcfm-error').css({"color":"red"});
+		}
+		if(pw == pwcfm){
+			$('#fieldset-pwcfm-error').text('비밀번호가 동일합니다.');
+			$('#fieldset-pwcfm-error').css({"color":"green"});
+		}
+	});
+	
+	
+	
+	// 여기서부터 퇴근
+	//
+	// 여기서부터 퇴근
+	//
+	// 여기서부터 퇴근
+	//
+	
+	$('#email').on('focusout', function(){
+		var email = $('#email').val().length;
+		if(email < 8  || email > 17){
+			$('#fieldset-email-error').text('이메일 형식을 다시 확인해주세요');
+		}
+	});
+	
+	$('#mobile').on('focusout', function(){
+		var mobile = $('#mobile').val().length;
+		if(mobile < 8  || mobile > 17){
+			$('#fieldset-mobile-error').text('핸드폰 번호 11자리를 정확하게 입력해주세요.');
+		}
+	});
+	
+	$('#name').on('focusout', function(){
+		var name = $('#pw').val().length;
+		if(name < 8  || name > 17){
+			$('#fieldset-name-error').text('필수 입력 사항입니다.');
+		}
+	});
+	
+	$('#birth').on('focusout', function(){
+		var birth = $('#birth').val().length;
+		if(birth < 8  || birth > 17){
+			$('#fieldset-birth-error').text('태어난 년도 8자리를 정확하게 입력해주세요.');
+		}
+	});
+	
 });
 </script>
+
 
 <script language='javascript'>
 	$(document).ready(function() {
@@ -166,31 +229,18 @@ $(document).ready(function() {
 
 <script language='javascript'>
 	$(document).ready(function() {
-		$('#year').keyup(function() {
-			var year = $('#year').val().length;
+		$('#birth').keyup(function() {
+			var birth = $('#birth').val().length;
 
-			if (year > 4) {
-				$('#year').val($(this).val().substring(0, 0));
-				alert("년 형식으로 입력해주세요. \n예)2021 2020 1999");
-				$('#year').focus();
+			if (birth > 8) {
+				$('#birth').val($(this).val().substring(0, 0));
+				alert("형식을 맞게 입력해주세요");
+				$('#birth').focus();
 			}
 		})
 	})
 </script>
 
-<script language='javascript'>
-	$(document).ready(function() {
-		$('#day').keyup(function() {
-			var day = $('#day').val();
-
-			if (day > 31) {
-				$('#day').val($(this).val().substring(0, 0));
-				alert("31일을 넘게 입력하실 수 없습니다.");
-				$('#day').focus();
-			}
-		})
-	})
-</script>
 
 <script language='javascript'>
 	$(document).ready(function() {
@@ -234,29 +284,4 @@ $(document).ready(function() {
 		}
 	});
 });
-</script>
-
-<script language='javascript'>
-	$(document).ready(function() {
-		$("#checkbox-all").click(function() {
-
-			if ($("#checkbox-all").is(":checked"))
-				$("input[name=checkbox]").prop("checked", true);
-			else
-				$("input[name=checkbox]").prop("checked", false);
-		});
-		// 모두 동의 클릭 or not
-
-		$("input[name=checkbox]").click(function() {
-			var total = $("input[name=checkbox]").length;
-			var checked = $("input[name=checkbox]:checked").length;
-			console.log(total);
-			console.log(checked);
-
-			if (total == checked)
-				$("#checkbox-all").prop("checked", true);
-			else
-				$("#checkbox-all").prop("checked", false);
-		});
-	});
 </script>

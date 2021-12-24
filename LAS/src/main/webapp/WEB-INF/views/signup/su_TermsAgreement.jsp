@@ -133,7 +133,14 @@
 				</div>
 			</div>
 		</div>>
-		<div class="footer">Footer</div>
+		<div class="footer">
+			<a href="#">공지사항</a>
+			<a href="#">문의하기</a>
+			<a href="#">이용약관</a>
+			<a href="#">개인정보</a>
+			<a href="#">처리방침</a>
+			<p>Copyright ⓒ 2022 LG Electronics. All Rights Reserved</p>
+		</div>
 	</div>
 </body>
 </html>
