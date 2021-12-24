@@ -75,10 +75,8 @@ public class DeleteAccountController {
 				deleteAccountvo.setQuit_reason(request.getParameter("reasonOther"));
 				deleteAccountvo.setId(signinProcess.getId());
 				deleteAccountvo.setPw(signinProcess.getPw());
-				deleteAccountvo.setLast_name(signinProcess.getLast_name());
-				deleteAccountvo.setFirst_name(signinProcess.getFirst_name());
+				deleteAccountvo.setName(signinProcess.getName());
 				deleteAccountvo.setBirth(signinProcess.getBirth());
-				deleteAccountvo.setGender(signinProcess.getGender());
 				deleteAccountvo.setPhone(signinProcess.getPhone());
 				deleteAccountvo.setEmail(signinProcess.getEmail());
 				deleteAccountvo.setSignup_date(signinProcess.getSignup_date());

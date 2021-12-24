@@ -33,10 +33,9 @@
 				<div class="content">
 					<p>서비스를 이용하시려면 본인 인증이 필요합니다.</p>
 					<div class="content-form">
-							<!--
-							<form action="welcome" method="get" name="inputform" autocomplete="off" class="input-form">
-							 -->
+							<form action="/identity_verification" method="post" name="inputform" autocomplete="off" class="input-form">
 								<fieldset>
+									<input type="hidden" value="${param.checkboxYN }" name="add_agreement">
 									<div id="fieldset-id" class="fieldset-id">
 										<label for="id">아이디</label>
 										<input type="text" id="id" name="id" autocomplete="off" required="required">
@@ -62,7 +61,7 @@
 									</div>
 									<div id="fieldset-mobile" class="fieldset-mobile">
 										<label for="mobile">휴대폰 번호 (-없이 11자리 입력)</label>
-										<input type="tel" id="mobile" name="mobile" maxlength="11" autocomplete="off" placeholder="예) 01045671234" required="required">
+										<input type="tel" id="mobile" name="phone" maxlength="11" autocomplete="off" placeholder="예) 01045671234" required="required">
 										<label id="fieldset-mobile-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 
@@ -84,9 +83,7 @@
 										<button id="btn_back">뒤로</button>
 										<button type="submit" id="btn_next">다음</button>
 									</div>
-							<!-- 
 							</form>
-							 -->
 					</div>
 				</div>
 			</div>
@@ -120,21 +117,6 @@ function checkID(){
 
 <script language='javascript'>
 $(document).ready(function() {
-	$('#btn_next').click(function() {
-		
-		var signup_id = $('#signup-id').val();
-		var signup_pw = $('#signup-pw').val();
-		var signup_pwcfm = $('#signup-pwcfm').val();
-		
-		
-		/*
-		alert("signup_id =" + signup_id + 
-				"\nsignup_pw =" + signup_pw +
-				"\nsignup_pwcfm =" + signup_pwcfm);
-		*/
-		$(location).attr('href','/welcome');
-	});
-	
 	
 	//유효성 검사 script
 	

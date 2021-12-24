@@ -29,6 +29,7 @@
 		</div>
 		<div class="main">
 			<div class="main-inner">
+						<form method="get" action="/identity_verification" id="identity_verification">
 				<div class="container">
 					<div class="title">
 						<h1>계정 만들기</h1>
@@ -36,11 +37,10 @@
 					<div class="content">
 						<div class="content-checkbox-group">
 							<div>
-								<form method="post">
 									<fieldset>
 										<div>
 											<label><input type="checkbox"
-												id="terms-agreement-service" name="checkbox" value="이용약관"
+												id="terms-agreement-service" name="checkbox"
 												style="overflow-x: hidden"> 이용약관(필수)</label> <label
 												id="terms-agreement-service-lb"> </label>
 										</div>
@@ -57,16 +57,14 @@
 											</div>
 										</div>
 									</fieldset>
-								</form>
 							</div>
 
 							<div>
-								<form method="post">
 									<fieldset>
 										<div>
 											<label><input type="checkbox"
 												id="terms-agreement-personalinfo" name="checkbox"
-												value="개인정보 수집 및 이용"> 개인정보 수집 및 이용(필수)</label> <label
+												> 개인정보 수집 및 이용(필수)</label> <label
 												id="terms-agreement-personalinfo-lb"> </label>
 										</div>
 										<div class="terms-agreement-inner" tabindex="0">
@@ -83,16 +81,14 @@
 											</div>
 										</div>
 									</fieldset>
-								</form>
 							</div>
 
 							<div>
-								<form method="post">
 									<fieldset>
 										<div>
 											<label><input type="checkbox"
-												id="terms-agreement-sns" name="checkbox"
-												value="광고성 정보 수신 ${terms }"> 광고성 정보 수신 동의(선택)</label> <label
+												id="terms-agreement-sns" name="checkboxYN"
+												value="Y"> 광고성 정보 수신 동의(선택)</label> <label
 												id="terms-agreement-sns-lb"> </label>
 										</div>
 										<div class="terms-agreement-inner" tabindex="0">
@@ -109,7 +105,6 @@
 											</div>
 										</div>
 									</fieldset>
-								</form>
 							</div>
 
 							<div class="bar">
@@ -126,11 +121,12 @@
 					</div>
 					<div class="under-content">
 						<div class="under-content-button">
-							<button id="btn_agree">동의</button>
+							<button id="btn_agree" type="submit">동의</button>
 						</div>
 					</div>
 
 				</div>
+						</form>
 			</div>
 		</div>>
 		<div class="footer">
@@ -147,7 +143,7 @@
 
 <script language='javascript'>
 	$(document).ready(function() {
-		$('#btn_agree').click(function() {
+		$('#identity_verification').submit(function() {
 		var terms_agreement_service = $('input:checkbox[id="terms-agreement-service"]').is(":checked");
 		var terms_agreement_personalinfo = $('input:checkbox[id="terms-agreement-personalinfo"]').is(":checked");
 		var terms_agreement_sns = $('input:checkbox[id="terms-agreement-sns"]').is(":checked");
@@ -159,19 +155,15 @@
 		if (terms_agreement_service == false && terms_agreement_personalinfo == true) {
 			alert("서비스 이용약관에 동의 해주세요.");
 			$('#terms-agreement-service').focus();
+			return false;
 		} else if (terms_agreement_personalinfo == false && terms_agreement_service == true) {
 			alert("개인정보 수집 및 이용약관에 동의 해주세요.");
 			$('#terms-agreement-personalinfo').focus();
+			return false;
 		} else if (terms_agreement_personalinfo == false && terms_agreement_service == false) {
 			alert("필수 항목에 동의 해주세요.");
 			$('#terms-agreement-personalinfo').focus();
-		} else {
-			/*
-			alert("terms_agreement_service =" + terms_agreement_service +
-					"\nterms_agreement_personalinfo=" + terms_agreement_personalinfo +
-					"\nterms_agreement_sns=" + terms_agreement_sns);
-			 */
-			$(location).attr('href','/identity_verification');
+			return false;
 		}
 
 	});
@@ -186,21 +178,27 @@
 	$(document).ready(function() {
 		$("#checkbox-all").click(function() {
 
-			if ($("#checkbox-all").is(":checked"))
+			if ($("#checkbox-all").is(":checked")) {
 				$("input[name=checkbox]").prop("checked", true);
-			else
+				$("input[name=checkboxYN]").prop("checked", true);
+				
+			}
+			else {
 				$("input[name=checkbox]").prop("checked", false);
+				$("input[name=checkboxYN]").prop("checked", false);
+			}
 		});
 		// 모두 동의 클릭 or not
 
 		$("input[name=checkbox]").click(function() {
 			var total = $("input[name=checkbox]").length;
 			var checked = $("input[name=checkbox]:checked").length;
-
-			if (total == checked)
+			
+			if (total == checked) {
 				$("#checkbox-all").prop("checked", true);
-			else
-				$("#checkbox-all").prop("checked", false);
+			}else {
+				$("#checkbox-all").prop("checked", false);				
+			}
 		});
 	});
 </script>

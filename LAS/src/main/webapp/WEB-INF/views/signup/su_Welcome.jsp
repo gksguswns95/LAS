@@ -22,7 +22,6 @@
 	<div class="container">
 		<div class="header"><a href="/">L.A.S</a><img alt="btn" src="./img/gnb_btn.png">
 		</div>
-		<div class="nav">Nav</div>
 		<div id="section">
 			<div id="loginBox">
 				<div id="login_header">

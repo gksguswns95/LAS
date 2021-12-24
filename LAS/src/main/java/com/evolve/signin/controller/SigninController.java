@@ -59,11 +59,8 @@ public class SigninController {
 			if(signinProcess.getDel_yn() == 0) {
 				session.setAttribute("user_id", signinProcess.getId());
 				session.setAttribute("user_phone", signinProcess.getPhone());
-				session.setAttribute("user_name", signinProcess.getLast_name()+signinProcess.getFirst_name());
-				session.setAttribute("user_firstName", signinProcess.getFirst_name());
-				session.setAttribute("user_lastName", signinProcess.getLast_name());
+				session.setAttribute("user_name", signinProcess.getName());
 				session.setAttribute("user_birth", signinProcess.getBirth());
-				session.setAttribute("user_gender", signinProcess.getGender());
 				session.setAttribute("user_phone", signinProcess.getPhone());
 				session.setAttribute("user_email", signinProcess.getEmail());
 				session.setAttribute("user_signuptype", signinProcess.getSignup_type());

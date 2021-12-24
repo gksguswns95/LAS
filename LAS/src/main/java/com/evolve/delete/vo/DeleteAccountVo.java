@@ -2,8 +2,7 @@ package com.evolve.delete.vo;
 
 public class DeleteAccountVo {
 	
-	private String id,pw,phone,email,first_name,last_name,birth,signup_date,signup_type,quit_date,disposal_date,quit_reason;
-	private int gender;
+	private String id,pw,phone,email,name,birth,signup_date,signup_type,quit_date,disposal_date,quit_reason;
 
 	public String getQuit_date() {
 		return quit_date;
@@ -27,31 +26,6 @@ public class DeleteAccountVo {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getFirst_name() {
-		return first_name;
-	}
-
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-	public String getLast_name() {
-		return last_name;
-	}
-
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-
-
-	public int getGender() {
-		return gender;
-	}
-
-	public void setGender(int gender) {
-		this.gender = gender;
 	}
 
 	public String getSignup_date() {
@@ -109,6 +83,14 @@ public class DeleteAccountVo {
 
 	public void setQuit_reason(String quit_reason) {
 		this.quit_reason = quit_reason;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 

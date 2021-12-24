@@ -37,10 +37,8 @@
 						<div id="inputArea">
 							<p>아이디<a href="/modifyAccountPassword" id="passwordChange">비밀번호 변경</a></p>
 							<input type="text" name="id" id="id" disabled="disabled" value="${user_id }" required>
-							<p>성</p>
-							<input type="text" name="last_name" id="last_name" value="${user_lastName }" disabled="disabled" required>
 							<p>이름</p>
-							<input type="text" name="first_name" id="first_name" value="${user_firstName }" disabled="disabled" required>
+							<input type="text" name="name" id="name" value="${user_firstName }" disabled="disabled" required>
 							<p>이메일</p>
 							<input type="text" name="email" id="email" value="${user_email }" required <c:if test="${ user_signuptype == 'email'}">disabled="disabled"</c:if>>
 							<p>핸드폰</p>
