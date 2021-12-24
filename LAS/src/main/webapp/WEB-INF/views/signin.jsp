@@ -15,7 +15,7 @@
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="./js/signin/signin.js"></script>
-<script src="./js/pop-layout.js"></script>
+<script src="./js/error.js"></script>
 </head>
 <body>
     <div class="container">
@@ -54,7 +54,8 @@
 						<i class="fa fa-eye fa-lg"></i>
 						<input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required />
 					</div>
-					<p id="faill"></p>
+					<input type="hidden" value="${error }" id='error'>
+					<div id="fail"></div>
 					<input type="submit" class="btn_submit" value="로그인">
 					<input type="button" class="btn_join" value="회원가입">
 					
@@ -78,7 +79,7 @@
 		</div>
 </div>
 
-<div class="layer">
+<!-- <div class="layer">
 	<div class="layerBg"></div>
 	<div class="pop-layer">
 		<div class="pop-container">
@@ -91,6 +92,6 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 </body>
 </html>

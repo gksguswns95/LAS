@@ -48,10 +48,9 @@ $(document).ready(function() {
 	var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 	var reg_phone = /^[0-9]*$/g;
 	var phoneNumerreset = $('#id').val().replaceAll('-','');
-	console.log(phoneNumerreset)
 		if (!reg_email.test(phoneNumerreset)) {
 			if (!reg_phone.test(phoneNumerreset) || (phoneNumerreset.length > 11 || phoneNumerreset.length < 11)) {		
-				alert("핸드폰 번호 또는 이메일을 입력해주세요.");
+				$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");
 				return false;
 			}
 		}
@@ -65,6 +64,7 @@ $(document).ready(function() {
 		$('#id').val(phoneNumerreset);
 	});
 	$('.btn_join').on('click', function(){location.href="/terms_agreement"});
+	
 });
 
 function setCookie(cookieName, value, exdays) {

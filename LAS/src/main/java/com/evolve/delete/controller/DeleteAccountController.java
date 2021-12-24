@@ -60,6 +60,7 @@ public class DeleteAccountController {
 	
 	@PostMapping(value = "/withdrawal")
 	public ModelAndView withdrawal(HttpServletRequest request, HttpServletResponse response, SigninVo signinvo) throws IOException {
+		ModelAndView mv = new ModelAndView();
 		HttpSession session = request.getSession();
 		if(session.getAttribute("user_name") != null && session.getAttribute("user_phone") != null && session.getAttribute("user_id") != null) {
 			signinvo.setId(session.getAttribute("user_id").toString());
@@ -68,7 +69,7 @@ public class DeleteAccountController {
 			SigninVo signinProcess = signService.signinId(signinvo);
 			
 			if(signinProcess != null) {
-				ModelAndView mv = new ModelAndView("deleteAccount/withdrawalSuccess");
+				mv.setViewName("deleteAccount/withdrawalSuccess");
 				System.out.println("회원탈퇴 인증 성공");
 				DeleteAccountVo deleteAccountvo = new DeleteAccountVo();				
 				deleteAccountvo.setQuit_reason(request.getParameter("reasonOther"));
@@ -102,20 +103,13 @@ public class DeleteAccountController {
 				
 				return mv;
 			} else {
-				ModelAndView mv = new ModelAndView("deleteAccount/withdrawal");
-				request.setCharacterEncoding("UTF-8");
-				response.setContentType("text/html; charset=UTF-8");
-				PrintWriter out = response.getWriter();
-				out.println("<script>");
-				out.println("alert('비밀번호 불일치!!');");
-				out.println("</script>");
-				out.flush();
-				
+				mv.setViewName("deleteAccount/withdrawal");
+				mv.addObject("error", "withdrawalAccountError");
 				System.out.println("회원탈퇴 인증 실패");
 				return mv;
 			}
 		} else {
-			ModelAndView mv = new ModelAndView("/login");
+			mv.setViewName("/login");
 			request.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();

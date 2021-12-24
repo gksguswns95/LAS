@@ -16,6 +16,7 @@
 <script src="./js/signin/signin.js"></script>
 <script src="./js/modifyAccount/modify.js"></script>
 <script src="./js/deleteAccount/withdrawal.js"></script>
+<script src="./js/error.js"></script>
 </head>
 <body>
     <div class="container">
@@ -43,6 +44,8 @@
 							<input type="password" name="changePw" id="changePw" required placeholder="비밀번호를 다시한번 입력해주세요.">
 							<p>변경 할 비밀번호확인</p>
 							<input type="password" name="changePwCheck" id="changePwCheck" required placeholder="비밀번호를 다시한번 입력해주세요.">
+							<input type="hidden" value="${error }" id='error'>
+							<div id="fail"></div>
 							<div id="submit_btn">
 								<button type="submit">확인</button>
 								<button type="button" id="cancle_btn">취소</button>

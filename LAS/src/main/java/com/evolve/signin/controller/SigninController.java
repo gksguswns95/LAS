@@ -39,6 +39,7 @@ public class SigninController {
 	public ModelAndView userLogin(HttpSession session,HttpServletRequest request, HttpServletResponse response, SigninVo signvo) throws IOException {
 		System.out.println(signvo.getId());
 		System.out.println(signvo.getPw());
+		ModelAndView mv= new ModelAndView("signin");
 		
 		boolean isNumberic = signvo.getId().matches("^[0-9]*$");
 		if(isNumberic) {
@@ -54,7 +55,7 @@ public class SigninController {
 		PrintWriter out = response.getWriter();
 		
 		if(signinProcess != null) {
-			ModelAndView mv= new ModelAndView("signin");
+			mv.setViewName("signin");
 			if(signinProcess.getDel_yn() == 0) {
 				session.setAttribute("user_id", signinProcess.getId());
 				session.setAttribute("user_phone", signinProcess.getPhone());
@@ -93,15 +94,13 @@ public class SigninController {
 				System.out.println("로그인 성공");		
 			} else {
 				System.out.println("로그인 실패(회원탈퇴)");
-				out.println("<script>");
-				out.println("alert('회원탈퇴하여 로그인이 불가능합니다.');");
-				out.println("</script>");
-				out.flush();
+				mv.setViewName("/signin");
+				mv.addObject("error", "withdrawalAccount");
 			}
 			return mv;
 		} else {
-			ModelAndView mv= new ModelAndView("redirect:/signin?error=login");
-			//request.setAttribute("error", "login");
+			mv.setViewName("/signin");
+			mv.addObject("error", "loginError");
 			System.out.println("로그인 실패(아이디 및 비밀번호 틀림)");
 			return mv;
 		}

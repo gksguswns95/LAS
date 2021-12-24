@@ -1,14 +1,11 @@
 $(document).ready(function() {
-	$('#confirmPasswordCheck').submit(function() {
-		if($('#pw').val() != $('#pwCheck').val()) {
-			$('#fail').text("비밀번호가 틀립니다. 다시입력해주세요.");
-			return false;
-		}
-	});
-	
 	$('#modifyAccountPassword').submit(function() {
 		if($('#changePw').val() != $('#changePwCheck').val()) {
-			$('#fail').text("비밀번호가 틀립니다. 다시입력해주세요.");
+			$('#fail').text("변경하는 비밀번호가 틀립니다. 다시입력해주세요.");
+			return false;
+		}
+		if($('#pw').val() == $('#changePw').val()) {
+			$('#fail').text("변경하는 비밀번호가 현재 비밀번호랑 같습니다. 다시입력해주세요.");
 			return false;
 		}
 	});

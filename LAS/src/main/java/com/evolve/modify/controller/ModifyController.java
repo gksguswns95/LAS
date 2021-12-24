@@ -66,6 +66,7 @@ public class ModifyController {
 	
 	@PostMapping(value = "/confirmAccountPassword")
 	public ModelAndView confirmPasswordCheck(HttpServletRequest request, HttpServletResponse response,ModifyVo modifyvo) throws IOException {
+		ModelAndView mv = new ModelAndView();			
 		HttpSession session = request.getSession();
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("id", session.getAttribute("user_id").toString());
@@ -75,31 +76,42 @@ public class ModifyController {
 		int Accountcount = modifyService.accountModifyConfirmPassword(map);
 		System.out.println("회원정보 비밀번호 확인 완료");
 		if(Accountcount == 1) {
+			mv.setViewName("modifyAccount/modifyAccount");
 			System.out.println("비밀번호 일치!");
-			ModelAndView mv = new ModelAndView("modifyAccount/modifyAccount");			
 			return mv;
 		} else {
-			ModelAndView mv = new ModelAndView("modifyAccount/confirmAccountPassword");						
+			mv.setViewName("modifyAccount/confirmAccountPassword");
+			mv.addObject("error", "passwordConfirmError");
 			return mv;
 		}
 	}
 	
 	@PostMapping(value = "/modifyAccountPassword")
 	public ModelAndView modifyAccountPasswordCheck(HttpServletRequest request, HttpServletResponse response,ModifyVo modifyvo) throws IOException {
+		ModelAndView mv = new ModelAndView();
 		HttpSession session = request.getSession();
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("id", session.getAttribute("user_id").toString());
 		map.put("pw", request.getParameter("pw"));
 		map.put("changePw", request.getParameter("changePw"));
 		if(session.getAttribute("user_id") != null) {
-			ModelAndView mv = new ModelAndView("modifyAccount/modifyAccountSuccess");
-			System.out.println("비밀번호 수정 중...");
-			modifyService.accountModifyPassword(map);
-			System.out.println("비밀번호 수정 완료");
-			session.invalidate();
+			int accountCount = modifyService.accountModifyConfirmPassword(map);
+			System.out.println("accountCount : "+accountCount);
+			if(accountCount == 1) {
+				System.out.println("비밀번호 수정 중...");
+				mv.setViewName("modifyAccount/modifyAccountSuccess");
+				modifyService.accountModifyPassword(map);
+				System.out.println("비밀번호 수정 완료");
+				session.invalidate();								
+			} else {
+				System.out.println("아이디 비밀번호 불일치");
+				mv.addObject("error","passwordModifyError");
+				mv.setViewName("modifyAccount/modifyAccountPassword");				
+			}
 			return mv;
 		} else {
-			ModelAndView mv = new ModelAndView("/signin");
+			mv.setViewName("/signin");
+			System.out.println("로그인이 안되어 있습니다.");
 			return mv;
 		}
 	}

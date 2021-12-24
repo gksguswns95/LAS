@@ -98,14 +98,34 @@ h2 {
 	width: 400px;
 	height: 40px;
 }
+
+
+#fail {
+	display: block;
+	color: red;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	font-size: 15px;
+}
 /*# sourceMappingURL=withdrawal.css.map */
 
 @media only screen and (max-width: 1024px) {
   #section {
     width: 100%;
   }
+  #section #DeleteBox #delete_section {
+  	width: 100%;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  
 }
 
 @media only screen and (max-width: 480px) {
+  
+}
+
+@media only screen and (max-width: 320px) {
   
 }

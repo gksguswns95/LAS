@@ -88,6 +88,50 @@ h2 {
 #fail {
 	display: block;
 	color: red;
+	margin-top: 20px;
 	margin-bottom: 30px;
 	font-size: 18px;
+}
+
+@media only screen and (max-width: 1024px) {
+	#section {
+		width: 100%;
+	}
+	#section #DeleteBox #delete_section {
+		width: calc(100% - 20px);
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	#section {
+		margin-top: 50px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	#section {
+		min-width: 280px;
+		margin-top: 50px;
+	}
+	
+	#section #DeleteBox #delete_section #inputArea > input {
+		font-size: 15px;
+	}
+	
+}
+
+@media only screen and (max-width: 320px) {
+	h2 {
+		font-size: 20px;	
+	}
+	
+	#section #DeleteBox #delete_section #inputArea > p {
+		font-size: 20px;
+	}
+	
+	#section #DeleteBox #delete_section #inputArea > input {
+		height: 35px;
+	}
 }

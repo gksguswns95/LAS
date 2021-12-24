@@ -145,26 +145,44 @@
   margin-right: 15px;
 }
 
+#fail {
+	display: block;
+	color: red;
+	margin-bottom: 30px;
+	font-size: 15px;
+}
+
 @media only screen and (max-width: 850px) {
   .container {
     width: 100%;
   }
-  .container .nav {
+ /*  .container .nav {
     display: none;
-  }
-  .container .header > img {
-    display: block;
-  }
+  } */
 }
 
 @media only screen and (max-width: 480px) {
+  .container .header > img {
+    display: block;
+  }
   .container {
     min-width: 280px;
   }
-  #section {
+  .container #section {
     width: 100%;
     min-width: 280px;
     border: none;
+    margin-top: 50px;
+  }
+  
+  #fail {
+  	font-size: 12px;
+  }
+  
+  .container #section #loginBox #find {
+  	width: 100%;
+  	display: flex;
+  	justify-content: space-around;
   }
 }
 /*# sourceMappingURL=login.css.map */

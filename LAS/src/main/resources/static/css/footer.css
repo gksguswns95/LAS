@@ -18,4 +18,23 @@
 .footer a:last-of-type {
 	margin-right: 0;	
 }
+
+@media only screen and (max-width: 480px) {
+	.footer {
+		min-width: 280px;
+		line-height: 80px;
+	}
+	
+	.footer a {
+		display: none;
+	}	
+}
+
+@media only screen and (max-width: 380px) {
+	.footer {
+		font-size: 11px;
+	}
+	
+}
+
 /*# sourceMappingURL=footer.css.map */

@@ -26,7 +26,7 @@ $(document).ready(function() {
 		location.href='/';
 	});
 	
-	$('#reasonwithdrawal').submit(function() {
+	$('#withdrawalAccount').submit(function() {
 		if (!confirm("정말로 회원 탈퇴를 하시겠습니까?")) {
 			return false;
 		}

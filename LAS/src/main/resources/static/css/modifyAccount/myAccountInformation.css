@@ -29,3 +29,18 @@
 	font-size: 20px;
 	margin-top: 30px;
 }
+
+@media only screen and (max-width: 850px) {
+	#login_section > p {
+		font-size: 15px;
+	}
+	
+	#login_section p > input {
+		width: 150px;
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+
+}
