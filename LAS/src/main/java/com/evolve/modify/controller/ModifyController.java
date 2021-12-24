@@ -102,7 +102,6 @@ public class ModifyController {
 				mv.setViewName("modifyAccount/modifyAccountSuccess");
 				modifyService.accountModifyPassword(map);
 				System.out.println("비밀번호 수정 완료");
-				session.invalidate();								
 			} else {
 				System.out.println("아이디 비밀번호 불일치");
 				mv.addObject("error","passwordModifyError");

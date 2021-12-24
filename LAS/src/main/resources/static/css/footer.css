@@ -15,6 +15,10 @@
 	margin-right: 27px;
 }
 
+#bold {
+	font-weight: 700;
+}
+
 .footer a:last-of-type {
 	margin-right: 0;	
 }

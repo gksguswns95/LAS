@@ -7,7 +7,7 @@
 	</insert>
 	
 	<select id="memberSeqSelect" parameterType="String" resultType="int">
-		select seq from las_member where id = #{id}
+		select Count(*) as count from las_member where id = #{id}
 	</select>
 	
 	<insert id="agreementInsert" parameterType="hashmap">

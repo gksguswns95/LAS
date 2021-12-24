@@ -38,7 +38,7 @@
 							<p>아이디<a href="/modifyAccountPassword" id="passwordChange">비밀번호 변경</a></p>
 							<input type="text" name="id" id="id" disabled="disabled" value="${user_id }" required>
 							<p>이름</p>
-							<input type="text" name="name" id="name" value="${user_firstName }" disabled="disabled" required>
+							<input type="text" name="name" id="name" value="${user_name }" disabled="disabled" required>
 							<p>이메일</p>
 							<input type="text" name="email" id="email" value="${user_email }" required <c:if test="${ user_signuptype == 'email'}">disabled="disabled"</c:if>>
 							<p>핸드폰</p>
@@ -56,9 +56,8 @@
 			<a href="#">공지사항</a>
 			<a href="#">문의하기</a>
 			<a href="#">이용약관</a>
-			<a href="#">개인정보</a>
-			<a href="#">처리방침</a>
-			<p>Copyright ⓒ 2022 LG Electronics. All Rights Reserved</p>
+			<a href="#" id="bold">개인정보 처리방침</a>
+			<p>Copyright ⓒ 2022 EvolveSoft</p>
 		</div>
 	</div>
 </body>

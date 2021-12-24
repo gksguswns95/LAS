@@ -92,7 +92,7 @@ public class SigninController {
 			} else {
 				System.out.println("로그인 실패(회원탈퇴)");
 				mv.setViewName("/signin");
-				mv.addObject("error", "withdrawalAccount");
+				mv.addObject("error", "loginError");
 			}
 			return mv;
 		} else {

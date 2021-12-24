@@ -40,9 +40,9 @@
 							<input type="text" name="id" id="id" disabled="disabled" value="${user_id }" required>
 							<p>현재 비밀번호</p>
 							<input type="password" name="pw" id="pw" required placeholder="비밀번호를 입력해주세요.">
-							<p>변경 할 비밀번호</p>
+							<p>새로운 비밀번호</p>
 							<input type="password" name="changePw" id="changePw" required placeholder="비밀번호를 다시한번 입력해주세요.">
-							<p>변경 할 비밀번호확인</p>
+							<p>새로운 비밀번호확인</p>
 							<input type="password" name="changePwCheck" id="changePwCheck" required placeholder="비밀번호를 다시한번 입력해주세요.">
 							<input type="hidden" value="${error }" id='error'>
 							<div id="fail"></div>
@@ -59,9 +59,8 @@
 			<a href="#">공지사항</a>
 			<a href="#">문의하기</a>
 			<a href="#">이용약관</a>
-			<a href="#">개인정보</a>
-			<a href="#">처리방침</a>
-			<p>Copyright ⓒ 2022 LG Electronics. All Rights Reserved</p>
+			<a href="#" id="bold">개인정보 처리방침</a>
+			<p>Copyright ⓒ 2022 EvolveSoft</p>
 		</div>
 	</div>
 </body>

@@ -1,13 +1,13 @@
 $(document).ready(function() {
 	
 	$('#delete_section i').on('click', function() {
-		$('#passwd').toggleClass('active');
-		if ($('#passwd').hasClass('active')) {
+		$('#pw').toggleClass('active');
+		if ($('#pw').hasClass('active')) {
 			$(this).attr('class', "fa fa-eye-slash fa-lg");
-			$('#passwd').attr('type', "text");
+			$('#pw').attr('type', "text");
 		} else {
 			$(this).attr('class', "fa fa-eye fa-lg");
-			$('#passwd').attr('type', 'password');
+			$('#pw').attr('type', 'password');
 		}
 	});
 

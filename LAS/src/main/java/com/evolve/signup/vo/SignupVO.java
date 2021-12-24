@@ -1,7 +1,7 @@
 package com.evolve.signup.vo;
 
 public class SignupVO {
-	private String id,pw,email,phone,last_name,birth;
+	private String id,pw,email,phone,name,birth;
 
 	public String getId() {
 		return id;
@@ -35,20 +35,20 @@ public class SignupVO {
 		this.phone = phone;
 	}
 
-	public String getLast_name() {
-		return last_name;
-	}
-
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-
 	public String getBirth() {
 		return birth;
 	}
 
 	public void setBirth(String birth) {
 		this.birth = birth;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	
