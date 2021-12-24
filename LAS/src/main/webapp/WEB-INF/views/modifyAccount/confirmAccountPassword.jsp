@@ -32,19 +32,16 @@
 		<div id="section">
 			<div id="DeleteBox">
 				<div id="delete_section">
-					<h2>회원정보수정 - 개인정보수정</h2>
-					<form action="/modifyAccount" method="post" id="modifyAccount">
+					<h2>회원정보수정 - 비밀번호확인</h2>
+					<form action="/confirmAccountPassword" method="post" id="confirmPasswordCheck">
 						<div id="inputArea">
-							<p>아이디<a href="/modifyAccountPassword" id="passwordChange">비밀번호 변경</a></p>
+							<p>아이디</p>
 							<input type="text" name="id" id="id" disabled="disabled" value="${user_id }" required>
-							<p>성</p>
-							<input type="text" name="last_name" id="last_name" value="${user_lastName }" disabled="disabled" required>
-							<p>이름</p>
-							<input type="text" name="first_name" id="first_name" value="${user_firstName }" disabled="disabled" required>
-							<p>이메일</p>
-							<input type="text" name="email" id="email" value="${user_email }" required <c:if test="${ user_signuptype == 'email'}">disabled="disabled"</c:if>>
-							<p>핸드폰</p>
-							<input type="text" name="phone" id="phone" value="${user_phone }" required <c:if test="${ user_signuptype == 'phone'}">disabled="disabled"</c:if>>
+							<p>비밀번호</p>
+							<input type="password" name="pw" id="pw" required placeholder="비밀번호를 입력해주세요.">
+							<p>비밀번호확인</p>
+							<input type="password" name="pwCheck" id="pwCheck" required placeholder="비밀번호를 다시한번 입력해주세요.">
+							<span id="fail"></span>
 							<div id="submit_btn">
 								<button type="submit">확인</button>
 								<button type="button" id="cancle_btn">취소</button>

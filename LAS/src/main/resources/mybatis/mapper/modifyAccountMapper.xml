@@ -5,6 +5,14 @@
 		UPDATE las_member SET update_date = now()
 		<if test="phone != null">,phone = #{phone}</if> 
 		<if test="email != null">,email = #{email}</if> 
-		WHERE id = #{id} and pw = sha2(#{pw},256)
+		WHERE id = #{id}
+	</update>
+	
+	<select id="accountModifyConfirmPassword" parameterType="hashmap" resultType="int">
+		select COUNT(*) as count from las_member WHERE id = #{id} and pw = sha2(#{pw},256)
+	</select>
+	
+	<update id="accountModifyPassword" parameterType="hashmap">
+		UPDATE las_member SET pw = sha2(#{changePw},256) WHERE id = #{id} and pw = sha2(#{pw},256)
 	</update>
 </mapper>

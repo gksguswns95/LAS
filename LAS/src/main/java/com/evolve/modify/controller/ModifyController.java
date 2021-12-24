@@ -34,14 +34,22 @@ public class ModifyController {
 		return "/modifyAccount/modifyAccount";
 	}
 	
+	@GetMapping(value = "/confirmAccountPassword")
+	public String confirmPassword() {
+		return "/modifyAccount/confirmAccountPassword";
+	}
+	
+	@GetMapping(value = "/modifyAccountPassword")
+	public String modifyAccountPassword() {
+		return "/modifyAccount/modifyAccountPassword";
+	}
+	
 	@PostMapping(value = "/modifyAccount")
 	public ModelAndView accountModify(HttpServletRequest request, HttpServletResponse response,ModifyVo modifyvo) throws IOException {
 		ModelAndView mv = new ModelAndView("modifyAccount/modifyAccountSuccess");
 		HttpSession session = request.getSession();
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("id", session.getAttribute("user_id").toString());
-		map.put("pw", modifyvo.getPw());
-		System.out.println(modifyvo.getPw());
 		if(session.getAttribute("user_signuptype").toString().equals("email")) {
 			map.put("phone",modifyvo.getPhone());
 		}
@@ -54,6 +62,46 @@ public class ModifyController {
 		modifyService.accountModify(map);
 		System.out.println("회원정보 수정 완료");
 		return mv;
+	}
+	
+	@PostMapping(value = "/confirmAccountPassword")
+	public ModelAndView confirmPasswordCheck(HttpServletRequest request, HttpServletResponse response,ModifyVo modifyvo) throws IOException {
+		HttpSession session = request.getSession();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", session.getAttribute("user_id").toString());
+		map.put("pw", request.getParameter("pw"));
+		
+		System.out.println("회원정보 비밀번호 확인 중...");
+		int Accountcount = modifyService.accountModifyConfirmPassword(map);
+		System.out.println("회원정보 비밀번호 확인 완료");
+		if(Accountcount == 1) {
+			System.out.println("비밀번호 일치!");
+			ModelAndView mv = new ModelAndView("modifyAccount/modifyAccount");			
+			return mv;
+		} else {
+			ModelAndView mv = new ModelAndView("modifyAccount/confirmAccountPassword");						
+			return mv;
+		}
+	}
+	
+	@PostMapping(value = "/modifyAccountPassword")
+	public ModelAndView modifyAccountPasswordCheck(HttpServletRequest request, HttpServletResponse response,ModifyVo modifyvo) throws IOException {
+		HttpSession session = request.getSession();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", session.getAttribute("user_id").toString());
+		map.put("pw", request.getParameter("pw"));
+		map.put("changePw", request.getParameter("changePw"));
+		if(session.getAttribute("user_id") != null) {
+			ModelAndView mv = new ModelAndView("modifyAccount/modifyAccountSuccess");
+			System.out.println("비밀번호 수정 중...");
+			modifyService.accountModifyPassword(map);
+			System.out.println("비밀번호 수정 완료");
+			session.invalidate();
+			return mv;
+		} else {
+			ModelAndView mv = new ModelAndView("/signin");
+			return mv;
+		}
 	}
 	
 

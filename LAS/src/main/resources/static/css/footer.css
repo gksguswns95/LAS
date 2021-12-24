@@ -1,11 +1,21 @@
 .footer {
   width: 100%;
   height: 80px;
-  line-height: 80px;
-  font-size: 27px;
+  line-height: 38px;
+  font-size: 15px;
   background-color: #000;
   color: #fff;
   text-align: center;
   position: absolute;
+}
+
+.footer a {
+	color: #fff;
+	text-decoration: none;
+	margin-right: 27px;
+}
+
+.footer a:last-of-type {
+	margin-right: 0;	
 }
 /*# sourceMappingURL=footer.css.map */

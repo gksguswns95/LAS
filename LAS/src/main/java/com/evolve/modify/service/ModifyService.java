@@ -19,4 +19,12 @@ public class ModifyService {
 		mapper.accountModify(map);
 	}
 
+	public int accountModifyConfirmPassword(HashMap<String, Object> map) {
+		return mapper.accountModifyConfirmPassword(map);
+	}
+
+	public void accountModifyPassword(HashMap<String, Object> map) {
+		mapper.accountModifyPassword(map);
+	}
+
 }

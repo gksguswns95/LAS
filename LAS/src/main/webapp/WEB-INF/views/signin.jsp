@@ -20,7 +20,7 @@
 <body>
     <div class="container">
     <div class="header">
-    	<a href="/">Evolve</a>
+    	<a href="/">L.A.S</a>
     	<div class="signinMenu">
 	    	<c:if test="${user_name != null}">
 				<a href="./signout">로그아웃</a>
@@ -33,7 +33,7 @@
 			<div id="loginBox">
 				<div id="login_header">
 					<c:if test="${user_name != null}">
-						<h2>${user_name }님 로그인 성공</h2>
+						<h2>${user_name }님 환영합니다.</h2>
 						<input type="hidden" value="${user_id }" id="hiddenUserId">
 					</c:if>
 					<c:if test="${user_name == null}">
@@ -54,6 +54,7 @@
 						<i class="fa fa-eye fa-lg"></i>
 						<input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required />
 					</div>
+					<p id="faill"></p>
 					<input type="submit" class="btn_submit" value="로그인">
 					<input type="button" class="btn_join" value="회원가입">
 					
@@ -67,7 +68,14 @@
 				</div>
 			</div>
 	</div>
-	<div class="footer">Footer</div>	
+	<div class="footer">
+			<a href="#">공지사항</a>
+			<a href="#">문의하기</a>
+			<a href="#">이용약관</a>
+			<a href="#">개인정보</a>
+			<a href="#">처리방침</a>
+			<p>Copyright ⓒ 2022 LG Electronics. All Rights Reserved</p>
+		</div>
 </div>
 
 <div class="layer">

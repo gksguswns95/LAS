@@ -1,14 +1,15 @@
 $(document).ready(function() {
 	var urlParam = location.search.substr(location.search.indexOf("?") + 1);
 	var paramArr = urlParam.split('=');
-	console.log(urlParam);
-	console.log(urlParam.split('='));
 	if(paramArr[0] == 'error' && paramArr[1] == 'login') {
 		$('.layer').fadeIn();
+		$('#faill').text("아이디 또는 비밀번호가 잘못 입력 되었습니다.");
+		$('#faill').css('color','red');
 	}
 	
 	$('.btn-layerClose').on('click',function() {
 		$('.layer').fadeOut();
-	})
+	});
+	
 
 });

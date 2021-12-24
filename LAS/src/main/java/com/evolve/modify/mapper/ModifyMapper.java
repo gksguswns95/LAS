@@ -10,5 +10,7 @@ import com.evolve.modify.vo.ModifyVo;
 @Repository 
 @Mapper 
 public interface ModifyMapper {
-	void accountModify(HashMap<String, Object> map); 
+	void accountModify(HashMap<String, Object> map);
+	int accountModifyConfirmPassword(HashMap<String, Object> map);
+	void accountModifyPassword(HashMap<String, Object> map); 
 }
