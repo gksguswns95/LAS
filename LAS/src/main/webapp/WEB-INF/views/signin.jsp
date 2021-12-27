@@ -55,6 +55,7 @@
 						<input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required />
 					</div>
 					<input type="hidden" value="${error }" id='error'>
+					<div id="capslock">CapsLock이 켜져있습니다.</div>
 					<div id="fail"></div>
 					<input type="submit" class="btn_submit" value="로그인">
 					<input type="button" class="btn_join" value="회원가입">

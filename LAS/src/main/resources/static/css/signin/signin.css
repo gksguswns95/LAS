@@ -145,11 +145,15 @@
   margin-right: 15px;
 }
 
-#fail {
+#fail,#capslock {
 	display: block;
 	color: red;
 	margin-bottom: 30px;
 	font-size: 15px;
+}
+
+#capslock {
+	display: none;
 }
 
 @media only screen and (max-width: 850px) {
@@ -175,7 +179,7 @@
     margin-top: 50px;
   }
   
-  #fail {
+  #fail,#capslock {
   	font-size: 12px;
   }
   

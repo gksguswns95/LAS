@@ -52,10 +52,12 @@ public class ModifyController {
 		map.put("id", session.getAttribute("user_id").toString());
 		if(session.getAttribute("user_signuptype").toString().equals("email")) {
 			map.put("phone",modifyvo.getPhone());
+			session.setAttribute("user_phone", modifyvo.getPhone());
 		}
 		
 		if(session.getAttribute("user_signuptype").toString().equals("phone")) {
 			map.put("email",modifyvo.getEmail());
+			session.setAttribute("user_email", modifyvo.getEmail());
 		}
 		
 		System.out.println("회원정보 수정 중...");

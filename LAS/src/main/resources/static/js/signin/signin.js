@@ -5,7 +5,7 @@ $(document).ready(function() {
 	if ($("#idCheck").val() != "") {
 		$("#idCheck").attr("checked", true);
 	}
-	
+
 	$('#login_section i').on('click', function() {
 		$('#pw').toggleClass('active');
 		if ($('#pw').hasClass('active')) {
@@ -29,32 +29,32 @@ $(document).ready(function() {
 		var reg_phone = /^[0-9]*$/g;
 		var number = $('#id').val();
 		var phoneNumber = "";
-		
-		if(reg_phone.test(number) && first_phone.test(number) && number.length == 11) {
-			phoneNumber += number.substring(0,3);
+
+		if (reg_phone.test(number) && first_phone.test(number) && number.length == 11) {
+			phoneNumber += number.substring(0, 3);
 			phoneNumber += '-';
-			phoneNumber += number.substring(3,7);
+			phoneNumber += number.substring(3, 7);
 			phoneNumber += '-';
-			phoneNumber += number.substring(7,11);
+			phoneNumber += number.substring(7, 11);
 			$('#id').val(phoneNumber);
 		}
 	});
-	
-	if($('#hiddenUserId').val() != null) {
-		$('#section').css('border','none');
+
+	if ($('#hiddenUserId').val() != null) {
+		$('#section').css('border', 'none');
 	}
-	
+
 	$('#submit').submit(function() {
-	var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-	var reg_phone = /^[0-9]*$/g;
-	var phoneNumerreset = $('#id').val().replaceAll('-','');
+		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+		var reg_phone = /^[0-9]*$/g;
+		var phoneNumerreset = $('#id').val().replaceAll('-', '');
 		if (!reg_email.test(phoneNumerreset)) {
-			if (!reg_phone.test(phoneNumerreset) || (phoneNumerreset.length > 11 || phoneNumerreset.length < 11)) {		
+			if (!reg_phone.test(phoneNumerreset) || (phoneNumerreset.length > 11 || phoneNumerreset.length < 11)) {
 				$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");
 				return false;
 			}
 		}
-		
+
 		if ($("#idCheck").is(":checked")) {
 			var userID = $("#id").val();
 			setCookie("userID", userID, 7);
@@ -63,8 +63,37 @@ $(document).ready(function() {
 		}
 		$('#id').val(phoneNumerreset);
 	});
-	$('.btn_join').on('click', function(){location.href="/terms_agreement"});
-	
+	$('.btn_join').on('click', function() { location.href = "/terms_agreement" });
+
+	$('.login').on('keypress', function(e) {
+		var keyCode = 0;
+		var shiftKey = false;
+		keyCode = e.keyCode;
+		shiftKey = e.shiftKey;
+		if ((keyCode >= 65 && keyCode <= 90) && !shiftKey) {
+			$("#capslock").show();
+			if ($('#fail').text() != '') {
+				$(".container #section").css('height', '580px');
+			} else {
+				$(".container #section").css('height', '510px');
+			}
+			setTimeout(function() {
+				if ($('#fail').text() != '') {
+					$(".container #section").css('height', '520px');
+				} else {
+					$(".container #section").css('height', '450px');
+				}
+				$("#capslock").hide();
+			},3500);
+		} else {
+			if ($('#fail').text() != '') {
+				$(".container #section").css('height', '520px');
+			} else {
+				$(".container #section").css('height', '450px');
+			}
+			$("#capslock").hide();
+		}
+	});
 });
 
 function setCookie(cookieName, value, exdays) {
@@ -93,3 +122,8 @@ function getCookie(cookieName) {
 	}
 	return unescape(cookieValue);
 }
+
+function capslackCheck(e) {
+
+}
+
