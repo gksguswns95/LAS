@@ -31,19 +31,20 @@
 					<h1>계정 생성</h1>
 				</div>
 				<div class="content">
-					<p>서비스를 이용하시려면 본인 인증이 필요합니다.</p>
+					
 					<div class="content-form">
-							<form action="/identity_verification" method="post" name="inputform" autocomplete="off" class="input-form">
+							<form action="/identity_verification" method="post" id="intput-form" name="input-form" autocomplete="off" class="input-form">
 								<fieldset>
 									<input type="hidden" value="${param.checkboxYN }" name="add_agreement">
 									<div id="fieldset-id" class="fieldset-id">
 										<label for="id">아이디</label>
-										<input type="text" id="id" name="id" autocomplete="off" required="required">
+										<input type="text" id="id" name="id" autocomplete="off" required="required" placeholder="이메일 또는 핸드폰 번호를 입력해주세요.">
 										<label id="fieldset-id-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 
 									<div id="fieldset-pw" class="fieldset-pw">
 										<label for="pw">비밀번호</label>
+										<span>(최소 8자~16자 및 특수,영문,숫자 1개 포함)</span>
 										<input type="password" id="pw" name="pw" autocomplete="off" required="required">
 										<label id="fieldset-pw-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
@@ -56,7 +57,7 @@
 
 									<div id="fieldset-email" class="fieldset-email" >
 										<label for="email">이메일</label>
-										<input type="email" id="email" name="email" autocomplete="off" required="required">
+										<input type="email" id="email" name="email" autocomplete="off" required="required" placeholder="예) test@test.com">
 										<label id="fieldset-email-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 									<div id="fieldset-mobile" class="fieldset-mobile">
@@ -73,7 +74,7 @@
 
 									<div id="fieldset-birth" class="fieldset-birth">
 										<label for="birth">생년월일</label>
-										<input type="text" class="birth" id="birth" name="birth" maxlength="8" autocomplete="off" placeholder="예) 19990113" required="required">
+										<input type="number" class="birth" id="birth" name="birth" maxlength="8" autocomplete="off" placeholder="예) 19990113" required="required">
 										<label id="fieldset-birth-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 									
@@ -119,29 +120,67 @@ $(document).ready(function() {
 	
 	//유효성 검사 script
 	
-	$('#id').on('focusout', function(){
-		var id = $('#id').val().length;
-		if(id < 5  || id > 30){
-			$('#fieldset-id-error').text('5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.');
-		}
-		if(id == 0){
-			$('#fieldset-id-error').text('필수 입력 사항입니다.');
-		}
-	});
+	$('#id').on('focusout', function() {
+		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+		var reg_phone = /^[0-9]*$/g;
+		var id = $('#id').val();
+		
+		var phoneNumerreset = $('#id').val().replaceAll('-','');
+		
+			if(id == 0){
+				$('#fieldset-id-error').text('필수 입력 사항입니다.');
+			}
+			if (reg_email.test(phoneNumerreset)) {
+				$('#fieldset-id-error').css({"color":"green"});
+				$('#fieldset-id-error').text('이메일 입니다.');
+				$('#email').val(id);
+				$('#email').prop("disabled",true);
+				$('#mobile').prop("disabled",false);
+				$('#mobile').val('');
+			}
+			else if(reg_phone.test(phoneNumerreset) && (phoneNumerreset.length == 11)&& phoneNumerreset.substring(0,3)=='010') {
+				$('#fieldset-id-error').css({"color":"green"});
+				$('#fieldset-id-error').text("핸드폰 번호 입니다.");
+				$('#id').val(phoneNumerreset);
+				$('#mobile').val(phoneNumerreset);
+				$('#mobile').prop("disabled",true);
+				$('#email').prop("disabled",false);
+				$('#email').val('');
+			}else{
+				$('#fieldset-id-error').text("핸드폰 번호 또는 이메일을 입력해주세요.");
+				$('#fieldset-id-error').css({"color":"red"});
+				$('#mobile').prop("disabled",false);
+				$('#email').prop("disabled",false);
+				$('#mobile').val('');
+				$('#email').val('');
+				
+			}
+		});
+	
 	
 	$('#pw').on('focusout', function(){
-		var pw = $('#pw').val().length;
-		if(pw < 8  || pw > 17){
+		//var reg_pw = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
+		var reg_pw = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/g;
+		var pw = $('#pw').val();
+			
+		if(!reg_pw.test(pw)){
+			$('#fieldset-pw-error').css({"color":"red"});
 			$('#fieldset-pw-error').text('8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.');
+			$('#fieldset-pwcfm-error').text('입력하신 비밀번호와 다릅니다. 비밀번호를 다시 확인해주세요.');
+			$('#fieldset-pwcfm-error').css({"color":"red"});
+		}else{
+			$('#fieldset-pw-error').css({"color":"green"});
+			$('#fieldset-pw-error').text('사용 가능한 비밀번호 입니다.');
+			$('#fieldset-pwcfm-error').text('입력하신 비밀번호와 다릅니다. 비밀번호를 다시 확인해주세요.');
+			$('#fieldset-pwcfm-error').css({"color":"red"});
 		}
 	});
 	
 	$('#pwcfm').on('focusout', function(){
 		var pw = $('#pw').val();
 		var pwcfm = $('#pwcfm').val();
-		
-		console.log(pw);
-		console.log(pwcfm);
+		var pwnone = $('#pw').val().length;
+		var pwcfmnone = $('#pwcfm').val().length;
 		
 		if(pw != pwcfm){
 			$('#fieldset-pwcfm-error').text('입력하신 비밀번호와 다릅니다. 비밀번호를 다시 확인해주세요.');
@@ -151,45 +190,70 @@ $(document).ready(function() {
 			$('#fieldset-pwcfm-error').text('비밀번호가 동일합니다.');
 			$('#fieldset-pwcfm-error').css({"color":"green"});
 		}
+		if(pwnone == 0 && pwcfmnone == 0){
+			$('#fieldset-pwcfm-error').text('비밀번호를 입력해주세요.');
+			$('#fieldset-pwcfm-error').css({"color":"red"});
+		}
 	});
 	
-	
-	
-	// 여기서부터 퇴근
-	//
-	// 여기서부터 퇴근
-	//
-	// 여기서부터 퇴근
-	//
-	
 	$('#email').on('focusout', function(){
-		var email = $('#email').val().length;
-		if(email < 8  || email > 17){
-			$('#fieldset-email-error').text('이메일 형식을 다시 확인해주세요');
+		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+		var email = $('#email').val();
+		
+		if (reg_email.test(email)) {
+			$('#fieldset-email-error').css({"color":"green"});
+			$('#fieldset-email-error').text('이메일 입니다.');
+		}else{
+			$('#fieldset-email-error').css({"color":"red"});
+			$('#fieldset-email-error').text('이메일 형식이 아닙니다.');
 		}
 	});
 	
 	$('#mobile').on('focusout', function(){
-		var mobile = $('#mobile').val().length;
-		if(mobile < 8  || mobile > 17){
-			$('#fieldset-mobile-error').text('핸드폰 번호 11자리를 정확하게 입력해주세요.');
+		var reg_mobile = /^010[0-9]*$/g;
+		var mobile = $('#mobile').val();
+		
+		if (reg_mobile.test(mobile)) {
+			$('#fieldset-mobile-error').css({"color":"green"});
+			$('#fieldset-mobile-error').text('사용가능한 핸드폰 번호입니다.');
+		}else{
+			$('#fieldset-mobile-error').css({"color":"red"});
+			$('#fieldset-mobile-error').text('핸드폰 번호 11자릿수를 정확하게 입력해주세요.');
 		}
 	});
 	
 	$('#name').on('focusout', function(){
-		var name = $('#pw').val().length;
-		if(name < 8  || name > 17){
+		var name = $('#name').val().length;
+		
+		if(name < 2){
+			$('#fieldset-name-error').css({"color":"red"});
 			$('#fieldset-name-error').text('필수 입력 사항입니다.');
+			return false;
+		}else{
+			$('#fieldset-name-error').css({"color":"green"});
+			$('#fieldset-name-error').text('확인되었습니다.');
 		}
 	});
 	
+	
 	$('#birth').on('focusout', function(){
 		var birth = $('#birth').val().length;
-		if(birth < 8  || birth > 17){
+		if(birth == 8){
+			$('#fieldset-birth-error').css({"color":"green"});
+			$('#fieldset-birth-error').text('확인되었습니다.');
+		}else{
+			$('#fieldset-birth-error').css({"color":"red"});
 			$('#fieldset-birth-error').text('태어난 년도 8자리를 정확하게 입력해주세요.');
 		}
 	});
 	
+	
+	$('#submit').submit(function() {
+		if($('#fieldset-id-error').text().equals("핸드폰 번호 또는 이메일을 입력해주세요.")){
+			return false;
+		}
+		
+	});
 });
 </script>
 
@@ -264,5 +328,8 @@ $(document).ready(function() {
 			 */
 		}
 	});
+		
+		
+		
 });
 </script>
