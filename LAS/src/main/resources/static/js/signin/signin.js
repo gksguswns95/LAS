@@ -50,6 +50,7 @@ $(document).ready(function() {
 		var phoneNumerreset = $('#id').val().replaceAll('-', '');
 		if (!reg_email.test(phoneNumerreset)) {
 			if (!reg_phone.test(phoneNumerreset) || (phoneNumerreset.length > 11 || phoneNumerreset.length < 11)) {
+				$(".container #section").css('height', '520px');
 				$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");
 				return false;
 			}
@@ -121,9 +122,5 @@ function getCookie(cookieName) {
 		cookieValue = cookieData.substring(start, end);
 	}
 	return unescape(cookieValue);
-}
-
-function capslackCheck(e) {
-
 }
 
