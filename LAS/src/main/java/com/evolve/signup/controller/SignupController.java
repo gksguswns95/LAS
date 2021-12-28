@@ -37,9 +37,6 @@ public class SignupController {
 		mv.setViewName("signup/su_IdentityVerification");
 		mv.addObject("checkbox",request.getParameter("checkboxYN"));
 		HttpSession session = request.getSession();
-//		String terms = (String)session.getAttribute("terms");
-//		session.setAttribute("terms", terms);
-//		System.out.println(terms);
 		System.out.println(request.getParameter("checkboxYN"));
 		
 		
@@ -50,9 +47,13 @@ public class SignupController {
 	public ModelAndView identity_verification_Create(HttpServletRequest requset,SignupVO signupvo) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("signup/su_Welcome");
+		System.out.println(signupvo.getSignup_type());
+		
 		if(signupvo.getId() != null && signupvo.getPw() != null) {
+			
 			//아이디 중복 확인
 			int duplicateId = signupService.memberSeqSelect(signupvo.getId());
+			
 			if(duplicateId == 0) {
 				//회원가입
 				signupService.signupInsert(signupvo);
@@ -69,6 +70,7 @@ public class SignupController {
 				mv.setViewName("signup/su_IdentityVerification");
 			}
 		}
+		
 		
 		return mv;
 	}

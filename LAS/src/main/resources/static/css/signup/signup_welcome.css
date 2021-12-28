@@ -1,22 +1,44 @@
+.header{
+	margin-bottom: 240px;
+}
+
 .container #section {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 15px 0 15px;
     margin-top: 100px;
     width: 480px;
-    height: 450px;
+    height: 300px;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid #ddd;
 }
 
-#btn_main {
+.container #section #WelcomeBox {
+    width: 100%;
+    height: 100%;
+}
+
+.container #section #WelcomeBox #Welcome_header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 27px;
+  margin-top: 20px;
+}
+
+.container #section #WelcomeBox #Welcome_body {
+  text-align: center;
+  margin-top: 55px;
+}
+
+.container #section #WelcomeBox #Welcome_body #btn_main {
+	margin-top: 50px;
 	border: none;
 	border-radius: 50px;
-	width: 150px;
+	width: 300px;
 	height: 40px;
 	font-size: 18px;
-	font-weight: 1000;
+	font-weight: 700;
 	color:#fff;
 	text-align: center;
 	background-color: #343a40;

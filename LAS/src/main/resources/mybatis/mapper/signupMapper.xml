@@ -1,32 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.evolve.signup.mapper.SignupMapper"> 
+	
 	<insert id="signupInsert" parameterType="com.evolve.signup.vo.SignupVO">
-		INSERT INTO las_member (id, pw, name, birth, phone, email, signup_date, signup_type, update_date)
-	VALUES (#{id},sha2(#{pw},256),#{name}, #{birth}, #{phone}, #{email}, now(), 'email', NOW())
+		INSERT INTO las_member 
+		(
+			id,
+			pw,
+			name,
+			birth,
+			phone,
+			email,
+			signup_date,
+			signup_type,
+			update_date
+		)
+		VALUES
+		(
+			#{id},
+			sha2(#{pw},256),
+			#{name},
+			#{birth},
+			#{phone},
+			#{email},
+			now(), 
+			#{signup_type}, 
+			NOW()
+		)
 	</insert>
 	
 	<select id="memberSeqSelect" parameterType="String" resultType="int">
-		select Count(*) as count from las_member where id = #{id}
+		select Count(*) as count 
+		from 
+		las_member
+		where id = #{id}
 	</select>
 	
 	<insert id="agreementInsert" parameterType="hashmap">
 		INSERT INTO las_essential_ta (
-		member_seq,
-		agreed_name,
-		 agreed,
-		  greed_time
+			member_seq,
+			agreed_name,
+			agreed,
+			 greed_time
+		)
+		VALUES 
+		(
+			#{memberSeq}, 
+			#{name},
+			 1, 
+			 NOW()
 		 )
-		VALUES (#{memberSeq},#{name}, 1, NOW())
 	</insert>
 	
 	<insert id="optionalInsert" parameterType="hashmap">
 		INSERT INTO las_optional_ta (
-		member_seq,
-		optional_rule_name,
-		 agreed,
-		  greed_time
+			member_seq,
+			optional_rule_name,
+		 	agreed,
+		  	greed_time
 		 )
-		VALUES (#{memberSeq},#{name}, 1, NOW())
+			VALUES (
+			#{memberSeq},
+			#{name}, 
+			1, 
+			NOW()
+		)
 	</insert>
 </mapper>

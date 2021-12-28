@@ -40,6 +40,7 @@
 										<label for="id">아이디</label>
 										<input type="text" id="id" name="id" autocomplete="off" required="required" placeholder="이메일 또는 핸드폰 번호를 입력해주세요.">
 										<label id="fieldset-id-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
+										<p id="insert-id" hidden="true" style="font-weight: 500; font-size: small;">></p>
 									</div>
 
 									<div id="fieldset-pw" class="fieldset-pw">
@@ -67,7 +68,7 @@
 									</div>
 
 									<div id="fieldset-name" class="fieldset-name">
-										<label for="name">이름</label>
+										<label for="name">성명</label>
 										<input type="text" id="name" name="name" autocomplete="off" required="required">
 										<label id="fieldset-name-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
@@ -76,6 +77,11 @@
 										<label for="birth">생년월일</label>
 										<input type="number" class="birth" id="birth" name="birth" maxlength="8" autocomplete="off" placeholder="예) 19990113" required="required">
 										<label id="fieldset-birth-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
+									</div>
+									
+									<div id="fieldset-signup-type" class="fieldset-signup-type" hidden="true">
+										<label for="signup_type">가입경로</label>
+										<input type="text" class="signup_type" id="signup_type" name="signup_type" autocomplete="off">
 									</div>
 									
 									
@@ -100,12 +106,13 @@
 </body>
 </html>
 
+<!-- 
 <script>
 function checkID(){
 	var id = $('#id').length;
-	console.log(id);
 }
 </script>
+ -->
 
 <script language='javascript'>
 	$(document).ready(function() {
@@ -124,7 +131,7 @@ $(document).ready(function() {
 		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 		var reg_phone = /^[0-9]*$/g;
 		var id = $('#id').val();
-		
+		var idlength = $('#id').val().length;
 		var phoneNumerreset = $('#id').val().replaceAll('-','');
 		
 			if(id == 0){
@@ -134,26 +141,39 @@ $(document).ready(function() {
 				$('#fieldset-id-error').css({"color":"green"});
 				$('#fieldset-id-error').text('이메일 입니다.');
 				$('#email').val(id);
-				$('#email').prop("disabled",true);
-				$('#mobile').prop("disabled",false);
+				$('#email').prop("readonly",true);
+				$('#mobile').prop("readonly",false);
 				$('#mobile').val('');
+				$('#insert-id').hide();
+				$('#signup_type').val('이메일');
+				//$('#signup_type').prop("readonly",true);
 			}
 			else if(reg_phone.test(phoneNumerreset) && (phoneNumerreset.length == 11)&& phoneNumerreset.substring(0,3)=='010') {
 				$('#fieldset-id-error').css({"color":"green"});
 				$('#fieldset-id-error').text("핸드폰 번호 입니다.");
 				$('#id').val(phoneNumerreset);
 				$('#mobile').val(phoneNumerreset);
-				$('#mobile').prop("disabled",true);
-				$('#email').prop("disabled",false);
+				$('#mobile').prop("readonly",true);
+				$('#email').prop("readonly",false);
 				$('#email').val('');
+				$('#insert-id').hide();
+				$('#signup_type').val('핸드폰');
 			}else{
+				if(idlength == 0){
+					$('#insert-id').hide();
+					$('#insert-id').css('color', 'red');
+				}else{
+					$('#insert-id').text("입력하신\t"+ id + "\t는 사용하실 수 없습니다.")
+					$('#insert-id').show();
+				}
 				$('#fieldset-id-error').text("핸드폰 번호 또는 이메일을 입력해주세요.");
 				$('#fieldset-id-error').css({"color":"red"});
-				$('#mobile').prop("disabled",false);
-				$('#email').prop("disabled",false);
+				$('#mobile').prop("readonly",false);
+				$('#email').prop("readonly",false);
 				$('#mobile').val('');
 				$('#email').val('');
-				
+				$('#id').val('');
+				$('#signup_type').val('');
 			}
 		});
 	
@@ -254,6 +274,9 @@ $(document).ready(function() {
 		}
 		
 	});
+	
+	
+	$('#signup_type')
 });
 </script>
 
@@ -265,7 +288,8 @@ $(document).ready(function() {
 
 			if (name > 20) {
 				$('#name').val($(this).val().substring(0, 0));
-				alert("이름은 최대 20글자까지만 가능합니다.");
+				$('#fieldset-name-error').css({"color":"red"});
+				$('#fieldset-name-error').text('이름은 20글자를 넘길 수 없습니다.');
 				$('#name').focus();
 			}
 		})
@@ -279,57 +303,10 @@ $(document).ready(function() {
 
 			if (birth > 8) {
 				$('#birth').val($(this).val().substring(0, 0));
-				alert("형식을 맞게 입력해주세요");
+				$('#fieldset-birth-error').css({"color":"red"});
+				$('#fieldset-birth-error').text('생년월일 8자릿수를 정확하게 입력해주세요.');
 				$('#birth').focus();
 			}
 		})
 	})
-</script>
-
-
-<script language='javascript'>
-	$(document).ready(function() {
-		$('#btn_next').click(function() {
-			/*날짜 1900년도 이하 입력시 다음페이지 이동 불가*/
-			var yearmin = $('#year').val();
-			if (yearmin < 1920) {
-				$('#year').val($(this).val().substring(0,0));
-				alert("1920년도 이하는 입력하실 수 없습니다");
-				$('#year').focus();
-				return false;
-			}else{
-				var name = $('#name').val();
-				var firstname = $('#firstname').val();
-				var year = $('#year').val();
-				var month = $('#month').val();
-				var day = $('#day').val();
-				var gender = $('input:radio[name="gender"]:checked').val();
-				var mobile_carrier = $('input:radio[name="mobile_carrier"]:checked').val();
-				var mobilenum = $('#mobile_number').val();
-				var personalinfoTA = $('input:checkbox[name="checkbox1"]:checked').val();
-				var uniqueinfoTA = $('input:checkbox[name="checkbox2"]:checked').val();
-				var mobileTA = $('input:checkbox[name="checkbox3"]:checked').val();
-				var useTA = $('input:checkbox[name="checkbox4"]:checked').val();
-
-			/*
-			alert("name =" + name + 
-				"\nfirstname =" + firstname +
-				"\nyear =" + year + 
-				"\nmonth =" + month +
-				"\nday =" + day +
-				"\ngender =" + gender +
-				"\nmobile_carrier =" + mobile_carrier +
-				"\nmobilenum =" + mobilenum + 
-				"\npersonalinfoTA =" + personalinfoTA +
-				"\nuniqueinfoTA =" + uniqueinfoTA +
-				"\nmobileTA =" + mobileTA +
-				"\nuseTA =" + useTA
-				);
-			 */
-		}
-	});
-		
-		
-		
-});
 </script>
