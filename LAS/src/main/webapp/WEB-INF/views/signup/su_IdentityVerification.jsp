@@ -33,55 +33,57 @@
 				<div class="content">
 					
 					<div class="content-form">
-							<form action="/identity_verification" method="post" id="intput-form" name="input-form" autocomplete="off" class="input-form">
+							<form action="/identity_verification" method="post" id="intput-form" name="input-form" class="input-form">
 								<fieldset>
 									<input type="hidden" value="${param.checkboxYN }" name="add_agreement">
 									<div id="fieldset-id" class="fieldset-id">
 										<label for="id">아이디</label>
-										<input type="text" id="id" name="id" autocomplete="off" required="required" placeholder="이메일 또는 핸드폰 번호를 입력해주세요.">
+										<input type="text" id="id" name="id" required="required" placeholder="이메일 또는 핸드폰 번호를 입력해주세요." />
 										<label id="fieldset-id-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
-										<p id="insert-id" hidden="true" style="font-weight: 500; font-size: small;">></p>
+										<p id="insert-id" hidden="true" style="font-weight: 500; font-size: small;"></p>
+										<p id="check-id" hidden="true" style="font-weight: 500; font-size: small;"></p>
+									</div>
+									
+									<!-- hidden -->
+									<div id="fieldset-signup-type" class="fieldset-signup-type" hidden="true">
+										<label for="signup_type">가입경로</label>
+										<input type="text" class="signup_type" id="signup_type" name="signup_type">
 									</div>
 
 									<div id="fieldset-pw" class="fieldset-pw">
 										<label for="pw">비밀번호</label>
 										<span>(최소 8자~16자 및 특수,영문,숫자 1개 포함)</span>
-										<input type="password" id="pw" name="pw" autocomplete="off" required="required">
+										<input type="password" id="pw" name="pw" required="required">
 										<label id="fieldset-pw-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 									
 									<div id="fieldset-pwcfm" class="fieldset-pwcfm">
 										<label for="pwcfm">비밀번호 확인</label> 
-										<input type="password" id="pwcfm" name="pwcfm" autocomplete="off" required="required">
+										<input type="password" id="pwcfm" name="pwcfm" required="required">
 										<label id="fieldset-pwcfm-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 
 									<div id="fieldset-email" class="fieldset-email" >
 										<label for="email">이메일</label>
-										<input type="email" id="email" name="email" autocomplete="off" required="required" placeholder="예) test@test.com">
+										<input type="email" id="email" name="email" required="required" placeholder="예) example@example.com">
 										<label id="fieldset-email-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 									<div id="fieldset-mobile" class="fieldset-mobile">
 										<label for="mobile">휴대폰 번호 (-없이 11자리 입력)</label>
-										<input type="tel" id="mobile" name="phone" maxlength="11" autocomplete="off" placeholder="예) 01045671234" required="required">
+										<input type="tel" id="mobile" name="phone" maxlength="11" placeholder="예) 01045671234" required="required">
 										<label id="fieldset-mobile-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 
 									<div id="fieldset-name" class="fieldset-name">
 										<label for="name">성명</label>
-										<input type="text" id="name" name="name" autocomplete="off" required="required">
+										<input type="text" id="name" name="name" required="required">
 										<label id="fieldset-name-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 
 									<div id="fieldset-birth" class="fieldset-birth">
 										<label for="birth">생년월일</label>
-										<input type="number" class="birth" id="birth" name="birth" maxlength="8" autocomplete="off" placeholder="예) 19990113" required="required">
+										<input type="number" class="birth" id="birth" name="birth" maxlength="8" placeholder="예) 19990113" required="required">
 										<label id="fieldset-birth-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
-									</div>
-									
-									<div id="fieldset-signup-type" class="fieldset-signup-type" hidden="true">
-										<label for="signup_type">가입경로</label>
-										<input type="text" class="signup_type" id="signup_type" name="signup_type" autocomplete="off">
 									</div>
 									
 									
@@ -138,19 +140,22 @@ $(document).ready(function() {
 				$('#fieldset-id-error').text('필수 입력 사항입니다.');
 			}
 			if (reg_email.test(phoneNumerreset)) {
-				$('#fieldset-id-error').css({"color":"green"});
-				$('#fieldset-id-error').text('이메일 입니다.');
+				/* $('#fieldset-id-error').css({"color":"green"});
+				$('#fieldset-id-error').text('이메일 입니다.'); */
+				$('#fieldset-id-error').text('');
 				$('#email').val(id);
 				$('#email').prop("readonly",true);
 				$('#mobile').prop("readonly",false);
 				$('#mobile').val('');
 				$('#insert-id').hide();
 				$('#signup_type').val('이메일');
+				checkid(id);	
 				//$('#signup_type').prop("readonly",true);
 			}
 			else if(reg_phone.test(phoneNumerreset) && (phoneNumerreset.length == 11)&& phoneNumerreset.substring(0,3)=='010') {
-				$('#fieldset-id-error').css({"color":"green"});
-				$('#fieldset-id-error').text("핸드폰 번호 입니다.");
+				/* $('#fieldset-id-error').css({"color":"green"});
+				$('#fieldset-id-error').text("핸드폰 번호 입니다."); */
+				$('#fieldset-id-error').text('');
 				$('#id').val(phoneNumerreset);
 				$('#mobile').val(phoneNumerreset);
 				$('#mobile').prop("readonly",true);
@@ -158,6 +163,7 @@ $(document).ready(function() {
 				$('#email').val('');
 				$('#insert-id').hide();
 				$('#signup_type').val('핸드폰');
+				checkid(id);
 			}else{
 				if(idlength == 0){
 					$('#insert-id').hide();
@@ -165,6 +171,7 @@ $(document).ready(function() {
 				}else{
 					$('#insert-id').text("입력하신\t"+ id + "\t는 사용하실 수 없습니다.")
 					$('#insert-id').show();
+					$('#check-id').hide();
 				}
 				$('#fieldset-id-error').text("핸드폰 번호 또는 이메일을 입력해주세요.");
 				$('#fieldset-id-error').css({"color":"red"});
@@ -176,6 +183,33 @@ $(document).ready(function() {
 				$('#signup_type').val('');
 			}
 		});
+	
+	function checkid(id){
+        $.ajax({
+           url:'/idCheck', //Controller에서 인식할 주소
+            type:'post', //POST 방식으로 전달
+            data:{id:id},
+            success:function(cnt) { ////컨트롤러에서 넘어온 cnt값을 받는다 
+            	if(cnt != 1){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디
+            		$('#check-id').show();
+            		$('#fieldset-id-error').hide();
+            		$('#check-id').css({"color":"green"});
+        			$('#check-id').text('입력하신\t'+ id + '\t는(은) 사용 가능합니다.');
+                } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
+                	$('#fieldset-id-error').show();
+                	$('#check-id').css({"color":"red"});
+                	$('#check-id').css({"color":"red"});
+                	$('#check-id').text('입력하신\t'+ id + '\t는(은) 이미 사용중입니다.');
+        			$('#id').val('');
+        			$('#check-id').show();
+                }
+            	
+            },
+            error:function(){
+            	alert("에러입니다");
+            }
+        });
+    };
 	
 	
 	$('#pw').on('focusout', function(){
@@ -276,10 +310,8 @@ $(document).ready(function() {
 	});
 	
 	
-	$('#signup_type')
 });
 </script>
-
 
 <script language='javascript'>
 	$(document).ready(function() {

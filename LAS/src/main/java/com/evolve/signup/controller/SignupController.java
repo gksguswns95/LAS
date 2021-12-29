@@ -1,20 +1,19 @@
 package com.evolve.signup.controller;
 
-import java.net.http.HttpRequest;
-
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.evolve.signin.service.SigninService;
 import com.evolve.signup.service.SignupService;
 import com.evolve.signup.vo.SignupVO;
 
@@ -24,6 +23,20 @@ public class SignupController {
 	@Autowired
 	SignupService signupService;
 
+	
+	
+	private static final Logger logger = LoggerFactory.getLogger(SignupController.class);
+
+	
+	@PostMapping("/idCheck")
+    @ResponseBody
+    public int idCheck(@RequestParam("id") String id){
+        logger.info("userIdCheck 진입");
+        logger.info("전달받은 id:"+id);
+        int cnt = signupService.memberSeqSelect(id);
+        logger.info("확인 결과:"+cnt);
+        return cnt;
+    }
 	
 	@RequestMapping(value= "/terms_agreement", method= {RequestMethod.GET})
 	public ModelAndView signup(HttpServletRequest request)throws Exception {
@@ -53,6 +66,9 @@ public class SignupController {
 			
 			//아이디 중복 확인
 			int duplicateId = signupService.memberSeqSelect(signupvo.getId());
+			
+			
+			//분리작업
 			
 			if(duplicateId == 0) {
 				//회원가입

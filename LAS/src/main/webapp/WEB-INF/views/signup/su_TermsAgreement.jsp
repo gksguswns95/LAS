@@ -50,8 +50,7 @@
 							</div>
 
 							<div class="checkbox-all">
-								<label><input type="checkbox" autocomplete="off"
-									id="checkbox-all"> 위의 내용을 모두 읽었으며 이에 동의합니다.</label>
+								<label><input type="checkbox" id="checkbox-all"> 위의 내용을 모두 읽었으며 이에 동의합니다.</label>
 							</div>
 
 						</div>
