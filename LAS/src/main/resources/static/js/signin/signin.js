@@ -18,7 +18,7 @@ $(document).ready(function() {
 	});
 
 	var height = $(window).height();
-	if (height >= $(".container").height() + 120) {
+	if (height >= $(".container").height() + 160) {
 		$(".footer").css("top", $(window).height() - 80);
 	} else {
 		$(".footer").css("bottom", '-240px');
@@ -43,31 +43,15 @@ $(document).ready(function() {
 	if ($('#hiddenUserId').val() != null) {
 		$('#section').css('border', 'none');
 	}
-	
-	var userWidth = $(window).width();
-	console.log(userWidth);
-	var userClient = '';
-	if(userWidth > 768) {
-		userClient = 'tablet';
-	} else {
-		userClient = 'mobile';
-	}
-	console.log(userClient);
-	
+
 	$('#submit').submit(function() {
 		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 		var reg_phone = /^[0-9]*$/g;
 		var phoneNumerreset = $('#id').val().replaceAll('-', '');
 		if (!reg_email.test(phoneNumerreset)) {
 			if (!reg_phone.test(phoneNumerreset) || (phoneNumerreset.length > 11 || phoneNumerreset.length < 11)) {
-				if(userClient == 'tablet') {
-					$(".container #section").css('height', '680px');
-					$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");					
-				}
-				if(userClient == 'mobile') {
-					$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");					
-				}
-				
+				$(".container #section").css('height', '520px');
+				$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");
 				return false;
 			}
 		}
@@ -90,23 +74,23 @@ $(document).ready(function() {
 		if ((keyCode >= 65 && keyCode <= 90) && !shiftKey) {
 			$("#capslock").show();
 			if ($('#fail').text() != '') {
-				$(".container #section").css('height', '740px');
+				$(".container #section").css('height', '580px');
 			} else {
-				$(".container #section").css('height', '650PX');				
+				$(".container #section").css('height', '510px');
 			}
 			setTimeout(function() {
 				if ($('#fail').text() != '') {
-					$(".container #section").css('height', '650PX');
+					$(".container #section").css('height', '520px');
 				} else {
-					$(".container #section").css('height', '600px');
+					$(".container #section").css('height', '450px');
 				}
 				$("#capslock").hide();
 			},3500);
 		} else {
 			if ($('#fail').text() != '') {
-				$(".container #section").css('height', '650PX');
+				$(".container #section").css('height', '520px');
 			} else {
-				$(".container #section").css('height', '600px');
+				$(".container #section").css('height', '450px');
 			}
 			$("#capslock").hide();
 		}
