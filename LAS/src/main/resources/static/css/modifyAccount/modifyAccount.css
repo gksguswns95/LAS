@@ -10,6 +10,7 @@ input[type=password]::-ms-reveal {
 
 .container {
   position: relative;
+  left:0;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -72,6 +73,10 @@ h2 {
 
 #section #DeleteBox #delete_section #inputArea > input:nth-of-type(2) {
 	border:none;
+}
+
+#section #DeleteBox #delete_section #inputArea #pw {
+	border:1px solid #ddd;
 }
 
 #section #DeleteBox #delete_section #inputArea > input:last-of-type {

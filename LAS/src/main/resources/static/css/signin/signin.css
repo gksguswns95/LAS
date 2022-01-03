@@ -1,73 +1,78 @@
 @import url(../header.css);
+
 @import url(../footer.css);
+
 * {
-  margin: 0;
-  padding: 0;
-  font-family: 'Noto Sans KR', sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 input[type=password]::-ms-reveal {
-   display: none;
-   width: 0;
-   height: 0;
+	display: none;
+	width: 0;
+	height: 0;
 }
 
 .container {
-  position: relative;
-  margin: 0;
-  width: 100%;
-  height: 100%;
+	position: relative;
+	left: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: left 0.4s ease-out;
+	transition: left 0.4s ease-out;
 }
 
 .container #section {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 0 15px 0 15px;
-  margin-top: 100px;
-  width: 480px;
-  height: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid #ddd;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 15px 0 15px;
+	margin-top: 100px;
+	width: 480px;
+	height: 450px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #ddd;
 }
 
 .container #section #loginBox {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .container #section #loginBox #login_header {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 27px;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 27px;
 }
 
 .container #section #loginBox #login_section {
-  position: relative;
+	position: relative;
 }
 
 .container #section #loginBox #login_section span {
-  display: block;
-  font-size: 20px;
-  font-weight: 600;
+	display: block;
+	font-size: 20px;
+	font-weight: 600;
 }
 
 .container #section #loginBox #login_section #id {
-  width: 100%;
-  height: 30px;
-  border: 1px solid transparent;
-  border-bottom: 1px solid #ddd;
-  overflow-x: hidden;
+	width: 100%;
+	height: 30px;
+	border: 1px solid transparent;
+	border-bottom: 1px solid #ddd;
+	overflow-x: hidden;
 }
 
 .container #section #loginBox #login_section #pw {
-  width: 90%;
-  height: 30px;
-  border: 1px solid transparent;
-  overflow-x: hidden;
+	width: 90%;
+	height: 30px;
+	border: 1px solid transparent;
+	overflow-x: hidden;
 }
 
-.container #section #loginBox #login_section input:focus{
+.container #section #loginBox #login_section input:focus {
 	outline: none;
 }
 
@@ -77,10 +82,10 @@ input[type=password]::-ms-reveal {
 }
 
 .pwArea #pw {
-  width: 90%;
-  height: 30px;
-  border: 1px solid transparent;
-  overflow-x: hidden;
+	width: 90%;
+	height: 30px;
+	border: 1px solid transparent;
+	overflow-x: hidden;
 }
 
 .pw:focus-visible {
@@ -88,70 +93,73 @@ input[type=password]::-ms-reveal {
 }
 
 .container #section #loginBox #login_section #id {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .container #section #loginBox #login_section i {
-  position: absolute;
-  left: 92%;
-  margin-top: 7px;
-  cursor: pointer;
+	position: absolute;
+	left: 92%;
+	margin-top: 7px;
+	cursor: pointer;
 }
 
 .container #section #loginBox #login_section #idRemember {
-  margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 
-.container #section #loginBox #login_section #idRemember input[type='checkbox'] {
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
+.container #section #loginBox #login_section #idRemember input[type='checkbox']
+	{
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
 }
 
-.container #section #loginBox #login_section #idRemember input[type='checkbox']::after {
-  border: 1px solid transparent;
-  border-bottom: 1px solid #ddd;
+.container #section #loginBox #login_section #idRemember input[type='checkbox']::after
+	{
+	border: 1px solid transparent;
+	border-bottom: 1px solid #ddd;
 }
 
 .container #section #loginBox #login_section #idRemember label {
-  height: 20px;
-  line-height: 20px;
-  vertical-align: middle;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
 }
 
-.container #section #loginBox #login_section .btn_submit, .container #section #loginBox #login_section .btn_join {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 20px;
-  color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
-  cursor: pointer;
-  border-radius: 15px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 100%;
-  height: 40px;
+.container #section #loginBox #login_section .btn_submit, .container #section #loginBox #login_section .btn_join
+	{
+	display: inline-block;
+	margin-top: 10px;
+	font-size: 20px;
+	color: #fff;
+	background-color: #343a40;
+	border-color: #343a40;
+	cursor: pointer;
+	border-radius: 15px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	height: 40px;
 }
 
 .container #section #loginBox #find {
-  margin-top: 20px;
-  float: right;
+	margin-top: 20px;
+	float: right;
 }
 
 .container #section #loginBox #find a {
-  color: #000;
-  text-decoration: none;
+	color: #000;
+	text-decoration: none;
 }
 
 .container #section #loginBox #find a:first-of-type {
-  margin-right: 15px;
+	margin-right: 15px;
 }
 
-#fail,#capslock {
+#fail, #capslock {
 	display: block;
 	color: red;
 	margin-bottom: 30px;
@@ -163,36 +171,34 @@ input[type=password]::-ms-reveal {
 }
 
 @media only screen and (max-width: 850px) {
-  .container {
-    width: 100%;
-  }
- /*  .container .nav {
+	.container {
+		width: 100%;
+	}
+	/*  .container .nav {
     display: none;
   } */
 }
 
 @media only screen and (max-width: 480px) {
-  .container .header > img {
-    display: block;
-  }
-  .container {
-    min-width: 280px;
-  }
-  .container #section {
-    width: 100%;
-    min-width: 280px;
-    border: none;
-    margin-top: 50px;
-  }
-  
-  #fail,#capslock {
-  	font-size: 12px;
-  }
-  
-  .container #section #loginBox #find {
-  	width: 100%;
-  	display: flex;
-  	justify-content: space-around;
-  }
+	.container .header>img {
+		display: block;
+	}
+	.container {
+		min-width: 280px;
+	}
+	.container #section {
+		width: 100%;
+		min-width: 280px;
+		border: none;
+		margin-top: 50px;
+	}
+	#fail, #capslock {
+		font-size: 12px;
+	}
+	.container #section #loginBox #find {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+	}
 }
 /*# sourceMappingURL=login.css.map */

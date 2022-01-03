@@ -1,57 +1,61 @@
 @import url(../header.css);
+
 @import url(../footer.css);
 
 input[type=password]::-ms-reveal {
-   display: none;
-   width: 0;
-   height: 0;
+	display: none;
+	width: 0;
+	height: 0;
 }
 
 .container {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+	position: relative;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
 }
 
 h2 {
-  border-bottom: 4px solid #ddd;
-  margin-bottom: 15px;
+	border-bottom: 4px solid #ddd;
+	margin-bottom: 15px;
 }
 
 #section {
-  width: 1024px;
-  height: auto;
-  margin: 0 auto;
+	width: 1024px;
+	height: auto;
+	margin: 0 auto;
 }
 
 #section #DeleteBox #delete_section {
-  position: relative;
-  width: 1024px;
+	position: relative;
+	width: 1024px;
 }
 
 #section #DeleteBox #delete_section #id {
-  border: none;
-  background: #fff;
-  width: 50%;
-  height: 50px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+	border: none;
+	background: #fff;
+	width: 50%;
+	height: 50px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	font-size: 20px;
+	line-height: 50px;
 }
 
 #section #DeleteBox #delete_section #pw {
-  position: relative;
-  width: calc(100% - 60px);
-  height: 40px;
+	position: relative;
+	width: calc(100% - 60px);
+	height: 40px;
 }
 
 #section #DeleteBox #delete_section i {
-  position: absolute;
-  left: 95%;
-  margin-top: 12px;
-  cursor: pointer;
-  z-index: 1;
+	position: absolute;
+	left: 95%;
+	margin-top: 12px;
+	cursor: pointer;
+	z-index: 1;
 }
 
 #red {
@@ -59,42 +63,42 @@ h2 {
 }
 
 #section #DeleteBox #delete_section #submit_btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  margin-top: 30px;
-  width: 512px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	margin-top: 30px;
+	width: 512px;
 }
 
 #section #DeleteBox #delete_section #submit_btn button {
-  display: inline-block;
-  width: 150px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 20px;
-  color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
-  cursor: pointer;
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	color: #fff;
+	background-color: #343a40;
+	border-color: #343a40;
+	cursor: pointer;
 }
 
 #inputArea span {
-  display: inline-block;
-  width: 200px;
-  margin-right: calc(100% - 230px);
-  margin-bottom: 10px;
-  margin-left: 10px
+	display: inline-block;
+	width: 200px;
+	margin-right: calc(100% - 230px);
+	margin-bottom: 10px;
+	margin-left: 10px
 }
 
 #inputArea p {
-  font-size: 20px;
-  margin-bottom: 10px;
+	font-size: 20px;
+	margin-bottom: 10px;
 }
 
 #inputArea p:last-of-type {
-  margin-top: 40px;
+	margin-top: 40px;
 }
 
 .reasonOther {
@@ -106,7 +110,6 @@ h2 {
 	height: 40px;
 }
 
-
 #fail {
 	display: block;
 	color: red;
@@ -115,43 +118,41 @@ h2 {
 	font-size: 15px;
 }
 /*# sourceMappingURL=withdrawal.css.map */
-
 @media only screen and (max-width: 1024px) {
-  #section {
-    width: 100%;
-  }
-  #section #DeleteBox #delete_section {
-  	width: 100%;
-  }
+	#section {
+		width: 100%;
+	}
+	#section #DeleteBox #delete_section {
+		width: 100%;
+	}
 }
 
 @media only screen and (max-width: 850px) {
-  #section #DeleteBox #delete_section #submit_btn {
-  	max-width: 512px;
-  	width: 100%;
-  }
-  #section #DeleteBox #delete_section i {
-  	font-size: 22px;
-  	left: 93%;
-  }
+	#section #DeleteBox #delete_section #submit_btn {
+		max-width: 512px;
+		width: 100%;
+	}
+	#section #DeleteBox #delete_section i {
+		font-size: 22px;
+		left: 93%;
+	}
 }
 
 @media only screen and (max-width: 480px) {
-  .container {
-    min-width: 280px;
-  }
-  #section #DeleteBox #delete_section i {
-  	font-size: 22px;
-  	left: 89%;
-  }
-  #section #DeleteBox #delete_section #id{
-  	width : calc(100% - 60px);  	
-  }
-  #section #DeleteBox #delete_section #pw {
-  	width : calc(100% - 60px);
-  }
+	.container {
+		min-width: 280px;
+	}
+	#section #DeleteBox #delete_section i {
+		font-size: 22px;
+		left: 89%;
+	}
+	#section #DeleteBox #delete_section #id {
+		width: calc(100% - 60px);
+	}
+	#section #DeleteBox #delete_section #pw {
+		width: calc(100% - 60px);
+	}
 }
 
 @media only screen and (max-width: 320px) {
-  
 }

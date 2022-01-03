@@ -1,32 +1,35 @@
 @import url(../header.css);
+
 @import url(../footer.css);
+
 @import url(./withdrawal.css);
+
 #delete_section {
-  text-align: center;
+	text-align: center;
 }
 
 h2 {
-  text-align: left;
+	text-align: left;
 }
 
 button {
-  display: inline-block;
-  width: 150px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 20px;
-  color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
-  cursor: pointer;
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	color: #fff;
+	background-color: #343a40;
+	border-color: #343a40;
+	cursor: pointer;
 }
 
 span {
-  display: block;
-  width: 600px;
-  font-size: 50px;
-  margin: 50px auto;
-  text-align: center;
+	display: block;
+	width: 600px;
+	font-size: 50px;
+	margin: 50px auto;
+	text-align: center;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -34,7 +37,7 @@ span {
 		width: 100%;
 	}
 }
-	
+
 @media only screen and (max-width: 850px) {
 	span {
 		font-size: 30px;
@@ -46,7 +49,6 @@ span {
 	#section {
 		margin-top: 50px;
 	}
-	
 	span {
 		font-size: 20px;
 	}

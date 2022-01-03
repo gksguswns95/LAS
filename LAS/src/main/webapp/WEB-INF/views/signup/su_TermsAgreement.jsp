@@ -9,13 +9,14 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/signup/signup_common.css">
 <link rel="stylesheet" href="./css/signup/signup_termsagreement.css">
-
 <link rel="stylesheet" href="./css/signin/signin.css">
+<link rel="stylesheet" href="./css/mobile.css">
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<script src="./js/mobile.js"></script>
 <title>약관동의</title>
 
 <style>
@@ -25,7 +26,8 @@
 </head>
 <body>
 	<div class="container">
-		<div class="header"><a href="/">L.A.S</a><img alt="btn" src="./img/gnb_btn.png">
+		<div class="header"><a href="/">L.A.S</a>
+			<jsp:include page="../common/mobile.jsp"></jsp:include>
 		</div>
 		<div class="main">
 			<div class="main-inner">
@@ -77,6 +79,7 @@
 			<p>Copyright ⓒ 2022 EvolveSoft</p>
 		</div>
 	</div>
+	<div class="transparency"></div>
 </body>
 </html>
 

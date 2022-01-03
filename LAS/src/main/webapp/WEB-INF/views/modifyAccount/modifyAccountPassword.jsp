@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/modifyAccount/modifyAccount.css">
+<link rel="stylesheet" href="./css/mobile.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
 <title>로그인</title>
@@ -17,18 +18,13 @@
 <script src="./js/modifyAccount/modify.js"></script>
 <script src="./js/deleteAccount/withdrawal.js"></script>
 <script src="./js/error.js"></script>
+<script src="./js/mobile.js"></script>
 </head>
 <body>
     <div class="container">
 	    <div class="header">
 	    	<a href="/">L.A.S</a>
-	    	<div class="signinMenu">
-		    	<c:if test="${user_name != null}">
-					<a href="./signout">로그아웃</a>
-					<a href="./myAccountInformation">마이페이지</a>
-				</c:if>
-			</div>
-	    	<img alt="btn" src="./img/gnb_btn.png">
+	    	<jsp:include page="../common/mobile.jsp"></jsp:include>
 	    </div>
 		<div id="section">
 			<div id="DeleteBox">
@@ -63,5 +59,6 @@
 			<p>Copyright ⓒ 2022 EvolveSoft</p>
 		</div>
 	</div>
+	<div class="transparency"></div>
 </body>
 </html>

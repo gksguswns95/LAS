@@ -9,6 +9,7 @@
 	href="./css/signup/signup_identityverification.css">
 
 <link rel="stylesheet" href="./css/signin/signin.css">
+<link rel="stylesheet" href="./css/mobile.css">
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
@@ -17,14 +18,16 @@
 <title>본인인증</title>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+<script src="./js/mobile.js"></script>
 <style>
 </style>
 
 </head>
 <body>
 	<div class="container">
-		<div class="header"><a href="/">L.A.S</a></div>
+		<div class="header"><a href="/">L.A.S</a>
+			<jsp:include page="../common/mobile.jsp"></jsp:include>
+		</div>
 		<main class="main">
 			<div class="main-inner">
 				<div class="title">
@@ -105,6 +108,7 @@
 			<p>Copyright ⓒ 2022 EvolveSoft</p>
 		</div>
 	</div>
+	<div class="transparency"></div>
 </body>
 </html>
 

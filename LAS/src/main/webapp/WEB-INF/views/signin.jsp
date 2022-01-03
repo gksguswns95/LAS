@@ -8,25 +8,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/signin/signin.css">
-<link rel="stylesheet" href="./css/pop-layout.css">
+<link rel="stylesheet" href="./css/mobile.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
 <title>로그인</title>
 <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="./js/signin/signin.js"></script>
 <script src="./js/error.js"></script>
+<script src="./js/mobile.js"></script>
 </head>
 <body>
     <div class="container">
     <div class="header">
     	<a href="/">L.A.S</a>
-    	<div class="signinMenu">
-	    	<c:if test="${user_name != null}">
-				<a href="./signout">로그아웃</a>
-				<a href="./myAccountInformation">마이페이지</a>
-			</c:if>
-		</div>
-    	<img alt="btn" src="./img/gnb_btn.png">
+    	<jsp:include page="./common/mobile.jsp"></jsp:include>
     </div>
 	<div id="section">
 			<div id="loginBox">
@@ -77,20 +72,6 @@
 			<p>Copyright ⓒ 2022 EvolveSoft</p>
 		</div>
 </div>
-
-<!-- <div class="layer">
-	<div class="layerBg"></div>
-	<div class="pop-layer">
-		<div class="pop-container">
-			<div class="pop-conts">
-			<p>아이디와 비밀번호가 틀립니다.<br>
-			다시 입력해주세요.</p>
-			</div>
-			<div class="btn_popCancle">
-				<a href="#" class="btn-layerClose">확인</a>
-			</div>
-		</div>
-	</div>
-</div> -->
+<div class="transparency"></div>
 </body>
 </html>
