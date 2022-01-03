@@ -33,7 +33,7 @@ public class SignupController {
     public int idCheck(@RequestParam("id") String id){
         logger.info("userIdCheck 진입");
         logger.info("전달받은 id:"+id);
-        int cnt = signupService.memberSeqSelect(id);
+        int cnt = signupService.memberIdSelect(id);
         logger.info("확인 결과:"+cnt);
         return cnt;
     }
@@ -52,7 +52,6 @@ public class SignupController {
 		HttpSession session = request.getSession();
 		System.out.println(request.getParameter("checkboxYN"));
 		
-		
 		return mv;
 	}
 	
@@ -61,16 +60,17 @@ public class SignupController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("signup/su_Welcome");
 		System.out.println(signupvo.getSignup_type());
+		System.out.println("광고성 동의여부 = " + requset.getParameter("add_agreement"));
 		
 		if(signupvo.getId() != null && signupvo.getPw() != null) {
 			
 			//아이디 중복 확인
-			int duplicateId = signupService.memberSeqSelect(signupvo.getId());
+			// 중복체크를 하고 있으니 주석처리를 해도 되지만 밑에 걸려있으니 일단 보류
 			
 			
 			//분리작업
 			
-			if(duplicateId == 0) {
+			
 				//회원가입
 				signupService.signupInsert(signupvo);
 				System.out.println(signupvo.getId());
@@ -79,13 +79,12 @@ public class SignupController {
 				//약관 필수 동의
 				signupService.agreementInsert(memberSeq);
 				//선택동의(광고성)
-				if(requset.getParameter("add_agreement") == "Y") {
-					signupService.optionalInsert(memberSeq);				
-				}				
-			} else {
-				mv.setViewName("signup/su_IdentityVerification");
-			}
+					if(requset.getParameter("add_agreement").equals("Y")) {
+						signupService.optionalInsert(memberSeq);				
+					}				
+					
 		}
+
 		
 		
 		return mv;

@@ -14,4 +14,5 @@ public interface SignupMapper {
 	int memberSeqSelect(String id);
 	void agreementInsert(HashMap<String, Object> map);
 	void optionalInsert(HashMap<String, Object> map);
+	int memberIdSelect(String id);
 }

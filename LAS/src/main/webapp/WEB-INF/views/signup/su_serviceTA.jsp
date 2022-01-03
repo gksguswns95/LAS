@@ -10,7 +10,7 @@
 <fieldset>
 	<div>
 		<label> <input type="checkbox" id="terms-agreement-service"
-			name="checkbox"> 이용약관(필수)
+			name="checkboxYN"> 이용약관(필수)
 		</label> <label id="terms-agreement-service-lb"></label>
 	</div>
 

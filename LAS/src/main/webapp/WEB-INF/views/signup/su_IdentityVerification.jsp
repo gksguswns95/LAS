@@ -35,7 +35,7 @@
 					<div class="content-form">
 							<form action="/identity_verification" method="post" id="intput-form" name="input-form" class="input-form">
 								<fieldset>
-									<input type="hidden" value="${param.checkboxYN }" name="add_agreement">
+									<input type="text" value="${paramValues.checkboxYN[2] }" name="add_agreement">
 									<div id="fieldset-id" class="fieldset-id">
 										<label for="id">아이디</label>
 										<input type="text" id="id" name="id" required="required" placeholder="이메일 또는 핸드폰 번호를 입력해주세요." />
@@ -169,6 +169,7 @@ $(document).ready(function() {
 					$('#insert-id').hide();
 					$('#insert-id').css('color', 'red');
 				}else{
+					$('#insert-id').css('color', 'red');
 					$('#insert-id').text("입력하신\t"+ id + "\t는 사용하실 수 없습니다.")
 					$('#insert-id').show();
 					$('#check-id').hide();

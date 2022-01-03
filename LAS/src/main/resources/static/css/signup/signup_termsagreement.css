@@ -9,6 +9,12 @@
 .checkbox-all {
 	margin-bottom: 1em;
 	margin-top: 1em;
+	font-size: 20px;
+}
+
+.checkbox-all input[type="checkbox"]{
+	width: 20px;
+	height: 20px;
 }
 
 .under-content-button {

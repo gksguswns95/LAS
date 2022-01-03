@@ -36,6 +36,12 @@
 					</div>
 					<div class="content">
 						<div class="content-checkbox-group">
+							
+							<!-- 전체동의 -->
+							<div class="checkbox-all">
+								<label><input type="checkbox" id="checkbox-all">&nbsp;이용 약관(필수), 개인정보 수집 및 이용(필수), 광고성 정보 수신 동의(선택) 에 모두 동의합니다.</label>
+							</div>
+							
 							<div>
 								<jsp:include page="su_serviceTA.jsp"></jsp:include>
 							</div>
@@ -49,9 +55,6 @@
 								<hr>
 							</div>
 
-							<div class="checkbox-all">
-								<label><input type="checkbox" id="checkbox-all"> 위의 내용을 모두 읽었으며 이에 동의합니다.</label>
-							</div>
 
 						</div>
 
@@ -82,11 +85,11 @@
 		$('#identity_verification').submit(function() {
 		var terms_agreement_service = $('input:checkbox[id="terms-agreement-service"]').is(":checked");
 		var terms_agreement_personalinfo = $('input:checkbox[id="terms-agreement-personalinfo"]').is(":checked");
-		var terms_agreement_sns = $('input:checkbox[id="terms-agreement-sns"]').is(":checked");
+		//var terms_agreement_sns = $('input:checkbox[id="terms-agreement-sns"]').is(":checked");
 
 		console.log(terms_agreement_service);
 		console.log(terms_agreement_personalinfo);
-		console.log(terms_agreement_sns);
+		//console.log(terms_agreement_sns);
 
 		if (terms_agreement_service == false && terms_agreement_personalinfo == true) {
 			alert("서비스 이용약관에 동의 해주세요.");
@@ -115,20 +118,18 @@
 		$("#checkbox-all").click(function() {
 
 			if ($("#checkbox-all").is(":checked")) {
-				$("input[name=checkbox]").prop("checked", true);
 				$("input[name=checkboxYN]").prop("checked", true);
 				
 			}
 			else {
-				$("input[name=checkbox]").prop("checked", false);
 				$("input[name=checkboxYN]").prop("checked", false);
 			}
 		});
 		// 모두 동의 클릭 or not
 
-		$("input[name=checkbox]").click(function() {
-			var total = $("input[name=checkbox]").length;
-			var checked = $("input[name=checkbox]:checked").length;
+		$("input[name=checkboxYN]").click(function() {
+			var total = $("input[name=checkboxYN]").length;
+			var checked = $("input[name=checkboxYN]:checked").length;
 			
 			if (total == checked) {
 				$("#checkbox-all").prop("checked", true);

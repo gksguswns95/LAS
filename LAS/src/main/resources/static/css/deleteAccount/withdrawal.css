@@ -1,5 +1,12 @@
 @import url(../header.css);
 @import url(../footer.css);
+
+input[type=password]::-ms-reveal {
+   display: none;
+   width: 0;
+   height: 0;
+}
+
 .container {
   position: relative;
   margin: 0;

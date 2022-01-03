@@ -10,7 +10,7 @@
 <fieldset>
 	<div>
 		<label><input type="checkbox"
-			id="terms-agreement-personalinfo" name="checkbox">
+			id="terms-agreement-personalinfo" name="checkboxYN">
 			개인정보 수집 및 이용(필수)</label> <label id="terms-agreement-personalinfo-lb">
 		</label>
 	</div>

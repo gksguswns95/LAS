@@ -40,4 +40,8 @@ public class SignupService {
 		
 	}
 
+	public int memberIdSelect(String id) {
+		return mapper.memberIdSelect(id);
+	}
+
 }

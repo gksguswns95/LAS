@@ -11,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
 <title>로그인</title>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="./js/signin/signin.js"></script>
 <script src="./js/deleteAccount/withdrawal.js"></script>

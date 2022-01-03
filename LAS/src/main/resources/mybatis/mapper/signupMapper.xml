@@ -29,8 +29,15 @@
 		)
 	</insert>
 	
-	<select id="memberSeqSelect" parameterType="String" resultType="int">
+	<select id="memberIdSelect" parameterType="String" resultType="int">
 		select Count(*) as count 
+		from 
+		las_member
+		where id = #{id}
+	</select>
+	
+	<select id="memberSeqSelect" parameterType="String" resultType="int">
+		select seq 
 		from 
 		las_member
 		where id = #{id}
@@ -57,7 +64,7 @@
 			member_seq,
 			optional_rule_name,
 		 	agreed,
-		  	greed_time
+		  	agreed_time
 		 )
 			VALUES (
 			#{memberSeq},
