@@ -1,4 +1,3 @@
-@charset "EUC-KR";
 
 /* sign up */
 * {
@@ -56,9 +55,17 @@ select {
 }
 
 .main .main-inner {
+	width:100%;
 	max-width: 800px;
     margin: 0 auto;
 	padding: 32px;
 	background-color: #fff;
 	border-radius: 26px;
 }
+
+@media only screen and (max-width: 480px) {
+	.main .main-inner {
+		padding: 0px;
+	}
+}
+

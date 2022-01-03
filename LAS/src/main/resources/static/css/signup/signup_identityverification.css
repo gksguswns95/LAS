@@ -119,3 +119,44 @@ input[type="number"]::-webkit-inner-spin-button {
 	display: none;
 	}
 
+@media only screen and (max-width : 480px) {
+	.content-form input {
+		font-size: 18px;
+	}
+	
+	.content-form input {
+		font-size: 20px;
+	}
+	
+	.main .main-inner {
+		padding: 0 5px;
+	}
+}
+
+@media only screen and (max-width : 385px) {
+	.container {
+		min-width: 280px;
+	}
+	
+	.content-form input {
+		font-size: 15px;
+	}
+	
+	fieldset label {
+		font-size: 16px;
+	}
+	
+	span {
+		font-size: 11px;
+	}
+}
+
+@media only screen and (max-width : 385px) {
+	#btn_next {
+		width: 100px;
+	}
+	#btn_back {
+		width: 100px;
+	}
+	
+}

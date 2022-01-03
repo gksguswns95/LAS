@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/signup/signup_common.css">
 <link rel="stylesheet"
 	href="./css/signup/signup_identityverification.css">
@@ -38,7 +39,7 @@
 					<div class="content-form">
 							<form action="/identity_verification" method="post" id="intput-form" name="input-form" class="input-form">
 								<fieldset>
-									<input type="text" value="${paramValues.checkboxYN[2] }" name="add_agreement">
+									<input type="hidden" value="${paramValues.checkboxYN[2] }" name="add_agreement">
 									<div id="fieldset-id" class="fieldset-id">
 										<label for="id">아이디</label>
 										<input type="text" id="id" name="id" required="required" placeholder="이메일 또는 핸드폰 번호를 입력해주세요." />
