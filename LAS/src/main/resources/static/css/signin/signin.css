@@ -29,8 +29,8 @@ input[type=password]::-ms-reveal {
 	box-sizing: border-box;
 	padding: 0 15px 0 15px;
 	margin-top: 100px;
-	width: 480px;
-	height: 450px;
+	width: 800px;
+	height: 600px;
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid #ddd;
@@ -53,23 +53,30 @@ input[type=password]::-ms-reveal {
 
 .container #section #loginBox #login_section span {
 	display: block;
-	font-size: 20px;
+	font-size: 35px;
 	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+#login_header h3 {
+	font-size: 60px;
 }
 
 .container #section #loginBox #login_section #id {
 	width: 100%;
-	height: 30px;
+	height: 50px;
 	border: 1px solid transparent;
 	border-bottom: 1px solid #ddd;
 	overflow-x: hidden;
+	font-size: 25px;
 }
 
 .container #section #loginBox #login_section #pw {
 	width: 90%;
-	height: 30px;
+	height: 50px;
 	border: 1px solid transparent;
 	overflow-x: hidden;
+	font-size: 25px;
 }
 
 .container #section #loginBox #login_section input:focus {
@@ -98,9 +105,10 @@ input[type=password]::-ms-reveal {
 
 .container #section #loginBox #login_section i {
 	position: absolute;
-	left: 92%;
+	left: 94%;
 	margin-top: 7px;
 	cursor: pointer;
+	line-height: 50px
 }
 
 .container #section #loginBox #login_section #idRemember {
@@ -170,9 +178,35 @@ input[type=password]::-ms-reveal {
 	display: none;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 768px) {
 	.container {
 		width: 100%;
+	}
+	
+	.container #section {
+		height: 480px;
+		width: 100%;
+		border: none;
+	}
+	
+	#login_header h3 {
+		font-size: 40px;
+	}
+	.container #section #loginBox #login_section span {
+		font-size: 20px;
+	}
+	
+	.container #section #loginBox #login_section #id {
+		height: 30px;
+		font-size: 20px;
+	}
+	
+	.container #section #loginBox #login_section #pw {
+		height: 30px;
+		font-size: 20px;
+	}
+	.container #section #loginBox #login_section i {
+		line-height: 10px;
 	}
 	/*  .container .nav {
     display: none;
@@ -199,6 +233,10 @@ input[type=password]::-ms-reveal {
 		width: 100%;
 		display: flex;
 		justify-content: space-around;
+	}
+	
+	.container #section #loginBox #login_section i {
+		left: 92%;
 	}
 }
 /*# sourceMappingURL=login.css.map */

@@ -45,7 +45,7 @@
 
 								<!-- 전체동의 -->
 								<div class="checkbox-all">
-									<label><input type="checkbox" id="checkbox-all">&nbsp;이용
+									<label id="bold"><input type="checkbox" id="checkbox-all">&nbsp;이용
 										약관(필수), 개인정보 수집 및 이용(필수), 광고성 정보 수신 동의(선택) 에 모두 동의합니다.</label>
 								</div>
 

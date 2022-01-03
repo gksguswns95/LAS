@@ -50,6 +50,13 @@
 
 @media only screen and (max-width: 480px) {
 	
+	#bold {
+		font-weight: 700;
+	}
+	
+	.title {
+		text-align: center;
+	}
 	
 	.checkbox-all input[type="checkbox"] {
 		width: 15px;
@@ -65,7 +72,7 @@
 	}
 	
 	.main div {
-		margin: 5px 1px;
+		margin: 15px 1px;
 	}
 }
 
