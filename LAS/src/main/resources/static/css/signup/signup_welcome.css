@@ -5,7 +5,7 @@
 .container #section {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 0 15px 0 15px;
+    padding: 0 15px;
     margin-top: 100px;
     width: 480px;
     height: 300px;
@@ -42,4 +42,16 @@
 	color:#fff;
 	text-align: center;
 	background-color: #343a40;
+}
+
+@media only screen and (max-width : 480px) {
+	.container #section {
+		width: 100%;
+		min-width: 280px;
+		border: none;
+	}
+	.container #section #WelcomeBox #Welcome_body #btn_main {
+		width: 100%;
+		min-width: 260px;
+	}
 }

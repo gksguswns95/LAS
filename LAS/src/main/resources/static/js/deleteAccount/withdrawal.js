@@ -58,5 +58,18 @@ $(document).ready(function() {
 			$('#other').val("개인정보가 걱정되어요");
 		}
 	});
+	
+	$('.login').on('keypress', function(e) {
+		var keyCode = 0;
+		var shiftKey = false;
+		keyCode = e.keyCode;
+		shiftKey = e.shiftKey;
+		if ((keyCode >= 65 && keyCode <= 90) && !shiftKey) {
+			$("#capslock").show();
+			setTimeout(function() {	$("#capslock").hide(); },3500);
+		} else {
+			$("#capslock").hide();
+		}
+	});
 
 });

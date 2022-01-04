@@ -46,13 +46,8 @@ public class SigninController {
 			signvo.setId(signvo.getId().replaceAll("-", ""));
 			System.out.println("바뀐 ID 값: "+signvo.getId());
 		}
-//		System.out.println("isNumberic : "+isNumberic);
 		SigninVo signinProcess = signService.signinId(signvo);
 		System.out.println("로그인 컨트롤러 로그인 진행");
-		
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
 		
 		if(signinProcess != null) {
 			mv.setViewName("signin");

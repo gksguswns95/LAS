@@ -110,17 +110,25 @@ h2 {
 	height: 40px;
 }
 
-#fail {
+#fail, #capslock {
 	display: block;
 	color: red;
 	margin-top: 20px;
 	margin-bottom: 30px;
 	font-size: 15px;
 }
+
+#capslock {
+	display: none;
+}
+
 /*# sourceMappingURL=withdrawal.css.map */
 @media only screen and (max-width: 1024px) {
 	#section {
 		width: 100%;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 20px 15px;
 	}
 	#section #DeleteBox #delete_section {
 		width: 100%;
@@ -154,5 +162,17 @@ h2 {
 	}
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 375px) {
+	#section #DeleteBox #delete_section i {
+		font-size: 22px;
+		left: 86%;
+	}
+}
+
+@media only screen and (max-width: 280px) {
+	#section #DeleteBox #delete_section i {
+		font-size: 20px;
+		line-height:20px;
+		left: 86%;
+	}
 }

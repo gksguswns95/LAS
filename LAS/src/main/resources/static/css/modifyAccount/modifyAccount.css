@@ -84,6 +84,7 @@ h2 {
 }
 
 #section #DeleteBox #delete_section #submit_btn {
+	margin-top: 30px;
 	display: flex;
 	justify-content: space-around;
 }
@@ -100,12 +101,15 @@ h2 {
   cursor: pointer;
 }
 
-#fail {
+#fail, #capslock {
 	display: block;
 	color: red;
 	margin-top: 20px;
-	margin-bottom: 30px;
 	font-size: 18px;
+}
+
+#capslock {
+	display: none;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -137,6 +141,11 @@ h2 {
 	
 }
 
+@media only screen and (max-width: 400px) {
+	#fail {
+		font-size: 12px;
+	}	
+}
 @media only screen and (max-width: 320px) {
 	h2 {
 		font-size: 20px;	
@@ -149,4 +158,5 @@ h2 {
 	#section #DeleteBox #delete_section #inputArea > input {
 		height: 35px;
 	}
+	
 }

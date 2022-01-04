@@ -22,10 +22,7 @@
 </head>
 <body>
     <div class="container">
-	    <div class="header">
-	    	<a href="/">L.A.S</a>
-	    	<jsp:include page="../common/mobile.jsp"></jsp:include>
-	    </div>
+	    <jsp:include page="../common/header.jsp"></jsp:include>
 		<div id="section">
 			<div id="DeleteBox">
 				<div id="delete_section">
@@ -33,17 +30,18 @@
 					<form action="/modifyAccountPassword" method="post" id="modifyPasswordCheck">
 						<div id="inputArea">
 							<p>아이디</p>
-							<input type="text" name="id" id="id" disabled="disabled" value="${user_id }" required>
+							<input type="text" name="id" id="id" class="login" disabled="disabled" value="${user_id }" required>
 							<p>현재 비밀번호</p>
-							<input type="password" name="pw" id="pw" required placeholder="비밀번호를 입력해주세요.">
+							<input type="password" name="pw" id="pw" class="login" required placeholder="비밀번호를 입력해주세요.">
 							<p>새로운 비밀번호</p>
-							<input type="password" name="changePw" id="changePw" required placeholder="비밀번호를 다시한번 입력해주세요.">
+							<input type="password" name="changePw" id="changePw" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
 							<p>새로운 비밀번호확인</p>
-							<input type="password" name="changePwCheck" id="changePwCheck" required placeholder="비밀번호를 다시한번 입력해주세요.">
+							<input type="password" name="changePwCheck" id="changePwCheck" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
 							<input type="hidden" value="${error }" id='error'>
+							<div id="capslock">CapsLock이 켜져있습니다.</div>
 							<div id="fail"></div>
 							<div id="submit_btn">
-								<button type="submit">확인</button>
+								<button type="submit" id="passwordSubmit_btn" disabled="disabled">확인</button>
 								<button type="button" id="cancle_btn">취소</button>
 							</div>
 						</div>
@@ -51,13 +49,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="footer">
-			<a href="#">공지사항</a>
-			<a href="#">문의하기</a>
-			<a href="#">이용약관</a>
-			<a href="#" id="bold">개인정보 처리방침</a>
-			<p>Copyright ⓒ 2022 EvolveSoft</p>
-		</div>
+		<jsp:include page="../common/footer.jsp"></jsp:include>
 	</div>
 	<div class="transparency"></div>
 </body>

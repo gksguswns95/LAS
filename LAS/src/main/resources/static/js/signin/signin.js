@@ -18,10 +18,10 @@ $(document).ready(function() {
 	});
 
 	var height = $(window).height();
-	if (height >= $(".container").height() + 160) {
+	if (height >= $(".container").height() + 120) {
 		$(".footer").css("top", $(window).height() - 80);
 	} else {
-		$(".footer").css("bottom", '-240px');
+		$(".footer").css("bottom", '-120px');
 	}
 
 	$('#id').focusout(function() {

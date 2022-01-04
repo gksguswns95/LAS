@@ -20,26 +20,17 @@
 </head>
 <body>
     <div class="container">
-    <div class="header">
-    	<a href="/">L.A.S</a>
-    	<jsp:include page="../common/mobile.jsp"></jsp:include>
-    </div>
+    <jsp:include page="../common/header.jsp"></jsp:include>
 	<div id="section">
 			<div id="DeleteBox">
 				<div id="delete_section">
 					<h2>회원탈퇴</h2>
-					<span>회원 가입 탈퇴가 성공적으로 완료되었습니다.</span>
+					<span>회원 탈퇴가 성공적으로 완료되었습니다.</span>
 					<button type="button" class="cancle_btn">메인으로</button>
 				</div>
 			</div>
 	</div>
-	<div class="footer">
-			<a href="#">공지사항</a>
-			<a href="#">문의하기</a>
-			<a href="#">이용약관</a>
-			<a href="#" id="bold">개인정보 처리방침</a>
-			<p>Copyright ⓒ 2022 EvolveSoft</p>
-		</div>
+	<jsp:include page="../common/footer.jsp"></jsp:include>
 </div>
 <div class="transparency"></div>
 </body>
