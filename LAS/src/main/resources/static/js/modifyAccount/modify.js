@@ -9,6 +9,14 @@ $(document).ready(function() {
 			$('#fail').text('8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.');
 			$('#passwordSubmit_btn').prop('disabled',true);
 		} else {
+			if($('#pw').val() == $('#changePw').val()) {
+				$('#samePw').show();
+				$('#samePw').text("현재 비밀번호와 새로운 비밀번호가 같습니다.");
+				$('#passwordSubmit_btn').prop('disabled',true);
+			} else {
+					$('#samePw').hide();
+			}
+			
 			if($('#changePwCheck').val() != '') {
 				if(chagePasswordCheck != $('#changePwCheck').val()) {
 					$('#fail').show();
@@ -28,10 +36,7 @@ $(document).ready(function() {
 			}
 		}
 		
-		if($('#pw').val() == $('#changePw').val()) {
-				$('#samePw').text("현재 비밀번호와 새로운 비밀번호가 같습니다.");
-				$('#passwordSubmit_btn').prop('disabled',true);
-		} 
+		
 		
 	});
 	

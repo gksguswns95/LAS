@@ -145,6 +145,9 @@ h2 {
 	#fail {
 		font-size: 12px;
 	}	
+	#samePw {
+		font-size: 12px;
+	}
 }
 @media only screen and (max-width: 320px) {
 	h2 {
