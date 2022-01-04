@@ -35,11 +35,13 @@
 							<input type="password" name="pw" id="pw" class="login" required placeholder="비밀번호를 입력해주세요.">
 							<p>새로운 비밀번호</p>
 							<input type="password" name="changePw" id="changePw" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
+							<div id="samePw"></div>
 							<p>새로운 비밀번호확인</p>
 							<input type="password" name="changePwCheck" id="changePwCheck" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
 							<input type="hidden" value="${error }" id='error'>
 							<div id="capslock">CapsLock이 켜져있습니다.</div>
 							<div id="fail"></div>
+							<div id="chagePasswordCheck"></div>
 							<div id="submit_btn">
 								<button type="submit" id="passwordSubmit_btn" disabled="disabled">확인</button>
 								<button type="button" id="cancle_btn">취소</button>

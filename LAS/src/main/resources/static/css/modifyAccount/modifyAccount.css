@@ -101,14 +101,14 @@ h2 {
   cursor: pointer;
 }
 
-#fail, #capslock {
+#fail, #capslock ,#chagePasswordCheck, #samePw{
 	display: block;
 	color: red;
 	margin-top: 20px;
 	font-size: 18px;
 }
 
-#capslock {
+#capslock, #chagePasswordCheck, #samePw {
 	display: none;
 }
 

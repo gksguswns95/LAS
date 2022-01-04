@@ -145,7 +145,7 @@ $(document).ready(function() {
 				$('#mobile').prop("readonly",false);
 				$('#mobile').val('');
 				$('#insert-id').hide();
-				$('#signup_type').val('이메일');
+				$('#signup_type').val('email');
 				checkid(id);	
 				//$('#signup_type').prop("readonly",true);
 			}
@@ -159,7 +159,7 @@ $(document).ready(function() {
 				$('#email').prop("readonly",false);
 				$('#email').val('');
 				$('#insert-id').hide();
-				$('#signup_type').val('핸드폰');
+				$('#signup_type').val('phone');
 				checkid(id);
 			}else{
 				if(idlength == 0){
