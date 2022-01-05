@@ -79,6 +79,16 @@ input[type="number"]::-webkit-inner-spin-button {
 .input-container-terms .checkbox p {
 	line-height: 250%;
 }
+.filedset-pwArea {
+	position: relative;
+	margin-bottom: 0;
+}
+fieldset i {
+	position: absolute;
+	left: calc(100% - 34px);
+	margin-top: 7px;
+	cursor: pointer;
+}
 
 
 .under-content-button {
@@ -161,5 +171,8 @@ input[type="number"]::-webkit-inner-spin-button {
 	}
 	#btn_back {
 		width: 100px;
+	}
+	fieldset i {
+		margin-top: 1px;
 	}
 }

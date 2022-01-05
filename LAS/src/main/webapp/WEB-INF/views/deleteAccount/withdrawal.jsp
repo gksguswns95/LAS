@@ -40,7 +40,7 @@
 							<div class="reasonOther"><input type='text' name='reasonOther' id="other"></div>
 							<p>ID : <input type="text" id="id" disabled="disabled" value="${user_id }"></p>	
 							
-							<p><i class="fa fa-eye fa-lg"></i>
+							<p><i class="fa fa-eye fa-lg" id="convertType"></i>
 							PW : <input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required /></p>
 							<input type="hidden" value="${error }" id='error'>
 							<div id="capslock">CapsLock이 켜져있습니다.</div>

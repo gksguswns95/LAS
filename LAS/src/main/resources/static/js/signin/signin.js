@@ -6,7 +6,7 @@ $(document).ready(function() {
 		$("#idCheck").attr("checked", true);
 	}
 
-	$('#login_section i').on('click', function() {
+	$('#login_section #convertType').on('click', function() {
 		$('#pw').toggleClass('active');
 		if ($('#pw').hasClass('active')) {
 			$(this).attr('class', "fa fa-eye-slash fa-lg");
@@ -18,19 +18,40 @@ $(document).ready(function() {
 	});
 
 	var height = $(window).height();
-	if (height >= $(".container").height() + 120) {
+	if (height >= $(".container").height() + 140) {
 		$(".footer").css("top", $(window).height() - 80);
 	} else {
 		$(".footer").css("bottom", '-120px');
 	}
-
+	
+	$('#id').focusin(function() {
+		var number = $('#id').val();
+		var first_phone = /010/;
+		var reg_hyphen = /-/g;
+		var phoneNumerreset = $('#id').val().replaceAll('-', '');
+		
+		if(first_phone.test(number) && reg_hyphen.test(number) && number.length == 13) {
+			$('#id').val(phoneNumerreset);			
+		}
+	});
+	
 	$('#id').focusout(function() {
-		var first_phone = /^010/g;
-		var reg_phone = /^[0-9]*$/g;
+		var first_phone = /010/;
+		var reg_phone = /([^0-9]+)/;
 		var number = $('#id').val();
 		var phoneNumber = "";
+		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+).(\.[0-9a-zA-Z_-]+){1,2}$/;
+		var phoneNumerreset = $('#id').val().replaceAll('-', '');
+		
+		if (!reg_email.test(phoneNumerreset)) {
+			if (reg_phone.test(phoneNumerreset) || !phoneNumerreset.length == 11 || !first_phone.test(number)) {
+				$(".container #section").css('height', '520px');
+				$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");
+				$('.btn_submit').prop('disabled',true);
+			} 
+		}
 
-		if (reg_phone.test(number) && first_phone.test(number) && number.length == 11) {
+		if (!reg_phone.test(number) && first_phone.test(number) && number.length == 11) {
 			phoneNumber += number.substring(0, 3);
 			phoneNumber += '-';
 			phoneNumber += number.substring(3, 7);
@@ -38,6 +59,7 @@ $(document).ready(function() {
 			phoneNumber += number.substring(7, 11);
 			$('#id').val(phoneNumber);
 		}
+		
 	});
 
 	if ($('#hiddenUserId').val() != null) {
@@ -45,17 +67,7 @@ $(document).ready(function() {
 	}
 
 	$('#submit').submit(function() {
-		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-		var reg_phone = /^[0-9]*$/g;
 		var phoneNumerreset = $('#id').val().replaceAll('-', '');
-		if (!reg_email.test(phoneNumerreset)) {
-			if (!reg_phone.test(phoneNumerreset) || (phoneNumerreset.length > 11 || phoneNumerreset.length < 11)) {
-				$(".container #section").css('height', '520px');
-				$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");
-				return false;
-			}
-		}
-
 		if ($("#idCheck").is(":checked")) {
 			var userID = $("#id").val();
 			setCookie("userID", userID, 7);
@@ -64,6 +76,7 @@ $(document).ready(function() {
 		}
 		$('#id').val(phoneNumerreset);
 	});
+	
 	$('.btn_join').on('click', function() { location.href = "/terms_agreement" });
 
 	$('.login').on('keypress', function(e) {

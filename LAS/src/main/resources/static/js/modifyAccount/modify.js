@@ -35,11 +35,29 @@ $(document).ready(function() {
 				$('#passwordSubmit_btn').prop('disabled',true);
 			}
 		}
-		
-		
-		
+	});	
+	
+	$('#delete_section #convertTypeNew').on('click', function() {
+		$('#changePw').toggleClass('active');
+		if ($('#changePw').hasClass('active')) {
+			$(this).attr('class', "fa fa-eye-slash fa-lg");
+			$('#changePw').attr('type', "text");
+		} else {
+			$(this).attr('class', "fa fa-eye fa-lg");
+			$('#changePw').attr('type', 'password');
+		}
 	});
 	
+	$('#delete_section #convertTypeNewCheck').on('click', function() {
+		$('#changePwCheck').toggleClass('active');
+		if ($('#changePwCheck').hasClass('active')) {
+			$(this).attr('class', "fa fa-eye-slash fa-lg");
+			$('#changePwCheck').attr('type', "text");
+		} else {
+			$(this).attr('class', "fa fa-eye fa-lg");
+			$('#changePwCheck').attr('type', 'password');
+		}
+	});
 	
 	var disabledPhone = document.querySelector('#phone').disabled
 	var disabledEmail = document.querySelector('#email').disabled

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	$('#delete_section i').on('click', function() {
+	$('#delete_section #convertType').on('click', function() {
 		$('#pw').toggleClass('active');
 		if ($('#pw').hasClass('active')) {
 			$(this).attr('class', "fa fa-eye-slash fa-lg");
@@ -26,11 +26,6 @@ $(document).ready(function() {
 		location.href='/';
 	});
 	
-	/*$('#withdrawalAccount').submit(function() {
-		if (!confirm("정말로 회원 탈퇴를 하시겠습니까?")) {
-			return false;
-		}
-	});*/
 	
 	$('.reason').click(function(){
 		if ($('.reason:checked').val() == 6) {

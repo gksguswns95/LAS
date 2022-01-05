@@ -29,9 +29,11 @@
 					<form action="/modifyAccount" method="post" id="modifyAccount">
 						<div id="inputArea">
 							<p>아이디<a href="/modifyAccountPassword" id="passwordChange">비밀번호 변경</a></p>
-							<input type="text" name="id" id="id" disabled="disabled" value="${user_id }" required>
+							<label>${user_id }</label>
+							<input type="hidden" name="id" id="id" disabled="disabled" value="${user_id }" required>
 							<p>이름</p>
-							<input type="text" name="name" id="name" value="${user_name }" disabled="disabled" required>
+							<label>${user_name }</label>
+							<input type="hidden" name="name" id="name" value="${user_name }" disabled="disabled" required>
 							<p>이메일</p>
 							<input type="text" name="email" id="email" value="${user_email }" required <c:if test="${ user_signuptype == 'email'}">disabled="disabled"</c:if>>
 							<p>핸드폰</p>

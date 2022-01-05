@@ -2,6 +2,13 @@
 	margin-bottom: 240px;
 }
 
+.container {
+	position: relative;
+	left: 0;
+	-webkit-transition: left 0.4s ease-out;
+	transition: left 0.4s ease-out;
+}
+
 .container #section {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;

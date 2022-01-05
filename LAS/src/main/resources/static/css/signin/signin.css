@@ -98,7 +98,7 @@ input[type=password]::-ms-reveal {
 
 .container #section #loginBox #login_section i {
 	position: absolute;
-	left: 92%;
+	left: calc(100% - 34px);
 	margin-top: 7px;
 	cursor: pointer;
 }
@@ -174,9 +174,6 @@ input[type=password]::-ms-reveal {
 	.container {
 		width: 100%;
 	}
-	/*  .container .nav {
-    display: none;
-  } */
 }
 
 @media only screen and (max-width: 480px) {

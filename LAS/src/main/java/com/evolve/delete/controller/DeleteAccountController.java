@@ -18,6 +18,7 @@ import com.evolve.delete.service.DeleteAccountService;
 import com.evolve.delete.vo.DeleteAccountVo;
 import com.evolve.signin.service.SigninService;
 import com.evolve.signin.vo.SigninVo;
+import com.evolve.signup.service.SignupService;
 
 @Controller
 public class DeleteAccountController {
@@ -27,6 +28,9 @@ public class DeleteAccountController {
 	
 	@Autowired
 	DeleteAccountService deleteAccountService;
+	
+	@Autowired
+	SignupService signupService;
 	
 	@GetMapping(value = "/withdrawal")
 	public String withdrawal(HttpServletRequest request) {
@@ -86,7 +90,13 @@ public class DeleteAccountController {
 				System.out.println("회원정보 이동 완료!");
 				
 				System.out.println("회원테이블 삭제여부 설정 중...");
-				deleteAccountService.deleteAccountMemberUpdate(signinProcess.getId());
+				int memberSeq = signupService.memberSeqSelect(signinProcess.getId());
+				deleteAccountService.deleteLoginLog(memberSeq);
+				deleteAccountService.deleteEssential_ta(memberSeq);
+				deleteAccountService.deleteOptional_ta(memberSeq);
+				deleteAccountService.deleteMember(memberSeq);
+				// 사용자 Update_date,del_YN Update
+				//deleteAccountService.deleteAccountMemberUpdate(signinProcess.getId());
 				System.out.println("회원테이블 삭제여부 설정 완료");
 				
 				session.invalidate();

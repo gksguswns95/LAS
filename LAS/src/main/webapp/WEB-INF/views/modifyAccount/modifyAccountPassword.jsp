@@ -30,14 +30,24 @@
 					<form action="/modifyAccountPassword" method="post" id="modifyPasswordCheck">
 						<div id="inputArea">
 							<p>아이디</p>
-							<input type="text" name="id" id="id" class="login" disabled="disabled" value="${user_id }" required>
+							<label>${user_id }</label>
+							<input type="hidden" name="id" id="id" class="login" disabled="disabled" value="${user_id }" required>
 							<p>현재 비밀번호</p>
-							<input type="password" name="pw" id="pw" class="login" required placeholder="비밀번호를 입력해주세요.">
+							<div class="pwArea">
+								<i class="fa fa-eye fa-lg" id="convertType"></i>
+								<input type="password" name="pw" id="pw" class="login" required placeholder="비밀번호를 입력해주세요.">
+							</div>
 							<p>새로운 비밀번호</p>
-							<input type="password" name="changePw" id="changePw" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
+							<div class="pwArea">
+								<i class="fa fa-eye fa-lg" id="convertTypeNew"></i>
+								<input type="password" name="changePw" id="changePw" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
+							</div>
 							<div id="samePw"></div>
 							<p>새로운 비밀번호확인</p>
-							<input type="password" name="changePwCheck" id="changePwCheck" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
+							<div class="pwArea">
+								<i class="fa fa-eye fa-lg" id="convertTypeNewCheck"></i>
+								<input type="password" name="changePwCheck" id="changePwCheck" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
+							</div>
 							<input type="hidden" value="${error }" id='error'>
 							<div id="capslock">CapsLock이 켜져있습니다.</div>
 							<div id="fail"></div>

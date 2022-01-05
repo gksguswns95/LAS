@@ -20,6 +20,23 @@ public class DeleteAccountService {
 	public void deleteAccountMemberUpdate(String id) {
 		System.out.println("회원탈퇴 사용자 수정 진행");
 		mapper.deleteAccountMemberUpdate(id); 
+	}
+
+	public void deleteLoginLog(int memberSeq) {
+		mapper.deleteLoginLog(memberSeq); 
+	}
+
+	public void deleteEssential_ta(int memberSeq) {
+		mapper.deleteEssential_ta(memberSeq); 
+	}
+	
+
+	public void deleteOptional_ta(int memberSeq) {
+		mapper.deleteOptional_ta(memberSeq); 
+	}
+
+	public void deleteMember(int memberSeq) {
+		mapper.deleteMember(memberSeq); 
 	} 
 	
 	

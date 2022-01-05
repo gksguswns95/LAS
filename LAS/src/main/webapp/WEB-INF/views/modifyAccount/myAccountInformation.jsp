@@ -31,7 +31,7 @@
 					<p>아이디 : ${user_id}</p>
 					<p>이름 : ${user_name}</p>
 					<p>이메일 : ${user_email}</p>
-					<p>핸드폰 : <input type="text" id="phone" value="${user_phone}" disabled="disabled"></p>
+					<p>핸드폰 : <label id="phone">${user_phone}</label></p>
 					<p>생년월일 : ${user_birth}</p>
 					<a href="./confirmAccountPassword">회원정보수정</a>
 					<a href="./withdrawal">회원탈퇴</a>

@@ -42,7 +42,7 @@
 					</div>
 						<span id="login_inputHeader">비밀번호</span>
 					<div class="pwArea">
-						<i class="fa fa-eye fa-lg"></i>
+						<i class="fa fa-eye fa-lg" id="convertType"></i>
 						<input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required />
 					</div>
 					<input type="hidden" value="${error }" id='error'>

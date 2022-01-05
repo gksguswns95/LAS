@@ -80,8 +80,7 @@ public class SignupController {
 			signinvo.setPw(signupvo.getPw());
 			SigninVo signinProcess = signinService.signinId(signinvo);
 			
-			session.setAttribute("user_id", signinProcess.getId());
-			session.setAttribute("user_phone", signinProcess.getPhone());
+			session.setAttribute("user_id", signupvo.getId());
 			session.setAttribute("user_name", signinProcess.getName());
 			session.setAttribute("user_birth", signinProcess.getBirth());
 			session.setAttribute("user_phone", signinProcess.getPhone());

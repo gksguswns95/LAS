@@ -2,11 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.evolve.delete.mapper.DeleteAccountMapper"> 
 	 <insert id="deleteAccountMemberInsert" parameterType="com.evolve.delete.vo.DeleteAccountVo">
-	 	INSERT INTO las_quitmember(id,pw,name,birth,phone,signup_date,signup_type,disposal_date,quit_reason) 
-	 	VALUES(#{id},#{pw},#{name},#{birth},#{phone},#{signup_date},#{signup_type},DATE_ADD(NOW() ,INTERVAL 3 YEAR),#{quit_reason})
+	 	INSERT INTO las_quitmember(id,pw,name,birth,email,phone,signup_date,signup_type,disposal_date,quit_reason) 
+	 	VALUES(#{id},#{pw},#{name},#{birth},#{email},#{phone},#{signup_date},#{signup_type},DATE_ADD(NOW() ,INTERVAL 3 YEAR),#{quit_reason})
 	 </insert>
 	 
 	 <update id="deleteAccountMemberUpdate" parameterType="String">
 	 	UPDATE las_member SET update_date = now(), del_yn = 1 WHERE id = #{id}
 	 </update>
+	 
+	 <delete id="deleteLoginLog" parameterType="int">
+	 	DELETE FROM las_login_log WHERE member_seq= #{memberSeq};
+	 </delete>
+	 
+	 <delete id="deleteEssential_ta" parameterType="int">
+	 	DELETE FROM las_essential_ta WHERE member_seq= #{memberSeq};
+	 </delete>
+	 
+	 <delete id="deleteOptional_ta" parameterType="int">
+	 	DELETE FROM las_optional_ta WHERE member_seq= #{memberSeq};
+	 </delete>
+	 
+	 <delete id="deleteMember" parameterType="int">
+	 	DELETE FROM las_member WHERE seq= #{memberSeq};
+	 </delete>
 </mapper>

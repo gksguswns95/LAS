@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/modifyAccount/modifyAccount.css">
+<link rel="stylesheet" href="./css/modifyAccount/confirmAccountPassword.css">
 <link rel="stylesheet" href="./css/mobile.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
@@ -30,13 +30,18 @@
 					<form action="/confirmAccountPassword" method="post" id="confirmPasswordCheck">
 						<div id="inputArea">
 							<p>아이디</p>
-							<input type="text" name="id" id="id" disabled="disabled" value="${user_id }" required>
+							<label id="id">${user_id }</label>
+							<input type="hidden" name="id" id="id" disabled="disabled" value="${user_id }" required>
 							<p>비밀번호</p>
-							<input type="password" name="pw" id="pw" required placeholder="비밀번호를 입력해주세요.">
+							<div class="pwArea">
+								<i class="fa fa-eye fa-lg" id="convertType"></i>
+								<input type="password" name="pw" id="pw" class="login" required placeholder="비밀번호를 입력해주세요.">
+							</div>
 							<input type="hidden" value="${error }" id='error'>
+							<div id="capslock">CapsLock이 켜져있습니다.</div>
 							<div id="fail"></div>
 							<div id="submit_btn">
-								<button type="submit">확인</button>
+								<button type="submit" id="passwordSubmit_btn">확인</button>
 								<button type="button" id="cancle_btn">취소</button>
 							</div>
 						</div>

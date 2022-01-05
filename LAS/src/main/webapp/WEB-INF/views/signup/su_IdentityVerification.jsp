@@ -55,7 +55,10 @@
 									<div id="fieldset-pw" class="fieldset-pw">
 										<label for="pw">비밀번호</label>
 										<span>(최소 8자~16자 및 특수,영문,숫자 1개 포함)</span>
-										<input type="password" id="pw" name="pw" required="required">
+										<div class="filedset-pwArea">
+											<i class="fa fa-eye fa-lg" id="convertType"></i>
+											<input type="password" id="pw" name="pw" required="required">
+										</div>
 										<label id="fieldset-pw-error" style="display:; color: red; font-weight: 300; font-size: small;"></label>
 									</div>
 									
@@ -209,7 +212,17 @@ $(document).ready(function() {
         });
     };
 	
-	
+    $('#convertType').on('click', function() {
+		$('#pw').toggleClass('active');
+		if ($('#pw').hasClass('active')) {
+			$(this).attr('class', "fa fa-eye-slash fa-lg");
+			$('#pw').attr('type', "text");
+		} else {
+			$(this).attr('class', "fa fa-eye fa-lg");
+			$('#pw').attr('type', 'password');
+		}
+	});
+    
 	$('#pw').on('focusout', function(){
 		//var reg_pw = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
 		var reg_pw = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/g;
