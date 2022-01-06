@@ -90,14 +90,14 @@ public class DeleteAccountController {
 				System.out.println("회원정보 이동 완료!");
 				
 				System.out.println("회원테이블 삭제여부 설정 중...");
-				int memberSeq = signupService.memberSeqSelect(signinProcess.getId());
-				deleteAccountService.deleteLoginLog(memberSeq);
-				deleteAccountService.deleteEssential_ta(memberSeq);
-				deleteAccountService.deleteOptional_ta(memberSeq);
-				deleteAccountService.deleteMember(memberSeq);
-				// 사용자 Update_date,del_YN Update
-				//deleteAccountService.deleteAccountMemberUpdate(signinProcess.getId());
-				System.out.println("회원테이블 삭제여부 설정 완료");
+				/*
+				 * deleteAccountService.deleteLoginLog(memberSeq);
+				 * deleteAccountService.deleteEssential_ta(memberSeq);
+				 * deleteAccountService.deleteOptional_ta(memberSeq);
+				 * deleteAccountService.deleteMember(memberSeq);
+				 * System.out.println("약관 및 로그, 회원테이블 삭제 완료");
+				 */
+				deleteAccountService.deleteAccountMemberUpdate(deleteAccountvo.getId());
 				
 				session.invalidate();
 				Cookie[] cookies = request.getCookies();
