@@ -19,7 +19,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 <script src="./js/mobile.js"></script>
 <script src="./js/signin/signin.js"></script>
-<title>약관동의</title>
+<title>L.A.S - 약관동의</title>
 
 <style>
 </style>

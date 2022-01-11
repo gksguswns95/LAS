@@ -1,0 +1,169 @@
+@import url(../header.css);
+@import url(../footer.css);
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.cf::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.container {
+  position: relative;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: left 0.4s ease-out;
+  transition: left 0.4s ease-out;
+}
+
+#section {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 15px 0 15px;
+  margin-top: 100px;
+  width: 900px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.content {
+  margin: 0 auto;
+  width: 700px;
+  height: auto;
+}
+
+.content h2 {
+  border-bottom: 4px solid #e5e5e5;
+}
+
+.content .btn-area {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.content .btn-area a, .authResned {
+  display: inline-block;
+  width: 60px;
+  height: 33px;
+  border: 2px solid #e5e5e5;
+  line-height: 31px;
+}
+
+.content .box {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #e5e5e5;
+  margin-top: 40px;
+  width: 100%;
+  height: auto;
+  padding: 30px 15px;
+}
+
+.content .box input[type='text'] {
+  width: 270px;
+}
+
+.content .box .email-box, .content .box .phone-box {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px 0;
+}
+
+.content .box .phone-box {
+  padding-bottom: 0;
+}
+
+.content .box .box-inner {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px 20px 0;
+}
+
+.content .box .box-inner dt {
+  width: 100px;
+  float: left;
+  margin-bottom: 15px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.content .box .box-inner dd {
+  float: left;
+  width: calc(100% - 120px);
+  margin-bottom: 15px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.content .box .box-inner dd a {
+  display: inline-block;
+  width: 100px;
+  height: 21px;
+  border: 1px solid #c5c2c2;
+  margin-left: 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.content .box .box-inner dd #emailAuthTimer {
+  margin-left: 15px;
+  font-size: 14px;
+}
+
+.content .box #fail {
+  color: red;
+  text-align: center;
+}
+
+.content #phone-inner {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  #section {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .content {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #section {
+    margin-top: 50px;
+    padding: 0px 10px;
+  }
+  .content .box input[type='text'] {
+    width: 100%;
+  }
+  .content .box {
+    padding: 0px;
+    border: none;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .content .box .box-inner dt {
+  	width: 70px;
+  }
+  
+  .content .box .box-inner dd {
+  	width: calc(100% - 70px);
+  } 
+}

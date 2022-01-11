@@ -82,9 +82,22 @@ $(document).ready(function() {
 	
 	
 	$('#modifyAccount').submit(function() {
-		var phoneRest = $('#phone').val().replaceAll('-','')
-		$('#phone').val(phoneRest);
-		console.log($('#phone').val($('#phone').val()));
+		var first_phone = /^010/;
+		var reg_phone = /([^0-9]+)/;
+		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+).(\.[0-9a-zA-Z_-]+){1,2}$/;
+		var phoneRest = $('#phone').val().replaceAll('-','');
+		if(!(phoneRest.length == 11) || !first_phone.test(phoneRest) || reg_phone.test(phoneRest)) {
+			$('#fail').text('제대로된 핸드폰 번호를 입력해주세요.');
+			$('#fail').css('color','red');
+			return false;
+		} else {
+			$('#phone').val(phoneRest);
+		}
+		if(!reg_email.test( $('#email').val() ) ) {
+			$('#fail').text('제대로된 이메일을 입력해주세요.');
+			$('#fail').css('color','red');
+			return false;
+		}
 	});
 	
 });

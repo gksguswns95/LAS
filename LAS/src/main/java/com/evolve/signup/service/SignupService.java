@@ -44,4 +44,28 @@ public class SignupService {
 		return mapper.memberIdSelect(id);
 	}
 
+	public void emailAuthInsert(String authKey, String email, String ip) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("authKey", authKey);
+		map.put("email", email);
+		map.put("ip", ip);
+		mapper.emailAuthInsert(map);
+	}
+
+	public int emailAuthKeySelect(String email, String mailAuthKey, String ip) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("authKey", mailAuthKey);
+		map.put("email", email);
+		map.put("ip", ip);
+		return mapper.emailAuthKeySelect(map);
+	}
+
+	public void emailAuthKeyDelete(String email, String mailAuthKey, String ip) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("authKey", mailAuthKey);
+		map.put("email", email);
+		map.put("ip", ip);
+		mapper.emailAuthKeyDelete(map);
+	}
+
 }

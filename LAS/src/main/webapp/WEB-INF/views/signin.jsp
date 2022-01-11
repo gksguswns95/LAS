@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./css/mobile.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
-<title>로그인</title>
+<title>L.A.S - 로그인</title>
 <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="./js/signin/signin.js"></script>
 <script src="./js/error.js"></script>
@@ -37,13 +37,13 @@
 					<span id="login_inputHeader">아이디</span>
 					<input type="text" id="id" class="login" name="id"  placeholder="이메일 또는 휴대번호를 입력하세요." required />
 					<div id="idRemember">
-						<input type="checkbox" id="idCheck"/>
+						<input type="checkbox" id="idCheck" tabindex=“0”/>
 						<label id="idCheck">아이디 기억하기</label>
 					</div>
-						<span id="login_inputHeader">비밀번호</span>
+						<span id="login_inputHeader" >비밀번호</span>
 					<div class="pwArea">
 						<i class="fa fa-eye fa-lg" id="convertType"></i>
-						<input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required />
+						<input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required maxlength="16"/>
 					</div>
 					<input type="hidden" value="${error }" id='error'>
 					<div id="capslock">CapsLock이 켜져있습니다.</div>
@@ -52,8 +52,8 @@
 					<input type="button" class="btn_join" value="회원가입">
 					
 					<div id="find">
-						<a href="#" id="findId">아이디 찾기</a>
-						<a href="#" id="findPw">비밀번호 찾기</a>
+						<a href="/findid" id="findId">아이디 찾기</a>
+						<a href="/findpw" id="findPw">비밀번호 찾기</a>
 					</div>
 				</form>
 				</c:if>

@@ -1,8 +1,14 @@
 package com.evolve.signup.vo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class SignupVO {
 	private String id,pw,email,phone,name,birth;
 	private String signup_type;
+	private int count;
+	private String signup_date;
 
 
 	public String getSignup_type() {
@@ -65,6 +71,31 @@ public class SignupVO {
 	public String toString() {
 		return "SignupVO [id=" + id + ", pw=" + pw + ", email=" + email + ", phone=" + phone + ", name=" + name
 				+ ", birth=" + birth + ", signup_type=" + signup_type + "]";
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public String getSignup_date() {
+		return signup_date;
+	}
+
+	public void setSignup_date(String signup_date) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String Resultstr = "";
+        try {
+			Date date = format.parse(signup_date);
+			SimpleDateFormat resultFormat = new SimpleDateFormat("yy-MM-dd");
+			Resultstr = resultFormat.format(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		this.signup_date = Resultstr;
 	}
 	
 }

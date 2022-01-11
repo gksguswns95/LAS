@@ -64,6 +64,7 @@ $(document).ready(function() {
 			setTimeout(function() {	$("#capslock").hide(); },3500);
 		} else {
 			$("#capslock").hide();
+			$('#fail').text('');
 		}
 	});
 

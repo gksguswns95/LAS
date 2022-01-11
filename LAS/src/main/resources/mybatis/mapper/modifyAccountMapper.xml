@@ -9,10 +9,33 @@
 	</update>
 	
 	<select id="accountModifyConfirmPassword" parameterType="hashmap" resultType="int">
-		select COUNT(*) as count from las_member WHERE id = #{id} and pw = sha2(#{pw},256)
+		select COUNT(*) as count from las_member WHERE id = #{id} and pw = sha2(#{pw},256) AND del_yn=0
 	</select>
 	
 	<update id="accountModifyPassword" parameterType="hashmap">
-		UPDATE las_member SET pw = sha2(#{changePw},256) WHERE id = #{id} and pw = sha2(#{pw},256)
+		UPDATE las_member SET pw = sha2(#{changePw},256), update_date= now() WHERE id = #{id} and pw = sha2(#{pw},256) AND del_yn=0
 	</update>
+	
+	<update id="modifyPassword" parameterType="hashmap">
+		UPDATE las_member SET pw = sha2(#{changePw},256), update_date= now() WHERE id = #{id} AND del_yn=0
+	</update>
+	
+	<select id="nameEmailCheck" parameterType="hashmap" resultType="int">
+		select COUNT(*) as count
+		FROM las_member
+		WHERE name = #{name} AND email = #{email} AND del_yn=0
+	</select>
+	
+	<select id="namebirthidcheck" parameterType="hashmap" resultType="hashmap">
+		select signup_type,COUNT(*) as count
+		FROM las_member
+		WHERE name = #{name} AND id = #{id} AND birth = #{birth} AND del_yn=0
+	</select>
+
+	<select id="nameBirthCheck" parameterType="hashmap" resultType="com.evolve.signup.vo.SignupVO">
+		SELECT *, COUNT(*)AS count
+		FROM las_member
+		WHERE NAME = #{name} AND birth = #{birth} AND del_yn = 0
+		GROUP BY id 
+	</select>
 </mapper>

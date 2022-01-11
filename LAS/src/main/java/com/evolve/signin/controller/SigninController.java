@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.evolve.IpGet;
 import com.evolve.signin.service.SigninService;
 import com.evolve.signin.vo.SigninVo;
 
@@ -59,25 +60,8 @@ public class SigninController {
 				session.setAttribute("user_signupdate", signinProcess.getSignup_date());
 				
 				// ipCheck
-				String ip = request.getHeader("X-Forwarded-For");
-				if (ip == null) {
-					ip = request.getHeader("Proxy-Client-IP");
-				}
-				if (ip == null) {
-					ip = request.getHeader("WL-Proxy-Client-IP"); // 웹로직
-				}
-				if (ip == null) {
-					ip = request.getHeader("HTTP_CLIENT_IP");
-				}
-				if (ip == null) {
-					ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-				}
-				if (ip == null) {
-					ip = request.getRemoteAddr();
-				}
-				if (ip.equals("0:0:0:0:0:0:0:1")) {
-					ip = "127.0.0.1";
-				}
+				IpGet getIp = new IpGet();
+			    String ip = getIp.getUserIP(request);
 				signService.loginLogInsert(signinProcess.getSeq(),ip);
 				System.out.println("접속 IP : "+ip);
 				System.out.println("로그인 성공");		

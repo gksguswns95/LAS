@@ -1,0 +1,81 @@
+@import url(../header.css);
+@import url(../footer.css);
+@import url(./findIdAccount.css);
+
+label {
+	font-size: 22px;
+}
+
+#emailAuth {
+	border: 1px solid transparent;
+	border-bottom: 2px solid #e5e5e5; 
+	font-size: 20px;
+	width: calc(100% - 210px);
+}
+
+.email-box-header {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.email-box-header span {
+	font-size: 20px;
+} 
+
+#member_email {
+	display: block;
+	margin-top: 15px;
+	font-size: 25px;
+}
+
+.content .btn-area a,.authResned_btn {
+	width: 120px;
+}
+
+.authResned_btn {
+	display: none;
+	margin-top: 15px;
+}
+
+#emailAuthTimer {
+	display: inline-block;
+	float: right;
+	width: 85px;
+	height: 32px;
+	line-height: 32px;
+}
+
+#authInputLabel {
+	margin-right: 20px;
+}
+
+@media only screen and (max-width: 480px) {
+	.email-box-header span {
+		font-size: 16px;
+	}
+	#member_email {
+		font-size: 20px;
+	}
+	#emailAuth {
+		display: block;
+		width: 100%;
+	}
+	
+	#emailAuthTimer {
+		text-align: right;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	.email-box-header span {
+		font-size: 15px;
+	}
+	#member_email {
+		font-size: 20px;
+	}
+	#emailAuth {
+		display: block;
+		width: 100%;
+	}
+}

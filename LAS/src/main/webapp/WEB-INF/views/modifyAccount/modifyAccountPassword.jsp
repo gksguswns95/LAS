@@ -11,10 +11,9 @@
 <link rel="stylesheet" href="./css/mobile.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
-<title>로그인</title>
+<title>L.A.S - 회원정보 수정</title>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="./js/signin/signin.js"></script>
 <script src="./js/modifyAccount/modify.js"></script>
 <script src="./js/deleteAccount/withdrawal.js"></script>
 <script src="./js/error.js"></script>
@@ -26,7 +25,7 @@
 		<div id="section">
 			<div id="DeleteBox">
 				<div id="delete_section">
-					<h2>회원정보수정 - 비밀번호확인</h2>
+					<h2>회원정보수정 - 비밀번호변경</h2>
 					<form action="/modifyAccountPassword" method="post" id="modifyPasswordCheck">
 						<div id="inputArea">
 							<p>아이디</p>
@@ -35,18 +34,18 @@
 							<p>현재 비밀번호</p>
 							<div class="pwArea">
 								<i class="fa fa-eye fa-lg" id="convertType"></i>
-								<input type="password" name="pw" id="pw" class="login" required placeholder="비밀번호를 입력해주세요.">
+								<input type="password" name="pw" id="pw" class="login" required placeholder="비밀번호를 입력해주세요." maxlength="16">
 							</div>
 							<p>새로운 비밀번호</p>
 							<div class="pwArea">
 								<i class="fa fa-eye fa-lg" id="convertTypeNew"></i>
-								<input type="password" name="changePw" id="changePw" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
+								<input type="password" name="changePw" id="changePw" class="login" required placeholder="비밀번호를 다시한번 입력해주세요." maxlength="16">
 							</div>
 							<div id="samePw"></div>
 							<p>새로운 비밀번호확인</p>
 							<div class="pwArea">
 								<i class="fa fa-eye fa-lg" id="convertTypeNewCheck"></i>
-								<input type="password" name="changePwCheck" id="changePwCheck" class="login" required placeholder="비밀번호를 다시한번 입력해주세요.">
+								<input type="password" name="changePwCheck" id="changePwCheck" class="login" required placeholder="비밀번호를 다시한번 입력해주세요." maxlength="16">
 							</div>
 							<input type="hidden" value="${error }" id='error'>
 							<div id="capslock">CapsLock이 켜져있습니다.</div>

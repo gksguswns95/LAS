@@ -1,11 +1,21 @@
 package com.evolve.signup.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Random;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.evolve.CreateKey;
+import com.evolve.IpGet;
+import com.evolve.MailSendThread;
 import com.evolve.signin.service.SigninService;
 import com.evolve.signin.vo.SigninVo;
 import com.evolve.signup.service.SignupService;
@@ -27,6 +40,9 @@ public class SignupController {
 	
 	@Autowired
 	SigninService signinService;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 
 	private static final Logger logger = LoggerFactory.getLogger(SignupController.class);
 
@@ -57,11 +73,11 @@ public class SignupController {
 	@RequestMapping(value = "/identity_verification", method = { RequestMethod.POST })
 	public ModelAndView identity_verification_Create(HttpServletRequest request, SignupVO signupvo) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("signup/su_Welcome");
+		mv.setViewName("redirect:/welcome");
 		HttpSession session = request.getSession();
 		System.out.println(signupvo.getSignup_type());
 		System.out.println("광고성 동의여부 = " + request.getParameter("add_agreement"));
-
+		
 		if (signupvo.getId() != null && signupvo.getPw() != null) {
 
 			// 회원가입
@@ -88,26 +104,8 @@ public class SignupController {
 			session.setAttribute("user_signuptype", signinProcess.getSignup_type());
 			session.setAttribute("user_signupdate", signinProcess.getSignup_date());
 			 
-			// ipCheck
-			String ip = request.getHeader("X-Forwarded-For");
-	        if (ip == null) {
-	            ip = request.getHeader("Proxy-Client-IP");
-	        }
-	        if (ip == null) {
-	            ip = request.getHeader("WL-Proxy-Client-IP"); // 웹로직
-	        }
-	        if (ip == null) {
-	            ip = request.getHeader("HTTP_CLIENT_IP");
-	        }
-	        if (ip == null) {
-	            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-	        }
-	        if (ip == null) {
-	            ip = request.getRemoteAddr();
-	        }
-	        if (ip.equals("0:0:0:0:0:0:0:1")) {
-	        	ip = "127.0.0.1";
-	        }
+	        IpGet ipget = new IpGet();
+	        String ip = ipget.getUserIP(request);
 	        signinService.loginLogInsert(signinProcess.getSeq(),ip);
 			System.out.println("접속 IP : "+ip);
 			System.out.println("로그인 성공");
@@ -120,5 +118,42 @@ public class SignupController {
 	public String welcome() {
 		return "signup/su_Welcome";
 	}
-
+	
+	@RequestMapping(value = "/emailauth", method = { RequestMethod.GET })
+	public String emailAuth() {
+		return "signup/emailAuth";
+	}
+	
+	@PostMapping("/emailauthcheck")
+	@ResponseBody
+	public void emailAuthCheck(@RequestParam("email") String email,HttpServletRequest request) {
+		logger.info("emailAuthCheck 진입");
+		logger.info("전달받은 email:" + email);
+		MailSendThread mailSendThread = new MailSendThread(mailSender, email);
+	    String authKey = mailSendThread.mailSend();
+		//String authKey = CreateKey.getCreateKey();
+	    IpGet getIp = new IpGet();
+	    String ip = getIp.getUserIP(request);
+	    logger.info("Key : "+authKey);
+	    signupService.emailAuthInsert(authKey,email,ip);
+	    logger.info("메일 보내기 성공");
+		
+	}
+	
+	@PostMapping("/emailauthkeycheck")
+	@ResponseBody
+	public int emailAuthKeyCheck(@RequestParam("mailAuthKey") String mailAuthKey,@RequestParam("email") String email,HttpServletRequest request) {
+		logger.info("emailAuthKeyCheck 진입");
+		logger.info("전달받은 email:" + email);
+		logger.info("전달받은 mailAuthKey:" + mailAuthKey);
+		IpGet getIp = new IpGet();
+	    String ip = getIp.getUserIP(request);
+	    int cnt = signupService.emailAuthKeySelect(email,mailAuthKey,ip);
+	    if (cnt == 1) {
+	    	signupService.emailAuthKeyDelete(email,mailAuthKey,ip);
+	    }
+	    logger.info("전달받은 cnt:" + cnt);
+	    
+	    return cnt;
+	}
 }

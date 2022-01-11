@@ -73,4 +73,32 @@
 			NOW()
 		)
 	</insert>
+	
+	<insert id="emailAuthInsert" parameterType="hashmap">
+		INSERT INTO las_email_auth (
+			email,
+			key_value,
+			expiry_time,
+			ip
+		)
+			VALUES (
+			#{email},
+			#{authKey},
+			DATE_ADD(NOW() ,INTERVAL 5 MINUTE),
+			#{ip}
+		)
+	</insert>
+	
+	<select id="emailAuthKeySelect" parameterType="hashmap" resultType="int">
+		select COUNT(*) as count
+		from (SELECT * FROM las_email_auth WHERE email= #{email} ORDER BY expiry_time DESC LIMIT 1)a
+		WHERE key_value = #{authKey} and ip = #{ip} and expiry_time <![CDATA[>]]>  NOW()
+	</select>
+	
+	<delete id="emailAuthKeyDelete" parameterType="hashmap">
+		DELETE from las_email_auth
+		WHERE key_value = #{authKey} and ip = #{ip} and email = #{email}
+	</delete>
+	
+	
 </mapper>

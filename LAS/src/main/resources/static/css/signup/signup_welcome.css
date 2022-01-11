@@ -51,6 +51,11 @@
 	background-color: #343a40;
 }
 
+@media only screen and (max-width : 850px) {
+	.header{
+		margin-bottom: 0;
+	}
+}
 @media only screen and (max-width : 480px) {
 	.container #section {
 		width: 100%;
@@ -61,4 +66,5 @@
 		width: 100%;
 		min-width: 260px;
 	}
+	
 }

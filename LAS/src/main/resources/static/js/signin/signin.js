@@ -18,7 +18,9 @@ $(document).ready(function() {
 	});
 
 	var height = $(window).height();
-	if (height >= $(".container").height() + 140) {
+	console.log(height)
+	console.log($(".container").height())
+	if (height >= $(".container").height() + 160) {
 		$(".footer").css("top", $(window).height() - 80);
 	} else {
 		$(".footer").css("bottom", '-120px');
@@ -35,8 +37,15 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('#id, #pw').keyup(function() {
+		$('#fail').text('');
+		if($('#capslock').text() == null) {
+			$(".container #section").css('height', '450px');
+		}
+	});
+	
 	$('#id').focusout(function() {
-		var first_phone = /010/;
+		var first_phone = /^010/;
 		var reg_phone = /([^0-9]+)/;
 		var number = $('#id').val();
 		var phoneNumber = "";
@@ -44,11 +53,12 @@ $(document).ready(function() {
 		var phoneNumerreset = $('#id').val().replaceAll('-', '');
 		
 		if (!reg_email.test(phoneNumerreset)) {
-			if (reg_phone.test(phoneNumerreset) || !phoneNumerreset.length == 11 || !first_phone.test(number)) {
+			if (reg_phone.test(phoneNumerreset) || !(phoneNumerreset.length == 11) || !first_phone.test(number)) {
 				$(".container #section").css('height', '520px');
 				$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");
-				$('.btn_submit').prop('disabled',true);
-			} 
+			} else {
+				$('#fail').text('');
+			}
 		}
 
 		if (!reg_phone.test(number) && first_phone.test(number) && number.length == 11) {
@@ -65,8 +75,12 @@ $(document).ready(function() {
 	if ($('#hiddenUserId').val() != null) {
 		$('#section').css('border', 'none');
 	}
+	
 
 	$('#submit').submit(function() {
+		if($('#fail').text() == "핸드폰 번호 또는 이메일을 입력해주세요.") {
+			return false;
+		}
 		var phoneNumerreset = $('#id').val().replaceAll('-', '');
 		if ($("#idCheck").is(":checked")) {
 			var userID = $("#id").val();
@@ -101,8 +115,10 @@ $(document).ready(function() {
 			},3500);
 		} else {
 			if ($('#fail').text() != '') {
+				$('#fail').text('');
 				$(".container #section").css('height', '520px');
 			} else {
+				$('#fail').text('');
 				$(".container #section").css('height', '450px');
 			}
 			$("#capslock").hide();

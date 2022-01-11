@@ -14,6 +14,11 @@ fieldset label {
 	font-size: 22px;
 }
 
+input:focus {
+  background: #eeeeee;
+  outline: 1px solid #ffc598;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -63,6 +68,18 @@ input[type="number"]::-webkit-inner-spin-button {
 	height: 0.90em;
 }
 
+#fieldset-id-error,
+#fieldset-emailAuthKey-error,
+#fieldset-pw-error,
+#fieldset-pwcfm-error,
+#fieldset-email-error,
+#fieldset-mobile-error,
+#fieldset-name-error,
+#fieldset-birth-error {
+	color: red; 
+	font-weight: 300; 
+	font-size: small;
+}
 
 .content-form input {
 	width: 100%;
@@ -70,6 +87,8 @@ input[type="number"]::-webkit-inner-spin-button {
 	font-size: 22px;
 	color: #909090;
 	border-bottom: 1px solid #8c8c8c;
+	height: 30px;
+	background: #fff;
 }
 
 .input-container-terms input {
@@ -129,6 +148,65 @@ fieldset i {
 	display: none;
 	}
 
+#fieldset-emailAuthKey {
+	display: none;
+}
+
+#emailAuthCheck_btn, #emailAuthKeyInputCheck_btn {
+	width: 100px;
+	height: 30px;
+	border-radius: 10px;
+	background: #2f2f2f;
+	color: #fff; 
+	float: right;
+}
+
+#emailAuthCheck_btn {
+	display: none;
+}
+
+#emailAuthCheck_btn:hover {
+	background: #ddd;
+	color: #2f2f2f;
+}
+
+#emailAuthKeyInputCheck_btn {
+	width: 140px;
+}
+
+#emailAuthSuccess {
+	display: block;
+	font-size: 18px;
+	color: green;
+	margin-top: 10px;
+}
+
+#check-id,#insert-id {
+	font-weight: 500;
+	font-size: small;
+	display: block;
+	color: green; 	
+}
+
+#emailAuthTimer {
+	font-size: 20px;
+	float: right;
+	margin-right: 20px;
+	font-weight: 600;
+}
+
+#staticId {
+	display: block;
+	margin: 10px 0;
+}
+
+#submit-error {
+	display:block;
+	margin-bottom: 30px;
+	font-size: 20px;
+	color: red;
+}
+
 @media only screen and (max-width : 480px) {
 	.content-form input {
 		font-size: 18px;
@@ -148,6 +226,13 @@ fieldset i {
 	#fieldset-pw>span {
 		display: block;
 	}
+	
+	#emailAuthTimer {
+		float: none;
+		font-size: 17px;
+		display: block;
+		margin-right: 0; 
+	}
 }
 
 @media only screen and (max-width : 385px) {
@@ -160,7 +245,7 @@ fieldset i {
 	}
 	
 	fieldset label {
-		font-size: 12px;
+		font-size: 17px;
 	}
 	
 	span {
@@ -173,6 +258,46 @@ fieldset i {
 		width: 100px;
 	}
 	fieldset i {
-		margin-top: 1px;
+		margin-top: 6px;
+	}
+	
+	#check-id,#insert-id {
+		font-size: x-small;
+	}
+	#emailAuthKeyInputCheck_btn {
+		width: 110px;
+	}
+
+	#emailAuthCheck_btn {
+		width: 90px;
+	}
+
+	#emailAuthCheck_btn,#emailAuthKeyInputCheck_btn {
+		margin-top: 5px;	
+		height: 16px;
+		font-size: 11px;
+		line-height: 13px;
+	}
+	#emailAuthSuccess {
+		font-size: 13px;
+	}
+	
+	#emailAuthTimer {
+		font-size: 15px;
+	}
+	
+	#submit-error {
+		font-size: 13px
+	}
+	
+	#fieldset-id-error,
+	#fieldset-emailAuthKey-error,
+	#fieldset-pw-error,
+	#fieldset-pwcfm-error,
+	#fieldset-email-error,
+	#fieldset-mobile-error,
+	#fieldset-name-error,
+	#fieldset-birth-error {
+		font-size: x-small;
 	}
 }

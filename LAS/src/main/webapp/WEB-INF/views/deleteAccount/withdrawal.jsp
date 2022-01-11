@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./css/mobile.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">  
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
-<title>로그인</title>
+<title>L.A.S - 회원탈퇴</title>
 <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="./js/deleteAccount/withdrawal.js"></script>
 <script src="./js/error.js"></script>
@@ -41,7 +41,7 @@
 							<p>ID : <input type="text" id="id" disabled="disabled" value="${user_id }"></p>	
 							
 							<p><i class="fa fa-eye fa-lg" id="convertType"></i>
-							PW : <input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required /></p>
+							PW : <input type="password" id="pw" class="login" name="pw"  placeholder="비밀번호를 입력하세요." required maxlength="16"/></p>
 							<input type="hidden" value="${error }" id='error'>
 							<div id="capslock">CapsLock이 켜져있습니다.</div>
 							<div id="fail"></div>

@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 
-<title>Welcome</title>
+<title>L.A.S - 회원가입 완료</title>
 <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="./js/signin/signin.js"></script>
 <script src="./js/mobile.js"></script>
