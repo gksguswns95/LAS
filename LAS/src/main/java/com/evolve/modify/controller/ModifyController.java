@@ -146,7 +146,7 @@ public class ModifyController {
 			System.out.println("비밀번호 일치!");
 			return mv;
 		} else {
-			mv.setViewName("redirect:/confirmAccountPassword");
+			mv.setViewName("modifyAccount/confirmAccountPassword");
 			mv.addObject("error", "passwordConfirmError");
 			return mv;
 		}

@@ -21,6 +21,10 @@
 	text-decoration: none;
 }
 
+.signinMenu {
+	font-size: 15px;
+}
+
 .header .signinMenu > a{
 	position: absolute;
 	color: #fff;
@@ -34,7 +38,7 @@
 }
 
 .header .signinMenu > a:nth-of-type(2) {
-	right: 125px;
+	right: 100px;
 	top : 0px;
 }
 

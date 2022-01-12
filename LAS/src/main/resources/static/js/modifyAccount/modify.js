@@ -100,4 +100,8 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('#phone, #email').keyup(function() {
+		$('#fail').text('');
+	});
+	
 });
