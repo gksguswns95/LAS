@@ -263,6 +263,10 @@ $(document).ready(function() {
     		data:{email:email},
     		success: function() {
     			startTimer(299);
+    			$('#emailAuthKeyInput').css('display','block');
+    			$('#fieldset-emailAuthKey-error').text("");
+    			$('#emailAuthKeyInputCheck_btn').prop('disabled',false);
+      	      $('#emailAuthKeyInputCheck_btn').css('display','block');
     		},
     		error:function() {
     			alert('메일 전송 실패!');

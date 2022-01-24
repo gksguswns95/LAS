@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+/* intro */
+.intro-wrap {position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow-y: auto; z-index: 10;}
+.intro-wrap .intro-box {position: relative; width: 100%; height: 100%; z-index: 20;}
+.intro-wrap .intro-in {margin: 0 2rem; width: calc(100% - 4rem); color: #fff;}
+.intro-wrap .intro-tit {padding-top: 11.2rem; font-size: 2.4rem; text-align: center; line-height: 3.6rem;}
+.intro-wrap .intro-tit strong {display: block; font-weight: 500;}
+
+.intro-wrap .intro-list {padding-top: 6rem;}
+.intro-wrap .intro-list li {padding: 2.4rem 2rem 2.4rem 0; font-size: 1.4rem; line-height: 2rem;}
+.intro-wrap .intro-list li strong {display: block; font-size: 2rem; line-height: 2.9rem;}
+.intro-wrap .intro-list li + li {border-top: 1px solid #dddddd;}
+.intro-wrap .intro-list li.sp-icon-a {position: relative; padding-left: 13rem;}
+.intro-wrap .intro-list li.sp-icon-a:nth-child(1)::after {content: ''; display: block; position: absolute; left: 3.8rem; top: 3.2rem; width: 56px; height: 56px; background-position: -3px -3px;}
+.intro-wrap .intro-list li.sp-icon-a:nth-child(2)::after {content: ''; display: block; position: absolute; left: 3rem; top: 3.2rem; width: 73px; height: 51px; background-position: -79px -3px;}
+
+.btn-intro {position: fixed; left: 0; bottom: 54px; margin: 0 2rem; width: calc(100% - 4rem);}
+.btn-intro .btn {display: block; width: 100%; height: 48px; line-height: 48px; color: #000; background-color: #fff; font-weight: 500; border-radius: 7px;}
+
+/* 기본정보 */
+.info-wrap .info-cont {margin-top: 5.3rem;}
+
+.info-wrap .main-add {margin-top: 7.9rem;}
+.info-wrap .main-add.receive {margin-top: 5.3rem;}
+
+.info-wrap .sub-add {margin-top: 0.7rem;}
+
+.info-wrap .chk-option-wrap {margin-top: 2.6rem;}
+
+.info-job-num {margin-top: 2.6rem;}
+
+.info-wrap.post .rdobox-wrap {margin-top: 6.5rem;}
+
+/* 전자금융 신청서 */
+.electronic-wrap .electronic-cont {margin-top: 5.3rem;}
+.electronic-cont.otp {margin-top: 4rem;}
+.electronic-cont.limited {margin-top: 3.6rem;}
+
+.electronic-cont .list-type01 {padding-top: 3.4rem;}
+.electronic-cont.login .list-type01 {padding-top: 12.7rem;}
+
+.electronic-cont .rdobox-wrap .togg-cont {margin-top: 3.4rem;}
+
+.btn-center-wrap {margin-top: 1.9rem; text-align: center;}
+.btn-small-type03.cl-black {color: #000; border-color: #333;}
+
+
+/* 인증-신분증인증 */
+.certi-wrap.idcard .top-cont01 {margin-top:12.4rem}
+.certi-wrap.idcard .top-cont01 .txt-type01 {margin-top:2.3rem}
+
+.certi-wrap.idcard .carmera-box {margin-top: 4rem; width: 100%; height: 22rem; background-color: #efefef;}
+
+.certi-wrap.idcard .list-type01 {margin-top: 4rem;}
+
+.carmera-wrap .btn-wrap {margin-top: 2rem; text-align: right;}
+
+.certi-wrap.idcard .result-list-wrap {margin-top: 2.5rem;}
+
+.result-list .list:after {content: ''; display: block; clear: both;}
+.result-list .list {position: relative; padding: 2rem 0; font-size: 1.4rem; border-bottom: 1px solid #ddd;}
+.result-list .list .tit {float: left; padding: 0.1rem 1rem 0; width: 8rem;}
+.result-list .list .txt {float: left; padding-right: 3.5rem; width: calc(100% - 10rem); box-sizing: border-box;}
+.result-list .list input[type="text"] {display: block; padding: 0; font-size: 1.4rem; font-weight: 500; letter-spacing: 0.2rem; height: 2rem; line-height: 1.9rem;}
+.result-list .list input:disabled {color: #000; background-color: transparent; opacity: 1; border: none;}
+
+.result-list .list .ico-edit {display: block; position: absolute; right: 0; top: 1.5rem; width:3rem; height: 3rem; line-height: 3rem; text-align: center;}
+.ico-edit .sp-icon {display: inline-block; text-indent: -9999px; width: 14px; height: 14px; background-position: -101px -99px;}
+.ico-edit .sp-icon.end {width: 14px; height: 10px; background-position: -78px -99px;}
+
+.result-list .list.error {padding-bottom: 0.5rem; border-bottom: 1px solid #e5005a;}
+.result-list .list .txt-small-error {display: none;}
+.result-list .list.error .txt-small-error {display: block;}
+
+
+/* popup */
+.full-popup .field-area .pop-field .result-list.sectors li a:after {content: ''; display: block; clear: both;}
+.full-popup .field-area .pop-field .result-list.sectors li a {font-size: 0; padding: 2rem 0; line-height: 0;}
+.full-popup .result-list.sectors li a span {display: inline-block; font-size: 1.8rem; line-height: 2.7rem;}
+.full-popup .result-list.sectors .num {width: 13.5rem; font-weight: 500; vertical-align: top;}
+.full-popup .result-list.sectors .name {width: calc(100% - 13.5rem); color: #999; text-align: right;}
+
+/* popup 모바일 otp 안내 */
+.pop-visual-otp + .txt-wrap {margin-top: 3.5rem;}
+.pop-field .txt-wrap .list-type03 + .list-type03 {margin-top: 4rem;}
+
+/* common */
+.txt-br {display: block;}
+.txt-small-error {font-size: 1rem; color: #e5005a; line-height: 1.5rem;}
+.confirm-txt {padding-left: 0.5rem; font-size: 1.2rem; color: #008288;}
+
+.input-area.no-margin {margin: 0;}
+.input-area.no-margin .field {padding-top: 0; min-height: auto;}
+
+.chk-option-wrap {position:relative;}
+.chk-option-wrap .chk-option input[type="checkbox"] {position:absolute; top:0; left:0; width:2rem; height:2rem; background:url('../images/icon/sp_icon.png') no-repeat -3px -121px; background-size:300px auto;}
+.chk-option-wrap .chk-option input[type="checkbox"]:checked {background-position:-3px -146px;}
+/*
+.chk-option-wrap .chk-option input[type="checkbox"]:disabled {background-position:-3px -171px; }
+*/
+.chk-option-wrap .chk-option label {display:block; width:100%; padding:0 0 0 2.4rem; color:#000; font-size:1.4rem; line-height:2rem; font-weight:300; box-sizing:border-box}
+
+.chk-option-wrap .input-area .field .inputFake {height: 3.6rem;}
+.chk-option-wrap .input-area .field .inputFake .selectBtn {padding: 0 2rem 0 1rem; width: 10.5rem; font-size: 1.4rem;}
+.chk-option-wrap .input-area .field .inputFake .selectBtn::after {bottom: 1.3rem;}
+.chk-option-wrap .input-area .field .inputFake.tel .selectBtn + input[type='text'] {width: calc(100% - 10.5rem);}
+
+.chk-option-wrap .sub-box {display: none; margin-top: 0.4rem; padding-left: 2.5rem;}
+.chk-option-wrap .sub-box input {font-size: 1.4rem;}
+.chk-option-wrap .sub-box input::-webkit-input-placeholder,
+.chk-option-wrap .sub-box input::placeholder {font-size: 1.4rem;}
+
+.link-box-wrap {border-bottom: 1px solid #ddd;}
+.link-box-wrap.receive .tit {padding-top: 0.5rem; font-size: 1.4rem; color: #999; line-height: 1.6rem;}
+.link-box-wrap.receive .tit + a {margin-top: 0.5rem; color: #000; font-weight: 500;}
+
+.link-box {display: block; padding: 1.2rem 1.5rem 1.2rem 0.5rem; font-size: 1.8rem; color: #999;}
+.link-box .sp-icon-a {display: block; position: relative;}
+.link-box .sp-icon-a:after {content: ''; display: block;position: absolute; right: 0; top: 0.3rem; width: 8px; height: 15px; background-position: -79px -146px;}
+
+.list-type03 {font-size: 1.4rem; color: #666;}
+.list-type03 .list-tit {margin-bottom: 1.1rem; font-size: 1.6rem; color: #000; font-weight: 500;}
+.list-type03 .list-dot li {position: relative; padding-left: 0.6rem; line-height: 1.9rem; word-break: keep-all;}
+.list-type03 .list-dot li:before {display:block; content:''; position:absolute; top:0.75rem; left:0; width:0.2rem; height:0.2rem; background:#888}
+.list-type03 .list-dot li + li {margin-top: 1rem;}
+
+.list-type03 .list-num li .sub-tit {display: block; margin-bottom: 1rem; font-weight: 500;}
+.list-type03 .list-num li {margin-top: 1.6rem;}
+
+.chk-locationR .chkbox04 {text-align: right;}
+.chkbox04 input[type="checkbox"] {width:2.1rem; height:2.1rem; background:url('../images/icon/sp_icon.png') no-repeat -3px -121px; background-size:300px auto; }
+.chkbox04 input[type="checkbox"]:checked {color: #008288; background-position:-3px -146px;}
+.chkbox04 input[type="checkbox"]:disabled {background-position:-3px -171px; }
+.chkbox04 label {display:inline-block; color:#999; font-size:1.4rem; line-height:1.6rem; font-weight:300; box-sizing:border-box}
+.chkbox04 input[type="checkbox"]:checked + label {color: #008288;}

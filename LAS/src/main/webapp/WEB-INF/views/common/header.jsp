@@ -11,6 +11,7 @@
 		</c:if>
 		<c:if test="${user_name == null}">
 			<a href="./signin">로그인</a>
+			<a href="./prototype/sign_up">Prototype</a>
 		</c:if>
 	</div>
 	

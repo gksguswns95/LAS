@@ -56,6 +56,7 @@ public class SignupController {
 		return cnt;
 	}
 
+
 	@RequestMapping(value = "/terms_agreement", method = { RequestMethod.GET })
 	public ModelAndView signup(HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("signup/su_TermsAgreement");
