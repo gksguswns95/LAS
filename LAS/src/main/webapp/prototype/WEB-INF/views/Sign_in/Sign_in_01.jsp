@@ -1,0 +1,134 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LAS</title>
+    <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
+    <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
+</head>
+
+<body>
+<!-- wrap-->
+<div id="wrap">
+    <!-- header -->    
+    <header id="header">
+        <div class="inner-wrap">
+            <div class="arr">
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:history.back();"></i>
+            </div>
+            <h1>LG 계정</h1>
+        </div>
+    </header>
+    <!-- // header -->
+
+    <!-- container -->
+    <div id="container">
+        <div id="contents">
+            <!-- 컨텐츠 영역 -->
+            <div class="input-area">
+                <!-- 인풋박스 -->
+                <fieldset class="field"><!-- [D] 클래스 error ]-->
+                    <div class="label-switching only">
+                        <div class="innerWrap">
+                            <div class="tit">아이디</div>
+                            <div class="explain fontColor1">이메일 또는 휴대폰번호 입력하세요</div>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <input class="" id="name01" type="text"  placeholder="직장명" value="LoremGipsum@email.com" />
+                        <div class="btn-wrap">
+                            <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
+                        </div>
+                    </div>
+                    <div class="input-validation-box">
+                        <div class="inner-warp">
+                            <!-- [D] 오류 메세지 -->
+                            <p class="error-txt">!형식에 맞지 않습니다.</p>
+                            <!-- <p class="info-txt">Caption</p> -->
+                            <!-- // [D] 오류 메세지 -->
+                        </div>
+                    </div>
+                    <fieldset>
+                        <label class="check-box-label fill small">아이디 기억하기
+                            <input type="checkbox">
+                        </label>
+                    </fieldset>
+                </fieldset>
+            </div>
+            <div class="input-area">
+                <fieldset class="field"><!-- [D] 클래스 error ]-->
+                    <div class="label-switching only">
+                        <div class="innerWrap">
+                            <div class="tit">비밀번호</div>
+                            <div class="explain fontColor1"><span class="fontColor2">대문자</span>,<span class="fontColor2">숫자</span>,기호 포함 8자 이상 입력하세요</div>
+                        </div>
+                    </div>
+                    <div class="input pw">
+                        <input class="" id="name02" type="password"  placeholder="대문자,숫자,기호 포함 8자 이상 입력하세요" value="123456" />
+                        <div class="btn-wrap">
+                            <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
+                        </div>
+                        <div class="icon-password"><i class="fa fa-eye" aria-hidden="true"></i><span class="line"></span></div>
+                    </div>
+                    <div class="input-validation-box">
+                        <div class="inner-warp">
+                            <!-- [D] 오류 메세지 -->
+                            <p class="error-txt">!형식에 맞지 않습니다.</p>
+                            <!-- <p class="info-txt">Caption</p> -->
+                            <!-- // [D] 오류 메세지 -->
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="btn-set mt20">
+                <button class="button-basic">로그인</button>
+            </div>
+            <div class="bothSet01">
+                <div class="set-list">
+                    <ul>
+                        <li><a href="javascript:;">아이디를 찾아볼께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:;">비밀번호를 재설정할께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:;">LG계정을 만들께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <p class="gap"></p>
+                <div class="sns-list">
+                    <ul>
+                        <li class="g"><a href="javascript:;">Google 계정으로 로그인</a></li>
+                        <li class="f"><a href="javascript:;">facebook 계정으로 로그인</a></li>
+                        <li class="n"><a href="javascript:;">Naver 계정으로 로그인</a></li>
+                        <li class="k"><a href="javascript:;">Kakao 계정으로 로그인</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- // 컨텐츠 영역 -->
+        </div>
+        <!-- // contents -->
+    </div>
+    <!-- container -->
+    <!-- footer -->
+    <footer>
+        <ul class="terms">
+            <li><a href="javascript:;">공지사항</a></li>
+            <li class="line"></li>
+            <li><a href="javascript:;">문의하기</a></li>
+            <li class="line"></li>
+            <li><a href="javascript:;">이용약관</a></li>
+            <li class="line"></li>
+            <li><a href="javascript:;">개인정보 처리방침</a></li>
+        </ul>
+        <p class="copy">Copyright ⓒ 2022 LG Electronics. All Rights Reserved</p>
+    </footer>
+    <!-- // footer -->
+</div>
+<!-- wrap -->
+<!-- 스크립트 영역 -->
+	<script src="../js/LAS/jquery-3.4.1.min.js"></script>
+	<script src="../js/LAS/swiper.min.js"></script>
+	<script src="../js/LAS/common_ui.js"></script>
+	<!-- 스크립트 영역 -->
+
+
+</body></html>

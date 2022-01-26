@@ -11,7 +11,7 @@
 		</c:if>
 		<c:if test="${user_name == null}">
 			<a href="./signin">로그인</a>
-			<a href="./prototype/sign_up">Prototype</a>
+			<a href="./prototype/main">Prototype</a>
 		</c:if>
 	</div>
 	
@@ -21,10 +21,12 @@
 			<li><a href="./signin">L.A.S HOME</a></li>
 			<c:if test="${user_name != null}">
 				<li><a href="./myAccountInformation">MyPage</a></li>
+				<li><a href="./prototype/sign_up">Prototype</a></li>
 				<li><a href="./signout">Logout</a></li>
 			</c:if>
 			<c:if test="${user_name == null}">
 				<li><a href="./signin">Login</a></li>
+				<li><a href="./prototype/sign_up">Prototype</a></li>
 			</c:if>
 		</ul>
 	</div>

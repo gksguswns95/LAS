@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
-<!-- saved from url=(0076)https://redpillar.github.io/las/html/new_html/Landing_00_ko_KR_style_04.html -->
 <html >
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -39,23 +38,25 @@
 	            
 	        <dic class="con" style="min-height: calc(490px);">
 	            <div class="innerWrap">
-	                <button class="button-basic on">로그인</button>
-	                <button class="button-basic outline">계정만들기</button>
+	                <button class="button-basic on" onclick="next_signin();">로그인</button>
+	                <button class="button-basic outline" onclick="next_signup();">계정만들기</button>
 	                <a class="link-icon-arr" href="javascript:;">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	            </div>
 	        </dic>
 	    </div>
 	    <!-- footer -->
-	    <footer>
+		<footer>
 	        <ul class="terms">
 	            <li><a href="javascript:;">공지사항</a></li>
+	            <li class="line"></li>
 	            <li><a href="javascript:;">문의하기</a></li>
+	            <li class="line"></li>
 	            <li><a href="javascript:;">이용약관</a></li>
-	            <li><a href="javascript:;">개인정보</a></li>
-	            <li><a href="javascript:;">처리방침</a></li>
+	            <li class="line"></li>
+	            <li><a href="javascript:;">개인정보 처리방침</a></li>
 	        </ul>
-	        <p class="copy">Copyright â 2022 LG Electronics. All Rights Reserved</p>
-	    </footer>
+	        <p class="copy">Copyright ⓒ 2022 LG Electronics. All Rights Reserved</p>
+    	</footer>
 	    <!-- // footer -->
 	</div>
 	<!-- wrap -->
@@ -64,7 +65,14 @@
 	<script src="../js/LAS/swiper.min.js"></script>
 	<script src="../js/LAS/common_ui.js"></script>
 	<!-- 스크립트 영역 -->
-	
-	
+	<script type="text/javascript">
+		function next_signin()  {
+			window.location.href = './signin_valid';
+		}
+		function next_signup()  {
+			window.location.href = './signup_select';
+		}
+	</script>
+		
 	</body>
 </html>

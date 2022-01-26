@@ -19,7 +19,7 @@
 /*input text type*/
 input[type="password"],
 input[type="search"],
-input[type="text"]{outline:none;border:0;color:#000;/* font-size:1.8rem; */padding: 1.3rem 2.5rem 1.3rem 0rem;box-sizing:border-box;width:100%;height:100%;font-weight: 100;}
+input[type="text"]{outline:none;border:0;color:#000;/* font-size:1.8rem; */padding: 1.3rem 3.5rem 1.3rem 0rem;box-sizing:border-box;width:100%;height:100%;font-weight: 100;}
 input:disabled {/*background-color:#f0f0f0; color:#707070;*/}
 
 /* 플레이스 홀더 */
@@ -33,7 +33,7 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
 
 /* .input-area  */
 #contents > .input-area:first-child .field {padding-top:0;}
-.input-area .field {position: relative; width:100%; min-height:9.6rem; padding-top:2.6rem; text-align:left; box-sizing: border-box;}
+.input-area .field {position: relative; display:block; width:100%; min-height:9.6rem; padding-top:2.6rem; text-align:left; box-sizing: border-box;}
 .input-area .field .input {height: 4.4rem;position: relative;border-bottom:1px solid #ddd;position: relative;}
 .input-area .field .input input[type="text"] {padding: 1.3rem 2.5rem 1.3rem 0rem;}
 .input-area .field .input input[type="text"].money {text-align:right; font-weight:700;}
@@ -392,6 +392,7 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
 /* 체크박스 set */
 .check-set{padding:2rem 0 1rem 0;}
 .check-set .check-box-wrap.small + .check-box-wrap.small{margin-top:1rem;}
+.check-set fieldset + fieldset{margin-top:1rem;}
 .check-set .check-box-wrap + .check-box-wrap{margin-top:1rem;}
 
 
@@ -455,7 +456,7 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
 .pop-layer .tit {position: relative; padding: 1.5rem; font-size: 1.6rem; font-weight: bold;}
 .pop-layer .tit .close {width: 4rem; height: 4rem; position:absolute; top:50%; right:.5rem; margin-top: -2rem; display: flex; align-items: center; justify-content: center;}
 .pop-layer .tit .close::before {content:''; display: block; width: 2.2rem; height:2.2rem; background:url(../images/close.png);}
-.pop-layer .cont-area {padding:0 1rem 0}
-.pop-layer .cont-area .cont {border-top: 1px solid #ddd; padding:1rem 0 1rem; overflow: auto;}
+.pop-layer .cont-area {height:calc(100% - 5rem);}
+.pop-layer .cont-area .cont {height:100%; border-top: 1px solid #ddd; padding:1rem; overflow: auto; box-sizing:border-box;}
 
 @media screen and (min-width: 360px) {	.label-switching .explain {	font-size: 1.5rem;}	}

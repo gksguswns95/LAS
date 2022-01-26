@@ -25,40 +25,10 @@
 			this._checkBox() // 체크박스
 			this._getVcBox() // 레이아웃 센터 정렬
 			this._accordionBox() // 아코디언 1
-			this._textView(); // 이용약관
 
 			/* 플러그인 */
 			this.openPopup(); // 스와이프 셀렉트 팝업
 			this.topNavi(); // 스와이프 전체 텝매뉴
-		},
-		_textView : function(){
-			const $box = $('.clause-list-box > ul > li');
-			$box.each(function(n,i){
-				const $bt = $(i).find('.tit > .alink-line');
-				const $close = $(i).find('.area-clause .btn-set > .button-basic');
-				const $clause = $(i).find('.area-clause');
-				$(i).find('.area-clause > .innerWrap').addClass('ac');
-				$bt.on('click',function(){
-					const $clause = $(this).parents('li').find('.area-clause > .innerWrap');
-					const top = ($clause.parent().offset().top - $('body,html').scrollTop() ) * -1;
-					const left = ($clause.parent().offset().left + 1) * -1;
-					$('.area-clause > .innerWrap').removeAttr("style");
-					$clause.parent().addClass('active').end().css({
-						position : 'absolute',
-						top : top + 'px',
-						left : left + 'px',
-						right : left + 'px',
-						zIndex : 100000,
-						height : '100vh',
-					});
-					$('body, #wrap').addClass('overflow-h');
-				})
-				$close.on('click',function(){
-					const $clause = $(this).parents('li').find('.area-clause > .innerWrap');
-					$clause.attr('style','z-index:0').parent().removeClass('active');
-					$('body, #wrap').removeClass('overflow-h');
-				})
-			})
 		},
 		_accordionBox : function(){
 
@@ -351,6 +321,8 @@
 				}
 			});
 			$btnDel.on('click', function(){
+				const check = ($(this).parents('.input-box-line').length > 0)?$(this).parents('.input-box-line'):false;
+				if(check) return;
 				const $field = $(this).parents(".field");
 				$(this).parents(".input").find("input").val('');
 				$field.removeClass("checked").removeClass("error");
@@ -413,13 +385,16 @@
 
 			});
 			$lineBoxInput.on('focus',function(){
-				$(this).parents('.input-box-line').addClass("focus");
+				$(this).parents('.input-box-line').addClass("active focus");
 			}).on('blur',function(){
-				$(this).parents('.input-box-line').removeClass("focus");
+				$(this).parents('.input-box-line');
+				setTimeout(()=>{
+					$(this).parents('.input-box-line').removeClass("active focus");
+				})
 			})
-			$lineBoxBt.on('mouseenter',function(){
+			$lineBoxBt.on('click',function(){
 				const $input = $(this).parents('.input-box-line').find("input");
-				$input.val('').focus();
+				$input.val('');
 			});
 			$tit.on('click',function(){
 				const $input = $(this).parents('.field').addClass("on").find(".input input");
