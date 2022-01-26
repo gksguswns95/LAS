@@ -46,7 +46,7 @@
                                     <input type="checkbox" id="essential_1">
                                 </label>
                             </fieldset>
-                            <a href="#javascript:;" class="alink-line">자세히 보기</a>
+                            <a href="javascript:goTerm01()" class="alink-line">자세히 보기</a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -78,7 +78,7 @@
                                     <input type="checkbox" id="essential_2">
                                 </label>
                             </fieldset>
-                            <a href="#javascript:;" class="alink-line">자세히 보기</a>
+                            <a href="javascript:goTerm02()" class="alink-line">자세히 보기</a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -110,7 +110,7 @@
                                     <input type="checkbox" name="idle_agree" id="idle_agree">
                                 </label>
                             </fieldset>
-                            <a href="#javascript:;" class="alink-line">자세히 보기</a>
+                            <a href="javascript:goTerm03()" class="alink-line">자세히 보기</a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -220,6 +220,19 @@
 				}
 			})
 		});
+		
+		function goTerm01() {
+			location.href="signup_term01"; 
+		}
+		function goTerm02() {
+			location.href="signup_term01"; 
+		}
+		function goTerm03() {
+			location.href="signup_term01"; 
+		}
+		
+		
+
 	</script>
 <!-- 스크립트 영역 -->
 
