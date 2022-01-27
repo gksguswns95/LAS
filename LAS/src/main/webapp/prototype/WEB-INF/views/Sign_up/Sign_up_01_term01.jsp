@@ -6,13 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>LAS</title>
-<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
     <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
-=======
-    <link rel="stylesheet" type="text/css" href="../css/swiper.css">
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
->>>>>>> b6469c610b59a55959ebb985842223a275091563
 </head>
 
 <body>
@@ -22,11 +17,7 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-<<<<<<< HEAD
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signup_idle';"></i>
-=======
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
->>>>>>> b6469c610b59a55959ebb985842223a275091563
             </div>
             <h1>LG 계정</h1>
         </div>
@@ -55,11 +46,7 @@
             </div>
             <p class="gap"></p>
             <div class="btn-set">
-<<<<<<< HEAD
                 <button class="button-basic outline" onclick="javascript:location.href='/prototype/signup_idle';">돌아가기</button>
-=======
-                <button class="button-basic outline">돌아가기</button>
->>>>>>> b6469c610b59a55959ebb985842223a275091563
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>
@@ -83,15 +70,9 @@
 </div>
 <!-- wrap -->
 <!-- 스크립트 영역 -->
-<<<<<<< HEAD
 <script src="../js/LAS/jquery-3.4.1.min.js"></script>
 <script src="../js/LAS/swiper.min.js"></script>
 <script src="../js/LAS/common_ui.js"></script>
-=======
-<script src="../js/jquery-3.4.1.min.js"></script>
-<script src="../js/swiper.min.js"></script>
-<script src="../js/common_ui.js"></script>
->>>>>>> b6469c610b59a55959ebb985842223a275091563
 <!-- 스크립트 영역 -->
 
 </body>
