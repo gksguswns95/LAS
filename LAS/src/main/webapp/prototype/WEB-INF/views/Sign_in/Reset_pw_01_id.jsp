@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>LAS</title>
-    <link rel="stylesheet" type="text/css" href="../css/swiper.css">
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
+    <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
 </head>
 
 <body>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="btn-set mt20">
-                <button class="button-basic">비밀번호 재설정</button>
+                <button class="button-basic" onclick="location.href='/prototype/reset_pw_comp';">비밀번호 재설정</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>

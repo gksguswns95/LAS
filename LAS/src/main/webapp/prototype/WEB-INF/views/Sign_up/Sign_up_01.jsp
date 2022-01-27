@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -239,19 +240,6 @@
 			});
 			
 		});
-		
-		function goTerm01() {
-			location.href="signup_term01"; 
-		}
-		function goTerm02() {
-			location.href="signup_term01"; 
-		}
-		function goTerm03() {
-			location.href="signup_term01"; 
-		}
-		
-		
-
 	</script>
 <!-- 스크립트 영역 -->
 

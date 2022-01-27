@@ -4,6 +4,7 @@ $(function() {
 	//에러
 	//$('.field input')[1].error();
 	$($('.field')[1]).hide();
+	$('.btn-set.mt45').hide();
 	
 	//중복체크
 	function checkid(id){
@@ -15,7 +16,10 @@ $(function() {
             	if(cnt != 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디
         			$('#id').val('');
         			$('.field input')[0].error();
+        			$('.info-txt').css('margin', '3rem 0 0');
+					$('#btn-auth-send').prop('disabled',true);
                 } else {
+        			$('.info-txt').css('margin', '1rem 0 0');
 					$('#btn-auth-send').prop('disabled',false);
 				}
             },
@@ -26,7 +30,13 @@ $(function() {
     };
     
     $('#id').focusout(function() {
-		checkid($(this).val());
+		if( $(this).val().length > 7) {
+			checkid($(this).val());			
+		} else {
+			$('#btn-auth-send').prop('disabled',true);
+			$('.info-txt').css('margin', '3rem 0 0');
+			$('.field input')[0].error();
+		}
 	});
     
 	//인증번호 전송 클릭 시
@@ -36,7 +46,8 @@ $(function() {
 		if (reg_email.test(id)) {
 			emailAuth(id);
 		} else {	//핸드폰
-			$('.field input')[0].error();				
+			$('.info-txt').css('margin', '3rem 0 0');
+			$('.field input')[0].error();
 		}
 	});
 	
@@ -68,15 +79,14 @@ $(function() {
 			type: "post",
 			data: { email: email },
 			success: function() {
-				if ($('#btn-auth-send').hasClass('outline')) {
-					$('#btn-auth-send').removeClass('outline');
-					$('#btn-auth-send').toggleClass('on');
-					$($('.field')[1]).show();
-					$('#btn-auth-send').text('인증번호 재전송');
-				}
+				$($('.field')[1]).show();
+				$('.btn-set.mt45').show();
+				$('#btn-auth-send').text('인증번호 재전송');
+				
 				startTimer(299);
 				$('#id').prop('disabled',true);
 				$('#btn-authKeyCheck').prop('disabled',false);
+				$('#numbver').focus();
 			},
 			error: function() {
 				alert('메일 전송 실패!');
@@ -94,7 +104,8 @@ $(function() {
     			if(cnt == 1) {
 					location.href = './signup_account?id='+email+'&agree='+$('#agree').val()+'&type=email';
     			} else {
-    				$('.field input')[1].error();
+					$('.info-txt').css('margin', '4rem 0 0');
+    				$('.field input')[2].error();
     			}
     		},
     		error:function() {
@@ -107,10 +118,14 @@ $(function() {
 		if($('#numbver').val().length == 8) {
 			emailAuthKeyCheck($('#id').val(),$('#numbver').val());			
 		} else {
-			$('.field input')[1].error();
+			$('.info-txt').css('margin', '4rem 0 0');
+			$('.field input')[2].error();
 		}
 	});
 	
+	$('#numvber, #id').keyup(function() {
+		$('.info-txt').css('margin', '1rem 0 0');
+	});
 	
 
 });

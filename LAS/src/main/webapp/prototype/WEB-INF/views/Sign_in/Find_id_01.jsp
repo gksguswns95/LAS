@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>LAS</title>
-    <link rel="stylesheet" type="text/css" href="../css/swiper.css">
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
+    <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                     </p>
                     <p class="phone-num">+82105**01**</p>
                     <div class="btn-set mt50">
-                        <button class="button-basic">LG계정 바로가기</button>
+                        <button class="button-basic" onclick="location.href='/prototype/signin_valid';">LG계정 바로가기</button>
                     </div>
                     <div class="notice-content mt50">
                         그래도 ID가 기억나지 않을 경우,
@@ -50,7 +50,7 @@
                         <a href="javascript:;" class="link-underline">본인인증</a><br />
                         <br />
                         새로운 계정으로 이용을 희망하시면,
-                        <a href="javascript:;" class="link-underline">계정생성</a>을 진행해 주세요.
+                        <a href="javascript:location.href='/prototype/signup_select';" class="link-underline">계정생성</a>을 진행해 주세요.
                     </div>
                 </div>
             </div>

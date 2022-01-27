@@ -31,7 +31,7 @@
             <!-- 마이페이지 -->
             <div class="top-handler-box">
                 <a href="#javascript:;" class="previous"><i class="fa fa-angle-left"></i>이전</a>
-                <a href="javascript:location.href='/prototype/signout" class="logout">로그아웃</a>
+                <a href="javascript:location.href='/prototype/signout'" class="logout">로그아웃</a>
             </div>
             <h1 class="my-page-tit">마이페이지</h1>
             <div class="my-wrap">

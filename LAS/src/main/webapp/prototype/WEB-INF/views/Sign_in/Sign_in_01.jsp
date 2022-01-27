@@ -16,7 +16,7 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:history.back();"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/main"></i>
             </div>
             <h1>LG 계정</h1>
         </div>
@@ -89,9 +89,9 @@
             <div class="bothSet01">
                 <div class="set-list">
                     <ul>
-                        <li><a href="javascript:;">아이디를 찾아볼께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                        <li><a href="javascript:;">비밀번호를 재설정할께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                        <li><a href="javascript:;">LG계정을 만들께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:location.href='/prototype/find_id';">아이디를 찾아볼께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:location.href='/prototype/reset_pw_id';">비밀번호를 재설정할께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:location.href='/prototype/signup_select';">LG계정을 만들께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
                 <p class="gap"></p>

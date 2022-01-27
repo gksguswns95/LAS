@@ -9,7 +9,6 @@ $(function() {
 		
 		if (!reg_email.test(phoneNumerreset)) {
 			if (reg_phone.test(phoneNumerreset) || !(phoneNumerreset.length == 11) || !first_phone.test(number)) {
-				$(".container #section").css('height', '520px');
 				$('#fail').text("핸드폰 번호 또는 이메일을 입력해주세요.");
 			} else {
 				$('#fail').text('');

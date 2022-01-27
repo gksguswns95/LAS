@@ -10,6 +10,9 @@
     <title>LAS</title>
     <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
     <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
+    <style type="text/css">
+    	
+    </style>
 </head>
 
 <body>
@@ -68,10 +71,6 @@
                             </div>
                         </fieldset>
                     </div>
-                    <p class="info-txt">인증번호를 수신하지 못하셨나요?  스팸메일함을 확인해보셨나요?<br />위 이메일 주소로 인증번호를  다시 전송할수 있습니다</p>
-                    <div class="btn-set">
-                        <button class="button-basic outline" id="btn-auth-send" disabled="">인증번호 전송</button>
-                    </div>
                     <div class="input-area">
                         <!-- 인풋박스 -->
                         <fieldset class="field"><!-- [D] 클래스 error ]-->
@@ -97,6 +96,13 @@
                             </div>
                         </fieldset>
                     </div>
+                    <p class="info-txt">인증번호를 수신하지 못하셨나요?  스팸메일함을 확인해보셨나요?<br />위 이메일 주소로 인증번호를  다시 전송할수 있습니다</p>
+                    <div class="btn-set mt45">
+                        <button class="button-basic outline">입력시간 연장하기</button>
+                    </div>
+                    <div class="btn-set">
+                        <button class="button-basic outline" id="btn-auth-send" disabled="">인증번호 전송</button>
+                    </div>
                 </div>
             </div>
             <p class="gap"></p>
@@ -110,6 +116,7 @@
         
     </div>
     <!-- container -->
+        <jsp:include page="../common/footer.jsp"></jsp:include>
     <footer>
         <ul class="terms">
             <li><a href="javascript:;">공지사항</a></li>

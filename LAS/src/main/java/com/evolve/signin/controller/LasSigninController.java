@@ -77,8 +77,9 @@ public class LasSigninController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/prototype/account_view_my");
 		System.out.println(session.getAttribute("user_id"));
-		session.invalidate();
-		
+		if (session.getAttribute("user_id") == null) {
+			session.invalidate();
+		}
 		boolean isNumberic = signvo.getId().matches("^[0-9]*$");
 		if (isNumberic) {
 			signvo.setId(signvo.getId().replaceAll("-", ""));
