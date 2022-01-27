@@ -64,7 +64,7 @@ public class LasSignupController {
 	}
 	
 	@GetMapping("/prototype/signup_term01")
-	public ModelAndView LAS_Sgin_up_term01() {
+	public ModelAndView LAS_Sign_up_term01() {
 		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_01_term01");
 		return mv;
 	}
