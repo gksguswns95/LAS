@@ -22,7 +22,7 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signup_idle';"></i>
             </div>
             <h1>LG 계정</h1>
         </div>
@@ -116,19 +116,7 @@
         
     </div>
     <!-- container -->
-        <jsp:include page="../common/footer.jsp"></jsp:include>
-    <footer>
-        <ul class="terms">
-            <li><a href="javascript:;">공지사항</a></li>
-            <li class="line"></li>
-            <li><a href="javascript:;">문의하기</a></li>
-            <li class="line"></li>
-            <li><a href="javascript:;">이용약관</a></li>
-            <li class="line"></li>
-            <li><a href="javascript:;">개인정보 처리방침</a></li>
-        </ul>
-        <p class="copy">Copyright ⓒ 2022 LG Electronics. All Rights Reserved</p>
-    </footer>
+    <jsp:include page="../common/footer.jsp"></jsp:include>
 
 </div>
 	<!-- wrap -->
