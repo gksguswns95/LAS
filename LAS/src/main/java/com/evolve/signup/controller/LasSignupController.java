@@ -74,50 +74,46 @@ public class LasSignupController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/prototype/signup_welcome");
 		HttpSession session = request.getSession();
-		System.out.println(signupvo.getSignup_type());
 		System.out.println("광고성 동의여부 = " + request.getParameter("agree"));
 		System.out.println("id : "+signupvo.getId());
-		System.out.println("id : "+request.getParameter("id"));
 		System.out.println(signupvo.getPw());
 		System.out.println("email : "+signupvo.getEmail());
-		System.out.println("email : "+request.getParameter("email"));
 		System.out.println(signupvo.getPhone());
 		System.out.println(signupvo.getBirth());
 		System.out.println(signupvo.getName());
 		System.out.println("signup_type : "+signupvo.getSignup_type());
-		System.out.println("signup_type : "+request.getParameter("signup_type"));
-//		if (signupvo.getId() != null && signupvo.getPw() != null) {
-//
-//			// 회원가입
-//			signupService.signupInsert(signupvo);
-//			System.out.println(signupvo.getId());
-//			// memberSeq 찾기
-//			int memberSeq = signupService.memberSeqSelect(signupvo.getId());
-//			// 약관 필수 동의
-//			signupService.agreementInsert(memberSeq);
-//			// 선택동의(광고성)
-//			if (request.getParameter("agree").equals("Y")) {
-//				signupService.optionalInsert(memberSeq);
-//			}
-//			SigninVo signinvo = new SigninVo();
-//			signinvo.setId(signupvo.getId());
-//			signinvo.setPw(signupvo.getPw());
-//			SigninVo signinProcess = signinService.signinId(signinvo);
-//			
-//			session.setAttribute("user_id", signupvo.getId());
-//			session.setAttribute("user_name", signinProcess.getName());
-//			session.setAttribute("user_birth", signinProcess.getBirth());
-//			session.setAttribute("user_phone", signinProcess.getPhone());
-//			session.setAttribute("user_email", signinProcess.getEmail());
-//			session.setAttribute("user_signuptype", signinProcess.getSignup_type());
-//			session.setAttribute("user_signupdate", signinProcess.getSignup_date());
-//			 
-//	        IpGet ipget = new IpGet();
-//	        String ip = ipget.getUserIP(request);
-//	        signinService.loginLogInsert(signinProcess.getSeq(),ip);
-//			System.out.println("접속 IP : "+ip);
-//			System.out.println("로그인 성공");
-//		}
+		if (signupvo.getId() != null && signupvo.getPw() != null) {
+
+			// 회원가입
+			signupService.signupInsert(signupvo);
+			System.out.println(signupvo.getId());
+			// memberSeq 찾기
+			int memberSeq = signupService.memberSeqSelect(signupvo.getId());
+			// 약관 필수 동의
+			signupService.agreementInsert(memberSeq);
+			// 선택동의(광고성)
+			if (request.getParameter("agree").equals("Y")) {
+				signupService.optionalInsert(memberSeq);
+			}
+			SigninVo signinvo = new SigninVo();
+			signinvo.setId(signupvo.getId());
+			signinvo.setPw(signupvo.getPw());
+			SigninVo signinProcess = signinService.signinId(signinvo);
+			
+			session.setAttribute("user_id", signupvo.getId());
+			session.setAttribute("user_name", signinProcess.getName());
+			session.setAttribute("user_birth", signinProcess.getBirth());
+			session.setAttribute("user_phone", signinProcess.getPhone());
+			session.setAttribute("user_email", signinProcess.getEmail());
+			session.setAttribute("user_signuptype", signinProcess.getSignup_type());
+			session.setAttribute("user_signupdate", signinProcess.getSignup_date());
+			 
+	        IpGet ipget = new IpGet();
+	        String ip = ipget.getUserIP(request);
+	        signinService.loginLogInsert(signinProcess.getSeq(),ip);
+			System.out.println("접속 IP : "+ip);
+			System.out.println("로그인 성공");
+		}
 		return mv;
 	}
 }

@@ -42,9 +42,15 @@ public class LasModifyController {
 		return mv;
 	}
 	
-	@GetMapping("/prototype/account_del_editform")
-	public ModelAndView Account_del_01_editform() {
-		ModelAndView mv = new ModelAndView("/Acount_Edit/Account_del_01_editform");
+	@GetMapping("/prototype/account_edit_editform")
+	public ModelAndView Account_edit_01_editform() {
+		ModelAndView mv = new ModelAndView("/Acount_Edit/Account_edit_01_editform");
+		return mv;
+	}
+
+	@GetMapping("/prototype/account_view_my")
+	public ModelAndView Account_view_01_my() {
+		ModelAndView mv = new ModelAndView("/Acount_Edit/Account_view_01_my");
 		return mv;
 	}
 	

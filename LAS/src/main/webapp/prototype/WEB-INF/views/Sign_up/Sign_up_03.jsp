@@ -31,7 +31,7 @@
 	    <header id="header">
 	        <div class="inner-wrap">
 	            <div class="arr">
-	                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:history.back();"></i>
+	                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signup_inputpin';"></i>
 	            </div>
 	            <h1>LG 계정</h1>
 	        </div>
@@ -66,7 +66,8 @@
 	                        </div>
 	                    </div>
 	                    <div class="input">
-	                        <input class="" id="id" name="id" type="text" data-text="이메일 또는 휴대폰번호 입력하세요." placeholder="이메일 또는 휴대폰번호 입력하세요." value="${param.id }" disabled>
+	                        <%-- <input class="" id="id" name="id" type="text" data-text="이메일 또는 휴대폰번호 입력하세요." placeholder="이메일 또는 휴대폰번호 입력하세요." value="${param.id }" disabled> --%>
+	                        <input class="" id="id" name="id" type="text" value="${param.id }" disabled>
 	                        <div class="btn-wrap">
 	                            <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
 	                        </div>

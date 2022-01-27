@@ -17,7 +17,7 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signup_select';"></i>
             </div>
             <h1>LG 계정</h1>
         </div>
@@ -46,7 +46,7 @@
                                     <input type="checkbox" id="essential_1">
                                 </label>
                             </fieldset>
-                            <a href="#javascript:goTerm01();" class="alink-line">자세히 보기</a>
+                            <a href="javascript:location.href='/prototype/signup_term01';" class="alink-line">자세히 보기</a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -78,7 +78,7 @@
                                     <input type="checkbox" id="essential_2">
                                 </label>
                             </fieldset>
-                            <a href="#javascript:goTerm02();" class="alink-line" >자세히 보기</a>
+                            <a href="javascript:location.href='/prototype/signup_term02'; " class="alink-line" >자세히 보기</a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -110,7 +110,7 @@
                                     <input type="checkbox" name="idle_agree" id="idle_agree" value="Y">
                                 </label>
                             </fieldset>
-                            <a href="#javascript:goTerm03();" class="alink-line" >자세히 보기</a>
+                            <a href="javascript:location.href='/prototype/signup_term02'; " class="alink-line" >자세히 보기</a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -194,6 +194,7 @@
 				} else {
 					$('#essential_1').prop('checked',false);
 				}
+				allChecked();
 			});
 			
 			$($('.check-box-wrap')[1]).click(function() {
@@ -202,6 +203,7 @@
 				}else {
 					$('#essential_2').prop('checked',false);
 				}
+				allChecked();
 			});
 			
 			$($('.check-box-wrap')[2]).click(function() {
@@ -210,7 +212,18 @@
 				}else {
 					$('#idle_agree').prop('checked',false);
 				}
+				allChecked();
 			});
+			
+			function allChecked() {
+				if( $($('.check-box-wrap')[0]).hasClass('checked') && $($('.check-box-wrap')[1]).hasClass('checked') && $($('.check-box-wrap')[2]).hasClass('checked') ) {
+					if( !($($('.check-box-wrap')[3]).hasClass('checked'))) {
+						$($('.check-box-wrap')[3]).toggleClass('checked');
+					}
+				} else {
+						$($('.check-box-wrap')[3]).removeClass('checked');
+				}
+			}
 			
 			$('.button-basic').click(function() {
 				if($('#essential_2').prop('checked') && $('#essential_1').prop('checked')) {
@@ -222,15 +235,6 @@
 				}
 			});
 			
-			function goTerm01() {
-				location.href="signup_term01"; 
-			}
-			function goTerm02() {
-				location.href="signup_term01"; 
-			}
-			function goTerm03() {
-				location.href="signup_term01"; 
-			}
 		});
 	</script>
 <!-- 스크립트 영역 -->

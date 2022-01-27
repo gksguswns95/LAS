@@ -40,7 +40,7 @@
 	            <div class="innerWrap">
 	                <button class="button-basic on" onclick="next_signin();">로그인</button>
 	                <button class="button-basic outline" onclick="next_signup();">계정만들기</button>
-	                <a class="link-icon-arr" href="javascript:;">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	                <a class="link-icon-arr" href="javascript:location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	            </div>
 	        </dic>
 	    </div>
@@ -67,10 +67,13 @@
 	<!-- 스크립트 영역 -->
 	<script type="text/javascript">
 		function next_signin()  {
-			window.location.href = './signin_valid';
+			window.location.href = '/prototype/signin_valid';
 		}
 		function next_signup()  {
-			window.location.href = './signup_select';
+			window.location.href = '/prototype/signup_select';
+		}
+		function next_language_region()  {
+			window.location.href = '/prototype/language_region';
 		}
 	</script>
 		

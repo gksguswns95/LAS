@@ -33,13 +33,13 @@
             <div class="vc-box">
                 <div class="inner-wrap">
                     <div class="complete-txt">
-                        홍길동 님,  환영합니다.
+                        ${prototype_user_name } 님,  환영합니다.
                     </div>
 
                     <div class="user-picture">
-                        <span>ㅎ</span>
+                        <span>${prototype_user_name }</span>
                     </div>
-                    <p class="phone-num"><i class="sns facebook"></i>LoremGipsum@email.com</p>
+                    <p class="phone-num">${prototype_user_id }</p>
                     <!-- sns icon -->
                     <!-- <i class="sns facebook"></i>
                     <i class="sns google"></i>
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="btn-set">
-                <button class="button-basic" onclick="javascript:location.href = './main';">완료</button>
+                <button class="button-basic" onclick="javascript:location.href = '/prototype/account_view_my';">완료</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>

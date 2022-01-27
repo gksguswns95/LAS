@@ -27,6 +27,7 @@
     <div id="container">
         <div id="contents">
             <!-- 컨텐츠 영역 -->
+           	<form action="/prototype/signin" method="post" id="form_signin">
             <div class="input-area">
                 <!-- 인풋박스 -->
                 <fieldset class="field"><!-- [D] 클래스 error ]-->
@@ -37,7 +38,7 @@
                         </div>
                     </div>
                     <div class="input">
-                        <input class="" id="name01" type="text"  placeholder="직장명" value="LoremGipsum@email.com" />
+                        <input class="" id="id" name="id" type="text"  placeholder="이메일 또는 핸드폰번호를 입력해주세요."/>
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -66,7 +67,7 @@
                         </div>
                     </div>
                     <div class="input pw">
-                        <input class="" id="name02" type="password"  placeholder="대문자,숫자,기호 포함 8자 이상 입력하세요" value="123456" />
+                        <input class="" id="pw" name="pw" type="password"  placeholder="대문자,소문자,숫자,기호 포함 8자 이상 입력하세요"/>
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -83,7 +84,7 @@
                 </fieldset>
             </div>
             <div class="btn-set mt20">
-                <button class="button-basic">로그인</button>
+                <button class="button-basic" type="submit">로그인</button>
             </div>
             <div class="bothSet01">
                 <div class="set-list">
@@ -104,6 +105,7 @@
                 </div>
             </div>
             <!-- // 컨텐츠 영역 -->
+            </form>
         </div>
         <!-- // contents -->
     </div>

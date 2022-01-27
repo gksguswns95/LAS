@@ -278,13 +278,19 @@ $(document).ready(function() {
 		}else if($('#birth-error-txt').text() != '확인되었습니다.') {
 			$('#birth').focus();
 			$('.field input')[4].error();
-		} else if($('#signup_type').val() == 'email' || $('#email-error-txt').text() != '이메일 입니다.') {
+		} else if($('#signup_type').val() == 'email' ? false : $('#email-error-txt').text() != '이메일 입니다.') {
 			$('#email').focus();
 			$('.field input')[5].error();
-		} else if($('#signup_type').val() == 'phone' || $('#email-error-txt').text() != '사용가능한 핸드폰 번호입니다.') {
+		} else if($('#signup_type').val() == 'phone' ? false : $('#phone-error-txt').text() != '사용가능한 핸드폰 번호입니다.') {
 				$('#phone').focus();
 				$('.field input')[6].error();
 		} else {
+			$('#id').prop('disabled',false);
+			if($('#signup_type').val() == 'email') {
+				$('#email').prop('disabled',false);
+			} else if($('#signup_type').val() == 'phone'){
+				$('#phone').prop('disabled',false);
+			} 
 			$('#identity_verification').submit();
 		}
 		
