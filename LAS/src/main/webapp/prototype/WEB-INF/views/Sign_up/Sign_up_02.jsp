@@ -53,6 +53,7 @@
                             </div>
                             <div class="input">
                                 <input class="" id="id" type="text"  placeholder="이메일 또는 휴대폰번호 입력하세요." />
+                                <input class="" id="agree" type="hidden" value="${param.agree }"/>
                                 <div class="btn-wrap">
                                     <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                                 </div>
@@ -69,7 +70,7 @@
                     </div>
                     <p class="info-txt">인증번호를 수신하지 못하셨나요?  스팸메일함을 확인해보셨나요?<br />위 이메일 주소로 인증번호를  다시 전송할수 있습니다</p>
                     <div class="btn-set">
-                        <button class="button-basic outline" id="btn-auth-send">인증번호 전송</button>
+                        <button class="button-basic outline" id="btn-auth-send" disabled="">인증번호 전송</button>
                     </div>
                     <div class="input-area">
                         <!-- 인풋박스 -->
@@ -80,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="input space3">
-                                <input class="" id="numbver" type="text"  placeholder="직장명" value="123456" />
+                                <input class="" id="numbver" type="text"  placeholder="인증번호 8자리를 입력하세요."/>
                                 <div class="btn-wrap">
                                     <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                                     <span class="timer">05:00</span>
@@ -101,7 +102,7 @@
             <p class="gap"></p>
             <div class="btn-set">
                 <!-- <button class="button-basic">뒤로</button> -->
-                <button class="button-basic" id="btn-authKeyCheck">다음</button>
+                <button class="button-basic" id="btn-authKeyCheck" disabled="">다음</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>

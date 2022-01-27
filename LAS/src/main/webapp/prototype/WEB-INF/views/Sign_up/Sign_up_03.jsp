@@ -46,8 +46,8 @@
 	                <p class="tit">LG계정 만들기</p>
 	                <ul class="step">
 	                    <li class="complete">1</li>
-	                    <li class="active">2</li>
-	                    <li>3</li>
+	                    <li class="complete">2</li>
+	                    <li class="active">3</li>
 	                    <li>4</li>
 	                </ul>
 	            </div>
@@ -56,6 +56,7 @@
 	                또는 핸드폰번호 중 한가지를 입력하세요
 	            </p>
 	            <div class="input-area">
+	            	<form action="/prototype/identity_verification" method="post" id="identity_verification">
 	                <!-- 인풋박스 -->
 	                <div class="field"><!-- [D] 클래스 error ]-->
 	                    <div class="label-switching" style="top: 0px; opacity: 1;">
@@ -65,7 +66,7 @@
 	                        </div>
 	                    </div>
 	                    <div class="input">
-	                        <input class="" id="id" name="id" type="text" data-text="이메일 또는 휴대폰번호 입력하세요." placeholder="이메일 또는 휴대폰번호 입력하세요.">
+	                        <input class="" id="id" name="id" type="text" data-text="이메일 또는 휴대폰번호 입력하세요." placeholder="이메일 또는 휴대폰번호 입력하세요." value="${param.id }" disabled>
 	                        <div class="btn-wrap">
 	                            <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
 	                        </div>
@@ -153,6 +154,45 @@
 	                    <!-- <p class="info-txt">Caption</p> -->
 	                    <!-- // [D] 오류 메세지 -->
 	                </div>
+	                <div class="field"><!-- [D] 클래스 error ]-->
+	                    <div class="label-switching" style="top: 0px; opacity: 1;">
+	                        <div class="innerWrap">
+	                            <label class="tit">이메일</label>
+	                            <div class="explain fontColor1">이메일을 입력해주세요. (ex :test@test.com)</div>
+	                        </div>
+	                    </div>
+	                    <div class="input">
+	                        <input class="" id="email" name="email" type="text" data-text="이메일을 입력해주세요. (ex :test@test.com)" placeholder="이메일을 입력해주세요. (ex :test@test.com)" <c:if test="${param.type eq 'email' }">value="${param.id }" disabled</c:if>>
+	                        <div class="btn-wrap">
+	                            <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
+	                        </div>
+	                    </div>
+	                    <!-- [D] 오류 메세지 -->
+	                    <p class="error-txt" id="email-error-txt"></p>
+	                    <!-- <p class="info-txt">Caption</p> -->
+	                    <!-- // [D] 오류 메세지 -->
+	                </div>
+	                <div class="field"><!-- [D] 클래스 error ]-->
+	                    <div class="label-switching" style="top: 0px; opacity: 1;">
+	                        <div class="innerWrap">
+	                            <label class="tit">핸드폰번호</label>
+	                            <div class="explain fontColor1">핸드폰번호 11자리를 입력하세요 (ex :01012345678)</div>
+	                        </div>
+	                    </div>
+	                    <div class="input">
+	                        <input class="" id="phone" name="phone" type="text" data-text="핸드폰번호 11자리를 입력하세요 (ex :01012345678)" placeholder="핸드폰번호 11자리를 입력하세요 (ex :01012345678)" <c:if test="${param.type eq 'phone' }">value="${param.id }" disabled</c:if>>
+	                        <input class="" id="signup_type" name="signup_type" type="hidden" value="${param.type }">
+	                        <input class="" id="agree" name="agree" type="hidden" value="${param.agree }">
+	                        <div class="btn-wrap">
+	                            <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
+	                        </div>
+	                    </div>
+	                    <!-- [D] 오류 메세지 -->
+	                    <p class="error-txt" id="phone-error-txt"></p>
+	                    <!-- <p class="info-txt">Caption</p> -->
+	                    <!-- // [D] 오류 메세지 -->
+	                </div>
+	                </form>
 	            </div>
 	            <div class="btn-set mt20">
 	                <button class="button-basic" id="btn-next">동의</button>

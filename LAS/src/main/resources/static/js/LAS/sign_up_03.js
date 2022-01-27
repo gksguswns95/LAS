@@ -29,6 +29,7 @@ $(document).ready(function() {
 				if(idlength == 0){
 					$('#id-error-txt').text('');
 				}else{
+					$('.field input')[0].error();
 					$('#id-error-txt').css('color', 'red');
 					$('#id-error-txt').text("제대로된 이메일 및 핸드폰번호를 입력하세요.")
 				}
@@ -51,6 +52,7 @@ $(document).ready(function() {
                 	$('#id-error-txt').css({"color":"red"});
                 	$('#id-error-txt').text('입력하신\t'+ id + '\t는(은) 이미 사용중입니다.');
         			$('#id').val('');
+        			$('.field input')[0].error();
                 }
             	
             },
@@ -145,6 +147,7 @@ $(document).ready(function() {
 		var pwcfmnone = $('#pwcfm').val().length;
 			
 		if(!reg_pw.test(pw)){
+			$('.field input')[1].error();
 			$('#pw-error-txt').css({"color":"red"});
 			$('#pw-error-txt').text('8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.');
 			if(pw != pwcfm && pwcfmnone > 0) {
@@ -155,12 +158,14 @@ $(document).ready(function() {
 			$('#pw-error-txt').css({"color":"green"});
 			$('#pw-error-txt').text('사용 가능한 비밀번호 입니다.');
 			if(pw != pwcfm && pwcfmnone > 0) {
+				$('.field input')[2].error();
 				$('#pwcfm-error-txt').text('입력하신 비밀번호와 다릅니다. 비밀번호를 다시 확인해주세요.');
 				$('#pwcfm-error-txt').css({"color":"red"});				
 			}
 		}
 		
-		if(pw != pwcfm){
+		if(pw != pwcfm && pwcfmnone != 0){
+			$('.field input')[2].error();
 			$('#pwcfm-error-txt').text('입력하신 비밀번호와 다릅니다. 비밀번호를 다시 확인해주세요.');
 			$('#pwcfm-error-txt').css({"color":"red"});
 		}
@@ -177,6 +182,7 @@ $(document).ready(function() {
 		var name = $('#name').val().length;
 		
 		if(name < 2){
+			$('.field input')[3].error();
 			$('#name-error-txt').css({"color":"red"});
 			$('#name-error-txt').text('필수 입력 사항입니다.');
 			return false;
@@ -190,6 +196,7 @@ $(document).ready(function() {
 		var name = $('#name').val().length;
 
 		if (name > 6) {
+			$('.field input')[3].error();
 			$('#name').val($(this).val().substring(0, 0));
 			$('#name-error-txt').css({"color":"red"});
 			$('#name-error-txt').text('이름은 6글자를 넘길 수 없습니다.');
@@ -201,6 +208,7 @@ $(document).ready(function() {
 		var birth = $('#birth').val();
 		if(birth.length == 8){
 			if(parseInt(birth.substring(4,6)) > 12 || parseInt(birth.substring(6,8)) > 31) {
+				$('.field input')[4].error();
 				$('#birth-error-txt').text('태어난 년도 8자리를 정확하게 입력해주세요.');
 				$('#birth-error-txt').css({"color":"red"});
 				$('#birth').val('');
@@ -209,6 +217,7 @@ $(document).ready(function() {
 				$('#birth-error-txt').text('확인되었습니다.');
 			}
 		}else{
+			$('.field input')[4].error();
 			$('#birth-error-txt').css({"color":"red"});
 			$('#birth-error-txt').text('태어난 년도 8자리를 정확하게 입력해주세요.');
 		}
@@ -218,28 +227,67 @@ $(document).ready(function() {
 		var birth = $('#birth').val().length;
 
 		if (birth > 8) {
+			$('.field input')[4].error();
 			$('#birth').val($(this).val().substring(0, 0));
 			$('#birth-error-txt').css({"color":"red"});
 			$('#birth-error-txt').text('생년월일 8자릿수를 정확하게 입력해주세요.');
 			$('#birth').focus();
 		}
-	})
+	});
+	
+	$('#email').on('focusout', function(){
+		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+		var email = $('#email').val();
+		
+		if (reg_email.test(email)) {
+			$('#email-error-txt').css({"color":"green"});
+			$('#email-error-txt').text('이메일 입니다.');
+		}else{
+			$('#email-error-txt').css({"color":"red"});
+			$('#email-error-txt').text('이메일 형식이 아닙니다.');
+		}
+	});
+	
+	$('#phone').on('focusout', function(){
+		var reg_mobile = /^010[0-9]*$/g;
+		var mobile = $('#phone').val();
+		
+		if (reg_mobile.test(mobile) && mobile.length == 11) {
+			$('#phone-error-txt').css({"color":"green"});
+			$('#phone-error-txt').text('사용가능한 핸드폰 번호입니다.');
+		}else{
+			$('#phone-error-txt').css({"color":"red"});
+			$('#phone-error-txt').text('핸드폰 번호 11자릿수를 정확하게 입력해주세요.');
+		}
+	});
 	
 	$('#btn-next').click(function() {
+	
 		if($('#id').val().length < 8) {
 			$('#id').focus();
+			$('.field input')[0].error();
 		} else if($('#pw-error-txt').text() != '사용 가능한 비밀번호 입니다.') {
 			$('#pw').focus();
+			$('.field input')[1].error();
 		} else if($('#pwcfm-error-txt').text() != '비밀번호가 동일합니다.') {
 			$('#pwcfm').focus();
+			$('.field input')[2].error();
 		} else if($('#name-error-txt').text() != '확인되었습니다.') {
 			$('#name').focus();
+			$('.field input')[3].error();
 		}else if($('#birth-error-txt').text() != '확인되었습니다.') {
 			$('#birth').focus();
+			$('.field input')[4].error();
+		} else if($('#signup_type').val() == 'email' || $('#email-error-txt').text() != '이메일 입니다.') {
+			$('#email').focus();
+			$('.field input')[5].error();
+		} else if($('#signup_type').val() == 'phone' || $('#email-error-txt').text() != '사용가능한 핸드폰 번호입니다.') {
+				$('#phone').focus();
+				$('.field input')[6].error();
 		} else {
-			/*$('#btn-next').prop('disabled','false');*/
-			alert('!');
+			$('#identity_verification').submit();
 		}
+		
 	});
 	
 	

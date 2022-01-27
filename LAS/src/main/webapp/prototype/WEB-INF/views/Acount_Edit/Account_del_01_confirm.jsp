@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>LAS</title>
-    <link rel="stylesheet" type="text/css" href="../css/swiper.css">
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
+    <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
 </head>
 
 <body>
@@ -93,9 +93,9 @@
 </div>
 <!-- wrap -->
 <!-- 스크립트 영역 -->
-<script src="../js/jquery-3.4.1.min.js"></script>
-<script src="../js/swiper.min.js"></script>
-<script src="../js/common_ui.js"></script>
+<script src="../js/LAS/jquery-3.4.1.min.js"></script>
+<script src="../js/LAS/swiper.min.js"></script>
+<script src="../js/LAS/common_ui.js"></script>
 <script>
     $(function(){
         $(".check-box-wrap").each(function(n,i){
