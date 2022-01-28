@@ -7,6 +7,9 @@
     <title>LAS</title>
     <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
     <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
+    <style type="text/css">
+    	.field .input-box-wrap {transition: all 0.3s ease;}
+    </style>
 </head>
 
 <body>
@@ -27,7 +30,6 @@
     <div id="container">
         <div id="contents">
             <!-- 컨텐츠 영역 -->
-           	<form action="/prototype/signin" method="post" id="form_signin">
             <div class="input-area">
                 <!-- 인풋박스 -->
                 <fieldset class="field"><!-- [D] 클래스 error ]-->
@@ -38,7 +40,7 @@
                         </div>
                     </div>
                     <div class="input">
-                        <input class="" id="id" name="id" type="text"  placeholder="이메일 또는 핸드폰번호를 입력해주세요."/>
+                        <input class="" id="id" name="id" type="text"  placeholder="이메일 또는 핸드폰번호를 입력해주세요." required value=""/>
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -52,8 +54,8 @@
                         </div>
                     </div>
                     <fieldset>
-                        <label class="check-box-label fill small">아이디 기억하기
-                            <input type="checkbox">
+                        <label class="input-box-label fill small">아이디 기억하기
+                            <input type="checkbox" id="rememberId">
                         </label>
                     </fieldset>
                 </fieldset>
@@ -67,7 +69,7 @@
                         </div>
                     </div>
                     <div class="input pw">
-                        <input class="" id="pw" name="pw" type="password"  placeholder="대문자,소문자,숫자,기호 포함 8자 이상 입력하세요"/>
+                        <input class="" id="pw" name="pw" type="password"  placeholder="대문자,소문자,숫자,기호 포함 8자 이상 입력하세요" required/>
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -76,7 +78,7 @@
                     <div class="input-validation-box">
                         <div class="inner-warp">
                             <!-- [D] 오류 메세지 -->
-                            <p class="error-txt">!형식에 맞지 않습니다.</p>
+                            <p class="error-txt">!아이디 또는 비밀번호가 틀립니다.</p>
                             <!-- <p class="info-txt">Caption</p> -->
                             <!-- // [D] 오류 메세지 -->
                         </div>
@@ -84,7 +86,7 @@
                 </fieldset>
             </div>
             <div class="btn-set mt20">
-                <button class="button-basic" type="submit">로그인</button>
+                <button class="button-basic" id="btn-signin">로그인</button>
             </div>
             <div class="bothSet01">
                 <div class="set-list">
@@ -105,7 +107,6 @@
                 </div>
             </div>
             <!-- // 컨텐츠 영역 -->
-            </form>
         </div>
         <!-- // contents -->
     </div>
@@ -119,6 +120,7 @@
 	<script src="../js/LAS/jquery-3.4.1.min.js"></script>
 	<script src="../js/LAS/swiper.min.js"></script>
 	<script src="../js/LAS/common_ui.js"></script>
+	<script src="../js/LAS/signin_valid.js"></script>
 	<!-- 스크립트 영역 -->
 
 

@@ -37,9 +37,9 @@
                     </div>
 
                     <div class="user-picture">
-                        <span>${prototype_user_name }</span>
+                        <span>${prototype_user_firstName }</span>
                     </div>
-                    <p class="phone-num">${prototype_user_id }</p>
+                    <p class="phone-num"><i class="sns google"></i>${prototype_user_id }</p>
                     <!-- sns icon -->
                     <!-- <i class="sns facebook"></i>
                     <i class="sns google"></i>
@@ -63,8 +63,8 @@
 	<!-- 스크립트 영역 -->
 	<script src="../js/LAS/jquery-3.4.1.min.js"></script>
 	<script src="../js/LAS/swiper.min.js"></script>
+	<script src="../js/LAS/all.min.js"></script>
 	<script src="../js/LAS/common_ui.js"></script>
-	<script src="../js/LAS/sign_up_02.js"></script>
 	<!-- 스크립트 영역 -->
 		
 	</body>

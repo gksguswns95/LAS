@@ -341,26 +341,27 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
 
 
 /* 체크박스 */
-.check-box-wrap{position:relative;display: flex;widht: 100%;align-items: center;/* vertical-align: top; */font-size:0;}
-.check-box-wrap .icon{position:relative;display:inline-block; height:3rem;}
-.check-box-wrap .icon i{font-size: 3rem;color:#bfbfbf;transition: color ease 0.5s;}
-.check-box-wrap .icon > .f i{font-size:3.8rem; transition: color ease 0.5s;}
-.check-box-wrap .icon > .f{position:absolute; top:50%; left:0.1rem; z-index:2; width:0; height:2.2rem; overflow:hidden; transition:width ease 0.25s; transform:translateY(-50%)}
-.check-box-wrap .icon > .f i{font-size:2.2rem;}
-.check-box-wrap.checked .icon > .f{width:2.2rem;}
-.check-box-wrap.checked .icon i{color:#98222e;}
-.check-box-wrap .check-box-label{display:flex;justify-content: space-between;align-items:center;width:calc(100% - 40px);height:4rem;padding: 0rem 0 0 1rem;font-size: 1.6rem; line-height:1.8rem; color:#000;vertical-align:top;letter-spacing: -.15rem;font-weight: 500;box-sizing:border-box;}
+.input-box-wrap{position:relative;display: flex;widht: 100%;align-items: center;/* vertical-align: top; */font-size:0;}
+.input-box-wrap .icon{position:relative;display:inline-block; height:3rem;}
+.input-box-wrap .icon i{font-size: 3rem;color:#bfbfbf;transition: color ease 0.5s;}
+.input-box-wrap .icon > .f i{font-size:3.8rem; transition: color ease 0.5s;}
+.input-box-wrap .icon > .f{position:absolute; top:50%; left:0.1rem; z-index:2; width:0; height:2.2rem; overflow:hidden; transition:width ease 0.25s; transform:translateY(-50%)}
+.input-box-wrap .icon > .f i{font-size:2.2rem;}
+.input-box-wrap.checked .icon > .f{width:2.2rem;}
+.input-box-wrap.checked .icon i{color:#98222e;}
+.input-box-wrap .input-box-label{display:flex;justify-content: space-between;align-items:center;width:calc(100% - 40px);height:4rem;padding: 0rem 0 0 1rem;font-size: 1.6rem; line-height:1.8rem; color:#000;vertical-align:top;letter-spacing: -.15rem;font-weight: 500;box-sizing:border-box;}
 
-.check-box-wrap.fill .icon{transition:none;}
-.check-box-wrap.fill .fill{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:0;transition:opacity ease 0.3s;}
-.check-box-wrap.fill .fill i{color:#98222e;}
-.check-box-wrap.fill .f i{color:#fff; opacity:0; transition:none;}
-.check-box-wrap.fill.checked .b{color:#bfbfbf;}
-.check-box-wrap.fill.checked .fill{opacity:1;}
-.check-box-wrap.fill.checked .f i{animation:fillCheck 0.3s ease 0.1s forwards alternate;}
-.check-box-wrap.txt-size-xsmall .check-box-label{font-size:1rem; line-height:1.2rem;} 
-.check-box-wrap.txt-size-small .check-box-label{font-size:1.4rem; line-height: 1.6rem;} 
-.check-box-wrap.txt-size-middle .check-box-label{font-size:1.8rem; line-height: 2rem;} 
+.input-box-wrap.fill .icon{transition:none;}
+.input-box-wrap.fill .fill{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;opacity:0;transition:opacity ease 0.3s;}
+.input-box-wrap.fill .fill i{color:#98222e;}
+.input-box-wrap.fill .f i{color:#fff; opacity:0; transition:none;}
+.input-box-wrap.fill.checked .b{color:#bfbfbf;}
+.input-box-wrap.fill.checked .fill{opacity:1;}
+.input-box-wrap.fill.checked .f i{animation:fillCheck 0.3s ease 0.1s forwards alternate;}
+.input-box-wrap.txt-size-xsmall .input-box-label{font-size:1rem; line-height:1.2rem;} 
+.input-box-wrap.txt-size-small .input-box-label{font-size:1.4rem; line-height: 1.6rem;} 
+.input-box-wrap.txt-size-middle .input-box-label{font-size:1.8rem; line-height: 2rem;} 
+
 @keyframes fillCheck{
     from{
         opacity:0;
@@ -375,26 +376,42 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
         transform:scale(1);
     }
 }
-.field .check-box-wrap{margin-top:1rem;}
+.field .input-box-wrap{margin-top:1rem;}
 
 /* 체크박스 small */
-.check-box-wrap.small .icon{height:2rem;}
-.check-box-wrap.small .icon i{font-size:2rem;}
-.check-box-wrap.small .icon > .f{left:0.1rem; height:1.5rem;}
-.check-box-wrap.small.checked .icon > .f{width:1.5rem;}
-.check-box-wrap.small .icon > .f i{font-size:1.5rem;}
-.check-box-wrap.small .check-box-label{height:1.5rem; margin-top:0.2rem; padding-left:0.5rem; font-size:1.4rem; line-height:1.5rem;}
+.input-box-wrap.small .icon{height:2rem;}
+.input-box-wrap.small .icon i{font-size:2rem;}
+.input-box-wrap.small .icon > .f{left:0.1rem; height:1.5rem;}
+.input-box-wrap.small.checked .icon > .f{width:1.5rem;}
+.input-box-wrap.small .icon > .f i{font-size:1.5rem;}
+.input-box-wrap.small .input-box-label{height:1.5rem; margin-top:0.2rem; padding-left:0.5rem; font-size:1.4rem; line-height:1.5rem;}
 
 /* 체크박스 wrap */
-.check-box-wrap.wrap{align-items:flex-start;}
-.check-box-wrap.wrap .check-box-label{height:auto; margin-top:0.2rem;}
+.input-box-wrap.wrap{align-items:flex-start;}
+.input-box-wrap.wrap .input-box-label{height:auto; margin-top:0.2rem;}
 
 /* 체크박스 set */
-.check-set{padding:2rem 0 1rem 0;}
-.check-set .check-box-wrap.small + .check-box-wrap.small{margin-top:1rem;}
-.check-set fieldset + fieldset{margin-top:1rem;}
-.check-set .check-box-wrap + .check-box-wrap{margin-top:1rem;}
+.input-box-set{padding:2rem 0 1rem 0;}
+.input-box-set .input-box-wrap.small + .input-box-wrap.small{margin-top:1rem;}
+.input-box-set fieldset + fieldset{margin-top:1rem;}
+.input-box-set .input-box-wrap + .input-box-wrap{margin-top:1rem;}
 
+/* radio */
+.input-box-wrap.checked .circle-fill{position:absolute; left:0.4rem; right:0.4rem; top:0.6rem; bottom:0.6rem; border-radius:100%; animation:radioAni ease 0.3s forwards; background:#98222e;}
+
+@keyframes radioAni{
+    0% {
+        opacity:0;
+        transform:scale(0.6);
+    }
+    80% {
+        transform:scale(1.2);
+    }
+    100% {
+        opacity:1;
+        transform:scale(1);
+    }
+}
 
 /* label switching */
 .label-switching{position:relative; width:100%; height:2rem;}
@@ -458,5 +475,3 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
 .pop-layer .tit .close::before {content:''; display: block; width: 2.2rem; height:2.2rem; background:url(../images/close.png);}
 .pop-layer .cont-area {height:calc(100% - 5rem);}
 .pop-layer .cont-area .cont {height:100%; border-top: 1px solid #ddd; padding:1rem; overflow: auto; box-sizing:border-box;}
-
-@media screen and (min-width: 360px) {	.label-switching .explain {	font-size: 1.5rem;}	}

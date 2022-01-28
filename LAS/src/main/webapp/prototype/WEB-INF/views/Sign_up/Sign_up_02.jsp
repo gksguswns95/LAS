@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
     <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
     <style type="text/css">
-    	
+    	.info-txt {transition:all 0.3s ease}
     </style>
 </head>
 
@@ -57,6 +57,7 @@
                             <div class="input">
                                 <input class="" id="id" type="text"  placeholder="이메일 또는 휴대폰번호 입력하세요." />
                                 <input class="" id="agree" type="hidden" value="${param.agree }"/>
+                                <input class="" id="signup_type" type="hidden" />
                                 <div class="btn-wrap">
                                     <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                                 </div>
@@ -98,11 +99,16 @@
                     </div>
                     <p class="info-txt">인증번호를 수신하지 못하셨나요?  스팸메일함을 확인해보셨나요?<br />위 이메일 주소로 인증번호를  다시 전송할수 있습니다</p>
                     <div class="btn-set mt45">
-                        <button class="button-basic outline">입력시간 연장하기</button>
+                        <button class="button-basic outline" id="btn-auth-extension">입력시간 연장하기</button>
                     </div>
                     <div class="btn-set">
                         <button class="button-basic outline" id="btn-auth-send" disabled="">인증번호 전송</button>
                     </div>
+                    <p class="info-txt mt30">
+                        인증번호가 재전송 되었습니다<br />
+                        <br />
+                        다시 재전송 요청이 가능해질떄까지 일정 시간이 필요하오니 기다려주세요
+                    </p>
                 </div>
             </div>
             <p class="gap"></p>

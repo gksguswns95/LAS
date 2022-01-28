@@ -7,7 +7,7 @@ public class CreateKey {
 		StringBuffer key = new StringBuffer();
 		Random rnd = new Random();
 
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 6; i++) {
 			int index = rnd.nextInt(3);
 
 			switch (index) {

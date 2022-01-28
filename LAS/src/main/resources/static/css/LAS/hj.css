@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+.intro-wrap {position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 10;}
+.intro-wrap .intro-in {position: relative; z-index: 20; margin: 0 2rem; padding-top: 19.5%; color: #fff;}
+.intro-wrap .intro-tit {font-size: 2.4rem; text-align: center; line-height: 3.6rem;}
+.intro-wrap .intro-tit strong {display: block;  font-weight: 700;}
+.intro-wrap .intro-list {padding-top: 11.3%;}
+.intro-wrap .intro-list li {padding: 3.2rem 0; font-size: 1.4rem; line-height: 2rem;}
+.intro-wrap .intro-list li strong {display: block; font-size: 2rem; line-height: 2.9rem;}
+.intro-wrap .intro-list li + li {border-top: 1px solid #dddddd;}

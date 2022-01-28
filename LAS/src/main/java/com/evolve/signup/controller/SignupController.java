@@ -130,9 +130,9 @@ public class SignupController {
 	public void emailAuthCheck(@RequestParam("email") String email,HttpServletRequest request) {
 		logger.info("emailAuthCheck 진입");
 		logger.info("전달받은 email:" + email);
-		//MailSendThread mailSendThread = new MailSendThread(mailSender, email);
-	    //String authKey = mailSendThread.mailSend();
-		String authKey = CreateKey.getCreateKey();
+		MailSendThread mailSendThread = new MailSendThread(mailSender, email);
+	    String authKey = mailSendThread.mailSend();
+		//String authKey = CreateKey.getCreateKey();
 	    IpGet getIp = new IpGet();
 	    String ip = getIp.getUserIP(request);
 	    logger.info("Key : "+authKey);

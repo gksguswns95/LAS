@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -43,12 +42,11 @@
                     <li>
                         <div class="tit">
                             <fieldset>
-                                <label  class="check-box-label fill">이용약관 (필수)
+                                <label  class="input-box-label fill">이용약관 (필수)
                                     <input type="checkbox" id="essential_1">
                                 </label>
                             </fieldset>
                             <a href="javascript:location.href='/prototype/signup_term01';" class="alink-line">자세히 보기</a>
-                            <a href="javascript:goTerm01()" class="alink-line">자세히 보기</a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -76,14 +74,13 @@
                     <li>
                         <div class="tit">
                             <fieldset>
-                                <label  class="check-box-label fill">개인정보수집 이용동의 (필수)
+                                <label  class="input-box-label fill">개인정보수집 이용동의 (필수)
                                     <input type="checkbox" id="essential_2">
                                 </label>
                             </fieldset>
                             <a href="javascript:location.href='/prototype/signup_term02'; " class="alink-line" >자세히 보기</a>
-                            <a href="javascript:goTerm02()" class="alink-line">자세히 보기</a>
                         </div>
-                        <div class="both-layout-box">
+                       <div class="both-layout-box">
                             <div class="area-clause">
                                 <div class="innerWrap">
                                     <h1>LG Account 이용 약관</h1>
@@ -109,12 +106,11 @@
                     <li>
                         <div class="tit">
                             <fieldset>
-                                <label  class="check-box-label fill">개인정보처리방침
+                                <label  class="input-box-label fill">개인정보처리방침
                                     <input type="checkbox" name="idle_agree" id="idle_agree" value="Y">
                                 </label>
                             </fieldset>
                             <a href="javascript:location.href='/prototype/signup_term02'; " class="alink-line" >자세히 보기</a>
-                            <a href="javascript:goTerm03()" class="alink-line">자세히 보기</a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -143,7 +139,7 @@
             </div>
             <p class="gap"></p>
             <fieldset>
-                <label  class="check-box-label fill">위의 내용을 모두 확인하였으며 모든 내용에 동의합니다.<input type="checkbox"></label>
+                <label  class="input-box-label fill">위의 내용을 모두 확인하였으며 모든 내용에 동의합니다.<input type="checkbox"></label>
             </fieldset>
             <div class="btn-set mt20">
                 <button class="button-basic outline">동의</button>
@@ -164,24 +160,24 @@
 	<script src="../js/LAS/common_ui.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			$($('.check-box-wrap')[3]).click(function() {
-				$($('.check-box-wrap')[0]).removeClass('checked');	
-				$($('.check-box-wrap')[1]).removeClass('checked');	
-				$($('.check-box-wrap')[2]).removeClass('checked');
+			$($('.input-box-wrap')[3]).click(function() {
+				$($('.input-box-wrap')[0]).removeClass('checked');	
+				$($('.input-box-wrap')[1]).removeClass('checked');	
+				$($('.input-box-wrap')[2]).removeClass('checked');
 				$('#essential_1').prop('checked',false);
 				$('#essential_2').prop('checked',false);
 				$('#idle_agree').prop('checked',false);
-				if($($('.check-box-wrap')[3]).hasClass('checked')) {
-					$($('.check-box-wrap')[0]).toggleClass('checked');
-					$($('.check-box-wrap')[1]).toggleClass('checked');
-					$($('.check-box-wrap')[2]).toggleClass('checked');
+				if($($('.input-box-wrap')[3]).hasClass('checked')) {
+					$($('.input-box-wrap')[0]).toggleClass('checked');
+					$($('.input-box-wrap')[1]).toggleClass('checked');
+					$($('.input-box-wrap')[2]).toggleClass('checked');
 					$('#essential_1').prop('checked',true);
 					$('#essential_2').prop('checked',true);
 					$('#idle_agree').prop('checked',true);
 				}
 			});
 			
-			$($('.check-box-wrap')[0]).click(function() {
+			$($('.input-box-wrap')[0]).click(function() {
 				if($(this).hasClass('checked')) {
 					$('#essential_1').prop('checked',true);
 				} else {
@@ -190,7 +186,7 @@
 				allChecked();
 			});
 			
-			$($('.check-box-wrap')[1]).click(function() {
+			$($('.input-box-wrap')[1]).click(function() {
 				if($(this).hasClass('checked')) {
 					$('#essential_2').prop('checked',true);
 				}else {
@@ -199,7 +195,7 @@
 				allChecked();
 			});
 			
-			$($('.check-box-wrap')[2]).click(function() {
+			$($('.input-box-wrap')[2]).click(function() {
 				if($(this).hasClass('checked')) {
 					$('#idle_agree').prop('checked',true);
 				}else {
@@ -209,12 +205,12 @@
 			});
 			
 			function allChecked() {
-				if( $($('.check-box-wrap')[0]).hasClass('checked') && $($('.check-box-wrap')[1]).hasClass('checked') && $($('.check-box-wrap')[2]).hasClass('checked') ) {
-					if( !($($('.check-box-wrap')[3]).hasClass('checked'))) {
-						$($('.check-box-wrap')[3]).toggleClass('checked');
+				if( $($('.input-box-wrap')[0]).hasClass('checked') && $($('.input-box-wrap')[1]).hasClass('checked') && $($('.input-box-wrap')[2]).hasClass('checked') ) {
+					if( !($($('.input-box-wrap')[3]).hasClass('checked'))) {
+						$($('.input-box-wrap')[3]).toggleClass('checked');
 					}
 				} else {
-						$($('.check-box-wrap')[3]).removeClass('checked');
+						$($('.input-box-wrap')[3]).removeClass('checked');
 				}
 			}
 			
@@ -225,7 +221,7 @@
 					} else {
 						location.href = './signup_inputpin';
 					}
-				}
+				} 
 			});
 			
 		});

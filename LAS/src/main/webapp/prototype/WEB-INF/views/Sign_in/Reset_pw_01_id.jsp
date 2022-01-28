@@ -17,7 +17,7 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signin_valid';"></i>
             </div>
             <h1>LG 계정</h1>
         </div>
@@ -40,7 +40,7 @@
                         <fieldset class="field"><!-- [D] 클래스 error ]-->
                             <div class="label-switching only">
                                 <div class="innerWrap">
-                                    <div class="tit">아이디</div>
+                                    <label class="tit">아이디</label>
                                     <div class="explain fontColor1">
                                         가입자의 본명을 입력하세요.<br />(*차후 서비스이용시 경우에 따라<br />본인 명의의 인증이 요구될 수 있습니다)
                                     </div>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="btn-set mt20">
-                <button class="button-basic" onclick="location.href='/prototype/reset_pw_comp';">비밀번호 재설정</button>
+                <button class="button-basic">비밀번호 재설정</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>
@@ -78,9 +78,9 @@
 </div>
 <!-- wrap -->
 <!-- 스크립트 영역 -->
-<script src="../js/jquery-3.4.1.min.js"></script>
-<script src="../js/swiper.min.js"></script>
-<script src="../js/common_ui.js"></script>
+<script src="../js/LAS/jquery-3.4.1.min.js"></script>
+<script src="../js/LAS/swiper.min.js"></script>
+<script src="../js/LAS/common_ui.js"></script>
 <!-- 스크립트 영역 -->
 
 </body>

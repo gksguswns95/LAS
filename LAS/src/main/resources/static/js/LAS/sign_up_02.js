@@ -1,10 +1,14 @@
 $(function() {
 	var interval;
 	var duplicateId = true;
+	var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+).(\.[0-9a-zA-Z_-]+){1,2}$/;
+	var reg_phone = /([^0-9]+)/;
+	var first_phone = /^010/;
 	//에러
 	//$('.field input')[1].error();
 	$($('.field')[1]).hide();
 	$('.btn-set.mt45').hide();
+	$('.info-txt.mt30').hide();
 	
 	//중복체크
 	function checkid(id){
@@ -30,8 +34,15 @@ $(function() {
     };
     
     $('#id').focusout(function() {
-		if( $(this).val().length > 7) {
-			checkid($(this).val());			
+		var userId = $('#id').val();
+		var userPhoneId = userId.replaceAll('-','');
+		if( userId.length > 7) {
+			if (!reg_phone.test(userPhoneId) && userPhoneId.length == 11 && first_phone.test(userId)) {
+				checkid(userPhoneId);
+				$('#id').val(userPhoneId);
+			} else {
+				checkid(userId);
+			}
 		} else {
 			$('#btn-auth-send').prop('disabled',true);
 			$('.info-txt').css('margin', '3rem 0 0');
@@ -41,15 +52,36 @@ $(function() {
     
 	//인증번호 전송 클릭 시
 	$('#btn-auth-send').click(function() {
-		var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+).(\.[0-9a-zA-Z_-]+){1,2}$/;
 		var id = $('#id').val();
+		var phoneNumerreset = $('#id').val().replaceAll('-', '');
+		if($('#btn-auth-send').text() == '인증번호 재전송') {
+			$('.info-txt.mt30').show();
+		}
 		if (reg_email.test(id)) {
 			emailAuth(id);
-		} else {	//핸드폰
+		}else if (!reg_phone.test(phoneNumerreset) || phoneNumerreset.length == 11 || first_phone.test(id)) {
+				$('#signup_type').val('phone');
+				$($('.field')[1]).show();
+				$('.btn-set.mt45').show();
+				$('#btn-auth-send').text('인증번호 재전송');
+				
+				startTimer(299);
+				$('#id').prop('disabled',true);
+				$('#btn-authKeyCheck').prop('disabled',false);
+				$('#numbver').focus();
+		}else {	//핸드폰
 			$('.info-txt').css('margin', '3rem 0 0');
 			$('.field input')[0].error();
 		}
 	});
+	
+	$('#btn-auth-extension').click(function() {
+		if($('#signup_type').val() == 'email') {
+			extensionValidityTime($('#id').val());			
+		} else {
+			startTimer(299);
+		}
+	})
 	
 	function startTimer(duration) {
 		clearInterval(interval);
@@ -67,9 +99,24 @@ $(function() {
 			}
 			if (timer === 0) {
 				clearInterval(interval);
-				$('.timer').text("");
+				$('.timer').css("만료!");
+				$('.timer').text("만료!");
 			}
 		}, 1000);
+	}
+	
+	function extensionValidityTime(id) {
+		$.ajax({
+			url: '/prototype/extensionValidityTime',
+			type: 'post',
+			data: {id: id},
+			success: function() {
+				startTimer(299);
+			},
+			error: function() {
+				alert('입력시간 연장하기를 다시 눌러 주세요.');
+			}
+		});
 	}
 
 	// 이메일 전송
@@ -82,6 +129,7 @@ $(function() {
 				$($('.field')[1]).show();
 				$('.btn-set.mt45').show();
 				$('#btn-auth-send').text('인증번호 재전송');
+				$('#signup_type').val('email');
 				
 				startTimer(299);
 				$('#id').prop('disabled',true);
@@ -105,7 +153,7 @@ $(function() {
 					location.href = './signup_account?id='+email+'&agree='+$('#agree').val()+'&type=email';
     			} else {
 					$('.info-txt').css('margin', '4rem 0 0');
-    				$('.field input')[2].error();
+    				$('.field input')[3].error();
     			}
     		},
     		error:function() {
@@ -113,17 +161,30 @@ $(function() {
     		}
     	});
     };
+    
+    //핸드폰 인증번호 확인
+    function phoneAuthKeyCheck(phone,authKey) {
+		if(authKey == 'asd123') {
+			location.href = './signup_account?id='+phone+'&agree='+$('#agree').val()+'&type=phone';
+		} else {
+			$('.field input')[3].error();
+		}
+	}
 	
 	$('#btn-authKeyCheck').click(function() {
-		if($('#numbver').val().length == 8) {
-			emailAuthKeyCheck($('#id').val(),$('#numbver').val());			
+		if($('#numbver').val().length == 6) {
+			if($('#signup_type').val() == 'email') {
+				emailAuthKeyCheck($('#id').val(),$('#numbver').val());				
+			} else {
+				phoneAuthKeyCheck($('#id').val(),$('#numbver').val());
+			}
 		} else {
 			$('.info-txt').css('margin', '4rem 0 0');
-			$('.field input')[2].error();
+			$('.field input')[3].error();
 		}
 	});
 	
-	$('#numvber, #id').keyup(function() {
+	$('#numbver, #id').keyup(function() {
 		$('.info-txt').css('margin', '1rem 0 0');
 	});
 	

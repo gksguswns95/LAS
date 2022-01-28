@@ -18,4 +18,5 @@ public interface SignupMapper {
 	void emailAuthInsert(HashMap<String, Object> map);
 	int emailAuthKeySelect(HashMap<String, Object> map);
 	void emailAuthKeyDelete(HashMap<String, Object> map);
+	void emailAuthTimeUpdate(HashMap<String, Object> map);
 }

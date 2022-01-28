@@ -9,12 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -69,6 +72,22 @@ public class LasSignupController {
 		return mv;
 	}
 	
+	@GetMapping("/prototype/signup_sns")
+	public ModelAndView Sign_up_02_sel_sns_ko_KR_1() {
+		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_02_sel_sns_ko_KR");
+		return mv;
+	}
+	@GetMapping("/prototype/signup_sns_1")
+	public ModelAndView Sign_up_02_sel_sns_ko_KR_2() {
+		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_02_sel_sns_ko_KR_1");
+		return mv;
+	}
+	@GetMapping("/prototype/signup_sns_2")
+	public ModelAndView Sign_up_02_sel_sns_ko_KR_3() {
+		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_02_sel_sns_ko_KR_2");
+		return mv;
+	}
+	
 	@PostMapping(value = "/prototype/identity_verification")
 	public ModelAndView identity_verification_Create(HttpServletRequest request, SignupVO signupvo) {
 		ModelAndView mv = new ModelAndView();
@@ -100,13 +119,14 @@ public class LasSignupController {
 			signinvo.setPw(signupvo.getPw());
 			SigninVo signinProcess = signinService.signinId(signinvo);
 			
-			session.setAttribute("user_id", signupvo.getId());
-			session.setAttribute("user_name", signinProcess.getName());
-			session.setAttribute("user_birth", signinProcess.getBirth());
-			session.setAttribute("user_phone", signinProcess.getPhone());
-			session.setAttribute("user_email", signinProcess.getEmail());
-			session.setAttribute("user_signuptype", signinProcess.getSignup_type());
-			session.setAttribute("user_signupdate", signinProcess.getSignup_date());
+			session.setAttribute("prototype_user_id", signupvo.getId());
+			session.setAttribute("prototype_user_firstName", signinProcess.getName().charAt(0));
+			session.setAttribute("prototype_user_name", signinProcess.getName());
+			session.setAttribute("prototype_user_birth", signinProcess.getBirth());
+			session.setAttribute("prototype_user_phone", signinProcess.getPhone());
+			session.setAttribute("prototype_user_email", signinProcess.getEmail());
+			session.setAttribute("prototype_user_signuptype", signinProcess.getSignup_type());
+			session.setAttribute("prototype_user_signupdate", signinProcess.getSignup_date());
 			 
 	        IpGet ipget = new IpGet();
 	        String ip = ipget.getUserIP(request);
@@ -115,5 +135,13 @@ public class LasSignupController {
 			System.out.println("로그인 성공");
 		}
 		return mv;
+	}
+	
+	@PostMapping(value = "/prototype/extensionValidityTime")
+	@ResponseBody
+	public void extensionValidityTime(HttpServletRequest request, @RequestParam("id") String id) {
+		IpGet getIp = new IpGet();
+	    String ip = getIp.getUserIP(request);
+	    signupService.emailAuthTimeUpdate(id,ip);
 	}
 }

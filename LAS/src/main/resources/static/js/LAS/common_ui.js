@@ -93,7 +93,7 @@
 			});
 		},
 		_checkBox : function(){
-			const $label = $("label.check-box-label");
+			const $label = $("label.input-box-label");
 			const temp = [];
 			if(!$label.length) return;
 			$label.each(function(){
@@ -102,11 +102,12 @@
 				const check = label.hasClass("fill");
 				const small = (label.hasClass("small"))?true:label.hasClass("sm")?true:false;
 				const sg = label.attr("class").split(" ");
-				label.wrap("<div class='check-box-wrap'></div>");
-				const source = '<div class="icon"><i class="fa fa-circle-thin b" aria-hidden="true"></i><div class="f"><i class="fa fa-check" aria-hidden="true"></i></div></div>';
+				const type = label.find("input").attr("type").toLowerCase();
+				label.wrap("<div class='input-box-wrap'></div>");
+				const source = (type === "checkbox")?'<div class="icon"><i class="fa fa-circle-thin b" aria-hidden="true"></i><div class="f"><i class="fa fa-check" aria-hidden="true"></i></div></div>':'<div class="icon"><i class="fa fa-circle-thin b" aria-hidden="true"></i><i class="circle-fill" /></div>';
 				label.parent().prepend(source);
 				sg.forEach((c,n)=>{
-					if(c !== 'check-box-label'){
+					if(c !== 'input-box-label'){
 						label.removeClass(c).parent().addClass(c);
 					}
 				})
@@ -114,23 +115,33 @@
 					label.parent().attr("style",style);
 					label.removeAttr("style");
 				}
-				if(check){
+				if(check && type === "checkbox"){
 					label.removeClass("fill").parent().addClass("fill").find(".f").before('<div class="fill"><i class="fa fa-circle" aria-hidden="true"></i>')
 				}
 				if(small){
 					label.removeClass("small").removeClass("sm").parent().addClass("small");
 				}
 			})
-
-
-
 			const $checkbox = $label.parent();
 			if(!$checkbox.length) return;
 			$checkbox.click(function(ev){
 				if((ev.target.tagName).toLowerCase() === 'input' || (ev.target.tagName).toLowerCase() === 'a') return;
-				$(this).toggleClass("checked");
-				const check = $(this).hasClass("checked");
-				$(this).find("input").prop("checked",check)
+				const _input = $(this).find("input");
+				const type = _input.attr("type").toLowerCase();
+				if(type === "radio"){
+					const name = _input.attr("name");
+					const $checkbox = $("input[type=radio][name="+name+"]");
+					$checkbox.each(function(){
+						const $box = $(this).parents(".input-box-wrap");
+						$box.removeClass("checked");
+					})
+					$(this).addClass("checked");
+					_input.prop("checked",true)
+				}else{
+					$(this).toggleClass("checked");
+					const check = $(this).hasClass("checked");
+					_input.prop("checked",check)
+				}
 			})
 
 		},

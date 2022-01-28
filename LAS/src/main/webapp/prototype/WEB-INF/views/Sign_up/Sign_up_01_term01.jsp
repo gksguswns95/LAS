@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +16,7 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signup_idle';"></i>
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
             </div>
             <h1>LG 계정</h1>
         </div>
@@ -46,7 +45,7 @@
             </div>
             <p class="gap"></p>
             <div class="btn-set">
-                <button class="button-basic outline" onclick="javascript:location.href='/prototype/signup_idle';">돌아가기</button>
+                <button class="button-basic outline">돌아가기</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>

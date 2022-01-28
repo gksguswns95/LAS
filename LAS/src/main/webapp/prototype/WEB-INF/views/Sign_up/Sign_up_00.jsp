@@ -39,10 +39,10 @@
                     </p>
                     <div class="cb-type-select-box">
                         <fieldset>
-                            <label  class="check-box-label fill txt-size-small">이메일주소, 또는 핸드폰번호로 계정을 만들겠습니다.<input type="checkbox" name="signup_type" value="1" id="lg_signup" checked="checked"></label>
+                            <label  class="input-box-label txt-size-small">이메일주소, 또는 핸드폰번호로 계정을 만들겠습니다.<input type="radio" name="radio1" value="lg_signup" id="lg_signup"></label>
                         </fieldset>
                         <fieldset>
-                            <label  class="check-box-label fill txt-size-small">자주 쓰는 SNS계정인증으로 계정을 만들겠습니다.<input type="checkbox" name="signup_type" value="2" id="sns_signup"></label>
+                            <label  class="input-box-label txt-size-small">자주 쓰는 SNS계정인증으로 계정을 만들겠습니다.<input type="radio" name="radio1" value="sns_signup" id="sns_signup"></label>
                         </fieldset>
                     </div>
                     <div class="btn-set">
@@ -69,29 +69,16 @@
 	<script src="../js/LAS/common_ui.js"></script>
 	<script>
 		$(function() {
-			$('.check-box-wrap:eq(0)').trigger('click');
-			// 체크박스 클릭 시 하나만 체크되게하기
-			$('.check-box-wrap').click(function() {
-				if( $('.check-box-wrap').hasClass('checked')) {
-					$('.check-box-wrap').removeClass('checked');
-				}
-				$(this).toggleClass('checked');
-				
-				if($($('.check-box-wrap')[0]).hasClass('checked')) {
-					$('#lg_signup').prop('checked',true);
-					$('#sns_signup').prop('checked',false);
-				} else {
-					$('#sns_signup').prop('checked',true);
-					$('#lg_signup').prop('checked',false);
-				}
-			});
-			
+			$('.input-box-wrap:eq(0)').trigger('click');
+
 			//다음 클릭 시 SNS, LG계정 페이지 선택 이동
 			$('.button-basic').click(function() {
-				if($("input[type='checkbox']:checked").val() == 1) {
+				console.log($($('.input-box-wrap')[0]).hasClass('checked'))
+				if($($('.input-box-wrap')[0]).hasClass('checked')) {
 					window.location.href = './signup_idle';
 				} else {
 					//sns 페이지 이동
+					window.location.href = './signup_sns';
 				}
 			})
 		})

@@ -89,6 +89,10 @@
 		)
 	</insert>
 	
+	<update id="emailAuthTimeUpdate">
+		UPDATE las_email_auth SET expiry_time = DATE_ADD(NOW() ,INTERVAL 5 MINUTE) WHERE email = #{id} AND ip = #{ip}
+	</update>
+	
 	<select id="emailAuthKeySelect" parameterType="hashmap" resultType="int">
 		select COUNT(*) as count
 		from (SELECT * FROM las_email_auth WHERE email= #{email} ORDER BY expiry_time DESC LIMIT 1)a

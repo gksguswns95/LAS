@@ -10,18 +10,6 @@
 	    <title>LAS</title>
 	    <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
 	    <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
-		<style>
-			/*--content--*/
-			.step-wrap .tit {font-size: 2.5rem; font-weight: 600; color:#333;}
-			.step-wrap .step {width: 12rem; display: flex; justify-content: space-between; align-items: center;}
-	        .step-wrap .step > li {background:#fff; color:#aaa; font-size: 1.2rem;width: 2rem; height: 2rem; text-align: center; border-radius: 50%; border:2px solid #aaa;}
-			/*.step-wrap .step > li.active ~ li {background:#fff; color:#be417b;  border:2px solid #be417b;}*/
-			.step-wrap .step > li.complete {background:#be417b; color:#fff;  border:2px solid #be417b;opacity: 0.6;}
-			
-			/*--common--*/
-			#header {background:linear-gradient(135deg, #98222c, #cc0041);;box-sizing: border-box;}
-	        .step-wrap{padding: 0rem 0 1.7rem;}
-		</style>
 	</head>
 	
 	<body>
@@ -42,19 +30,19 @@
 	    <div id="container">
 	        <div id="contents">
 	            <!-- 컨텐츠 영역 -->
-	            <div class="step-wrap">
-	                <p class="tit">LG계정 만들기</p>
-	                <ul class="step">
-	                    <li class="complete">1</li>
-	                    <li class="complete">2</li>
-	                    <li class="active">3</li>
-	                    <li>4</li>
-	                </ul>
-	            </div>
-	            <p class="top-txt">
-	                계정으로 사용할 이메일주소,<br>
-	                또는 핸드폰번호 중 한가지를 입력하세요
-	            </p>
+            <div class="step-wrap">
+                <p class="tit">LG계정 만들기</p>
+                <ul class="step">
+                    <li>1</li>
+                    <li>2</li>
+                    <li class="active">3</li>
+                    <li>4</li>
+                </ul>
+            </div>
+            <p class="top-txt">
+                계정으로 사용할 이메일주소,<br />
+                또는 핸드폰번호 중 한가지를 입력하세요
+            </p>
 	            <div class="input-area">
 	            	<form action="/prototype/identity_verification" method="post" id="identity_verification">
 	                <!-- 인풋박스 -->

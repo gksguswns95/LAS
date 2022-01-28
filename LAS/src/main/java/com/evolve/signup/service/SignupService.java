@@ -68,4 +68,11 @@ public class SignupService {
 		mapper.emailAuthKeyDelete(map);
 	}
 
+	public void emailAuthTimeUpdate(String id, String ip) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("authKey", id);
+		map.put("ip", ip);
+		mapper.emailAuthTimeUpdate(map);
+	}
+
 }

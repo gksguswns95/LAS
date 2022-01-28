@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -70,14 +71,13 @@ public class LasSigninController {
 	}
 
 	@PostMapping(value = "/prototype/signin")
-	public ModelAndView userLogin(HttpSession session, HttpServletRequest request, HttpServletResponse response,
+	@ResponseBody
+	public int userLogin(HttpSession session, HttpServletRequest request, HttpServletResponse response,
 			SigninVo signvo) throws IOException {
 		System.out.println(signvo.getId());
 		System.out.println(signvo.getPw());
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/prototype/account_view_my");
-		System.out.println(session.getAttribute("user_id"));
-		if (session.getAttribute("user_id") == null) {
+		int cnt = 0;
+		if (session.getAttribute("prototype_user_id") != null) {
 			session.invalidate();
 		}
 		boolean isNumberic = signvo.getId().matches("^[0-9]*$");
@@ -89,8 +89,8 @@ public class LasSigninController {
 		System.out.println("로그인 컨트롤러 로그인 진행");
 
 		if (signinProcess != null) {
-			mv.setViewName("redirect:/prototype/account_view_my");
 			session.setAttribute("prototype_user_id", signvo.getId());
+			session.setAttribute("prototype_user_firstName", signinProcess.getName().charAt(0));
 			session.setAttribute("prototype_user_name", signinProcess.getName());
 			session.setAttribute("prototype_user_birth", signinProcess.getBirth());
 			session.setAttribute("prototype_user_phone", signinProcess.getPhone());
@@ -104,22 +104,19 @@ public class LasSigninController {
 			signinService.loginLogInsert(signinProcess.getSeq(), ip);
 			System.out.println("접속 IP : " + ip);
 			System.out.println("로그인 성공");
-			return mv;
+			cnt = 1;
 		} else {
-			mv.setViewName("redirect://prototype/signin_valid");
-			mv.addObject("error", "loginError");
 			System.out.println("로그인 실패(아이디 및 비밀번호 틀림)");
-			return mv;
 		}
-
+		return cnt;
 	}
 
 	@RequestMapping(value = "/prototype/signout")
 	public ModelAndView userLogout(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView("redirect:/prototype/main");
 		HttpSession session = request.getSession();
-		if (session.getAttribute("user_name") != null && session.getAttribute("user_phone") != null
-				&& session.getAttribute("user_id") != null) {
+		if (session.getAttribute("prototype_user_name") != null && session.getAttribute("prototype_user_phone") != null
+				&& session.getAttribute("prototype_user_id") != null) {
 			session.invalidate();
 			System.out.println("로그아웃 및 세션제거 완료");
 		}
