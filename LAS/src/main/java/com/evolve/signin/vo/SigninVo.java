@@ -2,7 +2,7 @@ package com.evolve.signin.vo;
 
 public class SigninVo {
 	
-	private String id,phone,pw,name,birth,signup_date,signup_type,update_date,email;
+	private String id,phone,pw,name,birth,signup_date,signup_type,update_date,email,agreed;
 	private int seq;
 
 	public String getId() {
@@ -83,6 +83,14 @@ public class SigninVo {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getAgreed() {
+		return agreed;
+	}
+
+	public void setAgreed(String agreed) {
+		this.agreed = agreed;
 	}
 
 

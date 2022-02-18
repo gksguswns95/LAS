@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +20,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signup_select';"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -78,7 +79,7 @@
                                     <input type="checkbox" id="essential_2">
                                 </label>
                             </fieldset>
-                            <a href="javascript:location.href='/prototype/signup_term02'; " class="alink-line" >자세히 보기</a>
+                            <a href="javascript:location.href='/prototype/signup_term01'; " class="alink-line" >자세히 보기</a>
                         </div>
                        <div class="both-layout-box">
                             <div class="area-clause">
@@ -110,7 +111,7 @@
                                     <input type="checkbox" name="idle_agree" id="idle_agree" value="Y">
                                 </label>
                             </fieldset>
-                            <a href="javascript:location.href='/prototype/signup_term02'; " class="alink-line" >자세히 보기</a>
+                            <a href="javascript:location.href='/prototype/signup_term01'; " class="alink-line" >자세히 보기</a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">

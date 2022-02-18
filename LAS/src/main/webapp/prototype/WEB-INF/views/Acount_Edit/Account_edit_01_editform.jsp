@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,9 +18,9 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/account_view_my';"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/account_view_profile';"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -29,28 +30,29 @@
         <div id="contents">
             <!-- 컨텐츠 영역 -->
             <div class="info-box-member">
-                <div class="member-pic">ㅎ</div>
+                <div class="member-pic">${prototype_user_firstName }</div>
                 <div class="member-info">
-                    <div class="name">홍길동</div>
-                    <div class="id"><a href="javascript:;">LoremGipsum@email.com</a></div>
+                    <div class="name">${prototype_user_name }</div>
+                    <div class="id"><a href="javascript:;">${prototype_user_id }</a></div>
                 </div>
             </div>
             <!-- <div class="btn-set mt10">
                 <button class="btn a">인증요청 하기</button>
             </div> -->
+            <form action="/prototype/accountModifyProcess" method="post" id="form-accountModify">
             <div class="input-area mt10">
                 <fieldest class="field"><!-- [D] 클래스 error ]-->
                     <div class="label-switching readonly">
                         <div class="innerWrap">
                             <div class="tit">이름</div>
                             <div class="explain fontColor1">
-                                가입자의 본명을 입력하세요.<br />
-                                (*인증과 서비스 진행을 위해 본명이...)
+                                가입자의 본명을 입력하세요.<!-- <br />
+                                (*인증과 서비스 진행을 위해 본명이...) -->
                             </div>
                         </div>
                     </div>
                     <div class="input">
-                        <input class="" id="name04" type="text" value="홍길동" readonly />
+                        <input class="" id="name" name="name" type="text" value="${prototype_user_name }" readonly />
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -67,15 +69,15 @@
                 <fieldset class="field"><!-- [D] 클래스 error ]-->
                     <div class="label-switching readonly">
                         <div class="innerWrap">
-                            <div class="tit">비밀번호<button class="btn-modify">비밀번호 변경</button></div>
+                            <div class="tit">비밀번호<button class="btn-modify" onclick="location.href='/prototype/account_edit_resetpw';" type="button">비밀번호 변경</button></div>
                             <div class="explain fontColor1">
-                                가입자의 본명을 입력하세요.<br />
-                                (*인증과 서비스 진행을 위해 본명이...)
+                                가입자의 본명을 입력하세요.<!-- <br />
+                                (*인증과 서비스 진행을 위해 본명이...) -->
                             </div>
                         </div>
                     </div>
                     <div class="input">
-                        <input class="" id="password" type="password" value="abcd" readonly />
+                        <input class="" type="password" value="**********" readonly />
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -94,13 +96,13 @@
                         <div class="innerWrap">
                             <div class="tit">생년월일</div>
                             <div class="explain fontColor1">
-                                가입자의 본명을 입력하세요.<br />
-                                (*인증과 서비스 진행을 위해 본명이...)
+                                가입자의 본명을 입력하세요.<!-- <br />
+                                (*인증과 서비스 진행을 위해 본명이...) -->
                             </div>
                         </div>
                     </div>
                     <div class="input">
-                        <input class="" id="name04" type="text" value="2000년 11월 23일" readonly />
+                        <input class="" id="birth" name="birth" type="text" value="${prototype_user_birth }" readonly />
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -117,15 +119,18 @@
                 <fieldset class="field"><!-- [D] 클래스 error ]-->
                     <div class="label-switching readonly">
                         <div class="innerWrap">
-                            <div class="tit">전화번호</div>
+                        	 
+                            <div class="tit" style="display: block;">전화번호 <c:if test="${prototype_user_signuptype eq 'email'}"> <span class="fontColor2" style="font-size: 1.2rem">*수정가능</span> </c:if></div>
+                            
                             <div class="explain fontColor1">
-                                가입자의 본명을 입력하세요.<br />
-                                (*인증과 서비스 진행을 위해 본명이...)
+                                가입자의 본명을 입력하세요.<!-- <br />
+                                (*인증과 서비스 진행을 위해 본명이...) -->
                             </div>
                         </div>
                     </div>
                     <div class="input">
-                        <input class="" id="name04" type="text" value="01055550123" readonly />
+                        <input class="" id="phone" name="phone" type="text" value="${prototype_user_phone }" 
+                        	<c:if test="${prototype_user_signuptype eq 'phone'}"> readonly </c:if> />
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -142,15 +147,16 @@
                 <fieldset class="field"><!-- [D] 클래스 error ]-->
                     <div class="label-switching readonly">
                         <div class="innerWrap">
-                            <div class="tit">이메일</div>
+                            <div class="tit" style="display: block;">이메일 <c:if test="${prototype_user_signuptype eq 'phone'}"> <span class="fontColor2" style="font-size: 1.2rem">*수정가능</span> </c:if></div>
                             <div class="explain fontColor1">
-                                가입자의 본명을 입력하세요.<br />
-                                (*인증과 서비스 진행을 위해 본명이...)
+                                가입자의 본명을 입력하세요.<!-- <br />
+                                (*인증과 서비스 진행을 위해 본명이...) -->
                             </div>
                         </div>
                     </div>
                     <div class="input">
-                        <input class="" id="name04" type="text" value="LoremGipsum@email.com" readonly />
+                        <input class="" id="email" name="email" type="text" value="${prototype_user_email }" 
+                        <c:if test="${prototype_user_signuptype eq 'email'}"> readonly </c:if> />
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -169,8 +175,8 @@
                         <div class="innerWrap">
                             <div class="tit">선호 매장</div>
                             <div class="explain fontColor1">
-                                가입자의 본명을 입력하세요.<br />
-                                (*인증과 서비스 진행을 위해 본명이...)
+                                가입자의 본명을 입력하세요.<!-- <br />
+                                (*인증과 서비스 진행을 위해 본명이...) -->
                             </div>
                         </div>
                     </div>
@@ -211,8 +217,8 @@
                         <div class="innerWrap">
                             <div class="tit">선호 매장</div>
                             <div class="explain fontColor1">
-                                가입자의 본명을 입력하세요.<br />
-                                (*인증과 서비스 진행을 위해 본명이...)
+                                가입자의 본명을 입력하세요.<!-- <br />
+                                (*인증과 서비스 진행을 위해 본명이...) -->
                             </div>
                         </div>
                     </div>
@@ -232,6 +238,7 @@
                     </div>
                 </fieldset>
             </div>
+            </form>
             <div class="input-area">
                 <!-- 인풋박스 -->
                 <div class="field minSize-none"><!-- [D] 클래스 error ]-->
@@ -272,6 +279,20 @@
                 </ul>
             </div>
             <p class="gap"></p>
+            <div class="set-list b line-none" onclick="location.href='/prototype/account_del_check'">
+                <ul>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="tit tit-b">
+                                계정 삭제
+                                <!-- <p class="data">2022.01.30</p> -->
+                            </div>
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p class="gap"></p>
             <div class="line-box-area">
                 <div class="tit">
                     SNS 계정
@@ -286,8 +307,8 @@
             </div> -->
             <p class="gap"></p>
             <div class="btn-set mt40">
-                <button class="button-basic g">취소</button>
-                <button class="button-basic">수정</button>
+                <button class="button-basic g" onclick="location.href='/prototype/account_view_my'">취소</button>
+                <button class="button-basic" id="btn_next_accountModify">수정</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>
@@ -303,6 +324,7 @@
 <script src="../js/LAS/jquery-3.4.1.min.js"></script>
 <script src="../js/LAS/swiper.min.js"></script>
 <script src="../js/LAS/common_ui.js"></script>
+<script src="../js/LAS/modify/modify.js"></script>
 <!-- 스크립트 영역 -->
 
 </body>

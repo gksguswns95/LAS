@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -34,7 +35,7 @@
                         </div>
                         <h1>로그인</h1>
                         <div class="link">
-                            <a href="javascript:;">LG Account(으)로 이동</a>
+                            <h1 onclick="javascript:location.href='/prototype/main';">LG Account(으)로 이동</h1>
                         </div>
                     </div>
                     <fieldset class="input-box-line">

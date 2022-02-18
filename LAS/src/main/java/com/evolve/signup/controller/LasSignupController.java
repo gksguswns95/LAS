@@ -37,54 +37,110 @@ public class LasSignupController {
 	SignupService signupService;
 	
 	@GetMapping("/prototype/signup_select")
-	public ModelAndView LAS_Sgin_up_00() {
-		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_00");
+	public ModelAndView LAS_Sgin_up_00(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("prototype_user_id") == null ) {
+			mv.setViewName("/Sign_up/Sign_up_00");
+		} else {
+			mv.setViewName("redirect:/prototype/main");
+		}
 		return mv;
 	}
 	
 	@GetMapping("/prototype/signup_idle")
-	public ModelAndView LAS_Sgin_up_01() {
-		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_01");
+	public ModelAndView LAS_Sgin_up_01(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("prototype_user_id") == null ) {
+			mv.setViewName("/Sign_up/Sign_up_01");
+		} else {
+			mv.setViewName("redirect:/prototype/main");
+		}
 		return mv;
 	}
 	
 	@GetMapping("/prototype/signup_inputpin")
-	public ModelAndView LAS_Sgin_up_02() {
-		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_02");
+	public ModelAndView LAS_Sgin_up_02(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("prototype_user_id") == null ) {
+			mv.setViewName("/Sign_up/Sign_up_02");
+		} else {
+			mv.setViewName("redirect:/prototype/main");
+		}
 		return mv;
 	}
 	
 	@GetMapping("/prototype/signup_account")
-	public ModelAndView LAS_Sgin_up_03() {
-		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_03");
+	public ModelAndView LAS_Sgin_up_03(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("prototype_user_id") == null &&  session.getAttribute("prototype_user_signupId") != null
+				&& session.getAttribute("prototype_user_signupType") != null) {
+			mv.setViewName("/Sign_up/Sign_up_03");
+		} else {
+			mv.setViewName("redirect:/prototype/main");
+		}
 		return mv;
 	}
 	
 	@GetMapping("/prototype/signup_welcome")
-	public ModelAndView LAS_Sgin_up_04() {
-		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_04");
+	public ModelAndView LAS_Sgin_up_04(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("prototype_user_id") == null ) {
+			mv.setViewName("/Sign_up/Sign_up_04");
+		} else {
+			mv.setViewName("redirect:/prototype/main");
+		}
 		return mv;
 	}
 	
 	@GetMapping("/prototype/signup_term01")
-	public ModelAndView LAS_Sign_up_term01() {
-		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_01_term01");
+	public ModelAndView LAS_Sign_up_term01(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("prototype_user_id") == null ) {
+			mv.setViewName("/Sign_up/Sign_up_01_term01");
+		} else {
+			mv.setViewName("redirect:/prototype/main");
+		}
 		return mv;
 	}
 	
 	@GetMapping("/prototype/signup_sns")
-	public ModelAndView Sign_up_02_sel_sns_ko_KR_1() {
-		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_02_sel_sns_ko_KR");
+	public ModelAndView Sign_up_02_sel_sns_ko_KR_1(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("prototype_user_id") == null ) {
+			mv.setViewName("/Sign_up/Sign_up_02_sel_sns_ko_KR");
+		} else {
+			mv.setViewName("redirect:/prototype/main");
+		}
 		return mv;
 	}
 	@GetMapping("/prototype/signup_sns_1")
-	public ModelAndView Sign_up_02_sel_sns_ko_KR_2() {
-		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_02_sel_sns_ko_KR_1");
+	public ModelAndView Sign_up_02_sel_sns_ko_KR_2(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("prototype_user_id") == null ) {
+			mv.setViewName("/Sign_up/Sign_up_02_sel_sns_ko_KR_1");
+		} else {
+			mv.setViewName("redirect:/prototype/main");
+		}
 		return mv;
 	}
+	
 	@GetMapping("/prototype/signup_sns_2")
-	public ModelAndView Sign_up_02_sel_sns_ko_KR_3() {
-		ModelAndView mv = new ModelAndView("/Sign_up/Sign_up_02_sel_sns_ko_KR_2");
+	public ModelAndView Sign_up_02_sel_sns_ko_KR_3(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView();
+		if(session.getAttribute("prototype_user_id") == null ) {
+			mv.setViewName("/Sign_up/Sign_up_02_sel_sns_ko_KR_2");
+		} else {
+			mv.setViewName("redirect:/prototype/main");
+		}
 		return mv;
 	}
 	
@@ -94,14 +150,19 @@ public class LasSignupController {
 		mv.setViewName("redirect:/prototype/signup_welcome");
 		HttpSession session = request.getSession();
 		System.out.println("광고성 동의여부 = " + request.getParameter("agree"));
-		System.out.println("id : "+signupvo.getId());
+		System.out.println("id : "+session.getAttribute("prototype_user_signupId"));
 		System.out.println(signupvo.getPw());
 		System.out.println("email : "+signupvo.getEmail());
 		System.out.println(signupvo.getPhone());
 		System.out.println(signupvo.getBirth());
 		System.out.println(signupvo.getName());
-		System.out.println("signup_type : "+signupvo.getSignup_type());
-		if (signupvo.getId() != null && signupvo.getPw() != null) {
+		System.out.println("signup_type : "+session.getAttribute("prototype_user_signupType"));
+		
+		signupvo.setId(session.getAttribute("prototype_user_signupId").toString());
+		signupvo.setSignup_type(session.getAttribute("prototype_user_signupType").toString());
+		
+		if (signupvo.getId() != null && signupvo.getPw() != null && session.getAttribute("prototype_user_signupId") != null
+				&& session.getAttribute("prototype_user_signupType") != null) {
 
 			// 회원가입
 			signupService.signupInsert(signupvo);
@@ -133,6 +194,9 @@ public class LasSignupController {
 	        signinService.loginLogInsert(signinProcess.getSeq(),ip);
 			System.out.println("접속 IP : "+ip);
 			System.out.println("로그인 성공");
+			
+			session.removeAttribute("prototype_user_signupType");
+			session.removeAttribute("prototype_user_signupId");
 		}
 		return mv;
 	}
@@ -141,7 +205,10 @@ public class LasSignupController {
 	@ResponseBody
 	public void extensionValidityTime(HttpServletRequest request, @RequestParam("id") String id) {
 		IpGet getIp = new IpGet();
+		System.out.println("받은 id: "+id);
 	    String ip = getIp.getUserIP(request);
+	    System.out.println("받은 ip: "+ip);
 	    signupService.emailAuthTimeUpdate(id,ip);
+	    System.out.println("연장 성공");
 	}
 }

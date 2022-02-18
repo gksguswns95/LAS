@@ -94,7 +94,7 @@
 .input-area.no-margin .field {padding-top: 0; min-height: auto;}
 
 .chk-option-wrap {position:relative;}
-.chk-option-wrap .chk-option input[type="checkbox"] {position:absolute; top:0; left:0; width:2rem; height:2rem; background:url('../images/icon/sp_icon.png') no-repeat -3px -121px; background-size:300px auto;}
+.chk-option-wrap .chk-option input[type="checkbox"] {position:absolute; top:0; left:0; width:2rem; height:2rem; background:url('../../images/icon/sp_icon.png') no-repeat -3px -121px; background-size:300px auto;}
 .chk-option-wrap .chk-option input[type="checkbox"]:checked {background-position:-3px -146px;}
 /*
 .chk-option-wrap .chk-option input[type="checkbox"]:disabled {background-position:-3px -171px; }
@@ -129,7 +129,7 @@
 .list-type03 .list-num li {margin-top: 1.6rem;}
 
 .chk-locationR .chkbox04 {text-align: right;}
-.chkbox04 input[type="checkbox"] {width:2.1rem; height:2.1rem; background:url('../images/icon/sp_icon.png') no-repeat -3px -121px; background-size:300px auto; }
+.chkbox04 input[type="checkbox"] {width:2.1rem; height:2.1rem; background:url('../../images/icon/sp_icon.png') no-repeat -3px -121px; background-size:300px auto; }
 .chkbox04 input[type="checkbox"]:checked {color: #008288; background-position:-3px -146px;}
 .chkbox04 input[type="checkbox"]:disabled {background-position:-3px -171px; }
 .chkbox04 label {display:inline-block; color:#999; font-size:1.4rem; line-height:1.6rem; font-weight:300; box-sizing:border-box}

@@ -17,9 +17,9 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="location.href='/prototype/reset_pw_id'"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -52,9 +52,9 @@
 </div>
 <!-- wrap -->
 <!-- 스크립트 영역 -->
-<script src="../js/jquery-3.4.1.min.js"></script>
-<script src="../js/swiper.min.js"></script>
-<script src="../js/common_ui.js"></script>
+<script src="../js/LAS/jquery-3.4.1.min.js"></script>
+<script src="../js/LAS/swiper.min.js"></script>
+<script src="../js/LAS/common_ui.js"></script>
 <!-- 스크립트 영역 -->
 
 </body>

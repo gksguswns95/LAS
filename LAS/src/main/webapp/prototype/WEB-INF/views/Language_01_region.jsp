@@ -19,7 +19,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true"  onclick="javascript:location.href='/prototype/main';"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG Account(으)로 이동</h1>
         </div>
     </header>
     <!-- // header -->

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -16,9 +17,9 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/account_view_my';"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/main';"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -39,7 +40,7 @@
                     <div class="inner-wrap">
                         <p class="name">${prototype_user_name }</p>
                         <ul class="link">
-                            <li><a href="javascript:location.href='/prototype/account_edit_editform';">회원정보 수정 <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            <li><a href="/prototype/account_view_profile">회원정보 수정 <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                             <li><a href="javascript:'">배송지 관리 <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                         </ul>
                         <div class="item-box">

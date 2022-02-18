@@ -18,5 +18,7 @@ public interface ModifyMapper {
 	int nameEmailCheck(HashMap<String, Object> map);
 	List<SignupVO> nameBirthCheck(HashMap<String, Object> map);
 	HashMap<String, Object> namebirthidcheck(HashMap<String, Object> map);
-	void modifyPassword(HashMap<String, Object> map); 
+	void modifyPassword(HashMap<String, Object> map);
+	void resetPassword(HashMap<String, Object> map);
+	void accountModify_ResetPassword(HashMap<String, Object> map); 
 }

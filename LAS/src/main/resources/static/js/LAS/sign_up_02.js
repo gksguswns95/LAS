@@ -19,6 +19,7 @@ $(function() {
             success:function(cnt) { ////컨트롤러에서 넘어온 cnt값을 받는다 
             	if(cnt != 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디
         			$('#id').val('');
+        			$('.field input')[0].noneError();
         			$('.field input')[0].error();
         			$('.info-txt').css('margin', '3rem 0 0');
 					$('#btn-auth-send').prop('disabled',true);
@@ -40,12 +41,18 @@ $(function() {
 			if (!reg_phone.test(userPhoneId) && userPhoneId.length == 11 && first_phone.test(userId)) {
 				checkid(userPhoneId);
 				$('#id').val(userPhoneId);
-			} else {
+			} else if(reg_email.test(userId)) {
 				checkid(userId);
+			}else {
+				/*checkid(userId);*/
+				$('.field input')[0].noneError();
+				$('.field input')[0].error();
+				$('.info-txt').css('margin', '3rem 0 0');
 			}
 		} else {
 			$('#btn-auth-send').prop('disabled',true);
 			$('.info-txt').css('margin', '3rem 0 0');
+			$('.field input')[0].noneError();
 			$('.field input')[0].error();
 		}
 	});
@@ -60,17 +67,10 @@ $(function() {
 		if (reg_email.test(id)) {
 			emailAuth(id);
 		}else if (!reg_phone.test(phoneNumerreset) || phoneNumerreset.length == 11 || first_phone.test(id)) {
-				$('#signup_type').val('phone');
-				$($('.field')[1]).show();
-				$('.btn-set.mt45').show();
-				$('#btn-auth-send').text('인증번호 재전송');
-				
-				startTimer(299);
-				$('#id').prop('disabled',true);
-				$('#btn-authKeyCheck').prop('disabled',false);
-				$('#numbver').focus();
+				phoneAuth(id);
 		}else {	//핸드폰
 			$('.info-txt').css('margin', '3rem 0 0');
+			$('.field input')[0].noneError();
 			$('.field input')[0].error();
 		}
 	});
@@ -132,12 +132,35 @@ $(function() {
 				$('#signup_type').val('email');
 				
 				startTimer(299);
-				$('#id').prop('disabled',true);
+				$('#id').prop('readonly',true);
 				$('#btn-authKeyCheck').prop('disabled',false);
 				$('#numbver').focus();
 			},
 			error: function() {
 				alert('메일 전송 실패!');
+			}
+		});
+	};
+	
+	// 핸드폰 인증번호 생성
+	function phoneAuth(phone) {
+		$.ajax({
+			url: '/phoneauthcheck',
+			type: "post",
+			data: { phone: phone },
+			success: function() {
+				$($('.field')[1]).show();
+				$('.btn-set.mt45').show();
+				$('#btn-auth-send').text('인증번호 재전송');
+				$('#signup_type').val('phone');
+				
+				startTimer(299);
+				$('#id').prop('readonly',true);
+				$('#btn-authKeyCheck').prop('disabled',false);
+				$('#numbver').focus();
+			},
+			error: function() {
+				alert('핸드폰 인증번호 전송 실패!');
 			}
 		});
 	};
@@ -150,9 +173,10 @@ $(function() {
     		data:{mailAuthKey:mailAuthKey,email:email},
     		success: function(cnt) {
     			if(cnt == 1) {
-					location.href = './signup_account?id='+email+'&agree='+$('#agree').val()+'&type=email';
+					location.href = './signup_account?agree='+$('#agree').val()+'&type=email';
     			} else {
 					$('.info-txt').css('margin', '4rem 0 0');
+    				$('.field input')[3].noneError();
     				$('.field input')[3].error();
     			}
     		},
@@ -163,12 +187,24 @@ $(function() {
     };
     
     //핸드폰 인증번호 확인
-    function phoneAuthKeyCheck(phone,authKey) {
-		if(authKey == 'asd123') {
-			location.href = './signup_account?id='+phone+'&agree='+$('#agree').val()+'&type=phone';
-		} else {
-			$('.field input')[3].error();
-		}
+    function phoneAuthKeyCheck(phone,phoneAuthKey) {
+		$.ajax({
+    		url:'/phoneauthkeycheck',
+    		type: "post",
+    		data:{phoneAuthKey:phoneAuthKey,phone:phone},
+    		success: function(cnt) {
+    			if(cnt == 1) {
+					location.href = './signup_account?agree='+$('#agree').val()+'&type=phone';
+    			} else {
+					$('.info-txt').css('margin', '4rem 0 0');
+					$('.field input')[3].noneError();
+					$('.field input')[3].error();
+	    		}
+    		},
+    		error:function() {
+    			alert('인증 실패!');
+    		}
+    	});
 	}
 	
 	$('#btn-authKeyCheck').click(function() {
@@ -180,6 +216,7 @@ $(function() {
 			}
 		} else {
 			$('.info-txt').css('margin', '4rem 0 0');
+			$('.field input')[3].noneError();
 			$('.field input')[3].error();
 		}
 	});

@@ -19,7 +19,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signin_valid';"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -42,12 +42,12 @@
                                 <div class="innerWrap">
                                     <label class="tit">아이디</label>
                                     <div class="explain fontColor1">
-                                        가입자의 본명을 입력하세요.<br />(*차후 서비스이용시 경우에 따라<br />본인 명의의 인증이 요구될 수 있습니다)
+                                        가입자의 아이디를 입력하세요.<!-- <br />(*차후 서비스이용시 경우에 따라<br />본인 명의의 인증이 요구될 수 있습니다) -->
                                     </div>
                                 </div>
                             </div>
                             <div class="input">
-                                <input class="" id="name04" type="text"  placeholder="가입자의 본명을 입력하세요." />
+                                <input class="" id="id" name="id" type="text"  placeholder="가입자의 아이디를 입력하세요." />
                                 <div class="btn-wrap">
                                     <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                                 </div>
@@ -55,7 +55,7 @@
                             <div class="input-validation-box">
                                 <div class="inner-warp">
                                     <!-- [D] 오류 메세지 -->
-                                    <p class="error-txt">!형식에 맞지 않습니다.</p>
+                                    <p class="error-txt">!존재하지 않는 아이디입니다.</p>
                                     <!-- <p class="info-txt">Caption</p> -->
                                     <!-- // [D] 오류 메세지 -->
                                 </div>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="btn-set mt20">
-                <button class="button-basic">비밀번호 재설정</button>
+                <button class="button-basic" id="btn_next_birth">비밀번호 재설정</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>
@@ -81,6 +81,7 @@
 <script src="../js/LAS/jquery-3.4.1.min.js"></script>
 <script src="../js/LAS/swiper.min.js"></script>
 <script src="../js/LAS/common_ui.js"></script>
+<script src="../js/LAS/signin/reset_pw_id.js"></script>
 <!-- 스크립트 영역 -->
 
 </body>

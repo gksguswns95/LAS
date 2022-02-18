@@ -154,6 +154,60 @@ public class SignupController {
 	    	signupService.emailAuthKeyDelete(email,mailAuthKey,ip);
 	    }
 	    logger.info("전달받은 cnt:" + cnt);
+	    HttpSession session = request.getSession();
+	    if(session.getAttribute("prototype_user_signupId") != null) {
+	    	session.removeAttribute("prototype_user_signupId");
+	    }
+	    if(session.getAttribute("prototype_user_signupType") != null) {
+	    	session.removeAttribute("prototype_user_signupType");
+	    }
+	    session.setAttribute("prototype_user_signupId", email);
+	    session.setAttribute("prototype_user_signupType", "email");
+	    
+	    return cnt;
+	}
+	
+	// 핸드폰 인증번호 저장
+	@PostMapping("/phoneauthcheck")
+	@ResponseBody
+	public void phoneauthcheck(@RequestParam("phone") String phone,HttpServletRequest request) {
+		logger.info("emailAuthCheck 진입");
+		logger.info("전달받은 phone:" + phone);
+		//MailSendThread mailSendThread = new MailSendThread(mailSender, email);
+	    //String authKey = mailSendThread.mailSend();
+		String authKey = "asd123";
+	    IpGet getIp = new IpGet();
+	    String ip = getIp.getUserIP(request);
+	    logger.info("Key : "+authKey);
+	    signupService.emailAuthInsert(authKey,phone,ip);
+	    logger.info("핸드폰 인증번호 보내기 성공");
+		
+	}
+	
+	
+	// 핸드폰 인증 번호 체크
+	@PostMapping("/phoneauthkeycheck")
+	@ResponseBody
+	public int phoneauthkeycheck(@RequestParam("phoneAuthKey") String phoneAuthKey,@RequestParam("phone") String phone,HttpServletRequest request) {
+		logger.info("emailAuthKeyCheck 진입");
+		logger.info("전달받은 phone:" + phone);
+		logger.info("전달받은 phoneAuthKey:" + phoneAuthKey);
+		IpGet getIp = new IpGet();
+	    String ip = getIp.getUserIP(request);
+	    int cnt = signupService.emailAuthKeySelect(phone,phoneAuthKey,ip);
+	    if (cnt == 1) {
+	    	signupService.emailAuthKeyDelete(phone,phoneAuthKey,ip);
+	    }
+	    logger.info("전달받은 cnt:" + cnt);
+	    HttpSession session = request.getSession();
+	    if(session.getAttribute("prototype_user_signupId") != null) {
+	    	session.removeAttribute("prototype_user_signupId");
+	    }
+	    if(session.getAttribute("prototype_user_signupType") != null) {
+	    	session.removeAttribute("prototype_user_signupType");
+	    }
+	    session.setAttribute("prototype_user_signupId", phone);
+	    session.setAttribute("prototype_user_signupType", "phone");
 	    
 	    return cnt;
 	}

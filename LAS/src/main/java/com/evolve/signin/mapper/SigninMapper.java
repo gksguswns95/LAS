@@ -10,4 +10,5 @@ import com.evolve.signin.vo.SigninVo;
 public interface SigninMapper {
 	SigninVo signinId(SigninVo signinvo);
 	void loginLogInsert(int seq, String ip);
+	SigninVo signinId_del(String id);
 }

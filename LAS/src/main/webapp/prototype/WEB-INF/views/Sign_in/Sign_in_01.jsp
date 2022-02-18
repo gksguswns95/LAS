@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +22,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/main'"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -39,7 +40,8 @@
                             <div class="explain fontColor1">이메일 또는 휴대폰번호 입력하세요</div>
                         </div>
                     </div>
-                    <div class="input">
+                    <div class="input id">
+                    	<c:if test=""></c:if>
                         <input class="" id="id" name="id" type="text"  placeholder="이메일 또는 핸드폰번호를 입력해주세요." required value=""/>
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>

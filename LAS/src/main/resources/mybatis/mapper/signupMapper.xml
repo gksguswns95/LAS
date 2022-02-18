@@ -33,14 +33,14 @@
 		select Count(*) as count 
 		from 
 		las_member
-		where id = #{id}
+		where id = #{id} AND del_yn = 0
 	</select>
 	
 	<select id="memberSeqSelect" parameterType="String" resultType="int">
 		select seq 
 		from 
 		las_member
-		where id = #{id}
+		where id = #{id}  AND del_yn = 0
 	</select>
 	
 	<insert id="agreementInsert" parameterType="hashmap">
@@ -90,7 +90,7 @@
 	</insert>
 	
 	<update id="emailAuthTimeUpdate">
-		UPDATE las_email_auth SET expiry_time = DATE_ADD(NOW() ,INTERVAL 5 MINUTE) WHERE email = #{id} AND ip = #{ip}
+		UPDATE las_email_auth SET expiry_time = DATE_ADD(NOW() ,INTERVAL 5 MINUTE) WHERE email = #{id} AND ip = #{ip} ORDER BY expiry_time DESC LIMIT 1
 	</update>
 	
 	<select id="emailAuthKeySelect" parameterType="hashmap" resultType="int">

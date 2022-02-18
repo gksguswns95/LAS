@@ -13,13 +13,13 @@
 <body>
 <!-- wrap-->
 <div id="wrap">
-    <!-- header -->
+    <!-- header -->    
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signin_valid';"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -34,40 +34,98 @@
                         <h2 class="h-h2">아이디 찾기</h2>
                     </div>
                     <p class="top-txt">
-                        1개의 이메일 ID를 찾았습니다.
+                        아이디를 찾고 싶으면<br />아래에 이름과 생년월일을 입려해주세요.
                     </p>
-                    <p class="phone-num">LoremGipsum@email.com</p>
-                    <p class="top-txt mt50">
-                        1개의 휴대폰번호 ID를 찾았습니다.
-                    </p>
-                    <p class="phone-num">+82105**01**</p>
-                    <div class="btn-set mt50">
-                        <button class="button-basic" onclick="location.href='/prototype/signin_valid';">LG계정 바로가기</button>
+                    <form action="/prototype/findIdProcess" method="post" id="form-findId">
+                    <div class="input-area">
+                        <fieldset class="field"><!-- [D] 클래스 error ]-->
+                            <div class="label-switching">
+                                <div class="innerWrap">
+                                    <label class="tit">이름</label>
+                                    <div class="explain fontColor1">
+                                        가입자의 본명을 입력하세요.<!-- <br />(*차후 서비스이용시 경우에 따라<br />본인 명의의 인증이 요구될 수 있습니다) -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <input class="" id="name" name="name" type="text"  placeholder="가입자의 본명을 입력하세요." />
+                                <div class="btn-wrap">
+                                    <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
+                                </div>
+                            </div>
+                            <div class="input-validation-box">
+                                <div class="inner-warp">
+                                    <!-- [D] 오류 메세지 -->
+                                    <p class="error-txt">!형식에 맞지 않습니다.</p>
+                                    <!-- <p class="info-txt">Caption</p> -->
+                                    <!-- // [D] 오류 메세지 -->
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
-                    <div class="notice-content mt50">
-                        그래도 ID가 기억나지 않을 경우,
-                        본인인증을 통해 ID찾기 및 비밀번호 재설정을  진행해 주세요.<br />
-                        <a href="javascript:;" class="link-underline">본인인증</a><br />
-                        <br />
-                        새로운 계정으로 이용을 희망하시면,
-                        <a href="javascript:location.href='/prototype/signup_select';" class="link-underline">계정생성</a>을 진행해 주세요.
+                    <div class="input-area">
+                        <fieldset class="field"><!-- [D] 클래스 error ]-->
+                            <div class="label-switching">
+                                <div class="innerWrap">
+                                    <label class="tit">생년월일</label>
+                                    <div class="explain fontColor1">
+                                        가입자의 생년월일을 입력하세요.<br />(*차후 서비스이용시 경우에 따라<br />본인 명의의 인증이 요구될 수 있습니다)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <input class="" id="birth" name="birth" type="text"  placeholder="가입자의 생년월일을 입력하세요." />
+                                <div class="btn-wrap">
+                                    <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
+                                </div>
+                            </div>
+                            <div class="input-validation-box">
+                                <div class="inner-warp">
+                                    <!-- [D] 오류 메세지 -->
+                                    <p class="error-txt">!형식에 맞지 않습니다.</p>
+                                    <!-- <p class="info-txt">Caption</p> -->
+                                    <!-- // [D] 오류 메세지 -->
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
+                    </form>
                 </div>
+            </div>
+            <div class="btn-set mt20">
+                <button class="button-basic" id="btn_next">아이디 찾기</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>
         <!-- // contents -->
     </div>
     <!-- container -->
+    
     <!-- footer -->
     <jsp:include page="../common/footer.jsp"></jsp:include>
     <!-- // footer -->
 </div>
 <!-- wrap -->
 <!-- 스크립트 영역 -->
-<script src="../js/jquery-3.4.1.min.js"></script>
-<script src="../js/swiper.min.js"></script>
-<script src="../js/common_ui.js"></script>
+<script src="../js/LAS/jquery-3.4.1.min.js"></script>
+<script src="../js/LAS/swiper.min.js"></script>
+<script src="../js/LAS/common_ui.js"></script>
+
+<script type="text/javascript">
+$(function() {
+	$('.button-basic').click(function() {
+		reg_number = /[^0-9]/g;
+		if($('#name').val().length < 2) {
+			$('.field input')[0].error();
+		} else if($('#birth').val().length != 8 || reg_number.test($('#birth').val()) ) {
+			$('.field input')[1].error();
+		} else {
+			$('#form-findId').submit();			
+		}
+		
+	});
+});
+</script>
 <!-- 스크립트 영역 -->
 
 </body>

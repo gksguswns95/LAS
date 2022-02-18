@@ -21,7 +21,7 @@
 	            <div class="arr">
 	                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signup_inputpin';"></i>
 	            </div>
-	            <h1>LG 계정</h1>
+	            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
 	        </div>
 	    </header>
 	    <!-- // header -->
@@ -55,7 +55,7 @@
 	                    </div>
 	                    <div class="input">
 	                        <%-- <input class="" id="id" name="id" type="text" data-text="이메일 또는 휴대폰번호 입력하세요." placeholder="이메일 또는 휴대폰번호 입력하세요." value="${param.id }" disabled> --%>
-	                        <input class="" id="id" name="id" type="text" value="${param.id }" disabled>
+	                        <input class="" id="id" name="id" type="text" value="${prototype_user_signupId }" readonly>
 	                        <div class="btn-wrap">
 	                            <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
 	                        </div>
@@ -151,7 +151,7 @@
 	                        </div>
 	                    </div>
 	                    <div class="input">
-	                        <input class="" id="email" name="email" type="text" data-text="이메일을 입력해주세요. (ex :test@test.com)" placeholder="이메일을 입력해주세요. (ex :test@test.com)" <c:if test="${param.type eq 'email' }">value="${param.id }" disabled</c:if>>
+	                        <input class="" id="email" name="email" type="text" data-text="이메일을 입력해주세요. (ex :test@test.com)" placeholder="이메일을 입력해주세요. (ex :test@test.com)" <c:if test="${prototype_user_signupType eq 'email' }">value="${param.id }" readonly</c:if>>
 	                        <div class="btn-wrap">
 	                            <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
 	                        </div>
@@ -169,7 +169,7 @@
 	                        </div>
 	                    </div>
 	                    <div class="input">
-	                        <input class="" id="phone" name="phone" type="text" data-text="핸드폰번호 11자리를 입력하세요 (ex :01012345678)" placeholder="핸드폰번호 11자리를 입력하세요 (ex :01012345678)" <c:if test="${param.type eq 'phone' }">value="${param.id }" disabled</c:if>>
+	                        <input class="" id="phone" name="phone" type="text" data-text="핸드폰번호 11자리를 입력하세요 (ex :01012345678)" placeholder="핸드폰번호 11자리를 입력하세요 (ex :01012345678)" <c:if test="${prototype_user_signupType eq 'phone' }">value="${prototype_user_signupId }" readonly</c:if>>
 	                        <input class="" id="signup_type" name="signup_type" type="hidden" value="${param.type }">
 	                        <input class="" id="agree" name="agree" type="hidden" value="${param.agree }">
 	                        <div class="btn-wrap">

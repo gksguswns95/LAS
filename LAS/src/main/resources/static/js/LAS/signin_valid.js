@@ -1,6 +1,11 @@
 $(function() {
 	var userID = getCookie("userID");
-	$("#id").val(userID);
+	if(userID.length > 5) {
+		$('.input-box-wrap').toggleClass('checked');
+		$("#id").val(userID);
+		$($('.tit').parents('.field')[1]).addClass("on").find(".input input");
+	}
+	
 	$('#id').keyup(function() {
 		$('.field .input-box-wrap').css('margin-top','1rem');
 	});
@@ -15,8 +20,10 @@ $(function() {
 		
 		if (!reg_email.test(phoneNumerreset)) {
 			if (reg_phone.test(phoneNumerreset) || !(phoneNumerreset.length == 11) || !first_phone.test(number)) {
-				$('.field input')[0].error();
-				$('.field .input-box-wrap').css('margin-top','2rem');
+				if(number.length != 0) {
+					$('.field input')[0].error();
+					$('.field .input-box-wrap').css('margin-top','2rem');
+				}
 			} else {
 				$('.field input')[0].noneError();
 			}
@@ -51,7 +58,6 @@ $(function() {
 	});
 	
 	$('#btn-signin').click(function() {
-		console.log($('.input-box-wrap').hasClass("checked"));
 		// 아이디 기억하기
 		if ($('.input-box-wrap').hasClass('checked')) {
 			var userID = $("#id").val();

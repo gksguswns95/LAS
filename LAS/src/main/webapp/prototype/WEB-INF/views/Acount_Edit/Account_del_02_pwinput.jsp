@@ -17,9 +17,9 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="location.href='/prototype/account_del_check';"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -36,7 +36,7 @@
                     <p class="top-txt">
                         LG전자 계정을 삭제합니다.<br />
                         <br />
-                        <a class="link-underline" href="javascript:;">LoremGipsum@email.com</a> 아이디의 본인 인증이 필요합니다.
+                        <a class="link-underline" href="javascript:;">${prototype_user_id }</a> 아이디의 본인 인증이 필요합니다.
 
                     </p>
                     <div class="input-area">
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="input pw">
-                                <input class="" id="name02" type="password" placeholder="대문자,숫자,기호 포함 8자 이상 입력하세요" value="123457">
+                                <input class="" id="pwAuth" name="pwAuth" type="password" placeholder="비밀번호를 입력하세요." >
                                 <div class="btn-wrap">
                                     <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                                 </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="btn-set mt20">
-                <button class="button-basic">계정삭제 확인</button>
+                <button class="button-basic" id="btn_next_accountDel">계정삭제 확인</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>
@@ -91,6 +91,7 @@
 <script src="../js/LAS/jquery-3.4.1.min.js"></script>
 <script src="../js/LAS/swiper.min.js"></script>
 <script src="../js/LAS/common_ui.js"></script>
+<script src="../js/LAS/delete/delete.js"></script>
 <!-- 스크립트 영역 -->
 
 </body>

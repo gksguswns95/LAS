@@ -70,7 +70,7 @@ public class SignupService {
 
 	public void emailAuthTimeUpdate(String id, String ip) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("authKey", id);
+		map.put("id", id);
 		map.put("ip", ip);
 		mapper.emailAuthTimeUpdate(map);
 	}

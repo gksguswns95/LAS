@@ -258,8 +258,8 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
 
 
 /* 메인 비쥬얼 */
-.visual-area {width:100%; height:20rem;  position:relative; box-sizing:border-box; background: url(../images/visual_bg.png) center; background-size:100% 100%;; }
-.visual-area .visual {width:20rem; height:20rem; background-color:rgba(100, 255, 205, 1); overflow:hidden; border-radius: 50%; position: absolute; top:0rem; left:50%;  margin-left:-10rem; z-index:0; background: url(../images/temp/tmp.jpg); background-size: cover;}
+.visual-area {width:100%; height:20rem;  position:relative; box-sizing:border-box; background: url(../../images/visual_bg.png) center; background-size:100% 100%;; }
+.visual-area .visual {width:20rem; height:20rem; background-color:rgba(100, 255, 205, 1); overflow:hidden; border-radius: 50%; position: absolute; top:0rem; left:50%;  margin-left:-10rem; z-index:0; background: url(../../images/temp/tmp.jpg); background-size: cover;}
 .visual-area .motion-box {width:20rem; height:20rem; position: absolute; top:0rem; left:50%; margin-left:-10rem; animation-name: motion; animation: spin 120s infinite linear; z-index:1}
 @keyframes motion {
     0%  {transform: rotate(0deg);}
@@ -388,7 +388,7 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
 
 /* 체크박스 wrap */
 .input-box-wrap.wrap{align-items:flex-start;}
-.input-box-wrap.wrap .input-box-label{height:auto; margin-top:0.2rem;}
+.input-box-wrap.wrap .input-box-label{height:auto; margin-top:0.7rem;}
 
 /* 체크박스 set */
 .input-box-set{padding:2rem 0 1rem 0;}
@@ -442,7 +442,7 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
 
 
 /* 아코디언 */
-.accr-area {margin-top: 2rem; border-top:1px solid #ddd; padding-top:3rem}
+.accr-area {/*margin-top: 2rem; border-top:1px solid #ddd;*/ padding-top:3rem}
 .accr-area .item > li {margin-bottom: 1rem}
 .accr-area .item > li .tit {display: flex; justify-content: space-between; align-items: center; font-size: 1.5rem; line-height:1.7rem; font-weight: bold; border:1px solid #ddd; padding: 1rem;}
 .accr-area .item > li .con  {height: 0; overflow: hidden; transition: height .3s ease-in; }
@@ -472,6 +472,6 @@ input[type='text']::placeholder{font-size:1.5rem; color:#bdbdbd}
 .pop-layer .inner {height: 100%; position: relative; z-index: 100; flex:1; height:calc(100% - 3rem); border-radius: 1rem 1rem 0 0; background: #fff;}
 .pop-layer .tit {position: relative; padding: 1.5rem; font-size: 1.6rem; font-weight: bold;}
 .pop-layer .tit .close {width: 4rem; height: 4rem; position:absolute; top:50%; right:.5rem; margin-top: -2rem; display: flex; align-items: center; justify-content: center;}
-.pop-layer .tit .close::before {content:''; display: block; width: 2.2rem; height:2.2rem; background:url(../images/close.png);}
+.pop-layer .tit .close::before {content:''; display: block; width: 2.2rem; height:2.2rem; background:url(../../images/close.png);}
 .pop-layer .cont-area {height:calc(100% - 5rem);}
 .pop-layer .cont-area .cont {height:100%; border-top: 1px solid #ddd; padding:1rem; overflow: auto; box-sizing:border-box;}

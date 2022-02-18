@@ -28,6 +28,10 @@ public class ModifyService {
 	public void accountModifyPassword(HashMap<String, Object> map) {
 		mapper.accountModifyPassword(map);
 	}
+	
+	public void accountModify_ResetPassword(HashMap<String, Object> map) {
+		mapper.accountModify_ResetPassword(map);
+	}
 
 	public int nameEmailCheck(String name, String email) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -60,6 +64,10 @@ public class ModifyService {
 
 	public void modifyPassword(HashMap<String, Object> map) {
 		mapper.modifyPassword(map);
+	}
+
+	public void resetPassword(HashMap<String, Object> map) {
+		mapper.resetPassword(map);
 	}
 
 }

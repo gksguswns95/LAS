@@ -27,23 +27,35 @@
 	<body>
 	<!-- wrap-->
 	<div id="wrap">
-		<div class="head">
+		<div class="head" onclick="location.href = '/prototype/main';">
 	            <div>
 	                <span class="big">Welcome,</span><br>
 	                LG 계정을 사용하여<br>
 	                다양한 LG 전자 서비스를 경험하세요.
 	            </div>
 	    </div>
+	     <c:if test="${prototype_user_id eq null}">
 	     <div class="login-box">
-	            
 	        <dic class="con" style="min-height: calc(490px);">
 	            <div class="innerWrap">
-	                <button class="button-basic on" onclick="next_signin();">로그인</button>
-	                <button class="button-basic outline" onclick="next_signup();">계정만들기</button>
-	                <a class="link-icon-arr" href="javascript:location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	                <button class="button-basic on" onclick="location.href = '/prototype/signin_valid'">로그인</button>
+	                <button class="button-basic outline" onclick="location.href = '/prototype/signup_select';">계정만들기</button>
+	                <a class="link-icon-arr" href="location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	            </div>
 	        </dic>
 	    </div>
+	    </c:if>
+	    
+	    <c:if test="${prototype_user_id ne null}">
+	    <div class="login-box">
+	        <dic class="con" style="min-height: calc(490px);">
+	            <div class="innerWrap">
+	                <button class="button-basic on" onclick="location.href = '/prototype/account_view_my'">마이페이지</button>
+	                <a class="link-icon-arr" href="location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	            </div>
+	        </dic>
+	    </div>
+	    </c:if>
 	    <!-- footer -->
 		<jsp:include page="./common/footer.jsp"></jsp:include>
 	    <!-- // footer -->
@@ -54,17 +66,5 @@
 	<script src="../js/LAS/swiper.min.js"></script>
 	<script src="../js/LAS/common_ui.js"></script>
 	<!-- 스크립트 영역 -->
-	<script type="text/javascript">
-		function next_signin()  {
-			window.location.href = '/prototype/signin_valid';
-		}
-		function next_signup()  {
-			window.location.href = '/prototype/signup_select';
-		}
-		function next_language_region()  {
-			window.location.href = '/prototype/language_region';
-		}
-	</script>
-		
 	</body>
 </html>

@@ -62,12 +62,10 @@ $(document).ready(function() {
 	var disabledPhone = document.querySelector('#phone').disabled
 	var disabledEmail = document.querySelector('#email').disabled
 	if(disabledPhone) {
-		console.log("disabledPhone : "+disabledPhone);
 		$('#phone').css('border','none');
 	}
 
 	if(disabledEmail) {
-		console.log("disabledEmail : "+disabledEmail);
 		$('#email').css('border','none');
 	}
 	

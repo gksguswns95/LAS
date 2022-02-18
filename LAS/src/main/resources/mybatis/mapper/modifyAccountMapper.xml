@@ -16,6 +16,14 @@
 		UPDATE las_member SET pw = sha2(#{changePw},256), update_date= now() WHERE id = #{id} and pw = sha2(#{pw},256) AND del_yn=0
 	</update>
 	
+	<update id="accountModify_ResetPassword" parameterType="hashmap">
+		UPDATE las_member SET pw = sha2(#{pw},256), update_date= now() WHERE id = #{id} AND del_yn=0
+	</update>
+	
+	<update id="resetPassword" parameterType="hashmap">
+		UPDATE las_member SET pw = sha2(#{pw},256), update_date= now() WHERE id = #{id} AND del_yn=0
+	</update>
+	
 	<update id="modifyPassword" parameterType="hashmap">
 		UPDATE las_member SET pw = sha2(#{changePw},256), update_date= now() WHERE id = #{id} AND del_yn=0
 	</update>

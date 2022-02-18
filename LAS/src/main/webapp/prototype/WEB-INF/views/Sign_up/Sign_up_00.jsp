@@ -19,7 +19,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/main';"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -75,10 +75,10 @@
 			$('.button-basic').click(function() {
 				console.log($($('.input-box-wrap')[0]).hasClass('checked'))
 				if($($('.input-box-wrap')[0]).hasClass('checked')) {
-					window.location.href = './signup_idle';
+					location.href = './signup_idle';
 				} else {
 					//sns 페이지 이동
-					window.location.href = './signup_sns';
+					location.href = './signup_sns';
 				}
 			})
 		})

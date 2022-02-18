@@ -16,9 +16,9 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="location.href='/prototype/signup_idle'"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->
@@ -45,7 +45,7 @@
             </div>
             <p class="gap"></p>
             <div class="btn-set">
-                <button class="button-basic outline">돌아가기</button>
+                <button class="button-basic outline" onclick="location.href='/prototype/signup_idle'">돌아가기</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>

@@ -33,7 +33,7 @@ $(document).ready(function() {
 	$('input[type="text"]').keyup(function() {
 		$('#fail').text('');
 	});
-	
+
 	$('#next_btn').click(function() {
 		if($('#name').val().length < 2) {
 			$('#fail').text('이름을 입력해주세요.');

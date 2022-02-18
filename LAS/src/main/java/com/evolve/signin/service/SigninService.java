@@ -18,6 +18,10 @@ public class SigninService {
 		System.out.println("로그인 서비스 로그인 진행");
 		return mapper.signinId(signinvo); 
 	}
+	
+	public SigninVo signinId_del(String id) {
+		return mapper.signinId_del(id); 
+	}
 
 	public void loginLogInsert(int seq,String ip) {
 		System.out.println("로그인 체크 로그 진행");

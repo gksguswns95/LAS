@@ -1,3 +1,4 @@
+
 (function(jq){
 	
 	var $ = jq;
@@ -69,7 +70,7 @@
 					$(n).removeAttr("style")
 					const diff_footer = ($("footer").length)?$("footer").innerHeight() + Number($("footer").css("margin-top").match(/\d+/g)[0]) + Number($("footer").css("margin-bottom").match(/\d+/g)[0]):0;
 					const $children = $(n).nextAll();
-					const winH = window.innerHeight;
+					const winH = window.innerHeight-10;
 					const content_price = ($("#contents").length)?Number($("#contents").css("margin-bottom").match(/\d+(\.\d+)?/g)[0]) + Number($("#contents").css("padding-bottom").match(/\d+(\.\d+)?/g)[0]):0;
 					let diffH = 0;	
 					$children.each(function(){
