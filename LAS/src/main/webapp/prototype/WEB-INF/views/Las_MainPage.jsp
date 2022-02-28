@@ -40,7 +40,7 @@
 	            <div class="innerWrap">
 	                <button class="button-basic on" onclick="location.href = '/prototype/signin_valid'">로그인</button>
 	                <button class="button-basic outline" onclick="location.href = '/prototype/signup_select';">계정만들기</button>
-	                <a class="link-icon-arr" href="location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	                <a class="link-icon-arr" href="javascript:location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	            </div>
 	        </dic>
 	    </div>
