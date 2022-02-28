@@ -1,6 +1,7 @@
 package com.evolve.signup.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.Random;
 
 import javax.mail.MessagingException;
@@ -133,8 +134,8 @@ public class SignupController {
 		MailSendThread mailSendThread = new MailSendThread(mailSender, email);
 	    String authKey = mailSendThread.mailSend();
 		//String authKey = CreateKey.getCreateKey();
-	    IpGet getIp = new IpGet();
-	    String ip = getIp.getUserIP(request);
+		IpGet getIp = new IpGet();
+		String ip = getIp.getUserIP(request);
 	    logger.info("Key : "+authKey);
 	    signupService.emailAuthInsert(authKey,email,ip);
 	    logger.info("메일 보내기 성공");
@@ -173,8 +174,6 @@ public class SignupController {
 	public void phoneauthcheck(@RequestParam("phone") String phone,HttpServletRequest request) {
 		logger.info("emailAuthCheck 진입");
 		logger.info("전달받은 phone:" + phone);
-		//MailSendThread mailSendThread = new MailSendThread(mailSender, email);
-	    //String authKey = mailSendThread.mailSend();
 		String authKey = "asd123";
 	    IpGet getIp = new IpGet();
 	    String ip = getIp.getUserIP(request);

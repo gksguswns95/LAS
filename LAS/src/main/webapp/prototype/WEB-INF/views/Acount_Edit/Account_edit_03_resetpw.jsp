@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="btn-set mt20">
-                <button class="button-basic" id="btn_next_profile">비밀번호 재설정</button>
+                <button class="button-basic" id="btn_next_profile">비밀번호 재설정 완료</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>

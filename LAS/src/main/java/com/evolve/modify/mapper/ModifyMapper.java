@@ -20,5 +20,7 @@ public interface ModifyMapper {
 	HashMap<String, Object> namebirthidcheck(HashMap<String, Object> map);
 	void modifyPassword(HashMap<String, Object> map);
 	void resetPassword(HashMap<String, Object> map);
-	void accountModify_ResetPassword(HashMap<String, Object> map); 
+	void accountModify_ResetPassword(HashMap<String, Object> map);
+	void optional_agreed_insert(HashMap<String, Object> map);
+	void optional_agreed_del(HashMap<String, Object> map); 
 }

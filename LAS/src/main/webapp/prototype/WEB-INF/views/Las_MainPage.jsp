@@ -51,7 +51,8 @@
 	        <dic class="con" style="min-height: calc(490px);">
 	            <div class="innerWrap">
 	                <button class="button-basic on" onclick="location.href = '/prototype/account_view_my'">마이페이지</button>
-	                <a class="link-icon-arr" href="location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	                <button class="button-basic on" onclick="location.href='/prototype/signout'">로그아웃</button>
+	                <a class="link-icon-arr" href="javascript:location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	            </div>
 	        </dic>
 	    </div>

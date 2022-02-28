@@ -76,8 +76,8 @@ public class LasSigninController {
 		}
 		SigninVo signinProcess = signinService.signinId(signvo);
 		System.out.println("로그인 컨트롤러 로그인 진행");
-
 		if (signinProcess != null) {
+			session.setAttribute("prototype_user_seq", signinProcess.getSeq());
 			session.setAttribute("prototype_user_id", signvo.getId());
 			session.setAttribute("prototype_user_firstName", signinProcess.getName().charAt(0));
 			session.setAttribute("prototype_user_name", signinProcess.getName());
@@ -86,7 +86,13 @@ public class LasSigninController {
 			session.setAttribute("prototype_user_email", signinProcess.getEmail());
 			session.setAttribute("prototype_user_signuptype", signinProcess.getSignup_type());
 			session.setAttribute("prototype_user_signupdate", signinProcess.getSignup_date());
-			session.setAttribute("prototype_user_optional_agreed", signinProcess.getAgreed());
+			System.out.println(signinProcess.getAgreed());
+			if(signinProcess.getAgreed() != null ) {
+				session.setAttribute("prototype_user_optional_agreed", 'Y');				
+			} else {
+				session.setAttribute("prototype_user_optional_agreed", 'N');	
+			}
+			System.out.println(session.getAttribute("prototype_user_optional_agreed"));
 
 			// ipCheck
 			IpGet getIp = new IpGet();

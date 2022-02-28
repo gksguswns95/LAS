@@ -17,7 +17,7 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true" onclick="location.href='/prototype/main'"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:history.back(-1);"></i>
             </div>
             <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
@@ -46,7 +46,7 @@
            
             <div class="top-txt">
                 찾으시는 답변이 없으면
-                이메일로 문의하기 를 이용해 주세요
+                <a href="javascript:;" class="link-underline">이메일로 문의하기</a> 를 이용해 주세요
             </div>
             
             <div>
@@ -173,16 +173,96 @@
                         </div>
                     </div>
                     <div class="tab-content">
-                        마지막 2<br>
-                        마지막 22222
+                    	<div class="accr-area b">
+                         <ul class="item">
+                                <li>
+                                    <div class="tit">
+                                        <p class="q"> 
+                                        Q <span>[회원정보]</span>
+                                        로그인이 안되요.
+                                        </p>
+                                        <div class="icon">
+                                            <span class="rec"></span>
+                                            <span class="rec"></span>
+                                        </div>
+                                    </div>
+                                    <div class="con">
+                                        <p class="q">
+                                            <span>A</span>
+                                            로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.
+                                        </p>
+                                    </div>
+                                </li>
+                          </ul>
+                          <ul class="item">
+                                <li>
+                                    <div class="tit">
+                                        <p class="q"> 
+                                        Q <span>[회원정보]</span>
+                                        로그인이 안되요.
+                                        </p>
+                                        <div class="icon">
+                                            <span class="rec"></span>
+                                            <span class="rec"></span>
+                                        </div>
+                                    </div>
+                                    <div class="con">
+                                        <p class="q">
+                                            <span>A</span>
+                                            로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.로그인이 안되요.
+                                        </p>
+                                    </div>
+                                </li>
+                          </ul>
+                    </div>
                     </div>
                     <div class="tab-content">
-                        마지막 3<br>
-                        마지막 333333
+                    <div class="accr-area b">
+                        <ul class="item">
+                                <li>
+                                    <div class="tit">
+                                        <p class="q"> 
+                                        Q <span>[탈퇴/재가입]</span>
+                                        탈퇴 했는데 재가입 가능한가요?
+                                        </p>
+                                        <div class="icon">
+                                            <span class="rec"></span>
+                                            <span class="rec"></span>
+                                        </div>
+                                    </div>
+                                    <div class="con">
+                                        <p class="q">
+                                            <span>A</span>
+                                            탈퇴 했는데 재가입 가능한가요?탈퇴 했는데 재가입 가능한가요?탈퇴 했는데 재가입 가능한가요?탈퇴 했는데 재가입 가능한가요?탈퇴 했는데 재가입 가능한가요?탈퇴 했는데 재가입 가능한가요?탈퇴 했는데 재가입 가능한가요?
+                                        </p>
+                                    </div>
+                                </li>
+                          </ul>
+                    </div>
                     </div>
                     <div class="tab-content">
-                        마지막 4<br>
-                        마지막 444444
+                    <div class="accr-area b">
+                        <ul class="item">
+                                <li>
+                                    <div class="tit">
+                                        <p class="q"> 
+                                        Q <span>[기타문의]</span>
+                                        기타문의 입니다.
+                                        </p>
+                                        <div class="icon">
+                                            <span class="rec"></span>
+                                            <span class="rec"></span>
+                                        </div>
+                                    </div>
+                                    <div class="con">
+                                        <p class="q">
+                                            <span>A</span>
+                                            기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.기타문의 입니다.
+                                        </p>
+                                    </div>
+                                </li>
+                          </ul>
+                    </div>
                     </div>
                 <!-- 텝메뉴 -->
                 </div>
@@ -196,18 +276,7 @@
         
     </div>
     <!-- container -->
-    <footer>
-        <ul class="terms">
-            <li><a href="javascript:;">공지사항</a></li>
-            <li class="line"></li>
-            <li><a href="javascript:;">문의하기</a></li>
-            <li class="line"></li>
-            <li><a href="javascript:;">이용약관</a></li>
-            <li class="line"></li>
-            <li><a href="javascript:;">개인정보 처리방침</a></li>
-        </ul>
-        <p class="copy">Copyright ⓒ 2022 LG Electronics. All Rights Reserved</p>
-    </footer>
+    <jsp:include page="../common/footer.jsp"></jsp:include>
 
 </div>
 <!-- wrap -->

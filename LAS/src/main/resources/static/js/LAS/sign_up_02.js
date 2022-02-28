@@ -1,14 +1,19 @@
 $(function() {
 	var interval;
+	var interval_resend;
 	var duplicateId = true;
 	var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+).(\.[0-9a-zA-Z_-]+){1,2}$/;
 	var reg_phone = /([^0-9]+)/;
 	var first_phone = /^010/;
+	var doubleClickCount = 0;
+	var doubleClickCount_resend = 0;
 	//에러
 	//$('.field input')[1].error();
 	$($('.field')[1]).hide();
 	$('.btn-set.mt45').hide();
 	$('.info-txt.mt30').hide();
+	$('#btn-auth-resend').hide();
+	$('#btn-auth-alert').hide();
 	
 	//중복체크
 	function checkid(id){
@@ -57,21 +62,42 @@ $(function() {
 		}
 	});
     
-	//인증번호 전송 클릭 시
-	$('#btn-auth-send').click(function() {
+    //인증번호 전송 클릭 시
+	$('#btn-auth-send').on('click',function() {
+		doubleClickCount++;
 		var id = $('#id').val();
 		var phoneNumerreset = $('#id').val().replaceAll('-', '');
-		if($('#btn-auth-send').text() == '인증번호 재전송') {
-			$('.info-txt.mt30').show();
-		}
-		if (reg_email.test(id)) {
-			emailAuth(id);
-		}else if (!reg_phone.test(phoneNumerreset) || phoneNumerreset.length == 11 || first_phone.test(id)) {
+		if(doubleClickCount < 2) {
+			if (reg_email.test(id)) {
+				emailAuth(id);
+				$('#btn-auth-send').hide();
+				$('#btn-auth-resend').show();
+			}else if (!reg_phone.test(phoneNumerreset) || phoneNumerreset.length == 11 || first_phone.test(id)) {
 				phoneAuth(id);
-		}else {	//핸드폰
-			$('.info-txt').css('margin', '3rem 0 0');
-			$('.field input')[0].noneError();
-			$('.field input')[0].error();
+			}else {	//핸드폰
+				$('.info-txt').css('margin', '3rem 0 0');
+				$('.field input')[0].noneError();
+				$('.field input')[0].error();
+			}
+		}
+	});
+    
+	//인증번호 재전송 클릭 시
+	$('#btn-auth-resend').on('click',function() {
+		doubleClickCount_resend++;
+		var id = $('#id').val();
+		var phoneNumerreset = $('#id').val().replaceAll('-', '');
+		if(doubleClickCount_resend < 2) {
+			$('.info-txt.mt30').show();
+			$('#btn-auth-resend').hide();
+			$('#btn-auth-alert').show();
+			startTimer_resend(29);
+			if (reg_email.test(id)) {
+				emailAuth(id);
+			}
+			if (!reg_phone.test(phoneNumerreset) || phoneNumerreset.length == 11 || first_phone.test(id)) {
+				phoneAuth(id);
+			}
 		}
 	});
 	
@@ -105,6 +131,28 @@ $(function() {
 		}, 1000);
 	}
 	
+	function startTimer_resend(duration) {
+		clearInterval(interval_resend);
+		var timer = duration, seconds;
+		interval_resend = setInterval(function() {
+			seconds = parseInt(timer % 60, 10);
+			
+			seconds = seconds < 10 ? "0" + seconds : seconds;
+			$('.timer_resend').text(seconds);
+			
+			if (--timer < 0) {
+				timer = duration;
+			}
+			if (timer === 0) {
+				clearInterval(interval_resend);
+				$('#btn-auth-alert').hide();
+				$('#btn-auth-resend').show();
+				doubleClickCount_resend = 0;
+				$('.alert-wrap').removeClass('active');
+			}
+		}, 1000);
+	}
+	
 	function extensionValidityTime(id) {
 		$.ajax({
 			url: '/prototype/extensionValidityTime',
@@ -128,12 +176,11 @@ $(function() {
 			success: function() {
 				$($('.field')[1]).show();
 				$('.btn-set.mt45').show();
-				$('#btn-auth-send').text('인증번호 재전송');
 				$('#signup_type').val('email');
 				
 				startTimer(299);
 				$('#id').prop('readonly',true);
-				$('#btn-authKeyCheck').prop('disabled',false);
+				$('#btn-auth-send').prop('disabled',false);
 				$('#numbver').focus();
 			},
 			error: function() {
@@ -173,7 +220,7 @@ $(function() {
     		data:{mailAuthKey:mailAuthKey,email:email},
     		success: function(cnt) {
     			if(cnt == 1) {
-					location.href = './signup_account?agree='+$('#agree').val()+'&type=email';
+					location.href = './signup_account?agree='+$('#agree').val();
     			} else {
 					$('.info-txt').css('margin', '4rem 0 0');
     				$('.field input')[3].noneError();
@@ -194,7 +241,7 @@ $(function() {
     		data:{phoneAuthKey:phoneAuthKey,phone:phone},
     		success: function(cnt) {
     			if(cnt == 1) {
-					location.href = './signup_account?agree='+$('#agree').val()+'&type=phone';
+					location.href = './signup_account?agree='+$('#agree').val();
     			} else {
 					$('.info-txt').css('margin', '4rem 0 0');
 					$('.field input')[3].noneError();
@@ -223,6 +270,14 @@ $(function() {
 	
 	$('#numbver, #id').keyup(function() {
 		$('.info-txt').css('margin', '1rem 0 0');
+	});
+	
+	$('#numbver').keyup(function() {
+		if($(this).val().length == 6) {
+			$('#btn-authKeyCheck').prop('disabled',false);			
+		} else {
+			$('#btn-authKeyCheck').prop('disabled',true);			
+		}
 	});
 	
 

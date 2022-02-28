@@ -78,6 +78,13 @@ public class LasDeleteAccountController {
 		return mv;
 	}
 	
+	@GetMapping("/prototype/account_del_complete")
+	public ModelAndView Account_del_03_complete(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/Acount_Edit/Account_del_03_complete");
+		return mv;
+	}
+	
 	@PostMapping(value = "/prototype/account_reasonProcess")
 	public ModelAndView reasonProcess(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();

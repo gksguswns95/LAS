@@ -1,11 +1,17 @@
 $(function() {
 	var interval;
+	var interval_resend;
 	var duplicateId = true;
 	var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+).(\.[0-9a-zA-Z_-]+){1,2}$/;
 	var reg_phone = /([^0-9]+)/;
 	var first_phone = /^010/;
+	var doubleClickCount = 0;
 	//에러
 	//$('.field input')[1].error();
+	
+	$('#btn-auth-alert').hide();
+	$('.info-txt.mt30').hide();
+	
     if($('.timer').text() == '05:00') {
 	    startTimer(299);	
 	}
@@ -92,6 +98,64 @@ $(function() {
 			$('.field input')[0].error();
 		}
 	});
+	
+	$('#btn-auth-resend').on('click',function() {
+		doubleClickCount++;
+		var id = $('#id').text();
+		var phoneNumerreset = $('#id').text().replaceAll('-', '');
+		if(doubleClickCount < 2) {
+			$('.info-txt.mt30').show();
+			$('#btn-auth-resend').hide();
+			$('#btn-auth-alert').show();
+			startTimer_resend(29);
+			if (reg_email.test(id)) {
+				emailAuth(id);
+			}
+			if (!reg_phone.test(phoneNumerreset) || phoneNumerreset.length == 11 || first_phone.test(id)) {
+				phoneAuth(id);
+			}
+		}
+	});
+	
+	function startTimer_resend(duration) {
+		clearInterval(interval_resend);
+		var timer = duration, seconds;
+		interval_resend = setInterval(function() {
+			seconds = parseInt(timer % 60, 10);
+			
+			seconds = seconds < 10 ? "0" + seconds : seconds;
+			$('.timer_resend').text(seconds);
+			
+			if (--timer < 0) {
+				timer = duration;
+			}
+			if (timer === 0) {
+				clearInterval(interval_resend);
+				$('#btn-auth-alert').hide();
+				$('#btn-auth-resend').show();
+				doubleClickCount = 0;
+				$('.alert-wrap').removeClass('active');
+			}
+		}, 1000);
+	}
+	
+	// 이메일 전송
+	function emailAuth(email) {
+		$.ajax({
+			url: '/emailauthcheck',
+			type: "post",
+			data: { email: email },
+			success: function() {
+				$('#signup_type').val('email');
+				
+				startTimer(299);
+				$('#numbver').focus();
+			},
+			error: function() {
+				alert('메일 전송 실패!');
+			}
+		});
+	};
 	
 	
 

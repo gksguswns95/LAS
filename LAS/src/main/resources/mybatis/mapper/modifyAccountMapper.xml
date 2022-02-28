@@ -46,4 +46,13 @@
 		WHERE NAME = #{name} AND birth = #{birth} AND del_yn = 0
 		GROUP BY id 
 	</select>
+	
+	<insert id="optional_agreed_insert" parameterType="hashmap">
+		INSERT INTO las_optional_ta (member_seq,optional_rule_name, agreed, agreed_time)
+		VALUES(#{seq}, 'add_agreement', 1, NOW())
+	</insert>
+	
+	<delete id="optional_agreed_del" parameterType="hashmap">
+		DELETE FROM las_optional_ta WHERE member_seq = #{seq} 
+	</delete>
 </mapper>

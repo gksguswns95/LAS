@@ -11,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
     <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
     <style type="text/css">
-    	.info-txt {transition:all 0.3s ease}
+		.info-txt {	transition: all 0.3s ease}
+		.btn-set .button-basic + .button-basic {margin: 0;}
     	.tit {text-align: center; }
     </style>
 </head>
@@ -79,6 +80,31 @@
                     <div class="btn-set mt45">
                         <button class="button-basic outline" id="btn-auth-extension">입력시간 연장하기</button>
                     </div>
+                    <div class="btn-set">
+						<button class="button-basic outline" id="btn-auth-resend">인증번호 재전송</button>
+						<button class="button-basic g" id="btn-auth-alert" onclick="javascript:$('.alert-wrap').addClass('active')">인증번호 재전송</button>
+						<div class="alert-wrap">
+							<div class="inner-wrap">
+								<button class="button-close"
+									onclick="javascript:$(this).parents('.alert-wrap').removeClass('active');">close</button>
+								<div class="icon">
+									<span></span>
+									<div class="wrap">
+										<i class="fa fa-exclamation" aria-hidden="true"></i>
+									</div>
+								</div>
+								<h2>이메일 재전송 안내</h2>
+								<div class="txt">
+									<span class="timer_resend">30</span>초 후 다시 시도해 주세요.<br /> [오류코드: 0071]
+								</div>
+								<button class='button-alerrt' id="btn-auth-alert" onclick="javascript:$(this).parents('.alert-wrap').removeClass('active')">확인</button>
+							</div>
+						</div>
+					</div>
+					<p class="info-txt mt30">
+						인증번호가 재전송 되었습니다<br /> <br /> 다시 재전송 요청이 가능해질떄까지 일정 시간이 필요하오니
+						기다려주세요
+					</p>
                 </div>
             </div>
             <p class="gap"></p>

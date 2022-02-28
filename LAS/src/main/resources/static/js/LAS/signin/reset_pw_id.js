@@ -1,17 +1,21 @@
 $(function() {
+	var doubleClickCheck = 0;
 	$('#btn_next_birth').click(function() {
 		checkid($('#id').val());
 	});
 	
 	    
 	$('#btn_next_pin').click(function() {
+		doubleClickCheck++;
 		reg_number = /[^0-9]/g;
-		if($('#name').val().length < 2) {
-			$('.field input')[0].error();
-		} else if($('#birth').val().length != 8 || reg_number.test($('#birth').val()) ) {
-			$('.field input')[1].error();
-		} else {
-			nameBirth_check($('#name').val(),$('#birth').val());
+		if(doubleClickCheck < 2) {
+			if($('#name').val().length < 2) {
+				$('.field input')[0].error();
+			} else if($('#birth').val().length != 8 || reg_number.test($('#birth').val()) ) {
+				$('.field input')[1].error();
+			} else {
+				nameBirth_check($('#name').val(),$('#birth').val());
+			}
 		}
 		
 	});

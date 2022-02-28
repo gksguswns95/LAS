@@ -104,5 +104,4 @@
 		WHERE key_value = #{authKey} and ip = #{ip} and email = #{email}
 	</delete>
 	
-	
 </mapper>

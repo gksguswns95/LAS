@@ -97,7 +97,6 @@ public class LasModifyController {
 	public ModelAndView Account_view_02_my(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView();
-		System.out.println(session.getAttribute("prototype_user_id"));
 		if(session.getAttribute("prototype_user_id") != null ) {
 			mv.setViewName("/Acount_Edit/Account_view_02_profile");
 		} else {
@@ -200,6 +199,7 @@ public class LasModifyController {
 			mv.addObject("phoneCount", phoneCount);
 		} else {
 			mv.setViewName("redirect:/prototype/find_id");
+			mv.addObject("error", "inconsistency");
 		}
 		return mv;
 	}
@@ -331,5 +331,26 @@ public class LasModifyController {
 		modifyService.accountModify(map);
 		System.out.println("회원정보 수정 완료");
 		return mv;
+	}
+	
+	@PostMapping("/prototype/optional_agreed_Y")
+	@ResponseBody
+	public void optional_agreed_Y(@RequestParam("agreed") String agreed, HttpServletRequest request) {
+		System.out.println("optional_agreed_Y 진입");
+		System.out.println("전달받은 agreed:" + agreed);
+		HttpSession session = request.getSession();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("seq", session.getAttribute("prototype_user_seq"));
+		if(session.getAttribute("prototype_user_optional_agreed") != null) {
+			session.removeAttribute("prototype_user_optional_agreed");
+		}
+		if(agreed.equals("Y")) {
+			modifyService.optional_agreed_insert(map);			
+			session.setAttribute("prototype_user_optional_agreed", "Y");
+		} else {
+			modifyService.optional_agreed_del(map);
+			session.setAttribute("prototype_user_optional_agreed", "N");
+		}
+		
 	}
 }

@@ -1,4 +1,6 @@
 $(function() {
+	var doubleClickCheck = 0;
+	
 	$('#pw').keyup(function() {
 		var regUpper = /[A-Z]/g;
 		var regLower = /[a-z]/g;
@@ -119,7 +121,7 @@ $(function() {
 			error:function() {
 				alert("비밀번호 조회 실패! 다시시도해주세요.");
 			}
-		})
+		});
 	}
 	
 	$('#btn_next_accountModify').click(function() {

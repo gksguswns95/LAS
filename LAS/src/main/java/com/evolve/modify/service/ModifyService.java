@@ -70,4 +70,12 @@ public class ModifyService {
 		mapper.resetPassword(map);
 	}
 
+	public void optional_agreed_insert(HashMap<String, Object> map) {
+		mapper.optional_agreed_insert(map);
+	}
+
+	public void optional_agreed_del(HashMap<String, Object> map) {
+		mapper.optional_agreed_del(map);
+	}
+
 }

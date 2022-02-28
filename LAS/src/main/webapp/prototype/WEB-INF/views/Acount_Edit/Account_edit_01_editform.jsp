@@ -9,6 +9,9 @@
     <title>LAS</title>
     <link rel="stylesheet" type="text/css" href="../css/LAS/swiper.css">
     <link rel="stylesheet" type="text/css" href="../css/LAS/common.css">
+    <style type="text/css">
+    	.alert-wrap.active .inner-wrap{animation:none}
+    </style>
 </head>
 
 <body>
@@ -77,7 +80,7 @@
                         </div>
                     </div>
                     <div class="input">
-                        <input class="" type="password" value="**********" readonly />
+                        <input class="" type="password" id="pw" value="**********" readonly />
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -188,18 +191,24 @@
                     </div> -->
                     <div class="select">
                         <fieldset class="las-select">
-                            <select>
+                            <select id="1">
                                 <option>서울</option>
                             </select>
                         </fieldset>
                         <fieldset class="las-select">
-                            <select>
+                            <select id="2">
                                 <option>강서구</option>
+                                <option>강남구</option>
+                                <option>강서구</option>
+                                <option>강동구</option>
                             </select>
                         </fieldset>
                         <fieldset class="las-select">
-                            <select>
+                            <select id="3">
                                 <option>마곡본점</option>
+                                <option>우장산점</option>
+                                <option>화곡점</option>
+                                <option>까치산점</option>
                             </select>
                         </fieldset>
                     </div>
@@ -223,7 +232,7 @@
                         </div>
                     </div>
                     <div class="input">
-                        <input class="" id="name04" type="text" value="서울 강서구 마곡본점" readonly />
+                        <input class="" id="favor-Stroe" name="favor-Stroe" type="text" value="서울 강서구 마곡본점" readonly />
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -307,9 +316,22 @@
             </div> -->
             <p class="gap"></p>
             <div class="btn-set mt40">
-                <button class="button-basic g" onclick="location.href='/prototype/account_view_my'">취소</button>
+                <button class="button-basic g" onclick="javascript:$('.alert-wrap').addClass('active')">취소</button>
                 <button class="button-basic" id="btn_next_accountModify">수정</button>
             </div>
+            <div class="alert-wrap">
+			    <div class="inner-wrap">
+			        <button class="button-close" onclick="javascript:$(this).parents('.alert-wrap').removeClass('active');">close</button>
+			        <h2>회원정보수정 취소안내</h2>
+			        <div class="txt">
+			            회원정보수정을 취소하시겠습니까?
+			        </div>
+			        <div style="display:flex">
+			        <button class='button-alerrt' onclick="location.href='/prototype/account_view_profile'">확인</button>
+			        <button class='button-alerrt' onclick="javascript:$(this).parents('.alert-wrap').removeClass('active')">취소</button>
+			        </div>
+			    </div>
+			</div>
             <!-- // 컨텐츠 영역 -->
         </div>
         <!-- // contents -->
@@ -324,7 +346,8 @@
 <script src="../js/LAS/jquery-3.4.1.min.js"></script>
 <script src="../js/LAS/swiper.min.js"></script>
 <script src="../js/LAS/common_ui.js"></script>
-<script src="../js/LAS/modify/modify.js"></script>
+<script src="../js/LAS/modify/modifyEdit.js"></script>
+<script src="../js/LAS/modify/modifyColor.js"></script>
 <!-- 스크립트 영역 -->
 
 </body>

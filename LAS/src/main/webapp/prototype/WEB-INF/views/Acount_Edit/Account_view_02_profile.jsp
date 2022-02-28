@@ -237,7 +237,7 @@
                                         <span class="slider round"></span>
                                     </label>
                                 </fieldset>
-
+                                <input class="" id="optional_agreed" name="optional_agreed" type="hidden" value="${prototype_user_optional_agreed }">
                             </div>
                             <!-- <div class="explain fontColor1">이메일 또는 휴대폰번호 입력하세요</div> -->
                         </div>
@@ -291,6 +291,22 @@
                 </div>
             </div> -->
             <p class="gap"></p>
+				<div class="alert-wrap">
+					<div class="inner-wrap">
+					<button class="button-close" onclick="javascript:$(this).parents('.alert-wrap').removeClass('active');">close</button>
+					<div class="icon">
+						<span></span>
+						<div class="wrap">
+							<i class="fa fa-exclamation" aria-hidden="true"></i>
+						</div>
+					</div>
+					<h2>마케팅 수신동의 안내</h2>
+					<div class="txt">
+						<span class="timer">10</span>초 후 다시 시도해 주세요.<br />
+					</div>
+					<button class='button-alerrt' id="btn-auth-alert" onclick="javascript:$(this).parents('.alert-wrap').removeClass('active')">확인</button>
+				</div>
+			</div>
             <!-- // 컨텐츠 영역 -->
         </div>
         <!-- // contents -->
@@ -305,6 +321,7 @@
 <script src="../js/LAS/jquery-3.4.1.min.js"></script>
 <script src="../js/LAS/swiper.min.js"></script>
 <script src="../js/LAS/common_ui.js"></script>
+<script src="../js/LAS/modify/modifyProfile.js"></script>
 <!-- 스크립트 영역 -->
 
 </body>

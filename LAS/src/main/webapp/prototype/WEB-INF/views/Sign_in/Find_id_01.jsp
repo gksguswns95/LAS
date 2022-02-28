@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -95,6 +96,25 @@
             <div class="btn-set mt20">
                 <button class="button-basic" id="btn_next">아이디 찾기</button>
             </div>
+            <c:if test="${param.error eq 'inconsistency' }">
+            	<div class="alert-wrap active">
+					<div class="inner-wrap">
+						<button class="button-close"
+							onclick="javascript:$(this).parents('.alert-wrap').removeClass('active');">close</button>
+						<div class="icon">
+							<span></span>
+							<div class="wrap">
+								<i class="fa fa-exclamation" aria-hidden="true"></i>
+							</div>
+						</div>
+						<h2>아이디 찾기 안내</h2>
+						<div class="txt">
+							입력하신 정보와 일치하는 아이디가 없습니다.<br /> [오류코드: 0041]
+						</div>
+						<button class='button-alerrt' id="btn-auth-alert" onclick="javascript:$(this).parents('.alert-wrap').removeClass('active')">확인</button>
+					</div>
+				</div>
+            </c:if>
             <!-- // 컨텐츠 영역 -->
         </div>
         <!-- // contents -->

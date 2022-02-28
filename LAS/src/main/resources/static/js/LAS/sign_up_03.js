@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	var doubleClickCount = 0;
+	
 	$('#btn_back').click(function() {
 		$(location).attr('href', '/terms_agreement');
 	});
@@ -262,38 +264,36 @@ $(document).ready(function() {
 	});
 	
 	$('#btn-next').click(function() {
-	
-		if($('#id').val().length < 8) {
-			$('#id').focus();
-			$('.field input')[0].error();
-		} else if($('#pw-error-txt').text() != '사용 가능한 비밀번호 입니다.') {
-			$('#pw').focus();
-			$('.field input')[1].error();
-		} else if($('#pwcfm-error-txt').text() != '비밀번호가 동일합니다.') {
-			$('#pwcfm').focus();
-			$('.field input')[2].error();
-		} else if($('#name-error-txt').text() != '확인되었습니다.') {
-			$('#name').focus();
-			$('.field input')[3].error();
-		}else if($('#birth-error-txt').text() != '확인되었습니다.') {
-			$('#birth').focus();
-			$('.field input')[4].error();
-		} else if($('#signup_type').val() == 'email' ? false : $('#email-error-txt').text() != '이메일 입니다.') {
-			$('#email').focus();
-			$('.field input')[5].error();
-		} else if($('#signup_type').val() == 'phone' ? false : $('#phone-error-txt').text() != '사용가능한 핸드폰 번호입니다.') {
-				$('#phone').focus();
-				$('.field input')[6].error();
-		} else {
-			$('#id').prop('disabled',false);
-			if($('#signup_type').val() == 'email') {
-				$('#email').prop('disabled',false);
-			} else if($('#signup_type').val() == 'phone'){
-				$('#phone').prop('disabled',false);
-			} 
-			$('#identity_verification').submit();
+		doubleClickCount++;
+		if(doubleClickCount < 2) {
+			if($('#pw-error-txt').text() != '사용 가능한 비밀번호 입니다.') {
+				$('#pw').focus();
+				$('.field input')[1].error();
+			} else if($('#pwcfm-error-txt').text() != '비밀번호가 동일합니다.') {
+				$('#pwcfm').focus();
+				$('.field input')[2].error();
+			} else if($('#name-error-txt').text() != '확인되었습니다.') {
+				$('#name').focus();
+				$('.field input')[3].error();
+			}else if($('#birth-error-txt').text() != '확인되었습니다.') {
+				$('#birth').focus();
+				$('.field input')[4].error();
+			} else if($('#signup_type').val() == 'email' ? false : $('#email-error-txt').text() != '이메일 입니다.') {
+				$('#email').focus();
+				$('.field input')[5].error();
+			} else if($('#signup_type').val() == 'phone' ? false : $('#phone-error-txt').text() != '사용가능한 핸드폰 번호입니다.') {
+					$('#phone').focus();
+					$('.field input')[6].error();
+			} else {
+				$('#id').prop('disabled',false);
+				if($('#signup_type').val() == 'email') {
+					$('#email').prop('disabled',false);
+				} else if($('#signup_type').val() == 'phone'){
+					$('#phone').prop('disabled',false);
+				} 
+				$('#identity_verification').submit();
+			}
 		}
-		
 	});
 	
 	
