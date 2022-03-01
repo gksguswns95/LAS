@@ -17,9 +17,9 @@
     <header id="header">
         <div class="inner-wrap">
             <div class="arr">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:history.back(-1);"></i>
             </div>
-            <h1>LG 계정</h1>
+            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
         </div>
     </header>
     <!-- // header -->

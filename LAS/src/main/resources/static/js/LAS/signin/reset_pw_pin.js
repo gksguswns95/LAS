@@ -41,6 +41,8 @@ $(function() {
 			if (timer === 0) {
 				clearInterval(interval);
 				$('.timer').text("만료!");
+				$('.btn-auth-resend').css('color','#CD0B41');
+				$('.btn-auth-resend').css('border-color','#CD0B41');
 			}
 		}, 1000);
 	}

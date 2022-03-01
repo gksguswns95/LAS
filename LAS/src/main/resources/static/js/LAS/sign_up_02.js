@@ -70,8 +70,6 @@ $(function() {
 		if(doubleClickCount < 2) {
 			if (reg_email.test(id)) {
 				emailAuth(id);
-				$('#btn-auth-send').hide();
-				$('#btn-auth-resend').show();
 			}else if (!reg_phone.test(phoneNumerreset) || phoneNumerreset.length == 11 || first_phone.test(id)) {
 				phoneAuth(id);
 			}else {	//핸드폰
@@ -89,8 +87,6 @@ $(function() {
 		var phoneNumerreset = $('#id').val().replaceAll('-', '');
 		if(doubleClickCount_resend < 2) {
 			$('.info-txt.mt30').show();
-			$('#btn-auth-resend').hide();
-			$('#btn-auth-alert').show();
 			startTimer_resend(29);
 			if (reg_email.test(id)) {
 				emailAuth(id);
@@ -125,8 +121,9 @@ $(function() {
 			}
 			if (timer === 0) {
 				clearInterval(interval);
-				$('.timer').css("만료!");
 				$('.timer').text("만료!");
+				$('.btn-auth-resend').css('color','#CD0B41');
+				$('.btn-auth-resend').css('border-color','#CD0B41');
 			}
 		}, 1000);
 	}
@@ -139,7 +136,8 @@ $(function() {
 			
 			seconds = seconds < 10 ? "0" + seconds : seconds;
 			$('.timer_resend').text(seconds);
-			
+			$('#btn-auth-send').hide();
+				$('#btn-auth-resend').show();
 			if (--timer < 0) {
 				timer = duration;
 			}
@@ -177,6 +175,8 @@ $(function() {
 				$($('.field')[1]).show();
 				$('.btn-set.mt45').show();
 				$('#signup_type').val('email');
+				$('#btn-auth-send').hide();
+				$('#btn-auth-resend').show();
 				
 				startTimer(299);
 				$('#id').prop('readonly',true);

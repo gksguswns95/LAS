@@ -121,7 +121,7 @@ public class LasDeleteAccountController {
 			SigninVo signinProcess = signService.signinId_del(session.getAttribute("prototype_user_id").toString());
 			
 			if(signinProcess != null) {
-				mv.setViewName("redirect:/prototype/main");
+				mv.setViewName("redirect:/prototype/account_del_complete");
 				System.out.println("회원탈퇴 인증 성공");
 				DeleteAccountVo deleteAccountvo = new DeleteAccountVo();				
 				deleteAccountvo.setQuit_reason(session.getAttribute("prototype_user_delReason").toString());
