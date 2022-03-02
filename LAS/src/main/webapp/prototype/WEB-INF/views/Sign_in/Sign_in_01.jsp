@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +23,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/main'"></i>
             </div>
-            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
+            <jsp:include page="../common/header.jsp" />
         </div>
     </header>
     <!-- // header -->
@@ -36,13 +37,13 @@
                 <fieldset class="field"><!-- [D] 클래스 error ]-->
                     <div class="label-switching only">
                         <div class="innerWrap">
-                            <div class="tit">아이디</div>
+                            <div class="tit"><spring:message code="id" text="아이디" /></div>
                             <div class="explain fontColor1">이메일 또는 휴대폰번호 입력하세요</div>
                         </div>
                     </div>
                     <div class="input id">
                     	<c:if test=""></c:if>
-                        <input class="" id="id" name="id" type="text"  placeholder="이메일 또는 핸드폰번호를 입력해주세요." required value=""/>
+                        <input class="" id="id" name="id" type="text"  placeholder="<spring:message code="idInputPlaceholer" text="이메일 또는 핸드폰번호를 입력해주세요." />" required value=""/>
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -50,13 +51,13 @@
                     <div class="input-validation-box">
                         <div class="inner-warp">
                             <!-- [D] 오류 메세지 -->
-                            <p class="error-txt">!형식에 맞지 않습니다.</p>
+                            <p class="error-txt"><spring:message code="idInput-Error" text="!이메일 또는 전화번호를 입력해주세요." /></p>
                             <!-- <p class="info-txt">Caption</p> -->
                             <!-- // [D] 오류 메세지 -->
                         </div>
                     </div>
                     <fieldset>
-                        <label class="input-box-label fill small">아이디 기억하기
+                        <label class="input-box-label fill small"><spring:message code="staySignedIn" text="아이디 기억하기" />
                             <input type="checkbox" id="rememberId">
                         </label>
                     </fieldset>
@@ -66,12 +67,12 @@
                 <fieldset class="field"><!-- [D] 클래스 error ]-->
                     <div class="label-switching only">
                         <div class="innerWrap">
-                            <div class="tit">비밀번호</div>
+                            <div class="tit"><spring:message code="password" text="비밀번호" /></div>
                             <div class="explain fontColor1"><span class="fontColor2">대문자</span>,<span class="fontColor2">숫자</span>,기호 포함 8자 이상 입력하세요</div>
                         </div>
                     </div>
                     <div class="input pw">
-                        <input class="" id="pw" name="pw" type="password"  placeholder="대문자,소문자,숫자,기호 포함 8자 이상 입력하세요" required/>
+                        <input class="" id="pw" name="pw" type="password"  placeholder="<spring:message code="passwordInputPlaceholer" text="대문자,소문자,숫자,기호 포함 8자 이상 입력하세요." />" required/>
                         <div class="btn-wrap">
                             <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                         </div>
@@ -80,7 +81,7 @@
                     <div class="input-validation-box">
                         <div class="inner-warp">
                             <!-- [D] 오류 메세지 -->
-                            <p class="error-txt">!아이디 또는 비밀번호가 틀립니다.</p>
+                            <p class="error-txt"><spring:message code="signin-Error" text="!아이디 또는 비밀번호가 틀립니다." /></p>
                             <!-- <p class="info-txt">Caption</p> -->
                             <!-- // [D] 오류 메세지 -->
                         </div>
@@ -88,23 +89,23 @@
                 </fieldset>
             </div>
             <div class="btn-set mt20">
-                <button class="button-basic" id="btn-signin">로그인</button>
+                <button class="button-basic" id="btn-signin"><spring:message code="signin" text="로그인" /></button>
             </div>
             <div class="bothSet01">
                 <div class="set-list">
                     <ul>
-                        <li><a href="javascript:location.href='/prototype/find_id';">아이디를 찾아볼께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                        <li><a href="javascript:location.href='/prototype/reset_pw_id';">비밀번호를 재설정할께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                        <li><a href="javascript:location.href='/prototype/signup_select';">LG계정을 만들께요.<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:location.href='/prototype/find_id';"><spring:message code="forgotId" text="아이디를 찾아볼께요." /><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:location.href='/prototype/reset_pw_id';"><spring:message code="forgotPassword" text="비밀번호를 재설정할께요." /><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li><a href="javascript:location.href='/prototype/signup_select';"><spring:message code="lgAccountSignup" text="LG계정을 만들께요." /><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
                 <p class="gap"></p>
                 <div class="sns-list">
                     <ul>
-                        <li class="g"><a href="javascript:;">Google 계정으로 로그인</a></li>
-                        <li class="f"><a href="javascript:;">facebook 계정으로 로그인</a></li>
-                        <li class="n"><a href="javascript:;">Naver 계정으로 로그인</a></li>
-                        <li class="k"><a href="javascript:;">Kakao 계정으로 로그인</a></li>
+                        <li class="g"><a href="javascript:;"><spring:message code="snsSignin_google" text="Google 계정으로 로그인" /></a></li>
+                        <li class="f"><a href="javascript:;"><spring:message code="snsSignin_facebook" text="Facebook 계정으로 로그인" /></a></li>
+                        <li class="n"><a href="javascript:;"><spring:message code="snsSignin_naver" text="Naver 계정으로 로그인" /></a></li>
+                        <li class="k"><a href="javascript:;"><spring:message code="snsSignin_kakao" text="Kakao 계정으로 로그인" /></a></li>
                     </ul>
                 </div>
             </div>

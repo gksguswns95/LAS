@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>	
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +19,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:history.back(-1);"></i>
             </div>
-            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
+            <jsp:include page="../common/header.jsp" />
         </div>
     </header>
     <!-- // header -->

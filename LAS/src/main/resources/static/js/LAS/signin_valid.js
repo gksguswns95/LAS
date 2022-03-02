@@ -21,6 +21,7 @@ $(function() {
 		if (!reg_email.test(phoneNumerreset)) {
 			if (reg_phone.test(phoneNumerreset) || !(phoneNumerreset.length == 11) || !first_phone.test(number)) {
 				if(number.length != 0) {
+					$('.field input')[0].noneError();
 					$('.field input')[0].error();
 					$('.field .input-box-wrap').css('margin-top','2rem');
 				}
@@ -70,7 +71,7 @@ $(function() {
 			$('#id').focus();
 			$('.field input')[0].error();
 		} else if($($('.field')[0]).hasClass('error')) {
-			$('.field input')[0].noneError();
+			$('.field input')[2].noneError();
 			$('#pw').focus();
 			$('.field input')[2].error();
 		} else {
@@ -87,6 +88,7 @@ $(function() {
 				if(cnt == 1) {
 					location.href= '/prototype/account_view_my';
 				} else {
+					$('.field input')[2].noneError();
 					$('.field input')[2].error();
 				}
 			},

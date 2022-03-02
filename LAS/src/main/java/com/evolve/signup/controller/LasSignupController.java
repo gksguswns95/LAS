@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.evolve.IpGet;
 import com.evolve.signin.service.SigninService;
 import com.evolve.signin.vo.SigninVo;
 import com.evolve.signup.service.SignupService;
 import com.evolve.signup.vo.SignupVO;
+import com.evolve.util.IpGet;
 
 @Controller
 public class LasSignupController {

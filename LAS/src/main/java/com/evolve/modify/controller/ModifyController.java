@@ -25,14 +25,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.evolve.CreateKey;
-import com.evolve.IpGet;
-import com.evolve.MailSendThread;
 import com.evolve.modify.service.ModifyService;
 import com.evolve.modify.vo.ModifyVo;
 import com.evolve.signup.controller.SignupController;
 import com.evolve.signup.service.SignupService;
 import com.evolve.signup.vo.SignupVO;
+import com.evolve.util.CreateKey;
+import com.evolve.util.IpGet;
+import com.evolve.util.MailSendThread;
 
 @Controller
 public class ModifyController {

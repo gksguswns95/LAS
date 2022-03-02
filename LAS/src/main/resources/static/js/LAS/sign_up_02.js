@@ -7,6 +7,7 @@ $(function() {
 	var first_phone = /^010/;
 	var doubleClickCount = 0;
 	var doubleClickCount_resend = 0;
+	var doubleClickCount_extend = 0;
 	//에러
 	//$('.field input')[1].error();
 	$($('.field')[1]).hide();
@@ -53,6 +54,7 @@ $(function() {
 				$('.field input')[0].noneError();
 				$('.field input')[0].error();
 				$('.info-txt').css('margin', '3rem 0 0');
+				$('#btn-auth-send').prop('disabled',true);
 			}
 		} else {
 			$('#btn-auth-send').prop('disabled',true);
@@ -98,10 +100,13 @@ $(function() {
 	});
 	
 	$('#btn-auth-extension').click(function() {
-		if($('#signup_type').val() == 'email') {
-			extensionValidityTime($('#id').val());			
-		} else {
-			startTimer(299);
+		doubleClickCount_extend++;
+		if(doubleClickCount_extend < 2) {
+			if($('#signup_type').val() == 'email') {
+				extensionValidityTime($('#id').val());
+			} else {
+				startTimer(299);
+			}
 		}
 	})
 	
@@ -136,8 +141,8 @@ $(function() {
 			
 			seconds = seconds < 10 ? "0" + seconds : seconds;
 			$('.timer_resend').text(seconds);
-			$('#btn-auth-send').hide();
-				$('#btn-auth-resend').show();
+			$('#btn-auth-alert').show();
+			$('#btn-auth-resend').hide();
 			if (--timer < 0) {
 				timer = duration;
 			}
@@ -158,6 +163,7 @@ $(function() {
 			data: {id: id},
 			success: function() {
 				startTimer(299);
+				doubleClickCount_extend = 0;
 			},
 			error: function() {
 				alert('입력시간 연장하기를 다시 눌러 주세요.');
@@ -179,6 +185,7 @@ $(function() {
 				$('#btn-auth-resend').show();
 				
 				startTimer(299);
+				$('#id').val(email);
 				$('#id').prop('readonly',true);
 				$('#btn-auth-send').prop('disabled',false);
 				$('#numbver').focus();
@@ -198,10 +205,12 @@ $(function() {
 			success: function() {
 				$($('.field')[1]).show();
 				$('.btn-set.mt45').show();
-				$('#btn-auth-send').text('인증번호 재전송');
+				$('#btn-auth-send').hide();
+				$('#btn-auth-resend').show();
 				$('#signup_type').val('phone');
 				
 				startTimer(299);
+				$('#id').val(phone);
 				$('#id').prop('readonly',true);
 				$('#btn-authKeyCheck').prop('disabled',false);
 				$('#numbver').focus();

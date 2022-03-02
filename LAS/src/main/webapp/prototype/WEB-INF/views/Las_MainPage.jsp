@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
-<html >
+<html lang="ko">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -30,29 +30,28 @@
 		<div class="head" onclick="location.href = '/prototype/main';">
 	            <div>
 	                <span class="big">Welcome,</span><br>
-	                LG 계정을 사용하여<br>
-	                다양한 LG 전자 서비스를 경험하세요.
+	                <spring:message code="mainSentence" text="LG 계정을 사용하여<br>다양한 LG 전자 서비스를 경험하세요." />
 	            </div>
 	    </div>
 	     <c:if test="${prototype_user_id eq null}">
 	     <div class="login-box">
 	        <dic class="con" style="min-height: calc(490px);">
 	            <div class="innerWrap">
-	                <button class="button-basic on" onclick="location.href = '/prototype/signin_valid'">로그인</button>
-	                <button class="button-basic outline" onclick="location.href = '/prototype/signup_select';">계정만들기</button>
-	                <a class="link-icon-arr" href="javascript:location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	                <button class="button-basic on" onclick="location.href = '/prototype/signin_valid'" ><spring:message code="signin" text="로그인" /></button>
+	                <button class="button-basic outline" onclick="location.href = '/prototype/signup_select';"><spring:message code="signup" text="계정만들기" /></button>
+	                <a class="link-icon-arr" href="javascript:location.href = '/prototype/language_region';"><spring:message code="language" text="Korea / 한국어" /><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	            </div>
 	        </dic>
 	    </div>
 	    </c:if>
-	    
+
 	    <c:if test="${prototype_user_id ne null}">
 	    <div class="login-box">
 	        <dic class="con" style="min-height: calc(490px);">
 	            <div class="innerWrap">
-	                <button class="button-basic on" onclick="location.href = '/prototype/account_view_my'">마이페이지</button>
-	                <button class="button-basic on" onclick="location.href='/prototype/signout'">로그아웃</button>
-	                <a class="link-icon-arr" href="javascript:location.href = '/prototype/language_region';">Korea / 한국어<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	                <button class="button-basic on" onclick="location.href = '/prototype/account_view_my'"><spring:message code="mypage" text="마이페이지" /></button>
+	                <button class="button-basic on" onclick="location.href='/prototype/signout'"><spring:message code="signout" text="로그아웃" /></button>
+	                <a class="link-icon-arr" href="javascript:location.href = '/prototype/language_region';"><spring:message code="language" text="Korea / 한국어" /><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	            </div>
 	        </dic>
 	    </div>

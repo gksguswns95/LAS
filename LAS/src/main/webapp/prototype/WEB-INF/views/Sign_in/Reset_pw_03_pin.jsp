@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,7 +27,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/reset_pw_id';"></i>
             </div>
-            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
+            <jsp:include page="../common/header.jsp" />
         </div>
     </header>
     <!-- // header -->
@@ -110,7 +111,7 @@
             <p class="gap"></p>
             <div class="btn-set">
                 <!-- <button class="button-basic">뒤로</button> -->
-                <button class="button-basic" id="btn-authKeyCheck">다음</button>
+                <button class="button-basic" id="btn-authKeyCheck" disabled="">다음</button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>

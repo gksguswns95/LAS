@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -20,7 +21,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:location.href='/prototype/signup_select';"></i>
             </div>
-            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
+            <jsp:include page="../common/header.jsp" />
         </div>
     </header>
     <!-- // header -->
@@ -30,7 +31,7 @@
         <div id="contents">
             <!-- 컨텐츠 영역 -->
             <div class="step-wrap">
-                <p class="tit">LG계정 만들기</p>
+                <p class="tit"><spring:message code="signup-title" text="LG계정 만들기" /></p>
                 <ul class="step">
                     <li class="active">1</li>
                     <li class="active">2</li>
@@ -43,11 +44,11 @@
                     <li>
                         <div class="tit">
                             <fieldset>
-                                <label  class="input-box-label fill">이용약관 (필수)
+                                <label  class="input-box-label fill"><spring:message code="termsAndConditions" text="이용약관" /> (<spring:message code="esential" text="필수" />)
                                     <input type="checkbox" id="essential_1">
                                 </label>
                             </fieldset>
-                            <a href="javascript:location.href='/prototype/signup_term01';" class="alink-line">자세히 보기</a>
+                            <a href="javascript:location.href='/prototype/signup_term01';" class="alink-line"><spring:message code="learnMore" text="자세히 보기" /></a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -71,11 +72,11 @@
                     <li>
                         <div class="tit">
                             <fieldset>
-                                <label  class="input-box-label fill">개인정보수집 이용동의 (필수)
+                                <label  class="input-box-label fill"><spring:message code="personalInformation" text="개인정보수집 이용동의" /> (<spring:message code="esential" text="필수" />)
                                     <input type="checkbox" id="essential_2">
                                 </label>
                             </fieldset>
-                            <a href="javascript:location.href='/prototype/signup_term02'; " class="alink-line" >자세히 보기</a>
+                            <a href="javascript:location.href='/prototype/signup_term02'; " class="alink-line" ><spring:message code="learnMore" text="자세히 보기" /></a>
                         </div>
                        <div class="both-layout-box">
                             <div class="area-clause">
@@ -97,11 +98,11 @@
                     <li>
                         <div class="tit">
                             <fieldset>
-                                <label  class="input-box-label fill">개인정보처리방침(선택)
+                                <label  class="input-box-label fill"><spring:message code="privacyPolicy" text="개인정보 처리방침" /> (<spring:message code="optional" text="선택" />)
                                     <input type="checkbox" name="idle_agree" id="idle_agree" value="Y">
                                 </label>
                             </fieldset>
-                            <a href="javascript:location.href='/prototype/signup_term03'; " class="alink-line" >자세히 보기</a>
+                            <a href="javascript:location.href='/prototype/signup_term03'; " class="alink-line" ><spring:message code="learnMore" text="자세히 보기" /></a>
                         </div>
                         <div class="both-layout-box">
                             <div class="area-clause">
@@ -125,7 +126,7 @@
             </div>
             <p class="gap"></p>
             <fieldset>
-                <label  class="input-box-label fill">위의 내용을 모두 확인하였으며 모든 내용에 동의합니다.<input type="checkbox"></label>
+                <label  class="input-box-label fill"><spring:message code="allAgreed" text="위의 내용을 모두 확인하였으며 모든 내용에 동의합니다." /><input type="checkbox"></label>
             </fieldset>
             <div class="btn-set mt20">
                 <button class="button-basic outline">동의</button>

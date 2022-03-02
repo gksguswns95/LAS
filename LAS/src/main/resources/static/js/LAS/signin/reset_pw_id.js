@@ -1,7 +1,15 @@
 $(function() {
 	var doubleClickCheck = 0;
+	var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+).(\.[0-9a-zA-Z_-]+){1,2}$/;
+	var reg_phone = /([^0-9]+)/;
+	var first_phone = /^010/;
+	
 	$('#btn_next_birth').click(function() {
-		checkid($('#id').val());
+		if(reg_email.test($('#id').val())) {
+			checkid($('#id').val(),'email');
+		} else {
+			checkid($('#id').val(),'phone');
+		}
 	});
 	
 	    
@@ -20,13 +28,14 @@ $(function() {
 		
 	});
 	
-	function checkid(id){
+	function checkid(id,type){
         $.ajax({
            url:'/prototype/pw_idCheck', 
             type:'post', 
-            data:{id:id},
+            data:{id:id,type:type},
             success:function(cnt) {
             	if(cnt != 1){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디
+        			$('.field input')[0].noneError();
         			$('.field input')[0].error();
                 } else {
 					location.href= '/prototype/reset_pw_birth';

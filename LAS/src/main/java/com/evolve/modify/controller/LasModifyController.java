@@ -23,15 +23,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.evolve.CreateKey;
-import com.evolve.IpGet;
-import com.evolve.MailSendThread;
 import com.evolve.modify.service.ModifyService;
 import com.evolve.modify.vo.ModifyVo;
 import com.evolve.signin.service.SigninService;
 import com.evolve.signin.vo.SigninVo;
 import com.evolve.signup.service.SignupService;
 import com.evolve.signup.vo.SignupVO;
+import com.evolve.util.CreateKey;
+import com.evolve.util.IpGet;
+import com.evolve.util.MailSendThread;
 
 @Controller
 public class LasModifyController {
@@ -206,7 +206,7 @@ public class LasModifyController {
 	
 	@PostMapping("/prototype/pw_idCheck")
 	@ResponseBody
-	public int idCheck(@RequestParam("id") String id,HttpServletRequest request) {
+	public int idCheck(@RequestParam("id") String id,@RequestParam("type") String type,HttpServletRequest request) {
 		System.out.println("userIdCheck 진입");
 		System.out.println("전달받은 id:" + id);
 		int cnt = signupService.memberIdSelect(id);
@@ -217,6 +217,11 @@ public class LasModifyController {
 				session.removeAttribute("find_pw_id");
 			}
 			session.setAttribute("find_pw_id", id);
+			
+			if(session.getAttribute("find_pw_type") != null) {
+				session.removeAttribute("find_pw_type");
+			}
+			session.setAttribute("find_pw_type", type);
 		}
 		return cnt;
 	}
@@ -233,14 +238,21 @@ public class LasModifyController {
 		int cnt = Integer.parseInt(map.get("count").toString()) ;
 		System.out.println("확인 결과:" + cnt);
 		if( cnt == 1) {
-			MailSendThread mailSendThread = new MailSendThread(mailSender, session.getAttribute("find_pw_id").toString());
-		    String authKey = mailSendThread.mailSend();
-			//String authKey = CreateKey.getCreateKey();
-		    IpGet getIp = new IpGet();
-		    String ip = getIp.getUserIP(request);
-		    System.out.println("Key : "+authKey);
-		    signupService.emailAuthInsert(authKey,session.getAttribute("find_pw_id").toString(),ip);
-		    System.out.println("메일 보내기 성공");
+			if(session.getAttribute("find_pw_type") == "email") {
+				MailSendThread mailSendThread = new MailSendThread(mailSender, session.getAttribute("find_pw_id").toString());
+				String authKey = mailSendThread.mailSend();
+				//String authKey = CreateKey.getCreateKey();
+				IpGet getIp = new IpGet();
+				String ip = getIp.getUserIP(request);
+				System.out.println("Key : "+authKey);
+				signupService.emailAuthInsert(authKey,session.getAttribute("find_pw_id").toString(),ip);
+				System.out.println("메일 보내기 성공");
+			} else {
+				String authKey = "asd123";
+			    IpGet getIp = new IpGet();
+			    String ip = getIp.getUserIP(request);
+			    signupService.emailAuthInsert(authKey,session.getAttribute("find_pw_id").toString(),ip);
+			}
 		}
 		return cnt;
 	}

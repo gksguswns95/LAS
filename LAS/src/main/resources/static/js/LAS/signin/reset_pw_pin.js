@@ -6,6 +6,7 @@ $(function() {
 	var reg_phone = /([^0-9]+)/;
 	var first_phone = /^010/;
 	var doubleClickCount = 0;
+	var doubleClickCount_extend = 0;
 	//에러
 	//$('.field input')[1].error();
 	
@@ -17,10 +18,13 @@ $(function() {
 	}
     
 	$('#btn-auth-extension').click(function() {
-		if(reg_email.test( $('#id').text() ) ) {
-			extensionValidityTime($('#id').text());			
-		} else {
-			startTimer(299);
+		doubleClickCount_extend++;
+		if(doubleClickCount_extend < 2) {
+			if(reg_email.test( $('#id').text() ) ) {
+				extensionValidityTime($('#id').text());			
+			} else {
+				startTimer(299);
+			}
 		}
 	})
 	
@@ -54,6 +58,7 @@ $(function() {
 			data: {id: id},
 			success: function() {
 				startTimer(299);
+				doubleClickCount_extend = 0;
 			},
 			error: function() {
 				alert('입력시간 연장하기를 실패했습니다.');
@@ -97,6 +102,7 @@ $(function() {
 				phoneAuthKeyCheck($('#id').text(),$('#numbver').val());
 			}
 		} else {
+			$('.field input')[0].noneError();
 			$('.field input')[0].error();
 		}
 	});
@@ -127,7 +133,8 @@ $(function() {
 			
 			seconds = seconds < 10 ? "0" + seconds : seconds;
 			$('.timer_resend').text(seconds);
-			
+			$('#btn-auth-resend').hide();
+			$('#btn-auth-alert').show();
 			if (--timer < 0) {
 				timer = duration;
 			}
@@ -158,6 +165,36 @@ $(function() {
 			}
 		});
 	};
+	
+	// 핸드폰 인증번호 생성
+	function phoneAuth(phone) {
+		$.ajax({
+			url: '/phoneauthcheck',
+			type: "post",
+			data: { phone: phone },
+			success: function() {
+				$('.btn-set.mt45').show();
+				
+				$('#signup_type').val('phone');
+				
+				startTimer(299);
+				$('#id').val(phone);
+				$('#id').prop('readonly',true);
+				$('#numbver').focus();
+			},
+			error: function() {
+				alert('핸드폰 인증번호 전송 실패!');
+			}
+		});
+	};
+	
+	$('#numbver').keyup(function() {
+		if($(this).val().length == 6) {
+			$('#btn-authKeyCheck').prop('disabled',false);			
+		} else {
+			$('#btn-authKeyCheck').prop('disabled',true);			
+		}
+	});
 	
 	
 

@@ -58,7 +58,7 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!--JSTL -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -75,6 +75,20 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+		<!-- 룸북 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!--번들 -->
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>spring-boot-container-bundle</artifactId>
+			<version>17.0.0</version>
 		</dependency>
 
 	</dependencies>

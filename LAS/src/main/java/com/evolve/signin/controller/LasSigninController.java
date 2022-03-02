@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.evolve.IpGet;
 import com.evolve.modify.vo.ModifyVo;
 import com.evolve.signin.service.SigninService;
 import com.evolve.signin.vo.SigninVo;
 import com.evolve.signup.vo.SignupVO;
+import com.evolve.util.IpGet;
 
 @Controller
 public class LasSigninController {
@@ -58,7 +58,7 @@ public class LasSigninController {
 		ModelAndView mv = new ModelAndView("/Language_01_region");
 		return mv;
 	}
-
+	
 	@PostMapping(value = "/prototype/signin")
 	@ResponseBody
 	public int userLogin(HttpSession session, HttpServletRequest request, HttpServletResponse response,

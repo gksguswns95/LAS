@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +20,7 @@
             <div class="arr">
                 <i class="fa fa-angle-left" aria-hidden="true" onclick="javascript:history.back(-1);"></i>
             </div>
-            <h1 onclick="javascript:location.href='/prototype/main';">LG 계정</h1>
+            <jsp:include page="./common/header.jsp" />
         </div>
     </header>
     <!-- // header -->
@@ -59,8 +60,8 @@
                                 <dd>Indonesia</dd>
                                 <dt>Japan</dt>
                                 <dd>日本語</dd>
-                                <dt>Korea</dt>
-                                <dd>한국어</dd>
+                                <dt><a href="/prototype/main?lang=ko">Korea</a></dt>
+                                <dd><a href="/prototype/main?lang=ko">한국어</a></dd>
                                 <dt>Malaysia</dt>
                                 <dd>English</dd>
                                 <dt>Nepal</dt>
@@ -282,8 +283,8 @@
                                 <dd>English · Français</dd>
                                 <dt>Mexico</dt>
                                 <dd>Español</dd>
-                                <dt>U.S.A</dt>
-                                <dd>English</dd>
+                                <dt><a href="/prototype/main?lang=en">U.S.A</a></dt>
+                                <dd><a href="/prototype/main?lang=en">English</a></dd>
                             </dl>
                         </div>
                     </li>
