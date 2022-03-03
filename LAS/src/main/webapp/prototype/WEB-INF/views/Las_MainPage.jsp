@@ -70,6 +70,10 @@
 		if(reset == 'en_US' && $('.link-icon-arr').text() == 'Korea / 한국어') {
 			location.href = 'http://localhost:8080/prototype/main?lang=en_US';
 		}
+		
+		if(reset == 'ko_KR' && $('.link-icon-arr').text() == 'U.S.A / English') {
+			location.href = 'http://localhost:8080/prototype/main?lang=ko_KR';
+		}
 	</script>
 	<!-- 스크립트 영역 -->
 	</body>

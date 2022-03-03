@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.Cookie;
@@ -43,7 +45,7 @@ public class LasSigninController {
 		IpChangeDecimal ipChangeDecimal = new IpChangeDecimal();
 		Long desimalIP = ipChangeDecimal.convertStringToHex(ip);
 		String country = signinService.countrySelect(desimalIP);
-		
+
 		Cookie[] cookies = request.getCookies();
 		int count =0;
 		for(Cookie cookie:cookies) {
@@ -120,16 +122,14 @@ public class LasSigninController {
 	@ResponseBody
 	public int userLogin(HttpSession session, HttpServletRequest request, HttpServletResponse response,
 			SigninVo signvo) throws IOException {
-		System.out.println(signvo.getId());
-		System.out.println(signvo.getPw());
 		int cnt = 0;
 		if (session.getAttribute("prototype_user_id") != null) {
 			session.invalidate();
 		}
-		boolean isNumberic = signvo.getId().matches("^[0-9]*$");
-		if (isNumberic) {
+		Pattern pattern = Pattern.compile("\\d{3}-\\d{4}-\\d{4}");
+		Matcher matcher = pattern.matcher(signvo.getId());
+		if (matcher.matches()) {
 			signvo.setId(signvo.getId().replaceAll("-", ""));
-			System.out.println("바뀐 ID 값: " + signvo.getId());
 		}
 		SigninVo signinProcess = signinService.signinId(signvo);
 		System.out.println("로그인 컨트롤러 로그인 진행");
