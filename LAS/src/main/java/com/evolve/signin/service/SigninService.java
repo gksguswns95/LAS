@@ -28,4 +28,8 @@ public class SigninService {
 		mapper.loginLogInsert(seq,ip); 
 	}
 
+	public String countrySelect(Long desimalIP) {
+		return mapper.countrySelect(desimalIP);
+	}
+
 }

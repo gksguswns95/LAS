@@ -2,6 +2,8 @@ package com.evolve.util;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +11,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -17,15 +20,15 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 public class I18nConfig implements WebMvcConfigurer{
 	
 	@Bean
-    public LocaleResolver localeResolver() {
+    public LocaleResolver localeResolver(HttpServletRequest request) {
 
-        SessionLocaleResolver resolver = new SessionLocaleResolver();
-        //CookieLocaleResolver resolver = new CookieLocaleResolver();
+        //SessionLocaleResolver resolver = new SessionLocaleResolver();
+        CookieLocaleResolver resolver = new CookieLocaleResolver();
         resolver.setDefaultLocale(Locale.getDefault());
-        //resolver.setCookieName("lang");
+        resolver.setCookieName("lang");
         return resolver;
     }
-
+	
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();

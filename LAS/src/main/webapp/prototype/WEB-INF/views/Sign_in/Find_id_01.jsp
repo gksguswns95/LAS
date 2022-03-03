@@ -33,24 +33,24 @@
             <div class="vc-box">
                 <div class="inner-wrap">
                     <div class="hdt">
-                        <h2 class="h-h2">아이디 찾기</h2>
+                        <h2 class="h-h2"><spring:message code="findID" text="아이디 찾기" /></h2>
                     </div>
                     <p class="top-txt">
-                        아이디를 찾고 싶으면<br />아래에 이름과 생년월일을 입려해주세요.
+                    	<spring:message code="findId-title" text="아이디를 찾고 싶으면<br />아래에 이름과 생년월일을 입려해주세요." />
                     </p>
                     <form action="/prototype/findIdProcess" method="post" id="form-findId">
                     <div class="input-area">
                         <fieldset class="field"><!-- [D] 클래스 error ]-->
                             <div class="label-switching">
                                 <div class="innerWrap">
-                                    <label class="tit">이름</label>
+                                    <label class="tit"><spring:message code="name" text="이름" /></label>
                                     <div class="explain fontColor1">
-                                        가입자의 본명을 입력하세요.<!-- <br />(*차후 서비스이용시 경우에 따라<br />본인 명의의 인증이 요구될 수 있습니다) -->
+                                        <spring:message code="nameInputPlaceholer" text="가입자의 본명을 입력하세요." /><!-- <br />(*차후 서비스이용시 경우에 따라<br />본인 명의의 인증이 요구될 수 있습니다) -->
                                     </div>
                                 </div>
                             </div>
                             <div class="input">
-                                <input class="" id="name" name="name" type="text"  placeholder="가입자의 본명을 입력하세요." />
+                                <input class="" id="name" name="name" type="text"  placeholder="<spring:message code="nameInputPlaceholer" text="가입자의 본명을 입력하세요." />" />
                                 <div class="btn-wrap">
                                     <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                                 </div>
@@ -69,14 +69,14 @@
                         <fieldset class="field"><!-- [D] 클래스 error ]-->
                             <div class="label-switching">
                                 <div class="innerWrap">
-                                    <label class="tit">생년월일</label>
+                                    <label class="tit"><spring:message code="birth" text="생년월일" /></label>
                                     <div class="explain fontColor1">
-                                        가입자의 생년월일을 입력하세요.<br />(*차후 서비스이용시 경우에 따라<br />본인 명의의 인증이 요구될 수 있습니다)
+                                        <spring:message code="birthInputPlaceholer" text="가입자의 생년월일을 입력하세요." />
                                     </div>
                                 </div>
                             </div>
                             <div class="input">
-                                <input class="" id="birth" name="birth" type="text"  placeholder="가입자의 생년월일을 입력하세요." />
+                                <input class="" id="birth" name="birth" type="text"  placeholder="<spring:message code="birthInputPlaceholer" text="가입자의 생년월일을 입력하세요." />" />
                                 <div class="btn-wrap">
                                     <button class="sp-icon btnDel" type="button"><span class="blind">삭제</span></button>
                                 </div>
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="btn-set mt20">
-                <button class="button-basic" id="btn_next">아이디 찾기</button>
+                <button class="button-basic" id="btn_next"><spring:message code="findId" text="아이디 찾기" /></button>
             </div>
             <c:if test="${param.error eq 'inconsistency' }">
             	<div class="alert-wrap active">
@@ -110,7 +110,7 @@
 						</div>
 						<h2>아이디 찾기 안내</h2>
 						<div class="txt">
-							입력하신 정보와 일치하는 아이디가 없습니다.<br /> [오류코드: 0041]
+							입력하신 정보와 일치하는 아이디가 없습니다.<br /> [<spring:message code="errorCode" text="오류코드" />: 0041]
 						</div>
 						<button class='button-alerrt' id="btn-auth-alert" onclick="javascript:$(this).parents('.alert-wrap').removeClass('active')">확인</button>
 					</div>

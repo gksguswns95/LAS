@@ -65,6 +65,12 @@
 	<script src="../js/LAS/jquery-3.4.1.min.js"></script>
 	<script src="../js/LAS/swiper.min.js"></script>
 	<script src="../js/LAS/common_ui.js"></script>
+	<script type="text/javascript">
+		var reset = '<c:out value="${lang}"/>';
+		if(reset == 'en_US' && $('.link-icon-arr').text() == 'Korea / 한국어') {
+			location.href = 'http://localhost:8080/prototype/main?lang=en_US';
+		}
+	</script>
 	<!-- 스크립트 영역 -->
 	</body>
 </html>

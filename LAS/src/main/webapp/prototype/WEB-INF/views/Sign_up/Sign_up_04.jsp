@@ -34,13 +34,13 @@
             <div class="vc-box">
                 <div class="inner-wrap">
                     <div class="complete-txt">
-                        ${prototype_user_name } 님,  환영합니다.
+                    <spring:message code="welcome" text="{0} 님,  환영합니다." arguments="${prototype_user_name }"/>
                     </div>
 
                     <div class="user-picture">
                         <span>${prototype_user_firstName }</span>
                     </div>
-                    <p class="phone-num"><i class="sns google"></i>${prototype_user_id }</p>
+                    <p class="phone-num"></i>${prototype_user_id }</p>
                     <!-- sns icon -->
                     <!-- <i class="sns facebook"></i>
                     <i class="sns google"></i>
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="btn-set">
-                <button class="button-basic" onclick="javascript:location.href = '/prototype/account_view_my';">완료</button>
+                <button class="button-basic" onclick="javascript:location.href = '/prototype/account_view_my';"><spring:message code="complete" text="완료" /></button>
             </div>
             <!-- // 컨텐츠 영역 -->
         </div>

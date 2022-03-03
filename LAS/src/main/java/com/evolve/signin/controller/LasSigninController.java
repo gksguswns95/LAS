@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,8 @@ import com.evolve.modify.vo.ModifyVo;
 import com.evolve.signin.service.SigninService;
 import com.evolve.signin.vo.SigninVo;
 import com.evolve.signup.vo.SignupVO;
+import com.evolve.util.I18nConfig;
+import com.evolve.util.IpChangeDecimal;
 import com.evolve.util.IpGet;
 
 @Controller
@@ -33,16 +36,70 @@ public class LasSigninController {
 	SigninService signinService;
 
 	@GetMapping("/prototype/")
-	public ModelAndView LAS_Landding_root(HttpServletRequest request) {
+	public ModelAndView LAS_Landding_root(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/Las_MainPage");			
+		IpGet getIp = new IpGet();
+		String ip = getIp.getUserIP(request);
+		IpChangeDecimal ipChangeDecimal = new IpChangeDecimal();
+		Long desimalIP = ipChangeDecimal.convertStringToHex(ip);
+		String country = signinService.countrySelect(desimalIP);
+		
+		Cookie[] cookies = request.getCookies();
+		int count =0;
+		for(Cookie cookie:cookies) {
+			if ((cookie.getName()).equals("lang")) {
+				  count++;
+            }
+		}
+		
+		if(count == 0) {
+			if(country.equals("us")) {
+				Cookie cookie = new Cookie("lang", "en_US");
+				cookie.setPath("/");
+				response.addCookie(cookie);
+				mv.addObject("lang", "en_US");
+			} else {
+				Cookie cookie = new Cookie("lang", "ko_KR");
+				cookie.setPath("/");
+				response.addCookie(cookie);
+				mv.addObject("lang", "ko_KR");
+			}
+		}
+		mv.setViewName("/Las_MainPage");
 		return mv;
 	}
 
 	@GetMapping("/prototype/main")
-	public ModelAndView LAS_Landding(HttpServletRequest request) {
+	public ModelAndView LAS_Landding(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/Las_MainPage");			
+		IpGet getIp = new IpGet();
+		String ip = getIp.getUserIP(request);
+		IpChangeDecimal ipChangeDecimal = new IpChangeDecimal();
+		Long desimalIP = ipChangeDecimal.convertStringToHex(ip);
+		String country = signinService.countrySelect(desimalIP);
+		
+		Cookie[] cookies = request.getCookies();
+		int count =0;
+		for(Cookie cookie:cookies) {
+			if ((cookie.getName()).equals("lang")) {
+				  count++;
+            }
+		}
+		
+		if(count == 0) {
+			if(country.equals("us")) {
+				Cookie cookie = new Cookie("lang", "en_US");
+				cookie.setPath("/");
+				response.addCookie(cookie);
+				mv.addObject("lang", "en_US");
+			} else {
+				Cookie cookie = new Cookie("lang", "ko_KR");
+				cookie.setPath("/");
+				response.addCookie(cookie);
+				mv.addObject("lang", "ko_KR");
+			}
+		}
+		mv.setViewName("/Las_MainPage");
 		return mv;
 	}
 

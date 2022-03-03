@@ -16,4 +16,8 @@
 	 <insert id="loginLogInsert">
 	 	INSERT INTO las_login_log(member_seq,login_ip) VALUES (#{seq},#{ip})
 	 </insert>
+	 
+	 <select id="countrySelect" parameterType="Long" resultType="String">
+	 	SELECT country FROM ip2nation WHERE ip <![CDATA[<]]> #{decimalIp} ORDER BY ip DESC LIMIT 0,1 
+	 </select>
 </mapper>

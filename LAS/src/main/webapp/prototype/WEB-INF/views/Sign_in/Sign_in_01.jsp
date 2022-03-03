@@ -68,7 +68,7 @@
                     <div class="label-switching only">
                         <div class="innerWrap">
                             <div class="tit"><spring:message code="password" text="비밀번호" /></div>
-                            <div class="explain fontColor1"><span class="fontColor2">대문자</span>,<span class="fontColor2">숫자</span>,기호 포함 8자 이상 입력하세요</div>
+                            <div class="explain fontColor1"><spring:message code="password" text="비밀번호" /></div>
                         </div>
                     </div>
                     <div class="input pw">

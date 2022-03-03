@@ -60,8 +60,8 @@
                                 <dd>Indonesia</dd>
                                 <dt>Japan</dt>
                                 <dd>日本語</dd>
-                                <dt><a href="/prototype/main?lang=ko">Korea</a></dt>
-                                <dd><a href="/prototype/main?lang=ko">한국어</a></dd>
+                                <dt><a href="/prototype/main?lang=ko_KR">Korea</a></dt>
+                                <dd><a href="/prototype/main?lang=ko_KR">한국어</a></dd>
                                 <dt>Malaysia</dt>
                                 <dd>English</dd>
                                 <dt>Nepal</dt>
@@ -283,8 +283,8 @@
                                 <dd>English · Français</dd>
                                 <dt>Mexico</dt>
                                 <dd>Español</dd>
-                                <dt><a href="/prototype/main?lang=en">U.S.A</a></dt>
-                                <dd><a href="/prototype/main?lang=en">English</a></dd>
+                                <dt><a href="/prototype/main?lang=en_US">U.S.A</a></dt>
+                                <dd><a href="/prototype/main?lang=en_US">English</a></dd>
                             </dl>
                         </div>
                     </li>
